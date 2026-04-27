@@ -1,0 +1,20 @@
+# Виртуальное окружение
+venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Данные (если не нужны в репозитории)
+data/images/
+data/logs/
+data/*.db
+
+# Временные файлы
+*.log
+*.tmp
+
+# IDE
+.vscode/
+.idea/

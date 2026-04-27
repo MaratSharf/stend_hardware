@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>MV Stend - Настройки системы</title>
+    <!-- Базовые стили -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Стили страницы настроек -->
+    <link rel="stylesheet" href="/static/css/settings.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="app-container" id="allrecords">
+    <!-- ======================= ЛЕВОЕ БОКОВОЕ МЕНЮ ======================= -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <!-- Только текст MV Stend, без лупы -->
+                <span class="logo-text">MV Stend</span>
+            </div>
+            <button class="t-menuburger" id="burgerBtn" aria-label="Меню">
+                <span></span><span></span><span></span><span></span>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="/" class="nav-item">
+                <span class="nav-icon">📊</span>
+                <span>Мониторинг</span>
+            </a>
+            <a href="/tools" class="nav-item">
+                <span class="nav-icon">🔧</span>
+                <span>Инструменты</span>
+            </a>
+            <a href="/history" class="nav-item">
+                <span class="nav-icon">📋</span>
+                <span>История</span>
+            </a>
+            <a href="/debug" class="nav-item">
+                <span class="nav-icon">🐞</span>
+                <span>Отладка</span>
+            </a>
+            <a href="/settings" class="nav-item active">
+                <span class="nav-icon">⚙️</span>
+                <span>Настройки</span>
+            </a>
+            <a href="/reports" class="nav-item">
+                <span class="nav-icon">📈</span>
+                <span>Отчёты</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- ======================= ОСНОВНАЯ ОБЛАСТЬ ======================= -->
+    <main class="main-content">
+        <!-- Уведомление (toast-style) -->
+        <div id="notification" class="notification hidden"></div>
+
+        <!-- Верхняя панель с заголовком и логотипом VDT -->
+        <div class="page-header">
+            <div class="page-header__title">
+                <h1>Настройки системы</h1>
+                <p class="page-header__subtitle">Конфигурация оборудования и параметров</p>
+            </div>
+            <div class="page-header__logo">
+                <img src="/static/images/VDT-Service_logo%20(compact)_medium_2.jpg" alt="VDT Logo" class="vdt-logo">
+            </div>
+        </div>
+
+        <!-- Панель действий с кнопками (перенесены под page-header) -->
+        <div class="page-actions">
+            <button id="saveBtn" class="btn btn-primary">💾 Сохранить</button>
+            <button id="exportBtn" class="btn btn-secondary">📤 Экспорт</button>
+            <button id="importBtn" class="btn btn-secondary">📥 Импорт</button>
+            <button id="backupBtn" class="btn btn-secondary">💿 Резервная копия</button>
+        </div>
+
+        <!-- Вкладки -->
+        <div class="settings-tabs">
+            <button class="tab-btn active" data-tab="owen">ОВЕН</button>
+            <button class="tab-btn" data-tab="camera">Камера</button>
+            <button class="tab-btn" data-tab="controller">Контроллер</button>
+            <button class="tab-btn" data-tab="indicators">Индикация</button>
+            <button class="tab-btn" data-tab="logging">Логирование</button>
+            <button class="tab-btn" data-tab="paths">Пути</button>
+            <button class="tab-btn" data-tab="backup">Резервная копия</button>
+        </div>
+
+        <!-- Содержимое вкладок -->
+        <!-- Вкладка ОВЕН -->
+        <div id="owen-tab" class="tab-content active">
+            <h2>Настройки модуля ОВЕН</h2>
+            <div class="settings-grid">
+                <div class="form-group">
+                    <label>IP-адрес</label>
+                    <input type="text" id="owen_ip" class="form-input" placeholder="192.168.1.99">
+                    <span class="form-hint">IP-адрес PLC модуля OWEN MK210</span>
+                </div>
+                <div class="form-group">
+                    <label>Порт</label>
+                    <input type="number" id="owen_port" class="form-input" placeholder="502">
+                    <span class="form-hint">Modbus TCP порт (по умолчанию 502)</span>
+                </div>
+                <div class="form-group">
+                    <label>Device ID</label>
+                    <input type="number" id="owen_unit" class="form-input" placeholder="1">
+                    <span class="form-hint">Modbus device ID</span>
+                </div>
+                <div class="form-group">
+                    <label>Таймаут (сек)</label>
+                    <input type="number" step="0.1" id="owen_timeout" class="form-input" placeholder="1.0">
+                    <span class="form-hint">Таймаут операций Modbus</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Вкладка Камера -->
+        <div id="camera-tab" class="tab-content">
+            <h2>Настройки камеры Hikrobot</h2>
+            <div class="settings-grid">
+                <div class="form-group">
+                    <label>IP-адрес</label>
+                    <input type="text" id="camera_ip" class="form-input" placeholder="192.168.1.36">
+                </div>
+                <div class="form-group">
+                    <label>Порт</label>
+                    <input type="number" id="camera_port" class="form-input" placeholder="502">
+                </div>
+                <div class="form-group">
+                    <label>Device ID</label>
+                    <input type="number" id="camera_unit" class="form-input" placeholder="1">
+                </div>
+                <div class="form-group">
+                    <label>Проект (по умолчанию)</label>
+                    <input type="text" id="camera_project" class="form-input" placeholder="6.2Fixture">
+                </div>
+                <div class="form-group">
+                    <label>Control offset</label>
+                    <input type="number" id="camera_control_offset" class="form-input" placeholder="0">
+                </div>
+                <div class="form-group">
+                    <label>Status offset</label>
+                    <input type="number" id="camera_status_offset" class="form-input" placeholder="1">
+                </div>
+                <div class="form-group">
+                    <label>Result offset</label>
+                    <input type="number" id="camera_result_offset" class="form-input" placeholder="2">
+                </div>
+                <div class="form-group">
+                    <label>Command offset</label>
+                    <input type="number" id="camera_command_offset" class="form-input" placeholder="500">
+                </div>
+                <div class="form-group">
+                    <label>Byte order</label>
+                    <select id="camera_byte_order" class="form-select">
+                        <option value="little">little</option>
+                        <option value="big">big</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Интервал сценария A (сек)</label>
+                    <input type="number" step="0.1" id="camera_scenario_a_interval" class="form-input" placeholder="0.5">
+                </div>
+            </div>
+        </div>
+
+        <!-- Вкладка Контроллер -->
+        <div id="controller-tab" class="tab-content">
+            <h2>Параметры контроллера</h2>
+            <div class="settings-grid">
+                <div class="form-group">
+                    <label>Cycle time (сек)</label>
+                    <input type="number" step="0.1" id="controller_cycle_time" class="form-input" placeholder="0.2">
+                </div>
+                <div class="form-group">
+                    <label>Debounce (мс)</label>
+                    <input type="number" id="controller_debounce_ms" class="form-input" placeholder="10">
+                </div>
+                <div class="form-group">
+                    <label>Camera ready interval (сек)</label>
+                    <input type="number" id="controller_camera_ready_interval" class="form-input" placeholder="10">
+                </div>
+                <div class="form-group">
+                    <label>State timeout (сек)</label>
+                    <input type="number" step="0.1" id="controller_state_timeout" class="form-input" placeholder="30.0">
+                </div>
+                <div class="form-group">
+                    <label>Ejector pulse (сек)</label>
+                    <input type="number" step="0.1" id="controller_ejector_pulse" class="form-input" placeholder="0.5">
+                </div>
+            </div>
+        </div>
+
+        <!-- Вкладка Индикация -->
+        <div id="indicators-tab" class="tab-content">
+            <h2>Настройки индикации</h2>
+            <div class="settings-grid">
+                <div class="form-group">
+                    <label>Длительность лампы OK (сек)</label>
+                    <input type="number" step="0.1" id="indicators_lamp_ok_duration" class="form-input" placeholder="1.0">
+                </div>
+                <div class="form-group">
+                    <label>Количество миганий при ошибке</label>
+                    <input type="number" id="indicators_error_blink_count" class="form-input" placeholder="3">
+                </div>
+                <div class="form-group">
+                    <label>Интервал мигания (сек)</label>
+                    <input type="number" step="0.1" id="indicators_error_blink_interval" class="form-input" placeholder="0.5">
+                </div>
+            </div>
+        </div>
+
+        <!-- Вкладка Логирование -->
+        <div id="logging-tab" class="tab-content">
+            <h2>Настройки логирования</h2>
+            <h3>Контроллер</h3>
+            <div class="settings-grid">
+                <div class="form-group">
+                    <label>Уровень</label>
+                    <select id="logging_controller_level" class="form-select">
+                        <option>DEBUG</option><option>INFO</option><option>WARNING</option><option>ERROR</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Max bytes (байт)</label>
+                    <input type="number" id="logging_controller_max_bytes" class="form-input" placeholder="10485760">
+                </div>
+                <div class="form-group">
+                    <label>Backup count</label>
+                    <input type="number" id="logging_controller_backup_count" class="form-input" placeholder="5">
+                </div>
+            </div>
+            <h3>ОВЕН</h3>
+            <div class="settings-grid">
+                <div class="form-group"><label>Уровень</label><select id="logging_owen_level" class="form-select"><option>DEBUG</option><option>INFO</option></select></div>
+                <div class="form-group"><label>Max bytes</label><input type="number" id="logging_owen_max_bytes" class="form-input"></div>
+                <div class="form-group"><label>Backup count</label><input type="number" id="logging_owen_backup_count" class="form-input"></div>
+            </div>
+            <h3>Hikrobot</h3>
+            <div class="settings-grid">
+                <div class="form-group"><label>Уровень</label><select id="logging_hikrobot_level" class="form-select"><option>DEBUG</option><option>INFO</option></select></div>
+                <div class="form-group"><label>Max bytes</label><input type="number" id="logging_hikrobot_max_bytes" class="form-input"></div>
+                <div class="form-group"><label>Backup count</label><input type="number" id="logging_hikrobot_backup_count" class="form-input"></div>
+            </div>
+            <h3>Web</h3>
+            <div class="settings-grid">
+                <div class="form-group"><label>Уровень</label><select id="logging_web_level" class="form-select"><option>DEBUG</option><option>INFO</option></select></div>
+                <div class="form-group"><label>Max bytes</label><input type="number" id="logging_web_max_bytes" class="form-input"></div>
+                <div class="form-group"><label>Backup count</label><input type="number" id="logging_web_backup_count" class="form-input"></div>
+            </div>
+        </div>
+
+        <!-- Вкладка Пути -->
+        <div id="paths-tab" class="tab-content">
+            <h2>Пути к файлам и директориям</h2>
+            <div class="settings-grid">
+                <div class="form-group">
+                    <label>Изображения</label>
+                    <input type="text" id="paths_images" class="form-input" placeholder="data/images">
+                </div>
+                <div class="form-group">
+                    <label>Логи</label>
+                    <input type="text" id="paths_logs" class="form-input" placeholder="data/logs">
+                </div>
+            </div>
+        </div>
+
+        <!-- Вкладка Резервная копия -->
+        <div id="backup-tab" class="tab-content">
+            <h2>Резервные копии конфигурации</h2>
+            <div class="backups-container">
+                <div class="backups-header">
+                    <p>Список доступных резервных копий config.yaml</p>
+                    <button id="refreshBackupsBtn" class="btn btn-secondary btn-sm">🔄 Обновить</button>
+                </div>
+                <div id="backupsList" class="backups-list">
+                    <div class="loading">Загрузка...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Подвал -->
+        <div class="content-footer">
+            <span>Последнее сохранение: <span id="lastSave">—</span></span>
+        </div>
+    </main>
+</div>
+
+<!-- Модальное окно подтверждения (для restore и confirm) -->
+<div id="confirmModal" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="modalTitle">Подтверждение</h3>
+            <button class="modal-close" id="modalClose">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p id="modalMessage">Вы уверены?</p>
+        </div>
+        <div class="modal-footer">
+            <button id="modalCancel" class="btn btn-secondary">Отмена</button>
+            <button id="modalConfirm" class="btn btn-primary">Подтвердить</button>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно импорта -->
+<div id="importModal" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Импорт конфигурации</h3>
+            <button class="modal-close" id="importModalClose">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p>Выберите YAML-файл конфигурации для импорта:</p>
+            <input type="file" id="importFile" accept=".yaml,.yml" class="form-input">
+        </div>
+        <div class="modal-footer">
+            <button id="importCancel" class="btn btn-secondary">Отмена</button>
+            <button id="importConfirm" class="btn btn-primary">Импортировать</button>
+        </div>
+    </div>
+</div>
+
+<!-- Контейнер для уведомлений toast -->
+<!--<div id="toastContainer" class="toast-container"></div>-->
+
+<!-- Скрипты -->
+<script src="/static/js/common.js"></script>
+<script src="/static/js/connection_monitor.js"></script>
+<script src="/static/js/sidebar.js"></script>
+<script src="/static/js/settings.js"></script>
+</body>
+</html>

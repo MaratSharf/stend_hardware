@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>MV Stend - Отладка и ручное управление</title>
+    <!-- Базовые стили -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Стили страницы отладки -->
+    <link rel="stylesheet" href="/static/css/debug.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="app-container" id="allrecords">
+    <!-- ======================= ЛЕВОЕ БОКОВОЕ МЕНЮ ======================= -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <!-- Только текст MV Stend, без лупы -->
+                <span class="logo-text">MV Stend</span>
+            </div>
+            <button class="t-menuburger" id="burgerBtn" aria-label="Меню">
+                <span></span><span></span><span></span><span></span>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="/" class="nav-item">
+                <span class="nav-icon">📊</span>
+                <span>Мониторинг</span>
+            </a>
+            <a href="/tools" class="nav-item">
+                <span class="nav-icon">🔧</span>
+                <span>Инструменты</span>
+            </a>
+            <a href="/history" class="nav-item">
+                <span class="nav-icon">📋</span>
+                <span>История</span>
+            </a>
+            <a href="/debug" class="nav-item active">
+                <span class="nav-icon">🐞</span>
+                <span>Отладка</span>
+            </a>
+            <a href="/settings" class="nav-item">
+                <span class="nav-icon">⚙️</span>
+                <span>Настройки</span>
+            </a>
+            <a href="/reports" class="nav-item">
+                <span class="nav-icon">📈</span>
+                <span>Отчёты</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- ======================= ОСНОВНАЯ ОБЛАСТЬ ======================= -->
+    <main class="main-content">
+        <!-- Верхняя панель с заголовком и логотипом VDT -->
+        <div class="page-header">
+            <div class="page-header__title">
+                <h1>Отладка и ручное управление</h1>
+                <p class="page-header__subtitle">Управление выходами, триггер камеры, мониторинг входов</p>
+            </div>
+            <div class="page-header__logo">
+                <img src="/static/images/VDT-Service_logo%20(compact)_medium_2.jpg" alt="VDT Logo" class="vdt-logo">
+            </div>
+        </div>
+
+        <!-- Основной контент (сетка карточек) -->
+        <div class="debug-grid">
+            <!-- Карточка: триггер камеры -->
+            <div class="debug-card">
+                <div class="card-header">
+                    <span class="card-icon">📸</span>
+                    <h2>Триггер камеры</h2>
+                </div>
+                <div class="card-body">
+                    <button id="triggerBtn" class="btn btn-primary btn-large">
+                        <span class="btn-icon">📸</span> Отправить триггер
+                    </button>
+                    <div id="cameraResult" class="result-display">
+                        <div class="result-placeholder">Результат появится здесь</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка: управление выходами -->
+            <div class="debug-card">
+                <div class="card-header">
+                    <span class="card-icon">🔌</span>
+                    <h2>Управление выходами (DO)</h2>
+                </div>
+                <div class="card-body">
+                    <div class="outputs-control">
+                        <div class="output-toggle">
+                            <span class="output-label">Конвейер (DO0)</span>
+                            <div class="output-status" id="do0-status" data-value="0">0</div>
+                            <label class="toggle">
+                                <input type="checkbox" data-output="DO0" id="toggleDO0">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="output-toggle">
+                            <span class="output-label">Толкатель (DO1)</span>
+                            <div class="output-status" id="do1-status" data-value="0">0</div>
+                            <label class="toggle">
+                                <input type="checkbox" data-output="DO1" id="toggleDO1">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="output-toggle">
+                            <span class="output-label">Лампа NG (DO2)</span>
+                            <div class="output-status" id="do2-status" data-value="0">0</div>
+                            <label class="toggle">
+                                <input type="checkbox" data-output="DO2" id="toggleDO2">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="output-toggle">
+                            <span class="output-label">Лампа OK (DO3)</span>
+                            <div class="output-status" id="do3-status" data-value="0">0</div>
+                            <label class="toggle">
+                                <input type="checkbox" data-output="DO3" id="toggleDO3">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка: состояние входов -->
+            <div class="debug-card">
+                <div class="card-header">
+                    <span class="card-icon">🟢</span>
+                    <h2>Состояние входов (DI)</h2>
+                </div>
+                <div class="card-body">
+                    <div class="inputs-display">
+                        <div class="input-indicator">
+                            <span class="input-name">Д1 (вход)</span>
+                            <div class="input-led" id="di0" data-value="0">0</div>
+                        </div>
+                        <div class="input-indicator">
+                            <span class="input-name">Д2 (поз.лев)</span>
+                            <div class="input-led" id="di1" data-value="0">0</div>
+                        </div>
+                        <div class="input-indicator">
+                            <span class="input-name">Д3 (поз.прав)</span>
+                            <div class="input-led" id="di2" data-value="0">0</div>
+                        </div>
+                        <div class="input-indicator">
+                            <span class="input-name">Д4 (выход)</span>
+                            <div class="input-led" id="di3" data-value="0">0</div>
+                        </div>
+                        <div class="input-indicator">
+                            <span class="input-name">Тумблер A</span>
+                            <div class="input-led" id="di4" data-value="0">0</div>
+                        </div>
+                        <div class="input-indicator">
+                            <span class="input-name">Тумблер B</span>
+                            <div class="input-led" id="di5" data-value="0">0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка: лог операций -->
+            <div class="debug-card log-card">
+                <div class="card-header">
+                    <span class="card-icon">📝</span>
+                    <h2>Лог операций</h2>
+                    <button id="clearLogBtn" class="btn btn-secondary btn-small">Очистить</button>
+                </div>
+                <div class="card-body">
+                    <div id="operationLog" class="operation-log">
+                        <div class="log-entry log-info">Страница отладки загружена</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Подвал -->
+        <div class="content-footer">
+            <span>Последнее обновление: <span id="lastUpdate">—</span></span>
+        </div>
+    </main>
+</div>
+
+<!-- Контейнер для уведомлений toast -->
+<!--<div id="toastContainer" class="toast-container"></div>-->
+
+<!-- Скрипты -->
+<script src="/static/js/common.js"></script>
+<script src="/static/js/connection_monitor.js"></script>
+<script src="/static/js/sidebar.js"></script>
+<script src="/static/js/debug.js"></script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>MV Stend - Отчёты</title>
+    <!-- Базовые стили -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Стили страницы отчётов -->
+    <link rel="stylesheet" href="/static/css/reports.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="app-container" id="allrecords">
+    <!-- ======================= ЛЕВОЕ БОКОВОЕ МЕНЮ ======================= -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <!-- Только текст MV Stend, без лупы -->
+                <span class="logo-text">MV Stend</span>
+            </div>
+            <button class="t-menuburger" id="burgerBtn" aria-label="Меню">
+                <span></span><span></span><span></span><span></span>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="/" class="nav-item">
+                <span class="nav-icon">📊</span>
+                <span>Мониторинг</span>
+            </a>
+            <a href="/tools" class="nav-item">
+                <span class="nav-icon">🔧</span>
+                <span>Инструменты</span>
+            </a>
+            <a href="/history" class="nav-item">
+                <span class="nav-icon">📋</span>
+                <span>История</span>
+            </a>
+            <a href="/debug" class="nav-item">
+                <span class="nav-icon">🐞</span>
+                <span>Отладка</span>
+            </a>
+            <a href="/settings" class="nav-item">
+                <span class="nav-icon">⚙️</span>
+                <span>Настройки</span>
+            </a>
+            <a href="/reports" class="nav-item active">
+                <span class="nav-icon">📈</span>
+                <span>Отчёты</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- ======================= ОСНОВНАЯ ОБЛАСТЬ ======================= -->
+    <main class="main-content">
+        <!-- Уведомление (toast-style) -->
+        <div id="notification" class="notification hidden"></div>
+
+        <!-- Верхняя панель с заголовком и логотипом VDT -->
+        <div class="page-header">
+            <div class="page-header__title">
+                <h1>Отчёты</h1>
+                <p class="page-header__subtitle">Аналитика и отчёты по производству</p>
+            </div>
+            <div class="page-header__logo">
+                <img src="/static/images/VDT-Service_logo%20(compact)_medium_2.jpg" alt="VDT Logo" class="vdt-logo">
+            </div>
+        </div>
+
+        <!-- Панель действий с кнопками экспорта и печати (под верхней панелью) -->
+        <div class="page-actions">
+            <button id="exportExcelBtn" class="btn btn-primary">📊 Экспорт в Excel</button>
+            <button id="printReportBtn" class="btn btn-secondary">🖨️ Печать</button>
+        </div>
+
+        <!-- Вкладки отчётов -->
+        <div class="reports-tabs">
+            <button class="tab-btn active" data-tab="daily">Дневной отчёт</button>
+            <button class="tab-btn" data-tab="shift">Сменный отчёт</button>
+            <button class="tab-btn" data-tab="weekly">Недельный отчёт</button>
+            <button class="tab-btn" data-tab="monthly">Месячный отчёт</button>
+            <button class="tab-btn" data-tab="ng">Анализ брака</button>
+        </div>
+
+        <!-- ========== Дневной отчёт ========== -->
+        <div id="daily-tab" class="tab-content active">
+            <div class="report-header">
+                <div class="form-group">
+                    <label>Дата:</label>
+                    <input type="date" id="dailyDate" class="form-input">
+                </div>
+                <button id="loadDailyReport" class="btn btn-primary">Сформировать отчёт</button>
+            </div>
+            <div id="dailyReportContent" class="report-content-area">
+                <div class="loading-placeholder">
+                    <div class="loading-icon">📅</div>
+                    <p>Выберите дату и нажмите "Сформировать отчёт"</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== Сменный отчёт ========== -->
+        <div id="shift-tab" class="tab-content">
+            <div class="report-header">
+                <div class="form-group">
+                    <label>Дата:</label>
+                    <input type="date" id="shiftDate" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label>Смена:</label>
+                    <select id="shiftNumber" class="form-select">
+                        <option value="1">Смена 1 (06:00-14:00)</option>
+                        <option value="2">Смена 2 (14:00-22:00)</option>
+                        <option value="3">Смена 3 (22:00-06:00)</option>
+                    </select>
+                </div>
+                <button id="loadShiftReport" class="btn btn-primary">Сформировать отчёт</button>
+            </div>
+            <div id="shiftReportContent" class="report-content-area">
+                <div class="loading-placeholder">
+                    <div class="loading-icon">🔄</div>
+                    <p>Выберите дату и смену</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== Недельный отчёт ========== -->
+        <div id="weekly-tab" class="tab-content">
+            <div class="report-header">
+                <div class="form-group">
+                    <label>Год:</label>
+                    <input type="number" id="weeklyYear" class="form-input" min="2020" max="2030">
+                </div>
+                <div class="form-group">
+                    <label>Неделя:</label>
+                    <input type="number" id="weeklyWeek" class="form-input" min="1" max="53">
+                </div>
+                <button id="loadWeeklyReport" class="btn btn-primary">Сформировать отчёт</button>
+            </div>
+            <div id="weeklyReportContent" class="report-content-area">
+                <div class="loading-placeholder">
+                    <div class="loading-icon">📆</div>
+                    <p>Выберите год и номер недели</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== Месячный отчёт ========== -->
+        <div id="monthly-tab" class="tab-content">
+            <div class="report-header">
+                <div class="form-group">
+                    <label>Год:</label>
+                    <input type="number" id="monthlyYear" class="form-input" min="2020" max="2030">
+                </div>
+                <div class="form-group">
+                    <label>Месяц:</label>
+                    <select id="monthlyMonth" class="form-select">
+                        <option value="1">Январь</option><option value="2">Февраль</option>
+                        <option value="3">Март</option><option value="4">Апрель</option>
+                        <option value="5">Май</option><option value="6">Июнь</option>
+                        <option value="7">Июль</option><option value="8">Август</option>
+                        <option value="9">Сентябрь</option><option value="10">Октябрь</option>
+                        <option value="11">Ноябрь</option><option value="12">Декабрь</option>
+                    </select>
+                </div>
+                <button id="loadMonthlyReport" class="btn btn-primary">Сформировать отчёт</button>
+            </div>
+            <div id="monthlyReportContent" class="report-content-area">
+                <div class="loading-placeholder">
+                    <div class="loading-icon">📊</div>
+                    <p>Выберите год и месяц</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== Анализ брака ========== -->
+        <div id="ng-tab" class="tab-content">
+            <div class="report-header">
+                <div class="form-group">
+                    <label>Период с:</label>
+                    <input type="date" id="ngDateFrom" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label>по:</label>
+                    <input type="date" id="ngDateTo" class="form-input">
+                </div>
+                <button id="loadNgAnalysis" class="btn btn-primary">Сформировать отчёт</button>
+            </div>
+            <div id="ngAnalysisContent" class="report-content-area">
+                <div class="loading-placeholder">
+                    <div class="loading-icon">❌</div>
+                    <p>Выберите период для анализа брака</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Подвал -->
+        <div class="content-footer">
+            <span>Последнее обновление: <span id="lastUpdate">—</span></span>
+        </div>
+    </main>
+</div>
+
+<!-- Контейнер для уведомлений toast -->
+<!--<div id="toastContainer" class="toast-container"></div>-->
+
+<!-- Скрипты -->
+<script src="/static/js/common.js"></script>
+<script src="/static/js/connection_monitor.js"></script>
+<script src="/static/js/sidebar.js"></script>
+<script src="/static/js/reports.js"></script>
+</body>
+</html>

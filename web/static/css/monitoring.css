@@ -1,0 +1,469 @@
+/* ============================================================
+   monitoring.css - Стили страницы мониторинга
+   Версия: компактная, без глобального скролла, колонки с внутренним скроллом
+   ============================================================ */
+
+/* Основной контейнер – занимает всё свободное пространство по высоте */
+.t-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;          /* крайне важно для flex-детей с overflow */
+}
+
+/* Сетка из двух колонок (7:5) */
+.t-container_flex {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: 24px;
+    flex: 1;
+    min-height: 0;
+}
+
+/* Левая колонка – результат */
+.t-col_7 {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;       /* если контент не влезает – скролл внутри колонки */
+    min-height: 0;
+}
+
+/* Правая колонка – статусы */
+.t-col_5 {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    min-height: 0;
+    gap: 16px;
+}
+
+/* Карточка результата */
+.t-card {
+    background: var(--bg-card);
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 16px;
+}
+
+.t-card_result {
+    padding: 20px;
+}
+
+.t-card__header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.t-card__icon {
+    font-size: 2.5rem;
+}
+
+.t-card__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.t-card__timestamp {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+/* Изображение – сжимается по высоте */
+.t-card__image {
+    background: #f9f9f9;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+    max-height: 250px;
+}
+
+.t-image {
+    max-width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+}
+
+.t-image-placeholder {
+    padding: 40px;
+    font-size: 2rem;
+    color: #bbb;
+}
+
+/* Распознанные данные */
+.t-card__recognition {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
+}
+
+.t-recognition-header {
+    font-weight: 600;
+    color: var(--accent-primary);
+    margin-bottom: 8px;
+}
+
+.t-code-display, .t-text-display, .t-raw-display {
+    background: #f5f5f5;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 0.85rem;
+}
+
+.t-color-display {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #f5f5f5;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.t-color-sample {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+}
+
+/* Карточки статусов (правая колонка) */
+.t-status-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.t-status-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+}
+
+.t-status-card__header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.t-status-card__header h3 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.t-status-card__content {
+    padding: 12px 16px;
+}
+
+.t-status-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.t-status-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 6px 0;
+}
+
+/* Сетка датчиков и выходов */
+.t-sensor-grid, .t-output-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.t-sensor, .t-output {
+    background: #f5f5f5;
+    border-radius: 10px;
+    padding: 8px;
+    text-align: center;
+    font-size: 0.75rem;
+}
+
+.t-sensor span:first-child, .t-output span:first-child {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--text-secondary);
+}
+
+.t-led {
+    display: inline-block;
+    width: 32px;
+    padding: 2px 0;
+    background: #e0e0e0;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.7rem;
+}
+
+.t-led[data-value="1"] {
+    background: var(--accent-primary);
+    color: white;
+}
+
+/* Подвал страницы */
+.t-footer {
+    margin-top: 12px;
+    text-align: center;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+    padding: 8px;
+}
+
+/* Цвета карточки результата */
+.t-card_result[data-result="ok"] .t-card__title { color: var(--accent-success); }
+.t-card_result[data-result="ng"] .t-card__title { color: var(--accent-danger); }
+.t-card_result[data-result="waiting"] .t-card__title { color: var(--accent-warning); }
+
+/* Адаптивность: на узких экранах колонки одна под другой */
+@media (max-width: 960px) {
+    .t-container_flex {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .t-sensor-grid, .t-output-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .t-sensor-grid, .t-output-grid {
+        grid-template-columns: 1fr;
+    }
+    .t-card__header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+
+
+/* ============================================================
+   ВОССТАНОВЛЕНИЕ ПРЕЖНЕГО СТИЛЯ ПАНЕЛИ ДЕЙСТВИЙ
+   ============================================================ */
+
+/* Карточка текущего проекта */
+.t-project-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 8px 18px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.t-project-card__header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.t-project-card__label {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+.t-project-card__name {
+    font-weight: 700;
+    color: var(--accent-primary);
+    font-size: 14px;
+}
+
+.t-project-card__status {
+    width: 8px;
+    height: 8px;
+    background: var(--accent-success);
+    border-radius: 50%;
+    box-shadow: 0 0 4px var(--accent-success);
+}
+
+.t-project-card__description {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* Блок выбора сценария */
+.t-scenario-selector {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--bg-card);
+    padding: 6px 16px;
+    border-radius: 40px;
+    border: 1px solid var(--border-color);
+}
+
+.t-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.t-select {
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+.t-select:disabled {
+    background: var(--bg-hover);
+    color: var(--text-muted);
+    cursor: not-allowed;
+}
+
+/* Кнопка "Запуск" */
+#runScenarioBtn {
+    padding: 6px 16px;
+    margin-left: 8px;
+    background: var(--accent-primary);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#runScenarioBtn:hover {
+    background: #0242a0;
+    transform: translateY(-1px);
+}
+
+/* Переключатели режима (АВТО/РУЧНОЙ и ОФЛАЙН) */
+.t-mode-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg-card);
+    padding: 6px 16px;
+    border-radius: 40px;
+    border: 1px solid var(--border-color);
+}
+
+.t-mode-switch__label {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+.t-toggle {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 24px;
+}
+
+.t-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.t-toggle__slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.3s;
+    border-radius: 24px;
+}
+
+.t-toggle__slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+input:checked + .t-toggle__slider {
+    background-color: var(--accent-primary);
+}
+
+input:checked + .t-toggle__slider:before {
+    transform: translateX(24px);
+}
+
+.t-mode-switch__text {
+    font-weight: 600;
+    font-size: 13px;
+    min-width: 42px;
+    color: var(--text-primary);
+}
+
+/* Панель действий – горизонтальный flex, элементы не растягиваются */
+.page-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+/* Панель состояния (верхняя) */
+.status-panel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Панель действий (нижняя) */
+.actions-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+/* Адаптивность: на узких экранах панель состояния выстраивается вертикально */
+@media (max-width: 768px) {
+    .status-panel {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .actions-panel {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .actions-panel .t-mode-switch,
+    .actions-panel .t-scenario-selector {
+        justify-content: space-between;
+    }
+}

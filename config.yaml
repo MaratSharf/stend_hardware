@@ -1,0 +1,61 @@
+owen:
+  ip: 192.168.1.99
+  port: 502
+  unit: 1
+  timeout: 1.0
+
+camera:
+  ip: 192.168.1.36
+  port: 502
+  unit: 1
+  verify_switch: false
+  control_offset: 0
+  status_offset: 1
+  result_offset: 2
+  command_offset: 500
+  byte_order: 'little'
+  project_name: ''
+  command_terminator: ''
+  scenario_a_interval: 0.5
+
+indicators:
+  lamp_ok_duration: 1.0
+  error_blink_count: 3
+  error_blink_interval: 0.5
+
+paths:
+  images: data/images
+  logs: data/logs
+
+logging:
+  controller:
+    level: DEBUG
+    max_bytes: 10485760
+    backup_count: 5
+  hikrobot:
+    level: DEBUG
+    max_bytes: 10485760
+    backup_count: 5
+  web:
+    level: DEBUG
+    max_bytes: 10485760
+    backup_count: 5
+  owen:
+    level: DEBUG
+    max_bytes: 10485760
+    backup_count: 5
+
+controller:
+  cycle_time: 0.2
+  debounce_ms: 10
+  camera_ready_interval: 10
+  ejector_pulse: 0.5
+  state_timeout: 30.0
+
+database:
+  type: postgresql
+  host: localhost
+  port: 5432
+  dbname: stend_db
+  user: stend_user
+  password: Alexej@12

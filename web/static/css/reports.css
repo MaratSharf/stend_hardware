@@ -1,0 +1,527 @@
+/* reports.css - Стили для страницы отчётов */
+
+/* =============================================
+   КОНТЕЙНЕР ОТЧЁТОВ
+   ============================================= */
+.reports-container {
+    padding: 24px;
+    overflow-y: auto;
+    height: calc(100vh - 140px);
+}
+
+/* =============================================
+   ВКЛАДКИ ОТЧЁТОВ
+   ============================================= */
+.reports-tabs {
+    display: flex;
+    gap: 8px;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.reports-tabs .tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    position: relative;
+    bottom: -2px;
+}
+
+.reports-tabs .tab-btn:hover {
+    color: var(--text-primary);
+    background: var(--bg-hover);
+}
+
+.reports-tabs .tab-btn.active {
+    color: var(--accent-primary);
+    border-bottom-color: var(--accent-primary);
+}
+
+.tab-icon {
+    font-size: 16px;
+}
+
+/* =============================================
+   ЗАГОЛОВОК ОТЧЁТА
+   ============================================= */
+.report-header {
+    display: flex;
+    gap: 16px;
+    align-items: flex-end;
+    margin-bottom: 24px;
+    padding: 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    flex-wrap: wrap;
+}
+
+.report-header .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.report-header label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+/* =============================================
+   ОБЛАСТЬ СОДЕРЖИМОГО ОТЧЁТА
+   ============================================= */
+.report-content-area {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    min-height: 400px;
+}
+
+/* =============================================
+   ЗАГЛУЗКА ЗАГРУЗКИ
+   ============================================= */
+.loading-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    color: var(--text-muted);
+}
+
+.loading-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    opacity: 0.5;
+}
+
+.loading-placeholder p {
+    font-size: 14px;
+    text-align: center;
+}
+
+/* =============================================
+   КАРТОЧКИ СТАТИСТИКИ
+   ============================================= */
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+    border-color: var(--border-accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.stat-card.primary {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-purple));
+    color: #fff;
+    border: none;
+}
+
+.stat-card.success {
+    background: linear-gradient(135deg, var(--accent-success), #00cc6a);
+    color: #fff;
+    border: none;
+}
+
+.stat-card.danger {
+    background: linear-gradient(135deg, var(--accent-danger), #cc3344);
+    color: #fff;
+    border: none;
+}
+
+.stat-card.warning {
+    background: linear-gradient(135deg, var(--accent-warning), #cc8800);
+    color: #fff;
+    border: none;
+}
+
+.stat-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.stat-value {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 13px;
+    margin-top: 8px;
+    opacity: 0.8;
+}
+
+.stat-card.primary .stat-label,
+.stat-card.success .stat-label,
+.stat-card.danger .stat-label,
+.stat-card.warning .stat-label {
+    opacity: 1;
+}
+
+/* =============================================
+   ТАБЛИЦЫ
+   ============================================= */
+.report-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+
+.report-table th,
+.report-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.report-table th {
+    background: var(--bg-secondary);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.report-table tr:hover {
+    background: var(--bg-hover);
+}
+
+.report-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* =============================================
+   ГРАФИКИ И ДИАГРАММЫ
+   ============================================= */
+.chart-container {
+    margin: 24px 0;
+    padding: 20px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+}
+
+.chart-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.chart-placeholder {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+/* =============================================
+   СЕКЦИИ ОТЧЁТА
+   ============================================= */
+.report-section {
+    margin-bottom: 32px;
+}
+
+.report-section-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.report-section-icon {
+    font-size: 20px;
+}
+
+/* =============================================
+   БАДЖИ РЕЗУЛЬТАТОВ
+   ============================================= */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge-ok {
+    background: rgba(0, 255, 136, 0.15);
+    color: var(--accent-success);
+}
+
+.badge-ng {
+    background: rgba(255, 71, 87, 0.15);
+    color: var(--accent-danger);
+}
+
+.badge-total {
+    background: rgba(0, 217, 255, 0.15);
+    color: var(--accent-primary);
+}
+
+/* =============================================
+   ПРОГРЕСС-БАРЫ
+   ============================================= */
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-success), var(--accent-primary));
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.progress-fill.danger {
+    background: linear-gradient(90deg, var(--accent-danger), var(--accent-warning));
+}
+
+/* =============================================
+   УВЕДОМЛЕНИЯ
+   ============================================= */
+.notification {
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: slideDown 0.3s ease;
+}
+
+.notification.hidden {
+    display: none;
+}
+
+.notification.success {
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid var(--accent-success);
+    color: var(--accent-success);
+}
+
+.notification.error {
+    background: rgba(255, 71, 87, 0.1);
+    border: 1px solid var(--accent-danger);
+    color: var(--accent-danger);
+}
+
+.notification.warning {
+    background: rgba(255, 165, 2, 0.1);
+    border: 1px solid var(--accent-warning);
+    color: var(--accent-warning);
+}
+
+.notification.info {
+    background: rgba(0, 217, 255, 0.1);
+    border: 1px solid var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =============================================
+   АДАПТИВНОСТЬ
+   ============================================= */
+@media (max-width: 768px) {
+    .reports-container {
+        padding: 16px;
+    }
+
+    .report-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .report-header .form-group {
+        width: 100%;
+    }
+
+    .stats-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .reports-tabs {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+
+    .reports-tabs .tab-btn {
+        white-space: nowrap;
+    }
+}
+
+/* =============================================
+   ПЕЧАТЬ
+   ============================================= */
+@media print {
+    .sidebar,
+    .top-bar,
+    .reports-tabs,
+    .report-header,
+    .content-footer,
+    .btn {
+        display: none !important;
+    }
+
+    .reports-container {
+        padding: 0;
+        height: auto;
+        overflow: visible;
+    }
+
+    .report-content-area {
+        border: none;
+        padding: 0;
+    }
+
+    .stat-card {
+        break-inside: avoid;
+        border: 1px solid #ccc;
+    }
+
+    .report-table {
+        break-inside: avoid;
+    }
+
+    body {
+        background: #fff;
+        color: #000;
+    }
+}
+
+/* =============================================
+   СКРОЛЛБАРЫ
+   ============================================= */
+.reports-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.reports-container::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+.reports-container::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+.reports-container::-webkit-scrollbar-thumb:hover {
+    background: var(--border-accent);
+}
+
+/* =============================================
+   ДОПОЛНИТЕЛЬНЫЕ ЭЛЕМЕНТЫ
+   ============================================= */
+.report-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.report-summary-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.report-summary-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.report-summary-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.report-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.report-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.report-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.report-list-item:last-child {
+    border-bottom: none;
+}
+
+.report-list-label {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.report-list-value {
+    font-weight: 600;
+    color: var(--text-primary);
+}

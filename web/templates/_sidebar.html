@@ -1,0 +1,50 @@
+<!-- Боковая панель -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <div class="logo">
+            <span class="logo-icon"></span>
+            <span class="logo-text">MV Stend</span>
+        </div>
+        <button class="burger-btn" id="burgerBtn" title="Свернуть/развернуть меню">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+    <nav class="sidebar-nav">
+        <a href="/" class="nav-item {{ 'active' if active_page == 'monitoring' else '' }}">
+            <span class="nav-icon">📊</span>
+            <span class="nav-text">Мониторинг</span>
+        </a>
+        <a href="/tools" class="nav-item {{ 'active' if active_page == 'tools' else '' }}">
+            <span class="nav-icon">🔧</span>
+            <span class="nav-text">Инструменты</span>
+        </a>
+        <a href="/history" class="nav-item {{ 'active' if active_page == 'history' else '' }}">
+            <span class="nav-icon">📈</span>
+            <span class="nav-text">История</span>
+        </a>
+        <a href="/debug" class="nav-item {{ 'active' if active_page == 'debug' else '' }}">
+            <span class="nav-icon">🔬</span>
+            <span class="nav-text">Отладка</span>
+        </a>
+        <a href="/settings" class="nav-item {{ 'active' if active_page == 'settings' else '' }}">
+            <span class="nav-icon">⚙️</span>
+            <span class="nav-text">Настройки</span>
+        </a>
+        <a href="/reports" class="nav-item {{ 'active' if active_page == 'reports' else '' }}">
+            <span class="nav-icon">📋</span>
+            <span class="nav-text">Отчёты</span>
+        </a>
+        <a href="/order-buffer" class="nav-item {{ 'active' if active_page == 'order-buffer' else '' }}">
+            <span class="nav-icon">📦</span>
+            <span class="nav-text">Буфер заказов</span>
+        </a>
+        <a href="/tracking" class="nav-item {{ 'active' if active_page == 'tracking' else '' }}">
+            <span class="nav-icon">🚚</span>
+            <span class="nav-text">Трекинг</span>
+        </a>
+    </nav>
+
+</aside>

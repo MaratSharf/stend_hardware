@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>MV Stend - История проверок</title>
+    <!-- Базовые стили -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Стили страницы истории -->
+    <link rel="stylesheet" href="/static/css/history.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="app-container" id="allrecords">
+    <!-- ======================= ЛЕВОЕ БОКОВОЕ МЕНЮ ======================= -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-text">MV Stend</span>
+            </div>
+            <button class="t-menuburger" id="burgerBtn" aria-label="Меню">
+                <span></span><span></span><span></span><span></span>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="/" class="nav-item">
+                <span class="nav-icon">📊</span>
+                <span>Мониторинг</span>
+            </a>
+            <a href="/tools" class="nav-item">
+                <span class="nav-icon">🔧</span>
+                <span>Инструменты</span>
+            </a>
+            <a href="/history" class="nav-item active">
+                <span class="nav-icon">📋</span>
+                <span>История</span>
+            </a>
+            <a href="/debug" class="nav-item">
+                <span class="nav-icon">🐞</span>
+                <span>Отладка</span>
+            </a>
+            <a href="/settings" class="nav-item">
+                <span class="nav-icon">⚙️</span>
+                <span>Настройки</span>
+            </a>
+            <a href="/reports" class="nav-item">
+                <span class="nav-icon">📈</span>
+                <span>Отчёты</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- ======================= ОСНОВНАЯ ОБЛАСТЬ ======================= -->
+    <main class="main-content">
+        <!-- Верхняя панель с заголовком и логотипом VDT -->
+        <div class="page-header">
+            <div class="page-header__title">
+                <h1>История проверок</h1>
+                <p class="page-header__subtitle">Результаты инспекции деталей</p>
+            </div>
+            <div class="page-header__logo">
+                <img src="/static/images/VDT-Service_logo%20(compact)_medium_2.jpg" alt="VDT Logo" class="vdt-logo">
+            </div>
+        </div>
+
+        <!-- Панель фильтров и кнопок -->
+        <div class="page-actions">
+            <select id="filterResult" class="form-select">
+                <option value="">Все результаты</option>
+                <option value="OK">OK (годен)</option>
+                <option value="NG">NG (брак)</option>
+            </select>
+            <input type="date" id="filterDateFrom" class="form-input">
+            <span>—</span>
+            <input type="date" id="filterDateTo" class="form-input">
+            <button id="applyFilters" class="btn btn-primary">Применить фильтры</button>
+            <button id="refreshBtn" class="btn btn-secondary">Сбросить</button>
+        </div>
+
+        <!-- Статистика -->
+        <div class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="statTotal">0</div>
+                        <div class="stat-label">Всего проверок</div>
+                    </div>
+                </div>
+                <div class="stat-card stat-ok">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="statOk">0</div>
+                        <div class="stat-label">Годен (OK)</div>
+                    </div>
+                </div>
+                <div class="stat-card stat-ng">
+                    <div class="stat-icon">❌</div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="statNg">0</div>
+                        <div class="stat-label">Брак (NG)</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="statOkPercent">0%</div>
+                        <div class="stat-label">% качества</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Таблица результатов -->
+        <div class="table-section">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Дата/время</th>
+                            <th>Результат</th>
+                            <th>Заказ</th>
+                            <th>Сценарий</th>
+                            <th>Проект</th>
+                            <th>Снимок</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsBody">
+                        <tr><td colspan="7" class="loading-cell">Загрузка...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Пагинация (верхняя и нижняя) -->
+        <div class="pagination-section top-pagination">
+            <div class="pagination">
+                <button id="firstPageTop" class="btn btn-secondary">⏮ Первая</button>
+                <button id="prevPageTop" class="btn btn-secondary">◀ Назад</button>
+                <span id="pageInfoTop" class="page-info">Страница 1 из 1</span>
+                <button id="nextPageTop" class="btn btn-secondary">Вперед ▶</button>
+                <button id="lastPageTop" class="btn btn-secondary">Последняя ⏭</button>
+            </div>
+        </div>
+        <div class="pagination-section">
+            <div class="pagination">
+                <button id="firstPageBottom" class="btn btn-secondary">⏮ Первая</button>
+                <button id="prevPageBottom" class="btn btn-secondary">◀ Назад</button>
+                <span id="pageInfoBottom" class="page-info">Страница 1 из 1</span>
+                <button id="nextPageBottom" class="btn btn-secondary">Вперед ▶</button>
+                <button id="lastPageBottom" class="btn btn-secondary">Последняя ⏭</button>
+            </div>
+        </div>
+
+        <!-- Подвал -->
+        <div class="content-footer">
+            <span>Последнее обновление: <span id="lastUpdate">—</span></span>
+        </div>
+    </main>
+</div>
+
+<!-- Контейнер для уведомлений toast -->
+<!--<div id="toastContainer" class="toast-container"></div>-->
+
+<!-- Скрипты -->
+<script src="/static/js/common.js"></script>
+<script src="/static/js/connection_monitor.js"></script>
+<script src="/static/js/sidebar.js"></script>
+<script src="/static/js/history.js"></script>
+</body>
+</html>

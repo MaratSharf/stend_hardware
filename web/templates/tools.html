@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>MV Stend - Инструменты</title>
+    <!-- Базовые стили -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Стили страницы инструментов -->
+    <link rel="stylesheet" href="/static/css/tools.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="app-container" id="allrecords">
+    <!-- ======================= ЛЕВОЕ БОКОВОЕ МЕНЮ ======================= -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <!-- Только текст MV Stend, без лупы -->
+                <span class="logo-text">MV Stend</span>
+            </div>
+            <button class="t-menuburger" id="burgerBtn" aria-label="Меню">
+                <span></span><span></span><span></span><span></span>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="/" class="nav-item">
+                <span class="nav-icon">📊</span>
+                <span>Мониторинг</span>
+            </a>
+            <a href="/tools" class="nav-item active">
+                <span class="nav-icon">🔧</span>
+                <span>Инструменты</span>
+            </a>
+            <a href="/history" class="nav-item">
+                <span class="nav-icon">📋</span>
+                <span>История</span>
+            </a>
+            <a href="/debug" class="nav-item">
+                <span class="nav-icon">🐞</span>
+                <span>Отладка</span>
+            </a>
+            <a href="/settings" class="nav-item">
+                <span class="nav-icon">⚙️</span>
+                <span>Настройки</span>
+            </a>
+            <a href="/reports" class="nav-item">
+                <span class="nav-icon">📈</span>
+                <span>Отчёты</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- ======================= ОСНОВНАЯ ОБЛАСТЬ ======================= -->
+    <main class="main-content">
+        <!-- Верхняя панель с заголовком и логотипом VDT -->
+        <div class="page-header">
+            <div class="page-header__title">
+                <h1>Инструменты</h1>
+                <p class="page-header__subtitle">Библиотека инструментов машинного зрения Hikrobot</p>
+            </div>
+            <div class="page-header__logo">
+                <img src="/static/images/VDT-Service_logo%20(compact)_medium_2.jpg" alt="VDT Logo" class="vdt-logo">
+            </div>
+        </div>
+
+        <!-- Фильтр категорий -->
+        <div class="category-filter" id="categoryFilterContainer">
+            <!-- Кнопки будут добавлены динамически через JavaScript -->
+        </div>
+
+        <!-- Контейнер для карточек инструментов -->
+        <div id="toolsContainer" class="tools-container">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Загрузка инструментов...</p>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Модальное окно подтверждения переключения проекта -->
+<div id="confirmModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Подтверждение переключения</h2>
+            <button class="modal-close" id="modalClose">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p id="modalMessage">Вы собираетесь переключить проект камеры на:</p>
+            <div id="toolPreview" class="tool-preview"></div>
+        </div>
+        <div class="modal-footer">
+            <button id="modalCancel" class="btn btn-secondary">Отмена</button>
+            <button id="modalConfirm" class="btn btn-primary">Переключить</button>
+        </div>
+    </div>
+</div>
+
+<!-- Контейнер для уведомлений toast -->
+<!--<div id="toastContainer" class="toast-container"></div>-->
+
+<!-- Скрипты -->
+<script src="/static/js/common.js"></script>
+<script src="/static/js/connection_monitor.js"></script>
+<script src="/static/js/sidebar.js"></script>
+<script src="/static/js/tools.js"></script>
+</body>
+</html>

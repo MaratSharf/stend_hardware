@@ -1,0 +1,323 @@
+/* debug.css - Стили для страницы отладки */
+
+.debug-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1400px;
+}
+
+.debug-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.debug-card.log-card {
+    grid-column: span 2;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 20px;
+    background: var(--bg-hover);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-icon {
+    font-size: 1.5rem;
+}
+
+.card-header h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.card-body {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Кнопка триггера */
+.btn-large {
+    padding: 18px 32px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.btn-icon {
+    font-size: 1.5rem;
+}
+
+.btn-small {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    align-self: flex-end;
+}
+
+/* Результат камеры */
+.result-display {
+    background: var(--bg-hover);
+    border-radius: 12px;
+    padding: 20px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.result-placeholder {
+    color: var(--text-secondary);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.result-success {
+    color: var(--accent-success);
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.result-error {
+    color: var(--accent-danger);
+    font-size: 1rem;
+    text-align: center;
+}
+
+.result-raw {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-family: 'Consolas', monospace;
+    text-align: center;
+    margin-top: 8px;
+}
+
+/* Переключатели выходов */
+.outputs-control {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.output-toggle {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 16px;
+    background: var(--bg-hover);
+    border-radius: 10px;
+}
+
+.output-label {
+    flex: 1;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.output-status {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-card);
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+}
+
+.output-status[data-value="1"] {
+    background: var(--accent-success);
+    color: var(--bg-primary);
+    box-shadow: 0 0 10px var(--accent-success);
+}
+
+/* Toggle switch */
+.toggle {
+    position: relative;
+    width: 56px;
+    height: 30px;
+    display: inline-block;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bg-card);
+    border: 2px solid var(--border-color);
+    transition: all 0.3s;
+    border-radius: 30px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 2px;
+    bottom: 2px;
+    background-color: var(--text-muted);
+    transition: all 0.3s;
+    border-radius: 50%;
+}
+
+.toggle input:checked + .toggle-slider {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-purple));
+    border-color: var(--accent-primary);
+}
+
+.toggle input:checked + .toggle-slider:before {
+    transform: translateX(26px);
+    background-color: white;
+}
+
+.toggle input:focus + .toggle-slider {
+    box-shadow: 0 0 0 3px var(--shadow-glow);
+}
+
+/* Индикаторы входов */
+.inputs-display {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.input-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    background: var(--bg-hover);
+    border-radius: 10px;
+}
+
+.input-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.input-led {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    background: var(--bg-card);
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+}
+
+.input-led[data-value="1"] {
+    background: var(--accent-success);
+    color: var(--bg-primary);
+    box-shadow: 0 0 15px var(--accent-success);
+}
+
+/* Лог операций */
+.operation-log {
+    background: var(--bg-hover);
+    border-radius: 10px;
+    padding: 16px;
+    max-height: 250px;
+    overflow-y: auto;
+    font-family: 'Consolas', monospace;
+    font-size: 0.85rem;
+}
+
+.log-entry {
+    padding: 8px 12px;
+    margin-bottom: 6px;
+    border-radius: 6px;
+    border-left: 3px solid;
+}
+
+.log-entry:last-child {
+    margin-bottom: 0;
+}
+
+.log-info {
+    background: rgba(0, 217, 255, 0.1);
+    border-left-color: var(--accent-primary);
+    color: var(--text-primary);
+}
+
+.log-success {
+    background: rgba(0, 255, 136, 0.1);
+    border-left-color: var(--accent-success);
+    color: var(--accent-success);
+}
+
+.log-error {
+    background: rgba(255, 71, 87, 0.1);
+    border-left-color: var(--accent-danger);
+    color: var(--accent-danger);
+}
+
+.log-warning {
+    background: rgba(255, 165, 2, 0.1);
+    border-left-color: var(--accent-warning);
+    color: var(--accent-warning);
+}
+
+.log-time {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    margin-right: 8px;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .debug-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .debug-card.log-card {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .outputs-control {
+        gap: 12px;
+    }
+    
+    .output-toggle {
+        flex-wrap: wrap;
+    }
+    
+    .inputs-display {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

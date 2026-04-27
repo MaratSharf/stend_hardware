@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>MV Stend - Мониторинг</title>
+    <!-- Базовые стили (общие для всех страниц) -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Стили для страницы мониторинга -->
+    <link rel="stylesheet" href="/static/css/monitoring.css">
+    <!-- Шрифт Inter (аналог TildaSans) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="app-container" id="allrecords">
+    <!-- ======================= ЛЕВОЕ БОКОВОЕ МЕНЮ ======================= -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-text">MV Stend</span>
+            </div>
+            <!-- Кнопка-бургер для мобильных устройств (сворачивание/разворачивание меню) -->
+            <button class="t-menuburger" id="burgerBtn" aria-label="Меню">
+                <span></span><span></span><span></span><span></span>
+            </button>
+        </div>
+        <!-- Навигационные ссылки -->
+        <nav class="sidebar-nav">
+            <a href="/" class="nav-item active">
+                <span class="nav-icon">📊</span>
+                <span>Мониторинг</span>
+            </a>
+            <a href="/tools" class="nav-item">
+                <span class="nav-icon">🔧</span>
+                <span>Инструменты</span>
+            </a>
+            <a href="/history" class="nav-item">
+                <span class="nav-icon">📋</span>
+                <span>История</span>
+            </a>
+            <a href="/debug" class="nav-item">
+                <span class="nav-icon">🐞</span>
+                <span>Отладка</span>
+            </a>
+            <a href="/settings" class="nav-item">
+                <span class="nav-icon">⚙️</span>
+                <span>Настройки</span>
+            </a>
+            <a href="/reports" class="nav-item">
+                <span class="nav-icon">📈</span>
+                <span>Отчёты</span>
+            </a>
+        </nav>
+        <!-- (Блок со статусом в сайдбаре удалён, как и просили ранее) -->
+    </aside>
+
+    <!-- ======================= ОСНОВНАЯ ОБЛАСТЬ ======================= -->
+    <main class="main-content">
+        <!-- Верхняя панель: заголовок страницы + логотип VDT -->
+        <div class="page-header">
+            <div class="page-header__title">
+                <h1>Мониторинг</h1>
+                <p class="page-header__subtitle">Hikrobot MV-SC3016-06M-WBN</p>
+            </div>
+            <div class="page-header__logo">
+                <img src="/static/images/VDT-Service_logo%20(compact)_medium_2.jpg" alt="VDT Logo" class="vdt-logo">
+            </div>
+        </div>
+
+        <!-- ===== ПАНЕЛЬ СОСТОЯНИЯ (верхняя) ===== -->
+        <!-- Содержит карточку текущего проекта и индикаторы связи -->
+        <div class="status-panel">
+            <!-- Карточка текущего проекта -->
+            <div class="t-project-card">
+                <div class="t-project-card__header">
+                    <span class="t-project-card__label">ТЕКУЩИЙ ПРОЕКТ</span>
+                    <span class="t-project-card__name" id="projectName">—</span>
+                    <span class="t-project-card__status"></span>
+                </div>
+                <div class="t-project-card__description">Инструмент камеры</div>
+            </div>
+
+            <!-- Индикаторы связи (ОВЕН и камера) -->
+            <div class="connection-indicators">
+                <div class="indicator" id="owenIndicator">
+                    <span class="indicator-led" id="owenLed"></span>
+                    <span class="indicator-text" id="owenText">ОВЕН: проверка...</span>
+                </div>
+                <div class="indicator" id="cameraIndicator">
+                    <span class="indicator-led" id="cameraLed"></span>
+                    <span class="indicator-text" id="cameraText">Камера: проверка...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== ПАНЕЛЬ ДЕЙСТВИЙ (нижняя) ===== -->
+        <!-- Последовательно: переключатель режима, выбор сценария, офлайн-переключатель -->
+        <div class="actions-panel">
+            <!-- Переключатель АВТО / РУЧНОЙ -->
+            <div class="t-mode-switch">
+                <span class="t-mode-switch__label">РЕЖИМ</span>
+                <label class="t-toggle">
+                    <input type="checkbox" id="autoModeToggle">
+                    <span class="t-toggle__slider"></span>
+                </label>
+                <span id="modeText" class="t-mode-switch__text">АВТО</span>
+            </div>
+
+            <!-- Блок выбора сценария из веб (чекбокс + выпадающий список + кнопка "Запуск") -->
+            <div class="t-scenario-selector">
+                <label class="t-checkbox-label">
+                    <input type="checkbox" id="webScenarioToggle"> Выбор сценария из веб
+                </label>
+                <select id="scenarioSelect" class="t-select" disabled>
+                    <option value="A">Сценарий A (непрерывный)</option>
+                    <option value="B">Сценарий B (одиночный)</option>
+                    <option value="C" selected>Сценарий C (циклический)</option>
+                </select>
+                <button id="runScenarioBtn" class="btn btn-secondary" style="padding: 6px 16px; margin-left: 8px;">▶ Запуск</button>
+            </div>
+
+            <!-- Переключатель офлайн-режима (работа без оборудования) -->
+            <div class="t-mode-switch">
+                <span class="t-mode-switch__label">ОФЛАЙН</span>
+                <label class="t-toggle">
+                    <input type="checkbox" id="offlineModeToggle">
+                    <span class="t-toggle__slider"></span>
+                </label>
+                <span id="offlineModeText" class="t-mode-switch__text">Выкл</span>
+            </div>
+        </div>
+
+        <!-- ======================= ОСНОВНОЙ КОНТЕНТ (ДВЕ КОЛОНКИ) ======================= -->
+        <div class="t-container">
+            <div class="t-container_flex">
+                <!-- Левая колонка: результат инспекции -->
+                <div class="t-col_7">
+                    <div class="t-card t-card_result" id="resultCard" data-result="waiting">
+                        <div class="t-card_result">
+                            <div class="t-card__header">
+                                <div class="t-card__icon" id="resultIcon">⏳</div>
+                                <div>
+                                    <div class="t-card__title" id="resultTitle">Ожидание</div>
+                                    <div class="t-card__timestamp" id="resultTimestamp">—</div>
+                                </div>
+                            </div>
+                            <div class="t-card__image">
+                                <div class="t-image-container">
+                                    <img id="inspectionImage" class="t-image" style="display: none;" alt="Снимок">
+                                    <div id="noImage" class="t-image-placeholder" style="display: flex;">📷 Нет изображения</div>
+                                </div>
+                            </div>
+                            <!-- Блок для распознанных данных (код, текст, цвет) будет добавлен динамически через JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Правая колонка: статусы оборудования -->
+                <div class="t-col_5">
+                    <div class="t-status-stack">
+                        <!-- Состояние камеры Hikrobot -->
+                        <div class="t-status-card">
+                            <div class="t-status-card__header">
+                                <span class="t-status-card__icon">📷</span>
+                                <h3>Состояние камеры Hikrobot</h3>
+                            </div>
+                            <div class="t-status-card__content">
+                                <div class="t-status-list">
+                                    <div class="t-status-item"><span>Trigger Ready:</span><span id="cam_trigger_ready">—</span></div>
+                                    <div class="t-status-item"><span>Results Available:</span><span id="cam_results_available">—</span></div>
+                                    <div class="t-status-item"><span>Command Success:</span><span id="cam_command_success">—</span></div>
+                                    <div class="t-status-item"><span>General Fault:</span><span id="cam_general_fault">—</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Входы (датчики DI0..DI5) -->
+                        <div class="t-status-card">
+                            <div class="t-status-card__header">
+                                <span class="t-status-card__icon">🟢</span>
+                                <h3>Входы (DI)</h3>
+                            </div>
+                            <div class="t-status-card__content">
+                                <div class="t-sensor-grid">
+                                    <div class="t-sensor"><span>Д1 (вход)</span><span id="di0" class="t-led" data-value="0">0</span></div>
+                                    <div class="t-sensor"><span>Д2 (поз.лев)</span><span id="di1" class="t-led" data-value="0">0</span></div>
+                                    <div class="t-sensor"><span>Д3 (поз.прав)</span><span id="di2" class="t-led" data-value="0">0</span></div>
+                                    <div class="t-sensor"><span>Д4 (выход)</span><span id="di3" class="t-led" data-value="0">0</span></div>
+                                    <div class="t-sensor"><span>Тумблер A</span><span id="di4" class="t-led" data-value="0">0</span></div>
+                                    <div class="t-sensor"><span>Тумблер B</span><span id="di5" class="t-led" data-value="0">0</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Выходы (исполнительные механизмы DO0, DO2, DO3) -->
+                        <div class="t-status-card">
+                            <div class="t-status-card__header">
+                                <span class="t-status-card__icon">🔌</span>
+                                <h3>Выходы (DO)</h3>
+                            </div>
+                            <div class="t-status-card__content">
+                                <div class="t-output-grid">
+                                    <div class="t-output"><span>Конвейер</span><span id="do0" class="t-led" data-value="0">0</span></div>
+                                    <div class="t-output"><span>Лампа NG</span><span id="do2" class="t-led" data-value="0">0</span></div>
+                                    <div class="t-output"><span>Лампа OK</span><span id="do3" class="t-led" data-value="0">0</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================= ПОДВАЛ ======================= -->
+        <!-- Новый футер: информация о компании, ссылка на сайт -->
+        <div class="app-footer">
+            <span>ООО "ВДТ-Сервис",&nbsp;&nbsp;&nbsp;<a href="https://vdt-service.ru/" target="_blank" rel="noopener noreferrer">https://vdt-service.ru/</a></span>
+        </div>
+    </main>
+</div>
+
+<!-- Контейнер для всплывающих уведомлений (toast) -->
+<div id="toastContainer" class="toast-container"></div>
+
+<!-- ======================= СКРИПТЫ ======================= -->
+<script src="/static/js/common.js"></script>
+<script src="/static/js/connection_monitor.js"></script>
+<script src="/static/js/sidebar.js"></script>
+<script src="/static/js/monitoring.js"></script>
+</body>
+</html>
