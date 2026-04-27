@@ -1,0 +1,304 @@
+2026-04-27 10:57:18 - INFO - web - ===== WEB APP STARTED =====
+2026-04-27 11:19:00 - INFO - web - ===== WEB APP STARTED =====
+2026-04-27 11:19:06 - ERROR - web - Exception on /auth/api/user [GET]
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\auth.py", line 261, in api_current_user
+    from core.config import get_config
+ValueError: source code string cannot contain null bytes
+2026-04-27 11:19:13 - ERROR - web - Exception on /auth/api/user [GET]
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\auth.py", line 261, in api_current_user
+    from core.config import get_config
+ValueError: source code string cannot contain null bytes
+2026-04-27 11:19:19 - ERROR - web - Exception on /auth/api/user [GET]
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\auth.py", line 261, in api_current_user
+    from core.config import get_config
+ValueError: source code string cannot contain null bytes
+2026-04-27 11:20:27 - ERROR - web - Exception on /auth/api/user [GET]
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\auth.py", line 261, in api_current_user
+    from core.config import get_config
+ValueError: source code string cannot contain null bytes
+2026-04-27 11:20:50 - ERROR - web - Exception on /auth/api/user [GET]
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\auth.py", line 261, in api_current_user
+    from core.config import get_config
+ValueError: source code string cannot contain null bytes
+2026-04-27 11:32:18 - INFO - web - ===== WEB APP STARTED =====
+2026-04-27 11:34:42 - INFO - web - ===== WEB APP STARTED =====
+2026-04-27 11:36:51 - INFO - web - ===== WEB APP STARTED =====
+2026-04-27 11:43:15 - INFO - web - ===== WEB APP STARTED =====
+2026-04-27 11:47:03 - INFO - web - ===== WEB APP STARTED =====
+2026-04-27 11:51:24 - INFO - web - ===== WEB APP STARTED =====
+2026-04-27 12:04:48 - INFO - web - ===== WEB APP STARTED =====
+2026-04-27 12:07:45 - INFO - web - ===== WEB APP STARTED =====
+2026-04-27 12:07:51 - ERROR - web - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\auth.py", line 57, in decorated_function
+    if request.is_xhr or request.path.startswith('/api/'):
+AttributeError: 'Request' object has no attribute 'is_xhr'
+2026-04-27 12:07:54 - ERROR - web - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\auth.py", line 57, in decorated_function
+    if request.is_xhr or request.path.startswith('/api/'):
+AttributeError: 'Request' object has no attribute 'is_xhr'
+2026-04-27 12:07:56 - ERROR - web - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\auth.py", line 57, in decorated_function
+    if request.is_xhr or request.path.startswith('/api/'):
+AttributeError: 'Request' object has no attribute 'is_xhr'
+2026-04-27 12:07:56 - ERROR - web - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\auth.py", line 57, in decorated_function
+    if request.is_xhr or request.path.startswith('/api/'):
+AttributeError: 'Request' object has no attribute 'is_xhr'
+2026-04-27 12:07:57 - ERROR - web - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\auth.py", line 57, in decorated_function
+    if request.is_xhr or request.path.startswith('/api/'):
+AttributeError: 'Request' object has no attribute 'is_xhr'
+2026-04-27 12:07:57 - ERROR - web - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\auth.py", line 57, in decorated_function
+    if request.is_xhr or request.path.startswith('/api/'):
+AttributeError: 'Request' object has no attribute 'is_xhr'
+2026-04-27 12:07:57 - ERROR - web - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\auth.py", line 57, in decorated_function
+    if request.is_xhr or request.path.startswith('/api/'):
+AttributeError: 'Request' object has no attribute 'is_xhr'
+2026-04-27 12:07:57 - ERROR - web - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\auth.py", line 57, in decorated_function
+    if request.is_xhr or request.path.startswith('/api/'):
+AttributeError: 'Request' object has no attribute 'is_xhr'
+2026-04-27 12:07:57 - ERROR - web - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\auth.py", line 57, in decorated_function
+    if request.is_xhr or request.path.startswith('/api/'):
+AttributeError: 'Request' object has no attribute 'is_xhr'
+2026-04-27 12:07:57 - ERROR - web - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\auth.py", line 57, in decorated_function
+    if request.is_xhr or request.path.startswith('/api/'):
+AttributeError: 'Request' object has no attribute 'is_xhr'
+2026-04-27 12:07:58 - ERROR - web - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\auth.py", line 57, in decorated_function
+    if request.is_xhr or request.path.startswith('/api/'):
+AttributeError: 'Request' object has no attribute 'is_xhr'
+2026-04-27 12:07:58 - ERROR - web - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\auth.py", line 57, in decorated_function
+    if request.is_xhr or request.path.startswith('/api/'):
+AttributeError: 'Request' object has no attribute 'is_xhr'
+2026-04-27 12:08:20 - ERROR - web - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\auth.py", line 57, in decorated_function
+    if request.is_xhr or request.path.startswith('/api/'):
+AttributeError: 'Request' object has no attribute 'is_xhr'
+2026-04-27 12:08:21 - ERROR - web - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\auth.py", line 57, in decorated_function
+    if request.is_xhr or request.path.startswith('/api/'):
+AttributeError: 'Request' object has no attribute 'is_xhr'
+2026-04-27 12:08:21 - ERROR - web - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\auth.py", line 57, in decorated_function
+    if request.is_xhr or request.path.startswith('/api/'):
+AttributeError: 'Request' object has no attribute 'is_xhr'
+2026-04-27 12:08:22 - ERROR - web - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\auth.py", line 57, in decorated_function
+    if request.is_xhr or request.path.startswith('/api/'):
+AttributeError: 'Request' object has no attribute 'is_xhr'
+2026-04-27 12:08:31 - ERROR - web - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\proj\python\git_stend\stend_hardware\venv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\auth.py", line 57, in decorated_function
+    if request.is_xhr or request.path.startswith('/api/'):
+AttributeError: 'Request' object has no attribute 'is_xhr'
+2026-04-27 12:16:23 - INFO - web - ===== WEB APP STARTED =====
+2026-04-27 12:25:32 - INFO - web - ===== WEB APP STARTED =====
+2026-04-27 12:28:11 - INFO - web - ===== WEB APP STARTED =====
+2026-04-27 12:33:08 - INFO - web - ===== WEB APP STARTED =====
+2026-04-27 12:38:43 - INFO - web - ===== WEB APP STARTED =====
+2026-04-27 12:43:33 - INFO - web - ===== WEB APP STARTED =====
+2026-04-27 12:44:41 - INFO - web - Создан пользователь operator (роль: operator)
+2026-04-27 13:04:32 - INFO - web - ===== WEB APP STARTED =====

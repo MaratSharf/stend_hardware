@@ -54,7 +54,7 @@ def login_required(f):
         
         user = get_current_user(db)
         if not user:
-            if request.is_xhr or request.path.startswith('/api/'):
+            if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.path.startswith('/api/'):
                 return jsonify({'error': 'Требуется авторизация'}), 401
             return redirect(url_for('auth.login', next=request.url))
         request.current_user = user
@@ -76,12 +76,12 @@ def role_required(*required_roles):
             
             user = get_current_user(db)
             if not user:
-                if request.is_xhr or request.path.startswith('/api/'):
+                if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.path.startswith('/api/'):
                     return jsonify({'error': 'Требуется авторизация'}), 401
                 return redirect(url_for('auth.login', next=request.url))
             
             if user['role'] not in required_roles and 'admin' not in required_roles:
-                if request.is_xhr or request.path.startswith('/api/'):
+                if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.path.startswith('/api/'):
                     return jsonify({'error': 'Недостаточно прав'}), 403
                 flash('Недостаточно прав для выполнения этого действия', 'error')
                 return redirect(url_for('monitoring.index'))

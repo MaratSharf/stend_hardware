@@ -251,3 +251,30 @@ body {
     color: var(--accent-primary);
     text-decoration: underline;
 }
+
+/* Кнопка выхода в правом верхнем углу (левее логотипа) */
+.btn-logout-main {
+    position: fixed;
+    top: 16px;
+    right: 180px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: rgba(214, 40, 40, 0.1);
+    color: var(--accent-danger);
+    border: 1px solid rgba(214, 40, 40, 0.3);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    z-index: 1000;
+}
+
+.btn-logout-main:hover {
+    background: rgba(214, 40, 40, 0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(214, 40, 40, 0.2);
+}

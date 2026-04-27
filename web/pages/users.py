@@ -18,7 +18,15 @@ users_bp = Blueprint('users', __name__)
 @role_required('admin')
 def users_page():
     """Страница управления пользователями"""
-    return render_template('users.html', active_page='users')
+    from web.pages.auth import get_current_user
+    from utils.database import get_database
+    from core.config import get_config
+    
+    config_obj = get_config()
+    db = get_database(config_obj)
+    current_user = get_current_user(db)
+    
+    return render_template('users.html', active_page='users', current_user=current_user)
 
 
 @users_bp.route('/api/users', methods=['GET'])
