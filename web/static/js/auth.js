@@ -20,8 +20,9 @@ async function initAuth() {
             window.currentUser = null;
             // Если мы не на странице входа, перенаправляем на неё
             if (!window.location.pathname.startsWith('/auth/login')) {
-                // Пока не перенаправляем автоматически, чтобы не ломать работу без авторизации
-                console.log('Пользователь не авторизован');
+                console.log('Пользователь не авторизован. Перенаправление на страницу входа...');
+                window.location.href = '/auth/login';
+                return;
             }
         }
     } catch (error) {
