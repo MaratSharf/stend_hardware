@@ -11,6 +11,8 @@ from datetime import datetime
 
 # Импортируем перечисление команд из контроллера
 from core.controller import ControllerCommand
+# Импортируем декоратор авторизации
+from web.pages.auth import login_required
 
 monitoring_bp = Blueprint('monitoring', __name__)
 
