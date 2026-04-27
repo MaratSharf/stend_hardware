@@ -5,6 +5,7 @@ import psycopg2.extras
 from contextlib import contextmanager
 from datetime import datetime, timedelta
 from typing import List, Dict, Optional
+import bcrypt
 
 class Database:
     def __init__(self, config: dict):
@@ -40,6 +41,35 @@ class Database:
     def init_db(self):
         """Создание всех необходимых таблиц"""
         with self.get_connection() as cursor:
+            # Таблица пользователей с ролями и хешированными паролями
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS users (
+                    id SERIAL PRIMARY KEY,
+                    username TEXT NOT NULL UNIQUE,
+                    password_hash TEXT NOT NULL,
+                    role TEXT NOT NULL DEFAULT 'operator',
+                    full_name TEXT,
+                    is_active BOOLEAN DEFAULT TRUE,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    last_login TIMESTAMP
+                )
+            """)
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_users_username ON users(username)")
+
+            # Таблица сессий для простой сессионной авторизации
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS sessions (
+                    id SERIAL PRIMARY KEY,
+                    session_id TEXT NOT NULL UNIQUE,
+                    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    expires_at TIMESTAMP NOT NULL,
+                    ip_address TEXT
+                )
+            """)
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_sessions_session_id ON sessions(session_id)")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_sessions_expires ON sessions(expires_at)")
+
             # Таблица результатов инспекций
             cursor.execute("""
                 CREATE TABLE IF NOT EXISTS inspection_results (
@@ -413,6 +443,147 @@ class Database:
             cursor.execute("SELECT name_ru FROM tools WHERE project_name = %s LIMIT 1", (project_name,))
             row = cursor.fetchone()
             return dict(row) if row else None
+
+    # ==================== МЕТОДЫ ДЛЯ АВТОРИЗАЦИИ И ПОЛЬЗОВАТЕЛЕЙ ====================
+    def create_user(self, username: str, password: str, role: str = 'operator', 
+                    full_name: str = '') -> int:
+        """Создание нового пользователя с хешированным паролем"""
+        password_hash = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+        with self.get_connection() as cursor:
+            cursor.execute("""
+                INSERT INTO users (username, password_hash, role, full_name)
+                VALUES (%s, %s, %s, %s)
+                RETURNING id
+            """, (username, password_hash, role, full_name))
+            row = cursor.fetchone()
+            return row['id'] if row else 0
+
+    def verify_user(self, username: str, password: str) -> Optional[Dict]:
+        """Проверка пароля пользователя и возврат данных пользователя при успехе"""
+        with self.get_connection() as cursor:
+            cursor.execute("""
+                SELECT id, username, password_hash, role, full_name, is_active, created_at
+                FROM users WHERE username = %s
+            """, (username,))
+            row = cursor.fetchone()
+            if not row:
+                return None
+            user = dict(row)
+            if bcrypt.checkpw(password.encode('utf-8'), user['password_hash'].encode('utf-8')):
+                # Обновляем время последнего входа
+                cursor.execute("""
+                    UPDATE users SET last_login = CURRENT_TIMESTAMP WHERE id = %s
+                """, (user['id'],))
+                return user
+            return None
+
+    def get_user_by_id(self, user_id: int) -> Optional[Dict]:
+        """Получение данных пользователя по ID"""
+        with self.get_connection() as cursor:
+            cursor.execute("""
+                SELECT id, username, role, full_name, is_active, created_at, last_login
+                FROM users WHERE id = %s
+            """, (user_id,))
+            row = cursor.fetchone()
+            return dict(row) if row else None
+
+    def get_user_by_username(self, username: str) -> Optional[Dict]:
+        """Получение данных пользователя по имени"""
+        with self.get_connection() as cursor:
+            cursor.execute("""
+                SELECT id, username, role, full_name, is_active, created_at, last_login
+                FROM users WHERE username = %s
+            """, (username,))
+            row = cursor.fetchone()
+            return dict(row) if row else None
+
+    def create_session(self, user_id: int, session_id: str, ip_address: str = '', 
+                       expires_hours: int = 24) -> int:
+        """Создание новой сессии"""
+        from datetime import timedelta
+        expires_at = datetime.now() + timedelta(hours=expires_hours)
+        with self.get_connection() as cursor:
+            cursor.execute("""
+                INSERT INTO sessions (user_id, session_id, expires_at, ip_address)
+                VALUES (%s, %s, %s, %s)
+                RETURNING id
+            """, (user_id, session_id, expires_at, ip_address))
+            row = cursor.fetchone()
+            return row['id'] if row else 0
+
+    def get_session(self, session_id: str) -> Optional[Dict]:
+        """Получение сессии по ID"""
+        with self.get_connection() as cursor:
+            cursor.execute("""
+                SELECT s.id, s.session_id, s.user_id, s.created_at, s.expires_at, s.ip_address,
+                       u.username, u.role, u.full_name
+                FROM sessions s
+                JOIN users u ON s.user_id = u.id
+                WHERE s.session_id = %s AND s.expires_at > NOW()
+            """, (session_id,))
+            row = cursor.fetchone()
+            return dict(row) if row else None
+
+    def delete_session(self, session_id: str) -> bool:
+        """Удаление сессии (выход из системы)"""
+        with self.get_connection() as cursor:
+            cursor.execute("DELETE FROM sessions WHERE session_id = %s", (session_id,))
+            return cursor.rowcount > 0
+
+    def cleanup_expired_sessions(self) -> int:
+        """Удаление просроченных сессий"""
+        with self.get_connection() as cursor:
+            cursor.execute("DELETE FROM sessions WHERE expires_at <= NOW()")
+            return cursor.rowcount
+
+    def get_all_users(self) -> List[Dict]:
+        """Получение списка всех пользователей"""
+        with self.get_connection() as cursor:
+            cursor.execute("""
+                SELECT id, username, role, full_name, is_active, created_at, last_login
+                FROM users ORDER BY username
+            """)
+            return [dict(row) for row in cursor.fetchall()]
+
+    def update_user_role(self, user_id: int, role: str) -> bool:
+        """Обновление роли пользователя"""
+        with self.get_connection() as cursor:
+            cursor.execute("""
+                UPDATE users SET role = %s WHERE id = %s
+            """, (role, user_id))
+            return cursor.rowcount > 0
+
+    def update_user_password(self, user_id: int, new_password: str) -> bool:
+        """Обновление пароля пользователя"""
+        password_hash = bcrypt.hashpw(new_password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+        with self.get_connection() as cursor:
+            cursor.execute("""
+                UPDATE users SET password_hash = %s WHERE id = %s
+            """, (password_hash, user_id))
+            return cursor.rowcount > 0
+
+    def deactivate_user(self, user_id: int) -> bool:
+        """Деактивация пользователя"""
+        with self.get_connection() as cursor:
+            cursor.execute("""
+                UPDATE users SET is_active = FALSE WHERE id = %s
+            """, (user_id,))
+            return cursor.rowcount > 0
+
+    def delete_user(self, user_id: int) -> bool:
+        """Удаление пользователя"""
+        with self.get_connection() as cursor:
+            cursor.execute("DELETE FROM users WHERE id = %s", (user_id,))
+            return cursor.rowcount > 0
+
+    def get_default_admin_exists(self) -> bool:
+        """Проверка существования администратора по умолчанию"""
+        with self.get_connection() as cursor:
+            cursor.execute("""
+                SELECT COUNT(*) as count FROM users WHERE role = 'admin'
+            """)
+            row = cursor.fetchone()
+            return (row['count'] or 0) > 0
 
 
 # Глобальный синглтон
