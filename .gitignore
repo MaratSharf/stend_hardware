@@ -1,1 +1,55 @@
-Nothing needs to be added to .gitignore since only a Python source file was modified and no build artifacts, dependencies, or temporary files were detected in the changes.
+# Виртуальное окружение
+venv/
+.venv/
+env/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Скомпилированные расширения
+*.egg-info/
+dist/
+build/
+
+# Данные (не хранить в репозитории)
+data/images/
+data/logs/
+data/*.db
+data/backups/
+*.sqlite
+*.sqlite3
+
+# Логи
+*.log
+
+# Конфигурация с чувствительными данными
+# config.yaml  # Раскомментируйте, если в config.yaml есть пароли
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Операционные системы
+.DS_Store
+Thumbs.db
+
+# Тестовые файлы (если есть)
+tests/__pycache__/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Файлы отладки
+*.pdb
+
+# Временные файлы
+*.tmp
+*.bak
