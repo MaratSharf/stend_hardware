@@ -293,3 +293,10 @@ tail -f data/logs/controller.log
 Заключение
 
 Проект представляет собой полнофункциональный стенд машинного зрения с современным веб-интерфейсом, модульной серверной архитектурой и базой данных. Система готова к эксплуатации.
+echo "# stend_hardware" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/MaratSharf/stend_hardware.git
+git push -u origin main
