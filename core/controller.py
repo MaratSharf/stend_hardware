@@ -429,8 +429,6 @@ class StandController:
         last_reconnect_check = 0.0
 
         while self._running and not self._stop_event.is_set():
-            loop_start = time.time()
-            self.logger.debug(f"=== НАЧАЛО ИТЕРАЦИИ ЦИКЛА {loop_start:.3f} ===")
             try:
                 now = time.time()
 
@@ -439,11 +437,6 @@ class StandController:
 
                 # Если включён офлайн-режим, не работаем с оборудованием
                 if self.offline_mode:
-                    self.logger.debug("Офлайн-режим активен, пропускаем работу с оборудованием")
-                    self.hardware_available = False
-                    self.owen_available = False
-                    self.camera_available = False
-                    self.camera_ready = False
                     time.sleep(1.0)
                     continue
 
@@ -462,9 +455,7 @@ class StandController:
                     continue
 
                 # --- Оборудование доступно ---
-                self.logger.debug("Вызов _update_inputs()...")
                 inputs_ok = self._update_inputs()
-                self.logger.debug(f"_update_inputs() завершён, inputs_ok={inputs_ok}")
                 if not self._running or self._stop_event.is_set():
                     break
                 if inputs_ok:
@@ -543,8 +534,6 @@ class StandController:
                     step = min(sleep_time, 0.1)
                     time.sleep(step)
                     sleep_time -= step
-
-                self.logger.debug(f"=== ИТЕРАЦИЯ ЦИКЛА ЗАВЕРШЕНА за {time.time() - loop_start:.3f} с ===")
 
             except Exception as e:
                 self.logger.exception(f"Ошибка в главном цикле: {e}")
