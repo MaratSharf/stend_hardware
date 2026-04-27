@@ -8,12 +8,19 @@ from flask import Blueprint, render_template, jsonify, request, current_app
 from datetime import datetime
 from utils.report_generator import get_report_generator
 from utils.excel_export import get_excel_exporter
+from web.pages.auth import login_required, get_current_user
+from utils.database import get_database
+from core.config import get_config
 
 reports_bp = Blueprint('reports', __name__)
 
 @reports_bp.route('/reports')
+@login_required
 def reports_page():
-    return render_template('reports.html')
+    config_obj = get_config()
+    db = get_database(config_obj)
+    current_user = get_current_user(db)
+    return render_template('reports.html', current_user=current_user)
 
 @reports_bp.route('/api/reports/daily', methods=['GET'])
 def api_daily_report():

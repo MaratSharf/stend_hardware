@@ -5,12 +5,19 @@ Blueprint для страницы инструментов и API переклю
 """
 
 from flask import Blueprint, render_template, jsonify, request, current_app
+from web.pages.auth import login_required, get_current_user
+from utils.database import get_database
+from core.config import get_config
 
 tools_bp = Blueprint('tools', __name__)
 
 @tools_bp.route('/tools')
+@login_required
 def tools_page():
-    return render_template('tools.html')
+    config_obj = get_config()
+    db = get_database(config_obj)
+    current_user = get_current_user(db)
+    return render_template('tools.html', current_user=current_user)
 
 @tools_bp.route('/api/tools')
 def api_tools():

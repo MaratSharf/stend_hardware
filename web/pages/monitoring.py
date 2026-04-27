@@ -21,10 +21,19 @@ def validate_project_name(name: str) -> bool:
 
 # ---------- Страница ----------
 @monitoring_bp.route('/')
+@login_required
 def index():
+    from web.pages.auth import get_current_user
+    from utils.database import get_database
+    from core.config import get_config
+    
+    config_obj = get_config()
+    db = get_database(config_obj)
+    current_user = get_current_user(db)
+    
     config = current_app.config.get('config', {})
     default_project = config.get('camera', {}).get('project_name', 'f')
-    return render_template('index.html', default_project=default_project)
+    return render_template('index.html', default_project=default_project, current_user=current_user)
 
 # ---------- API (только чтение состояния – быстрые операции) ----------
 @monitoring_bp.route('/api/status')
