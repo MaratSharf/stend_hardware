@@ -43,6 +43,7 @@ def create_app(config: dict, controller, db) -> Flask:
     from web.pages.settings import settings_bp
     from web.pages.reports import reports_bp
     from web.pages.auth import auth_bp
+    from web.pages.users import users_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(monitoring_bp)
@@ -51,6 +52,7 @@ def create_app(config: dict, controller, db) -> Flask:
     app.register_blueprint(debug_bp)
     app.register_blueprint(settings_bp)
     app.register_blueprint(reports_bp)
+    app.register_blueprint(users_bp)
 
     @app.after_request
     def add_cache_headers(response):

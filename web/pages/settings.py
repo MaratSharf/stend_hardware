@@ -10,6 +10,9 @@ import yaml
 from datetime import datetime
 from utils.config_manager import get_config_manager
 import re
+from web.pages.auth import login_required, get_current_user
+from utils.database import get_database
+from core.config import get_config
 
 settings_bp = Blueprint('settings', __name__)
 
@@ -25,8 +28,12 @@ def validate_ip_address(ip: str) -> bool:
         return False
 
 @settings_bp.route('/settings')
+@login_required
 def settings_page():
-    return render_template('settings.html')
+    config_obj = get_config()
+    db = get_database(config_obj)
+    current_user = get_current_user(db)
+    return render_template('settings.html', current_user=current_user)
 
 @settings_bp.route('/api/settings/get', methods=['GET'])
 def api_get_settings():
