@@ -1,10 +1,17 @@
 # web/app.py
 import os
+import secrets
 from flask import Flask, request, send_from_directory
 from utils.logger import setup_logger
 
 def create_app(config: dict, controller, db) -> Flask:
     app = Flask(__name__)
+    
+    # Секретный ключ для сессий
+    app.secret_key = config.get('web', {}).get('secret_key', secrets.token_hex(32))
+    
+    # Время жизни сессии (24 часа)
+    app.config['PERMANENT_SESSION_LIFETIME'] = 86400
 
     app.config['config'] = config
     app.config['controller'] = controller
@@ -35,7 +42,9 @@ def create_app(config: dict, controller, db) -> Flask:
     from web.pages.debug import debug_bp
     from web.pages.settings import settings_bp
     from web.pages.reports import reports_bp
+    from web.pages.auth import auth_bp
 
+    app.register_blueprint(auth_bp)
     app.register_blueprint(monitoring_bp)
     app.register_blueprint(tools_bp)
     app.register_blueprint(history_bp)
