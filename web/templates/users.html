@@ -237,6 +237,14 @@
     </main>
 </div>
 
+<!-- Кнопка выхода (видна всем пользователям) -->
+<button id="logoutBtn" class="btn-logout-main" style="display: none;" title="Выйти из системы">
+    <span>🚪</span> Выйти
+</button>
+
+<!-- Контейнер для уведомлений toast -->
+<div id="toastContainer" class="toast-container"></div>
+
 <!-- Модальное окно добавления/редактирования -->
 <div id="userModal" class="modal hidden">
     <div class="modal-overlay" onclick="closeUserModal()"></div>
@@ -304,6 +312,7 @@
     </div>
 </div>
 
+<!-- Скрипты -->
 <script src="/static/js/common.js"></script>
 <script src="/static/js/auth.js"></script>
 <script src="/static/js/sidebar.js"></script>

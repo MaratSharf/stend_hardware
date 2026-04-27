@@ -56,6 +56,20 @@ function updateUserInterface(user) {
         }
     }
     
+    // Показываем кнопку выхода в правом верхнем углу
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+        logoutBtn.style.display = 'flex';
+    }
+    
+    // Показываем ссылку "Пользователи" только для администраторов
+    const adminLinks = document.querySelectorAll('.admin-only');
+    if (user.role === 'admin') {
+        adminLinks.forEach(link => {
+            link.style.display = 'flex';
+        });
+    }
+    
     // Применяем права доступа к элементам интерфейса
     applyPermissions(user);
 }
@@ -143,6 +157,12 @@ async function logout() {
             sidebarUser.style.display = 'none';
         }
         
+        // Скрываем кнопку выхода
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (logoutBtn) {
+            logoutBtn.style.display = 'none';
+        }
+        
         // Перенаправляем на страницу входа
         window.location.href = '/auth/login';
     } catch (error) {
@@ -163,5 +183,16 @@ function getRoleName(role) {
     return roleNames[role] || role;
 }
 
-// Автоматическая инициализация при загрузке страницы
-document.addEventListener('DOMContentLoaded', initAuth);
+// Добавляем обработчик клика на кнопку выхода
+document.addEventListener('DOMContentLoaded', function() {
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (confirm('Вы уверены, что хотите выйти из системы?')) {
+                logout();
+            }
+        });
+    }
+    initAuth();
+});
