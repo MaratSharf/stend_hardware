@@ -302,3 +302,7 @@ AttributeError: 'Request' object has no attribute 'is_xhr'
 2026-04-27 12:43:33 - INFO - web - ===== WEB APP STARTED =====
 2026-04-27 12:44:41 - INFO - web - Создан пользователь operator (роль: operator)
 2026-04-27 13:04:32 - INFO - web - ===== WEB APP STARTED =====
+2026-04-28 12:27:38 - INFO - web - ===== WEB APP STARTED =====
+2026-04-28 12:27:53 - INFO - web - ===== WEB APP STARTED =====
+2026-04-28 12:28:14 - INFO - web - ===== WEB APP STARTED =====
+2026-04-28 12:28:16 - INFO - web - Запущен фоновый поток WebSocket обновлений
