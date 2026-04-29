@@ -65,6 +65,10 @@ async function getRussianProjectName(projectName) {
     return projectName; // fallback
 }
 
+// ==================== ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ДЛЯ POLLING ====================
+let statusPollingInterval = null;
+let hardwarePollingInterval = null;
+
 // ==================== ИНИЦИАЛИЗАЦИЯ ====================
 document.addEventListener('DOMContentLoaded', () => {
     initSidebar();               // активируем бургер-меню для мобильных
@@ -81,11 +85,45 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('[Monitoring] WebSocket обновления подключены');
     }
     
-    // Запускаем периодическое обновление только как fallback
-    // Если WebSocket активен, эти интервалы будут избыточны но безопасны
-    setInterval(updateStatus, 2000);
-    setInterval(updateHardwareStatus, 1000);
+    // Запускаем polling только как fallback
+    // Если WebSocket активен, polling будет отключён автоматически
+    startPollingFallback();
 });
+
+/**
+ * Запускает polling интервалы только если WebSocket не подключён
+ * Автоматически отключает polling при успешном WebSocket соединении
+ */
+function startPollingFallback() {
+    // Проверяем состояние WebSocket через небольшую задержку
+    setTimeout(() => {
+        if (window.WebSocketClient && window.WebSocketClient.isConnected()) {
+            console.log('[Monitoring] WebSocket активен, polling отключён');
+            stopPolling();
+        } else {
+            console.log('[Monitoring] WebSocket недоступен, запускаем polling');
+            statusPollingInterval = setInterval(updateStatus, 2000);
+            hardwarePollingInterval = setInterval(updateHardwareStatus, 1000);
+        }
+    }, 500);
+}
+
+/**
+ * Останавливает все polling интервалы
+ */
+function stopPolling() {
+    if (statusPollingInterval) {
+        clearInterval(statusPollingInterval);
+        statusPollingInterval = null;
+    }
+    if (hardwarePollingInterval) {
+        clearInterval(hardwarePollingInterval);
+        hardwarePollingInterval = null;
+    }
+}
+
+// Экспортируем функцию для использования в websocket.js
+window.stopPolling = stopPolling;
 
 /**
  * Обработчик WebSocket обновлений статуса
