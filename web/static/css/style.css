@@ -166,6 +166,30 @@ body {
 .indicator-led.online { background: var(--accent-success); box-shadow: 0 0 4px var(--accent-success); }
 .indicator-led.offline { background: var(--accent-danger); }
 
+/* WebSocket индикатор */
+#wsConnectionIndicator.ws-connected { 
+    background: var(--accent-success); 
+    box-shadow: 0 0 6px var(--accent-success);
+    animation: ws-pulse 2s infinite;
+}
+#wsConnectionIndicator.ws-disconnected { 
+    background: var(--accent-danger); 
+}
+#wsConnectionIndicator.ws-error { 
+    background: #f59e0b; 
+    animation: ws-blink 1s infinite;
+}
+
+@keyframes ws-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes ws-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
 /* Кнопки */
 .btn {
     padding: 6px 14px;
