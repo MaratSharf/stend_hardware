@@ -1,41 +1,29 @@
-```
+```gitignore
 # Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
+.Python
+env/
+venv/
+.venv/
+.ENV
+.ENV.local
+.env
+.env.local
+.env.*
 
 # Logs
 *.log
-
-# Environment
-.env
-.env.local
-*.env.*
+logs/
 
 # Dependencies
-venv/
-.venv/
-.env/
-node_modules/
+requirements.txt.bak
 
-# Build artifacts
-dist/
-build/
-target/
-
-# Editors
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Coverage
+# Coverage reports
 .coverage
-coverage/
 htmlcov/
-
-# OS
-.DS_Store
-Thumbs.db
+.coverage.*
+coverage.xml
 ```
