@@ -137,6 +137,7 @@ def main():
 
     # -------------------------- Веб-приложение --------------------------
     flask_app = create_app(config, controller, db)
+    socketio = flask_app.config.get('socketio')
 
     # Установка обработчиков сигналов
     signal.signal(signal.SIGINT, signal_handler)
@@ -145,7 +146,8 @@ def main():
     # -------------------------- Запуск веб-сервера (немедленно) --------------------------
     print("[СЕРВЕР] Запуск MV сервиса на http://0.0.0.0:5001")
     try:
-        serve(flask_app, host='0.0.0.0', port=5001, threads=8, channel_timeout=30)
+        # Используем Socket.IO сервер вместо Waitress для поддержки WebSocket
+        socketio.run(flask_app, host='0.0.0.0', port=5001, debug=False, use_reloader=False)
     except KeyboardInterrupt:
         pass
     finally:
