@@ -65,6 +65,10 @@ async function getRussianProjectName(projectName) {
     return projectName; // fallback
 }
 
+// ==================== ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ДЛЯ POLLING ====================
+let statusPollingInterval = null;
+let hardwarePollingInterval = null;
+
 // ==================== ИНИЦИАЛИЗАЦИЯ ====================
 document.addEventListener('DOMContentLoaded', () => {
     initSidebar();               // активируем бургер-меню для мобильных
@@ -74,10 +78,80 @@ document.addEventListener('DOMContentLoaded', () => {
     updateProjectDisplay();     // загружаем и отображаем текущий проект камеры
     updateStatus();             // первое обновление результата
     updateHardwareStatus();     // первое обновление статусов оборудования
-    // Запускаем периодическое обновление
-    setInterval(updateStatus, 2000);
-    setInterval(updateHardwareStatus, 1000);
+    
+    // Регистрируем обработчик WebSocket обновлений
+    if (window.WebSocketClient) {
+        window.WebSocketClient.onStatusUpdate(handleWebSocketStatusUpdate);
+        console.log('[Monitoring] WebSocket обновления подключены');
+    }
+    
+    // Запускаем polling только как fallback
+    // Если WebSocket активен, polling будет отключён автоматически
+    startPollingFallback();
 });
+
+/**
+ * Запускает polling интервалы только если WebSocket не подключён
+ * Автоматически отключает polling при успешном WebSocket соединении
+ */
+function startPollingFallback() {
+    // Проверяем состояние WebSocket через небольшую задержку
+    setTimeout(() => {
+        if (window.WebSocketClient && window.WebSocketClient.isConnected()) {
+            console.log('[Monitoring] WebSocket активен, polling отключён');
+            stopPolling();
+        } else {
+            console.log('[Monitoring] WebSocket недоступен, запускаем polling');
+            statusPollingInterval = setInterval(updateStatus, 2000);
+            hardwarePollingInterval = setInterval(updateHardwareStatus, 1000);
+        }
+    }, 500);
+}
+
+/**
+ * Останавливает все polling интервалы
+ */
+function stopPolling() {
+    if (statusPollingInterval) {
+        clearInterval(statusPollingInterval);
+        statusPollingInterval = null;
+    }
+    if (hardwarePollingInterval) {
+        clearInterval(hardwarePollingInterval);
+        hardwarePollingInterval = null;
+    }
+}
+
+// Экспортируем функцию для использования в websocket.js
+window.stopPolling = stopPolling;
+
+/**
+ * Обработчик WebSocket обновлений статуса
+ * @param {Object} data - данные обновления от сервера
+ */
+function handleWebSocketStatusUpdate(data) {
+    // Обновляем результат инспекции
+    if (data.result) {
+        applyStatusData(data.result);
+    }
+    
+    // Обновляем статус оборудования (входы/выходы/камера)
+    if (data.inputs || data.outputs || data.camera_status) {
+        applyHardwareData({
+            inputs: data.inputs,
+            outputs: data.outputs,
+            camera_status: data.camera_status
+        });
+    }
+    
+    // Обновляем индикаторы доступности оборудования
+    if (data.hardware_available !== undefined) {
+        window.isHardwareAvailable = data.hardware_available;
+        if (!data.hardware_available) {
+            window.resetHardwareDisplay();
+        }
+    }
+}
 
 /**
  * Инициализирует боковое меню: обработчик клика по бургеру (для мобильных устройств).
@@ -343,8 +417,50 @@ async function updateProjectDisplay() {
 // ==================== ОБНОВЛЕНИЕ СТАТУСА ОБОРУДОВАНИЯ (ВХОДЫ/ВЫХОДЫ/КАМЕРА) ====================
 
 /**
+ * Применяет данные статуса оборудования к UI (используется WebSocket и polling)
+ * @param {Object} data - данные от сервера (inputs, outputs, camera_status)
+ */
+function applyHardwareData(data) {
+    if (!data) return;
+    
+    // Статус камеры
+    if (data.camera_status) {
+        const cam = data.camera_status;
+        setElementValue('cam_trigger_ready', cam.trigger_ready);
+        setElementValue('cam_results_available', cam.results_available);
+        setElementValue('cam_command_success', cam.command_success);
+        setElementValue('cam_general_fault', cam.general_fault);
+    }
+
+    // Входы (DI0-DI5)
+    if (data.inputs) {
+        for (let i = 0; i < 6; i++) {
+            const el = document.getElementById(`di${i}`);
+            if (el) {
+                const val = data.inputs[i] !== undefined ? (data.inputs[i] ? '1' : '0') : '—';
+                el.innerText = val;
+                el.setAttribute('data-value', val === '1' ? '1' : '0');
+            }
+        }
+    }
+
+    // Выходы (DO0, DO2, DO3)
+    const outputIndices = [0, 2, 3];
+    if (data.outputs) {
+        outputIndices.forEach(idx => {
+            const el = document.getElementById(`do${idx}`);
+            if (el) {
+                const val = data.outputs[idx] !== undefined ? (data.outputs[idx] ? '1' : '0') : '—';
+                el.innerText = val;
+                el.setAttribute('data-value', val === '1' ? '1' : '0');
+            }
+        });
+    }
+}
+
+/**
  * Обновляет состояние входов, выходов и статус камеры на странице.
- * Вызывается периодически (раз в секунду) и принудительно при восстановлении связи.
+ * Вызывается периодически (раз в секунду) как fallback для WebSocket.
  * @param {boolean} force - если true, обновляет даже при отсутствии связи (для восстановления)
  */
 async function updateHardwareStatus(force = false) {
@@ -359,35 +475,7 @@ async function updateHardwareStatus(force = false) {
             if (!force) window.resetHardwareDisplay();
             return;
         }
-        // Статус камеры
-        const cam = data.camera_status;
-        setElementValue('cam_trigger_ready', cam.trigger_ready);
-        setElementValue('cam_results_available', cam.results_available);
-        setElementValue('cam_command_success', cam.command_success);
-        setElementValue('cam_general_fault', cam.general_fault);
-
-        // Входы (DI0-DI5)
-        for (let i = 0; i < 6; i++) {
-            const el = document.getElementById(`di${i}`);
-            if (el) {
-                const val = data.inputs[i] !== undefined ? (data.inputs[i] ? '1' : '0') : '—';
-                el.innerText = val;
-                el.setAttribute('data-value', val === '1' ? '1' : '0');
-            }
-        }
-
-        // Выходы (DO0, DO2, DO3)
-        const outputIndices = [0, 2, 3];
-        if (data.outputs) {
-            outputIndices.forEach(idx => {
-                const el = document.getElementById(`do${idx}`);
-                if (el) {
-                    const val = data.outputs[idx] !== undefined ? (data.outputs[idx] ? '1' : '0') : '—';
-                    el.innerText = val;
-                    el.setAttribute('data-value', val === '1' ? '1' : '0');
-                }
-            });
-        }
+        applyHardwareData(data);
     } catch (error) {
         console.error('Ошибка обновления статуса оборудования:', error);
         if (!force) window.resetHardwareDisplay();
@@ -442,68 +530,75 @@ window.resetHardwareDisplay = function() {
 // ==================== ОБНОВЛЕНИЕ РЕЗУЛЬТАТА ИНСПЕКЦИИ ====================
 
 /**
+ * Применяет данные результата инспекции к UI (используется WebSocket и polling)
+ * @param {Object} data - данные результата от сервера
+ */
+function applyStatusData(data) {
+    const resultCard = document.getElementById('resultCard');
+    const resultIcon = document.getElementById('resultIcon');
+    const resultTitle = document.getElementById('resultTitle');
+    const resultTimestamp = document.getElementById('resultTimestamp');
+    const inspectionImage = document.getElementById('inspectionImage');
+    const noImage = document.getElementById('noImage');
+
+    if (!data.result) {
+        resultCard.setAttribute('data-result', 'waiting');
+        resultIcon.innerText = '⏳';
+        resultTitle.innerText = 'Ожидание';
+        resultTimestamp.innerText = '—';
+        inspectionImage.style.display = 'none';
+        noImage.style.display = 'flex';
+        hideRawData();
+        return;
+    }
+
+    const isOk = data.result === 'OK';
+    const isNg = data.result === 'NG';
+    resultCard.setAttribute('data-result', isOk ? 'ok' : 'ng');
+    if (isOk) {
+        resultIcon.innerText = '✅';
+        resultTitle.innerText = 'Годен';
+    } else if (isNg) {
+        resultIcon.innerText = '❌';
+        resultTitle.innerText = 'Брак';
+    } else {
+        resultIcon.innerText = '⚠️';
+        resultTitle.innerText = 'Ошибка';
+    }
+
+    if (data.time) {
+        const d = new Date(data.time);
+        resultTimestamp.innerText = d.toLocaleString('ru-RU');
+    }
+    if (data.image) {
+        inspectionImage.src = '/images/' + data.image + '?t=' + Date.now();
+        inspectionImage.style.display = 'block';
+        noImage.style.display = 'none';
+    } else {
+        inspectionImage.style.display = 'none';
+        noImage.style.display = 'flex';
+    }
+    inspectionImage.onerror = function() {
+        noImage.style.display = 'flex';
+        inspectionImage.style.display = 'none';
+    };
+
+    if (data.raw) {
+        showRawData(data.raw);
+    } else {
+        hideRawData();
+    }
+}
+
+/**
  * Загружает последний результат инспекции с сервера и обновляет интерфейс.
- * Вызывается периодически (раз в 2 секунды).
+ * Вызывается периодически (раз в 2 секунды) как fallback для WebSocket.
  */
 async function updateStatus() {
     try {
         const response = await fetch('/api/status');
         const data = await response.json();
-
-        const resultCard = document.getElementById('resultCard');
-        const resultIcon = document.getElementById('resultIcon');
-        const resultTitle = document.getElementById('resultTitle');
-        const resultTimestamp = document.getElementById('resultTimestamp');
-        const inspectionImage = document.getElementById('inspectionImage');
-        const noImage = document.getElementById('noImage');
-
-        if (!data.result) {
-            resultCard.setAttribute('data-result', 'waiting');
-            resultIcon.innerText = '⏳';
-            resultTitle.innerText = 'Ожидание';
-            resultTimestamp.innerText = '—';
-            inspectionImage.style.display = 'none';
-            noImage.style.display = 'flex';
-            hideRawData();
-            return;
-        }
-
-        const isOk = data.result === 'OK';
-        const isNg = data.result === 'NG';
-        resultCard.setAttribute('data-result', isOk ? 'ok' : 'ng');
-        if (isOk) {
-            resultIcon.innerText = '✅';
-            resultTitle.innerText = 'Годен';
-        } else if (isNg) {
-            resultIcon.innerText = '❌';
-            resultTitle.innerText = 'Брак';
-        } else {
-            resultIcon.innerText = '⚠️';
-            resultTitle.innerText = 'Ошибка';
-        }
-
-        if (data.time) {
-            const d = new Date(data.time);
-            resultTimestamp.innerText = d.toLocaleString('ru-RU');
-        }
-        if (data.image) {
-            inspectionImage.src = '/images/' + data.image + '?t=' + Date.now();
-            inspectionImage.style.display = 'block';
-            noImage.style.display = 'none';
-        } else {
-            inspectionImage.style.display = 'none';
-            noImage.style.display = 'flex';
-        }
-        inspectionImage.onerror = function() {
-            noImage.style.display = 'flex';
-            inspectionImage.style.display = 'none';
-        };
-
-        if (data.raw) {
-            showRawData(data.raw);
-        } else {
-            hideRawData();
-        }
+        applyStatusData(data);
     } catch (error) {
         console.error('Ошибка обновления статуса:', error);
     }
