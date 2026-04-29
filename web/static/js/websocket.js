@@ -53,9 +53,16 @@ function initWebSocket() {
             wsConnected = true;
             reconnectAttempts = 0;
             updateConnectionIndicator('connected');
+            updateWsText('connected');
             
             // Подписываемся на обновления статуса
             socket.emit('subscribe_status');
+            
+            // Отключаем polling так как WebSocket активен
+            if (typeof window.stopPolling === 'function') {
+                window.stopPolling();
+                console.log('[WebSocket] Polling отключён');
+            }
             
             // Вызываем callback успешного подключения
             if (typeof onWebSocketConnect === 'function') {
@@ -68,6 +75,7 @@ function initWebSocket() {
             console.log(`[WebSocket] Отключено: ${reason}`);
             wsConnected = false;
             updateConnectionIndicator('disconnected');
+            updateWsText('disconnected');
             
             if (typeof onWebSocketDisconnect === 'function') {
                 onWebSocketDisconnect(reason);
@@ -79,6 +87,7 @@ function initWebSocket() {
             console.error('[WebSocket] Ошибка подключения:', error);
             wsConnected = false;
             updateConnectionIndicator('error');
+            updateWsText('error');
             
             reconnectAttempts++;
             if (reconnectAttempts >= MAX_RECONNECT_ATTEMPTS) {
@@ -184,6 +193,29 @@ function updateConnectionIndicator(state) {
             break;
         default:
             indicator.textContent = '⚪';
+    }
+}
+
+/**
+ * Обновляет текст индикатора WebSocket соединения в UI
+ * @param {string} state - 'connected', 'disconnected', 'error'
+ */
+function updateWsText(state) {
+    const wsText = document.getElementById('wsText');
+    if (!wsText) return;
+    
+    switch(state) {
+        case 'connected':
+            wsText.textContent = 'Real-time: подключено';
+            break;
+        case 'disconnected':
+            wsText.textContent = 'Real-time: отключено';
+            break;
+        case 'error':
+            wsText.textContent = 'Real-time: ошибка';
+            break;
+        default:
+            wsText.textContent = 'Real-time: подключение...';
     }
 }
 
