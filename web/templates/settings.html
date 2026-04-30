@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/static/css/style.css">
     <!-- Стили страницы настроек -->
     <link rel="stylesheet" href="/static/css/settings.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/fonts/inter.css">
 </head>
 <body>
 <div class="app-container" id="allrecords">
@@ -68,9 +68,6 @@
 
     <!-- ======================= ОСНОВНАЯ ОБЛАСТЬ ======================= -->
     <main class="main-content">
-        <!-- Уведомление (toast-style) -->
-        <div id="notification" class="notification hidden"></div>
-
         <!-- Верхняя панель с заголовком и логотипом VDT -->
         <div class="page-header">
             <div class="page-header__left">
@@ -83,6 +80,9 @@
                 <img src="/static/images/VDT-Service_logo%20(compact)_medium_2.jpg" alt="VDT Logo" class="vdt-logo">
             </div>
         </div>
+
+        <!-- Контейнер для toast-уведомлений -->
+        <div id="toastContainer" class="toast-container"></div>
 
         <!-- Панель действий с кнопками (перенесены под page-header) -->
         <div class="page-actions">
@@ -405,5 +405,6 @@
 <script src="/static/js/settings.js"></script>
     <!-- Скрипт переключения темы -->
     <script src="/static/js/theme.js"></script>
+    <script src="/static/js/toast.js"></script>
 </body>
 </html>
