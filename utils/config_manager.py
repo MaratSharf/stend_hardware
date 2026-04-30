@@ -2,6 +2,7 @@
 """
 Менеджер конфигурации для стенда машинного зрения.
 Предоставляет функции для чтения, записи, валидации и резервного копирования config.yaml.
+Поддерживает переменные окружения для чувствительных данных (пароли, ключи).
 """
 
 import os
@@ -9,6 +10,7 @@ import shutil
 import yaml
 from datetime import datetime
 from typing import Any, Dict, Optional
+from dotenv import load_dotenv
 
 
 class ConfigManager:
@@ -21,6 +23,8 @@ class ConfigManager:
         self.config_path = config_path
         self._config_cache: Optional[Dict[str, Any]] = None
         self._last_modified: float = 0.0
+        # Загружаем переменные окружения из .env файла
+        load_dotenv()
 
     def load(self, force: bool = False) -> Dict[str, Any]:
         """
@@ -42,7 +46,30 @@ class ConfigManager:
             self._config_cache = yaml.safe_load(f)
             self._last_modified = os.path.getmtime(self.config_path)
 
+        # Применяем переменные окружения для чувствительных данных
+        self._apply_env_variables()
+
         return self._config_cache
+
+    def _apply_env_variables(self) -> None:
+        """
+        Применяет переменные окружения для замены чувствительных данных в конфиге.
+        Приоритет: .env > config.yaml
+        """
+        if not self._config_cache:
+            return
+
+        # База данных
+        db_cfg = self._config_cache.get('database', {})
+        if db_cfg:
+            db_cfg['host'] = os.getenv('DB_HOST', db_cfg.get('host', 'localhost'))
+            db_cfg['port'] = int(os.getenv('DB_PORT', db_cfg.get('port', 5432)))
+            db_cfg['dbname'] = os.getenv('DB_NAME', db_cfg.get('dbname', 'stend_db'))
+            db_cfg['user'] = os.getenv('DB_USER', db_cfg.get('user', 'stend_user'))
+            # Пароль берём ТОЛЬКО из переменной окружения, если она задана
+            env_password = os.getenv('DB_PASSWORD')
+            if env_password:
+                db_cfg['password'] = env_password
 
     def save(self, config: Dict[str, Any]) -> bool:
         """

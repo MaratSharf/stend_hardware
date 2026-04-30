@@ -57,8 +57,9 @@ def main():
 
     # -------------------------- Загрузка конфигурации --------------------------
     try:
-        with open('config.yaml', 'r', encoding='utf-8') as f:
-            config = yaml.safe_load(f)
+        from utils.config_manager import get_config_manager
+        config_manager = get_config_manager('config.yaml')
+        config = config_manager.load()
     except FileNotFoundError:
         print("[ОШИБКА] Файл config.yaml не найден.")
         sys.exit(1)
