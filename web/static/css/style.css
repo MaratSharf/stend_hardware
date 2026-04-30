@@ -123,11 +123,18 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
+    flex-wrap: nowrap;
+    gap: 16px;
     margin-bottom: 12px;
     padding-bottom: 8px;
     border-bottom: 1px solid var(--border-color);
+}
+
+.page-header__left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
 }
 
 .page-header__title h1 {
@@ -142,9 +149,77 @@ body {
     color: var(--text-muted);
 }
 
+.page-header__right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
 .vdt-logo {
     height: 36px;
     width: auto;
+}
+
+/* Кнопка переключения темы - теперь в потоке */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+    flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+    background: var(--bg-hover);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+[data-theme="dark"] .theme-toggle {
+    background: #2d3748;
+    border-color: #4a5568;
+}
+
+/* Кнопка выхода - теперь в потоке */
+.btn-logout-main {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: rgba(214, 40, 40, 0.1);
+    color: var(--accent-danger);
+    border: 1px solid rgba(214, 40, 40, 0.3);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.btn-logout-main:hover {
+    background: rgba(214, 40, 40, 0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(214, 40, 40, 0.2);
+}
+
+/* Убираем старые fixed позиционирования */
+button.btn-logout-main,
+.theme-toggle {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
 }
 
 /* Панель действий – компактная, элементы в строку */
@@ -289,60 +364,4 @@ body {
     text-decoration: underline;
 }
 
-/* Кнопка выхода в правом верхнем углу (левее логотипа) */
-.btn-logout-main {
-    position: fixed;
-    top: 16px;
-    right: 180px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 16px;
-    background: rgba(214, 40, 40, 0.1);
-    color: var(--accent-danger);
-    border: 1px solid rgba(214, 40, 40, 0.3);
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s;
-    text-decoration: none;
-    z-index: 1000;
-}
-
-.btn-logout-main:hover {
-    background: rgba(214, 40, 40, 0.2);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(214, 40, 40, 0.2);
-}
-
-/* ===== КНОПКА ПЕРЕКЛЮЧЕНИЯ ТЕМЫ ===== */
-.theme-toggle {
-    position: fixed;
-    top: 16px;
-    right: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 50%;
-    font-size: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 1000;
-    box-shadow: var(--shadow-md);
-}
-
-.theme-toggle:hover {
-    background: var(--bg-hover);
-    transform: scale(1.1);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-}
-
-[data-theme="dark"] .theme-toggle {
-    background: #2d3748;
-    border-color: #4a5568;
-}
+/* Старые стили кнопок удалены - теперь используются новые в секции .page-header */

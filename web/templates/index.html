@@ -73,11 +73,16 @@
     <main class="main-content">
         <!-- Верхняя панель: заголовок страницы + логотип VDT -->
         <div class="page-header">
-            <div class="page-header__title">
-                <h1>Мониторинг</h1>
-                <p class="page-header__subtitle">Hikrobot MV-SC3016-06M-WBN</p>
+            <div class="page-header__left">
+                <div class="page-header__title">
+                    <h1>Мониторинг</h1>
+                    <p class="page-header__subtitle">Hikrobot MV-SC3016-06M-WBN</p>
+                </div>
             </div>
-            <div class="page-header__logo">
+            <div class="page-header__right">
+                <button id="logoutBtn" class="btn-logout-main" style="display: none;" title="Выйти из системы">
+                    <span>🚪</span> Выйти
+                </button>
                 <img src="/static/images/VDT-Service_logo%20(compact)_medium_2.jpg" alt="VDT Logo" class="vdt-logo">
             </div>
         </div>
@@ -239,12 +244,7 @@
     </main>
 </div>
 
-    <!-- Кнопка выхода (видна всем пользователям) -->
-<button id="logoutBtn" class="btn-logout-main" style="display: none;" title="Выйти из системы">
-    <span>🚪</span> Выйти
-</button>
-
-    <!-- Контейнер для всплывающих уведомлений (toast) -->
+<!-- Контейнер для всплывающих уведомлений (toast) -->
 <div id="toastContainer" class="toast-container"></div>
 
 <!-- ======================= СТИЛИ ДЛЯ БЛОКА ПОЛЬЗОВАТЕЛЯ В САЙДБАРЕ ======================= -->
