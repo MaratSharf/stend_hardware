@@ -1,0 +1,286 @@
+/* ============================================================
+   ui-enhancements.css - Дополнительные улучшения UI
+   Версия: 4.6 - Графики, карточки, анимации
+   ============================================================ */
+
+/* ===== СОВРЕМЕННЫЕ КАРТОЧКИ ===== */
+.card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: 20px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.card-icon.primary { background: linear-gradient(135deg, rgba(3, 81, 193, 0.1), rgba(59, 130, 246, 0.1)); }
+.card-icon.success { background: linear-gradient(135deg, rgba(0, 168, 107, 0.1), rgba(16, 185, 129, 0.1)); }
+.card-icon.danger { background: linear-gradient(135deg, rgba(214, 40, 40, 0.1), rgba(239, 68, 68, 0.1)); }
+.card-icon.warning { background: linear-gradient(135deg, rgba(244, 161, 0, 0.1), rgba(251, 191, 36, 0.1)); }
+
+/* ===== СТАТИСТИЧЕСКИЕ КАРТОЧКИ ===== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.stat-card.primary {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-primary-light));
+    color: white;
+    border: none;
+}
+
+.stat-card.success {
+    background: linear-gradient(135deg, var(--accent-success), var(--accent-success-light));
+    color: white;
+    border: none;
+}
+
+.stat-card.danger {
+    background: linear-gradient(135deg, var(--accent-danger), var(--accent-danger-light));
+    color: white;
+    border: none;
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    margin-top: 4px;
+}
+
+/* ===== ГРАФИКИ (Chart.js стилизация) ===== */
+.chart-container {
+    position: relative;
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.chart-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.chart-legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+}
+
+/* ===== ТАБЛИЦЫ ===== */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.data-table th,
+.data-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.data-table th {
+    background: var(--bg-hover);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.data-table tr:hover {
+    background: var(--bg-hover);
+}
+
+.data-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* ===== BADGES ===== */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-primary {
+    background: rgba(3, 81, 193, 0.1);
+    color: var(--accent-primary);
+}
+
+.badge-success {
+    background: rgba(0, 168, 107, 0.1);
+    color: var(--accent-success);
+}
+
+.badge-danger {
+    background: rgba(214, 40, 40, 0.1);
+    color: var(--accent-danger);
+}
+
+.badge-warning {
+    background: rgba(244, 161, 0, 0.1);
+    color: var(--accent-warning);
+}
+
+.badge-info {
+    background: rgba(6, 182, 212, 0.1);
+    color: var(--accent-cyan);
+}
+
+/* ===== ПРОГРЕСС БАРЫ ===== */
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--bg-hover);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+.progress-fill.primary { background: var(--gradient-blue); }
+.progress-fill.success { background: var(--gradient-success); }
+.progress-fill.danger { background: var(--gradient-danger); }
+.progress-fill.warning { background: var(--gradient-warning); }
+
+/* ===== АНИМАЦИИ ===== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.animate-fadeIn { animation: fadeIn 0.3s ease; }
+.animate-slideUp { animation: slideUp 0.4s ease; }
+.animate-pulse { animation: pulse 2s infinite; }
+
+/* ===== ТЁМНАЯ ТЕМА ДЛЯ ЭЛЕМЕНТОВ ===== */
+[data-theme="dark"] .stat-card.primary,
+[data-theme="dark"] .stat-card.success,
+[data-theme="dark"] .stat-card.danger {
+    opacity: 0.9;
+}
+
+[data-theme="dark"] .card-icon.primary {
+    background: linear-gradient(135deg, rgba(3, 81, 193, 0.2), rgba(59, 130, 246, 0.2));
+}
+
+[data-theme="dark"] .data-table th {
+    background: var(--bg-hover);
+}
