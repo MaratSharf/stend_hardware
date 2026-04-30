@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="/static/css/style.css">
     <!-- Стили для страницы мониторинга -->
     <link rel="stylesheet" href="/static/css/monitoring.css">
-    <!-- Шрифт Inter (аналог TildaSans) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Шрифт Inter (локально) -->
+    <link rel="stylesheet" rel="stylesheet" href="/static/fonts/inter.css">
 </head>
 <body>
 <div class="app-container" id="allrecords">
@@ -295,11 +295,46 @@
 .btn-logout:hover {
     background: rgba(220, 38, 38, 0.1);
 }
+/* Улучшенные стили для карточек результатов */
+.t-card_result[data-result="ok"] {
+    background: linear-gradient(135deg, rgba(0, 168, 107, 0.08), rgba(0, 168, 107, 0.02));
+    border: 1px solid rgba(0, 168, 107, 0.3);
+}
+.t-card_result[data-result="ng"] {
+    background: linear-gradient(135deg, rgba(214, 40, 40, 0.08), rgba(214, 40, 40, 0.02));
+    border: 1px solid rgba(214, 40, 40, 0.3);
+}
+.t-card_result[data-result="waiting"] {
+    background: linear-gradient(135deg, rgba(244, 161, 0, 0.08), rgba(244, 161, 0, 0.02));
+    border: 1px solid rgba(244, 161, 0, 0.3);
+}
+/* Анимация для карточки результата */
+.t-card_result {
+    transition: all 0.3s ease;
+}
+@keyframes resultPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+.t-card_result[data-result="ok"].animate,
+.t-card_result[data-result="ng"].animate {
+    animation: resultPulse 0.5s ease;
+}
+/* Тёмная тема для карточек */
+[data-theme="dark"] .t-card_result[data-result="ok"] {
+    background: linear-gradient(135deg, rgba(0, 168, 107, 0.15), rgba(0, 168, 107, 0.05));
+}
+[data-theme="dark"] .t-card_result[data-result="ng"] {
+    background: linear-gradient(135deg, rgba(214, 40, 40, 0.15), rgba(214, 40, 40, 0.05));
+}
+[data-theme="dark"] .t-card_result[data-result="waiting"] {
+    background: linear-gradient(135deg, rgba(244, 161, 0, 0.15), rgba(244, 161, 0, 0.05));
+}
 </style>
 
 <!-- ======================= СКРИПТЫ ======================= -->
 <!-- Socket.IO клиентская библиотека (CDN) -->
-<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+<script src="/static/js/vendor/socket.io.min.js"></script>
 <!-- Базовые скрипты -->
 <script src="/static/js/common.js"></script>
 <script src="/static/js/auth.js"></script>
@@ -307,6 +342,8 @@
 <script src="/static/js/sidebar.js"></script>
 <!-- Скрипт переключения темы -->
 <script src="/static/js/theme.js"></script>
+<!-- Современная система toast-уведомлений -->
+<script src="/static/js/toast.js"></script>
 <!-- WebSocket клиент для real-time обновлений -->
 <script src="/static/js/websocket.js"></script>
 <!-- Основной скрипт мониторинга -->
