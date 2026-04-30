@@ -306,3 +306,43 @@ AttributeError: 'Request' object has no attribute 'is_xhr'
 2026-04-28 12:27:53 - INFO - web - ===== WEB APP STARTED =====
 2026-04-28 12:28:14 - INFO - web - ===== WEB APP STARTED =====
 2026-04-28 12:28:16 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-04-29 11:23:14 - INFO - web - ===== WEB APP STARTED =====
+2026-04-29 11:23:15 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-04-29 11:23:40 - INFO - web - Клиент подключился к WebSocket: GUgejmR-7Ceo5O8hAAAB
+2026-04-29 11:23:40 - INFO - web - Клиент GUgejmR-7Ceo5O8hAAAB подписался на обновления статуса
+2026-04-29 11:23:50 - INFO - web - Клиент отключился от WebSocket: GUgejmR-7Ceo5O8hAAAB
+2026-04-30 11:53:23 - INFO - web - ===== WEB APP STARTED =====
+2026-04-30 11:53:24 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-04-30 11:53:32 - INFO - web - Клиент подключился к WebSocket: 5xOXXX_jqK1I89pwAAAB
+2026-04-30 11:53:32 - INFO - web - Клиент 5xOXXX_jqK1I89pwAAAB подписался на обновления статуса
+2026-04-30 11:53:43 - INFO - web - Клиент отключился от WebSocket: 5xOXXX_jqK1I89pwAAAB
+2026-04-30 12:02:32 - INFO - web - ===== WEB APP STARTED =====
+2026-04-30 12:02:32 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-04-30 12:02:43 - INFO - web - Клиент подключился к WebSocket: ZHNC3yxuh3Br9HlLAAAB
+2026-04-30 12:02:43 - INFO - web - Клиент ZHNC3yxuh3Br9HlLAAAB подписался на обновления статуса
+2026-04-30 12:03:28 - INFO - web - Клиент отключился от WebSocket: ZHNC3yxuh3Br9HlLAAAB
+2026-04-30 12:03:32 - INFO - web - Клиент подключился к WebSocket: Rq_UOQJgXsHG_m0fAAAD
+2026-04-30 12:03:32 - INFO - web - Клиент Rq_UOQJgXsHG_m0fAAAD подписался на обновления статуса
+2026-04-30 12:03:32 - INFO - web - Клиент отключился от WebSocket: Rq_UOQJgXsHG_m0fAAAD
+2026-04-30 12:52:01 - INFO - web - ===== WEB APP STARTED =====
+2026-04-30 12:52:02 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-04-30 12:52:12 - INFO - web - Клиент подключился к WebSocket: TufuB_5UEwawrikPAAAB
+2026-04-30 12:52:12 - INFO - web - Клиент TufuB_5UEwawrikPAAAB подписался на обновления статуса
+2026-04-30 12:52:18 - INFO - web - Клиент отключился от WebSocket: TufuB_5UEwawrikPAAAB
+2026-04-30 12:52:19 - INFO - web - Клиент подключился к WebSocket: R00aFNTkgHHofsr7AAAD
+2026-04-30 12:52:19 - INFO - web - Клиент R00aFNTkgHHofsr7AAAD подписался на обновления статуса
+2026-04-30 12:52:27 - INFO - web - Клиент отключился от WebSocket: R00aFNTkgHHofsr7AAAD
+2026-04-30 12:59:21 - INFO - web - ===== WEB APP STARTED =====
+2026-04-30 12:59:21 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-04-30 12:59:36 - INFO - web - Клиент подключился к WebSocket: MaQEZJYWpAC7GV5IAAAB
+2026-04-30 12:59:36 - INFO - web - Клиент MaQEZJYWpAC7GV5IAAAB подписался на обновления статуса
+2026-04-30 12:59:39 - INFO - web - Клиент отключился от WebSocket: MaQEZJYWpAC7GV5IAAAB
+2026-04-30 13:00:22 - INFO - web - Клиент подключился к WebSocket: lmPsSCEPf8xDjqu4AAAD
+2026-04-30 13:00:22 - INFO - web - Клиент lmPsSCEPf8xDjqu4AAAD подписался на обновления статуса
+2026-04-30 13:33:33 - INFO - web - ===== WEB APP STARTED =====
+2026-04-30 13:33:34 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-04-30 13:33:42 - INFO - web - Клиент подключился к WebSocket: xbmx3VhmC_SfaMjIAAAB
+2026-04-30 13:33:42 - INFO - web - Клиент xbmx3VhmC_SfaMjIAAAB подписался на обновления статуса
+2026-04-30 13:33:44 - INFO - web - Клиент отключился от WebSocket: xbmx3VhmC_SfaMjIAAAB
+2026-04-30 13:33:49 - INFO - web - Клиент подключился к WebSocket: 3XXki9wTR_Mw89-8AAAD
+2026-04-30 13:33:49 - INFO - web - Клиент 3XXki9wTR_Mw89-8AAAD подписался на обновления статуса
