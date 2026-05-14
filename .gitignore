@@ -1,29 +1,23 @@
-```gitignore
+```
 # Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 .Python
-env/
 venv/
 .venv/
-.ENV
-.ENV.local
 .env
 .env.local
-.env.*
+*.env.*
+
+# Build artifacts
+utils/__pycache__/
 
 # Logs
 *.log
-logs/
 
-# Dependencies
-requirements.txt.bak
-
-# Coverage reports
-.coverage
-htmlcov/
-.coverage.*
-coverage.xml
+# OS generated files
+.DS_Store
+Thumbs.db
 ```

@@ -58,4 +58,5 @@ database:
   port: 5432
   dbname: stend_db
   user: stend_user
-  password: Alexej@12
+  # Пароль вынесен в .env файл (переменная DB_PASSWORD)
+  # password: ЗАКОММЕНТИРОВАНО ДЛЯ БЕЗОПАСНОСТИ - используйте переменную окружения
