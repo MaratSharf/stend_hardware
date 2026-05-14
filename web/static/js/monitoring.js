@@ -12,6 +12,10 @@
 // ==================== ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ====================
 // Кэш русских названий проектов (заполняется из БД)
 let projectRussianNamesCache = {};
+// Кэш текущего технического имени проекта (чтобы не запрашивать каждый раз)
+let currentProjectName = '';
+// Кэш последнего пути изображения (чтобы не перезагружать то же самое)
+let lastImagePath = '';
 
 // ==================== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ====================
 
@@ -398,6 +402,7 @@ async function initScenarioSelection() {
 /**
  * Загружает с сервера текущий проект камеры и обновляет отображение.
  * Использует русские названия через getRussianProjectName.
+ * Кэширует результат в currentProjectName.
  */
 async function updateProjectDisplay() {
     try {
@@ -405,6 +410,7 @@ async function updateProjectDisplay() {
         const data = await response.json();
         if (data.success) {
             const projectName = data.project_name || '—';
+            currentProjectName = projectName || ''; // кэшируем
             const russianName = await getRussianProjectName(projectName);
             const projectElement = document.getElementById('projectName');
             if (projectElement) projectElement.innerText = russianName;
@@ -571,12 +577,17 @@ function applyStatusData(data) {
         resultTimestamp.innerText = d.toLocaleString('ru-RU');
     }
     if (data.image) {
-        inspectionImage.src = '/images/' + data.image + '?t=' + Date.now();
+        const newPath = '/images/' + data.image;
+        if (lastImagePath !== newPath) {
+            inspectionImage.src = newPath + '?t=' + Date.now();
+            lastImagePath = newPath;
+        }
         inspectionImage.style.display = 'block';
         noImage.style.display = 'none';
     } else {
         inspectionImage.style.display = 'none';
         noImage.style.display = 'flex';
+        lastImagePath = '';
     }
     inspectionImage.onerror = function() {
         noImage.style.display = 'flex';
@@ -607,13 +618,19 @@ async function updateStatus() {
 // ==================== ОТОБРАЖЕНИЕ РАСПОЗНАННЫХ ДАННЫХ (КОД, ТЕКСТ, ЦВЕТ) ====================
 
 async function showRawData(raw) {
-    let projectName = '';
-    try {
-        const response = await fetch('/api/current_project');
-        const data = await response.json();
-        if (data.success) projectName = data.project_name || '';
-    } catch (error) {
-        console.error('Ошибка получения проекта:', error);
+    // Используем кэшированное имя проекта, если оно есть
+    let projectName = currentProjectName;
+    if (!projectName) {
+        try {
+            const response = await fetch('/api/current_project');
+            const data = await response.json();
+            if (data.success) {
+                projectName = data.project_name || '';
+                currentProjectName = projectName;
+            }
+        } catch (error) {
+            console.error('Ошибка получения проекта:', error);
+        }
     }
 
     const instrumentType = getInstrumentType(projectName);
