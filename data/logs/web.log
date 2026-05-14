@@ -346,3 +346,18 @@ AttributeError: 'Request' object has no attribute 'is_xhr'
 2026-04-30 13:33:44 - INFO - web - Клиент отключился от WebSocket: xbmx3VhmC_SfaMjIAAAB
 2026-04-30 13:33:49 - INFO - web - Клиент подключился к WebSocket: 3XXki9wTR_Mw89-8AAAD
 2026-04-30 13:33:49 - INFO - web - Клиент 3XXki9wTR_Mw89-8AAAD подписался на обновления статуса
+2026-05-14 09:03:49 - INFO - web - ===== WEB APP STARTED =====
+2026-05-14 09:03:50 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-14 09:04:25 - INFO - web - Клиент подключился к WebSocket: n-7y0pQ_1a11n2jIAAAB
+2026-05-14 09:04:25 - INFO - web - Клиент n-7y0pQ_1a11n2jIAAAB подписался на обновления статуса
+2026-05-14 09:11:19 - INFO - web - Клиент отключился от WebSocket: n-7y0pQ_1a11n2jIAAAB
+2026-05-14 09:11:50 - INFO - web - Клиент подключился к WebSocket: 2VoDLnf14ln4XlzLAAAD
+2026-05-14 09:11:50 - INFO - web - Клиент 2VoDLnf14ln4XlzLAAAD подписался на обновления статуса
+2026-05-14 09:11:52 - INFO - web - Установка web_selection_enabled = True
+2026-05-14 09:11:57 - INFO - web - Установка web_selection_enabled = False
+2026-05-14 09:12:08 - INFO - web - Переключение офлайн-режима: True
+2026-05-14 09:12:14 - INFO - web - Переключение офлайн-режима: False
+2026-05-14 09:12:27 - INFO - web - Клиент отключился от WebSocket: 2VoDLnf14ln4XlzLAAAD
+2026-05-14 09:12:33 - INFO - web - Клиент подключился к WebSocket: i7DEQp5qeOKxmJ_IAAAF
+2026-05-14 09:12:33 - INFO - web - Клиент i7DEQp5qeOKxmJ_IAAAF подписался на обновления статуса
+2026-05-14 09:12:52 - INFO - web - Клиент отключился от WebSocket: i7DEQp5qeOKxmJ_IAAAF

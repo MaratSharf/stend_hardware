@@ -2658,3 +2658,9 @@
 2026-04-30 13:34:03 - INFO - hikrobot - Попытка подключения...
 2026-04-30 13:34:06 - ERROR - hikrobot - Ошибка подключения
 2026-04-30 13:34:07 - INFO - hikrobot - Соединение закрыто
+2026-05-14 09:03:49 - INFO - hikrobot - Инициализация: IP=192.168.1.36, порт=502, unit=1, verify_switch=False
+2026-05-14 09:03:49 - WARNING - hikrobot - Попытка переподключения (задержка 1.0с)...
+2026-05-14 09:03:49 - INFO - hikrobot - Попытка подключения...
+2026-05-14 09:03:49 - INFO - hikrobot - Подключение успешно
+2026-05-14 09:03:49 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 09:58:08 - INFO - hikrobot - Соединение закрыто
