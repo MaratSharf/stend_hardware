@@ -11,49 +11,37 @@
     min-height: 0;          /* крайне важно для flex-детей с overflow */
 }
 
-/* Сетка из двух колонок (7:5) */
-.t-container_flex {
-    display: grid;
-    grid-template-columns: 7fr 5fr;
-    gap: 24px;
-    flex: 1;
-    min-height: 0;
-}
-
-/* Левая колонка – результат */
-.t-col_7 {
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;       /* если контент не влезает – скролл внутри колонки */
-    min-height: 0;
-}
-
-/* Правая колонка – статусы */
-.t-col_5 {
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    min-height: 0;
-    gap: 16px;
-}
-
-/* Карточка результата */
+/* Карточка результата — растягивается на всю доступную высоту */
 .t-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     background: var(--bg-card);
     border-radius: 20px;
     box-shadow: var(--shadow-md);
-    margin-bottom: 16px;
+    min-height: 0;
+    overflow: hidden;
 }
 
 .t-card_result {
     padding: 20px;
+    gap: 16px;
 }
 
+.t-card_result > .t-card_result {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    gap: 16px;
+}
+
+/* Заголовок — фиксированная высота */
 .t-card__header {
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-bottom: 16px;
+    flex-shrink: 0;
 }
 
 .t-card__icon {
@@ -70,19 +58,32 @@
     color: var(--text-muted);
 }
 
-/* Изображение – сжимается по высоте */
+/* Изображение — растягивается на всё доступное пространство */
 .t-card__image {
-    background: #f9f9f9;
-    border-radius: 16px;
+    flex: 1;
     display: flex;
     justify-content: center;
-    margin-bottom: 16px;
-    max-height: 250px;
+    align-items: center;
+    min-height: 0;
+    background: #f9f9f9;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.t-image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
 .t-image {
     max-width: 100%;
-    max-height: 250px;
+    max-height: 100%;
+    width: auto;
+    height: auto;
     object-fit: contain;
 }
 
