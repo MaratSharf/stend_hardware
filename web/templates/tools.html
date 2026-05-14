@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/static/css/style.css">
     <!-- Стили страницы инструментов -->
     <link rel="stylesheet" href="/static/css/tools.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/fonts/inter.css">
 </head>
 <body>
 <div class="app-container" id="allrecords">
@@ -70,11 +70,13 @@
     <main class="main-content">
         <!-- Верхняя панель с заголовком и логотипом VDT -->
         <div class="page-header">
-            <div class="page-header__title">
-                <h1>Инструменты</h1>
-                <p class="page-header__subtitle">Библиотека инструментов машинного зрения Hikrobot</p>
+            <div class="page-header__left">
+                <div class="page-header__title">
+                    <h1>Инструменты</h1>
+                    <p class="page-header__subtitle">Библиотека инструментов машинного зрения Hikrobot</p>
+                </div>
             </div>
-            <div class="page-header__logo">
+            <div class="page-header__right">
                 <img src="/static/images/VDT-Service_logo%20(compact)_medium_2.jpg" alt="VDT Logo" class="vdt-logo">
             </div>
         </div>
@@ -175,5 +177,8 @@
 <script src="/static/js/connection_monitor.js"></script>
 <script src="/static/js/sidebar.js"></script>
 <script src="/static/js/tools.js"></script>
+    <!-- Скрипт переключения темы -->
+    <script src="/static/js/theme.js"></script>
+    <script src="/static/js/toast.js"></script>
 </body>
 </html>

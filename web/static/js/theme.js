@@ -17,9 +17,25 @@ function initTheme() {
 }
 
 /**
- * Создание кнопки переключения темы
+ * Создание кнопки переключения темы в шапке страницы
  */
 function createThemeToggle() {
+    // Находим правую часть шапки
+    let headerRight = document.querySelector('.page-header__right');
+    
+    // Если не нашли, создаём структуру
+    if (!headerRight) {
+        const pageHeader = document.querySelector('.page-header');
+        if (pageHeader) {
+            headerRight = document.createElement('div');
+            headerRight.className = 'page-header__right';
+            pageHeader.appendChild(headerRight);
+        }
+    }
+    
+    if (!headerRight) return;
+    
+    // Создаём кнопку переключения темы
     const toggle = document.createElement('button');
     toggle.className = 'theme-toggle';
     toggle.setAttribute('aria-label', 'Переключить тему');
@@ -28,7 +44,13 @@ function createThemeToggle() {
     
     toggle.addEventListener('click', () => toggleTheme());
     
-    document.body.appendChild(toggle);
+    // Добавляем кнопку в правую часть шапки (перед логотипом)
+    const logo = headerRight.querySelector('.vdt-logo');
+    if (logo) {
+        headerRight.insertBefore(toggle, logo);
+    } else {
+        headerRight.appendChild(toggle);
+    }
 }
 
 /**
