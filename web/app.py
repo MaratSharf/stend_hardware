@@ -20,8 +20,16 @@ def create_app(config: dict, controller, db) -> Flask:
     app.config['controller'] = controller
     app.config['db'] = db
 
-    # Инициализация Socket.IO
-    socketio = SocketIO(app, cors_allowed_origins="*", async_mode='threading')
+    # Инициализация Socket.IO с оптимизированными параметрами
+    socketio = SocketIO(
+        app, 
+        cors_allowed_origins="*", 
+        async_mode='threading',
+        ping_timeout=60,
+        ping_interval=25,
+        engineio_logger=False,
+        logger=False
+    )
     app.config['socketio'] = socketio
 
     # Логгер
@@ -75,7 +83,10 @@ def create_app(config: dict, controller, db) -> Flask:
 
     @socketio.on('disconnect')
     def handle_disconnect():
-        app.logger.info(f"Клиент отключился от WebSocket: {request.sid}")
+        try:
+            app.logger.info(f"Клиент отключился от WebSocket: {request.sid}")
+        except Exception:
+            pass  # Игнорируем ошибки при записи лога после разрыва соединения
 
     @socketio.on('subscribe_status')
     def handle_subscribe():
@@ -113,10 +124,14 @@ def create_app(config: dict, controller, db) -> Flask:
                     }
                     
                     # Отправляем всем подключенным клиентам
-                    socketio.emit('status_update', update_data)
-                    
+                    try:
+                        socketio.emit('status_update', update_data)
+                    except Exception as emit_error:
+                        app.logger.debug(f"Ошибка при отправке обновления: {emit_error}")
+                        
             except Exception as e:
                 app.logger.error(f"Ошибка в broadcast_status: {e}")
+                time.sleep(1)  # Пауза при ошибке
     
     # Запускаем фоновый поток рассылки
     broadcast_thread = threading.Thread(target=broadcast_status, daemon=True)
