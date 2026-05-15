@@ -20,8 +20,15 @@ def create_app(config: dict, controller, db) -> Flask:
     app.config['controller'] = controller
     app.config['db'] = db
 
-    # Инициализация Socket.IO
-    socketio = SocketIO(app, cors_allowed_origins="*", async_mode='threading')
+    # Инициализация Socket.IO (threading mode — только HTTP long-polling, WebSocket не поддерживается)
+    socketio = SocketIO(
+        app,
+        cors_allowed_origins="*",
+        async_mode='threading',
+        allow_upgrades=False,
+        logger=False,
+        engineio_logger=False
+    )
     app.config['socketio'] = socketio
 
     # Логгер
@@ -83,11 +90,14 @@ def create_app(config: dict, controller, db) -> Flask:
         app.logger.info(f"Клиент {request.sid} подписался на обновления статуса")
 
     # Фоновый поток для периодической рассылки обновлений статуса
+    _last_update_hash = None
+    
     def broadcast_status():
         """Периодически отправляет обновления статуса всем подключенным клиентам"""
+        nonlocal _last_update_hash
         while True:
             try:
-                time.sleep(0.5)  # Обновление каждые 500мс для real-time ощущения
+                time.sleep(1.0)  # Обновление каждые 1000мс (баланс между real-time и нагрузкой)
                 
                 if controller:
                     # Получаем данные от контроллера
@@ -112,8 +122,12 @@ def create_app(config: dict, controller, db) -> Flask:
                         'timestamp': time.time()
                     }
                     
-                    # Отправляем всем подключенным клиентам
-                    socketio.emit('status_update', update_data)
+                    # Отправляем только если данные изменились (экономия трафика)
+                    import hashlib
+                    current_hash = hashlib.md5(str(update_data).encode()).hexdigest()
+                    if current_hash != _last_update_hash:
+                        _last_update_hash = current_hash
+                        socketio.emit('status_update', update_data)
                     
             except Exception as e:
                 app.logger.error(f"Ошибка в broadcast_status: {e}")
