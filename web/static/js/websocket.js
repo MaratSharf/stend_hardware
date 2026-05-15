@@ -39,12 +39,13 @@ function initWebSocket() {
     
     try {
         socket = io(wsUrl, {
-            transports: ['websocket', 'polling'],
+            transports: ['websocket'],  // Используем только WebSocket для уменьшения количества запросов
             reconnection: true,
             reconnectionDelay: RECONNECT_DELAY_MS,
             reconnectionDelayMax: 10000,
             reconnectionAttempts: MAX_RECONNECT_ATTEMPTS,
-            timeout: 20000
+            timeout: 20000,
+            upgrade: false  // Отключаем апгрейд, так как используем только WebSocket
         });
 
         // Обработчик подключения
@@ -91,7 +92,9 @@ function initWebSocket() {
             
             reconnectAttempts++;
             if (reconnectAttempts >= MAX_RECONNECT_ATTEMPTS) {
-                console.warn('[WebSocket] Превышено максимальное количество попыток подключения, используем polling');
+                console.warn('[WebSocket] Превышено максимальное количество попыток подключения, пробуем fallback на polling');
+                // Пытаемся подключиться с polling как fallback
+                tryFallbackPolling();
                 if (typeof onWebSocketMaxRetriesExceeded === 'function') {
                     onWebSocketMaxRetriesExceeded();
                 }
@@ -245,9 +248,69 @@ function onWebSocketDisconnect(reason) {
  */
 function onWebSocketMaxRetriesExceeded() {
     console.warn('[WebSocket] Событие: превышено количество попыток подключения');
-    // Можно показать пользователю уведомление о переходе на polling
+    // Показываем пользователю уведомление о проблеме с WebSocket
     if (typeof window.showToast === 'function') {
-        window.showToast('Режим реального времени недоступен, используется периодическое обновление', 'warning');
+        window.showToast('WebSocket недоступен. Проверьте сеть или брандмауэр.', 'error');
+    }
+}
+
+/**
+ * Пытается подключиться с использованием polling как fallback
+ * Вызывается только когда WebSocket недоступен после нескольких попыток
+ */
+function tryFallbackPolling() {
+    console.log('[WebSocket] Попытка fallback на polling...');
+    // Пересоздаем сокет с поддержкой polling
+    if (socket) {
+        socket.close();
+    }
+    
+    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    const wsUrl = `${protocol}//${window.location.host}`;
+    
+    try {
+        socket = io(wsUrl, {
+            transports: ['websocket', 'polling'],  // Разрешаем оба транспорта для fallback
+            reconnection: true,
+            reconnectionDelay: RECONNECT_DELAY_MS,
+            reconnectionDelayMax: 10000,
+            reconnectionAttempts: MAX_RECONNECT_ATTEMPTS,
+            timeout: 20000
+        });
+        
+        // Восстанавливаем обработчики событий
+        socket.on('connect', () => {
+            console.log('[WebSocket/Polling] Подключено');
+            wsConnected = true;
+            reconnectAttempts = 0;
+            updateConnectionIndicator('connected');
+            updateWsText('connected');
+            socket.emit('subscribe_status');
+            if (typeof window.stopPolling === 'function') {
+                window.stopPolling();
+            }
+            if (typeof onWebSocketConnect === 'function') {
+                onWebSocketConnect();
+            }
+        });
+        
+        socket.on('disconnect', (reason) => {
+            console.log(`[WebSocket/Polling] Отключено: ${reason}`);
+            wsConnected = false;
+            updateConnectionIndicator('disconnected');
+            updateWsText('disconnected');
+            if (typeof onWebSocketDisconnect === 'function') {
+                onWebSocketDisconnect(reason);
+            }
+        });
+        
+        socket.on('status_update', (data) => {
+            handleStatusUpdate(data);
+        });
+        
+        console.log('[WebSocket] Fallback на polling активирован');
+    } catch (error) {
+        console.error('[WebSocket] Ошибка при fallback на polling:', error);
     }
 }
 

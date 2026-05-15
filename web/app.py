@@ -1,4 +1,11 @@
 # web/app.py
+# Импорт gevent для асинхронного режима - должен быть выполнен до всех остальных импортов
+try:
+    from gevent import monkey
+    monkey.patch_all()
+except ImportError:
+    pass  # gevent не установлен, используем threading режим
+
 import os
 import secrets
 import threading
@@ -20,15 +27,19 @@ def create_app(config: dict, controller, db) -> Flask:
     app.config['controller'] = controller
     app.config['db'] = db
 
-    # Инициализация Socket.IO с оптимизированными параметрами
+    # Инициализация Socket.IO с оптимизированными параметрами для WebSocket
+    # Используем gevent для асинхронной обработки WebSocket соединений
     socketio = SocketIO(
         app, 
         cors_allowed_origins="*", 
-        async_mode='threading',
+        async_mode='gevent',  # Асинхронный режим для высокой производительности
         ping_timeout=60,
         ping_interval=25,
         engineio_logger=False,
-        logger=False
+        logger=False,
+        allow_upgrades=True,  # Разрешить переход от polling к WebSocket
+        http_compression=True,  # Включить сжатие HTTP
+        max_http_buffer_size=1e6  # Максимальный размер HTTP буфера (1MB)
     )
     app.config['socketio'] = socketio
 

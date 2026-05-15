@@ -1,33 +1,38 @@
-```gitignore
+```
 # Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-.Python
-env/
+
+# Dependencies
 venv/
 .venv/
-.ENV
-.python-version
-pip-log.txt
-pip-delete-this-directory.txt
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
+.env
+.env.local
+*.env.*
+
+# Logs
 *.log
-*.sqlite
-*.sqlite3
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+
+# Build/dist
+dist/
+build/
+target/
+
+# Coverage
+.coverage
+coverage/
+htmlcov/
+
+# OS
 .DS_Store
 Thumbs.db
-```
-
-Wait, let me reconsider. The modified files are only `run.py` and `web/app.py` - these are just Python source files. There are no build artifacts, dependency directories, or temporary files in the changes list. Following rule #6, since the changes contain only source files (.py) and no build artifacts, dependencies, or temp files, the output should be empty.
-
-```gitignore
-
 ```
