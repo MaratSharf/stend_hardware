@@ -131,14 +131,14 @@ function renderTools(tools) {
         container.innerHTML = `<div class="empty-state"><div class="empty-state-icon">📭</div><p>${message}</p></div>`;
         return;
     }
-    container.innerHTML = tools.map(tool => `
+    container.innerHTML = '<div class="tools-grid">' + tools.map(tool => `
         <div class="tool-card" data-id="${tool.tool_id}" data-project="${tool.project_name}">
             <div class="tool-card-content">
                 <div class="tool-project"><span class="tool-project-label">Проект:</span> ${escapeHtml(tool.project_name || '—')}</div>
                 <div class="tool-name-ru">${escapeHtml(tool.name_ru || tool.name_en || 'Без названия')}</div>
             </div>
         </div>
-    `).join('');
+    `).join('') + '</div>';
     document.querySelectorAll('.tool-card').forEach(card => {
         card.addEventListener('click', () => selectTool(card));
     });
