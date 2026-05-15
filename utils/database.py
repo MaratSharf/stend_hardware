@@ -121,11 +121,26 @@ class Database:
                     subroutine_ru TEXT,
                     subroutine_en TEXT,
                     project_name TEXT,
-                    project_name_display TEXT
+                    project_name_display TEXT,
+                    is_favorite BOOLEAN DEFAULT FALSE
                 )
             """)
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_tools_tool_id ON tools(tool_id)")
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_tools_category ON tools(category_ru)")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_tools_favorite ON tools(is_favorite)")
+            
+            # Добавляем колонку is_favorite если её нет (для существующих БД)
+            cursor.execute("""
+                DO $$ 
+                BEGIN 
+                    IF NOT EXISTS (
+                        SELECT 1 FROM information_schema.columns 
+                        WHERE table_name = 'tools' AND column_name = 'is_favorite'
+                    ) THEN
+                        ALTER TABLE tools ADD COLUMN is_favorite BOOLEAN DEFAULT FALSE;
+                    END IF;
+                END $$;
+            """)
 
             # Таблица заказов (для совместимости с MES, в MV не используется)
             cursor.execute("""
@@ -299,9 +314,12 @@ class Database:
             row = cursor.fetchone()
             return row['id'] if row else 0
 
-    def get_all_tools(self) -> List[Dict]:
+    def get_all_tools(self, favorites_only: bool = False) -> List[Dict]:
         with self.get_connection() as cursor:
-            cursor.execute("SELECT * FROM tools ORDER BY tool_id")
+            if favorites_only:
+                cursor.execute("SELECT * FROM tools WHERE is_favorite = TRUE ORDER BY tool_id")
+            else:
+                cursor.execute("SELECT * FROM tools ORDER BY tool_id")
             return [dict(row) for row in cursor.fetchall()]
 
     def get_tool_by_id(self, tool_id: str) -> Optional[Dict]:
@@ -309,6 +327,31 @@ class Database:
             cursor.execute("SELECT * FROM tools WHERE tool_id = %s", (tool_id,))
             row = cursor.fetchone()
             return dict(row) if row else None
+
+    def toggle_favorite(self, tool_id: str, user_id: int) -> bool:
+        """Переключает статус избранного для инструмента"""
+        with self.get_connection() as cursor:
+            # Проверяем текущий статус
+            cursor.execute("SELECT is_favorite FROM tools WHERE tool_id = %s", (tool_id,))
+            row = cursor.fetchone()
+            if not row:
+                return False
+            
+            new_status = not row['is_favorite']
+            cursor.execute("UPDATE tools SET is_favorite = %s WHERE tool_id = %s", (new_status, tool_id))
+            return new_status
+
+    def set_favorite(self, tool_id: str, is_favorite: bool) -> bool:
+        """Устанавливает статус избранного для инструмента"""
+        with self.get_connection() as cursor:
+            cursor.execute("UPDATE tools SET is_favorite = %s WHERE tool_id = %s", (is_favorite, tool_id))
+            return cursor.rowcount > 0
+
+    def get_favorite_tools(self) -> List[Dict]:
+        """Возвращает список избранных инструментов"""
+        with self.get_connection() as cursor:
+            cursor.execute("SELECT * FROM tools WHERE is_favorite = TRUE ORDER BY tool_id")
+            return [dict(row) for row in cursor.fetchall()]
 
     def get_categories(self) -> List[Dict]:
         with self.get_connection() as cursor:
