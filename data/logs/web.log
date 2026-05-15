@@ -100,3 +100,13 @@
 2026-05-15 13:24:48 - INFO - web - ===== WEB APP STARTED =====
 2026-05-15 13:24:49 - INFO - web - Запущен фоновый поток WebSocket обновлений
 2026-05-15 13:24:57 - INFO - web - Клиент подключился к WebSocket: KZ_5aHfbTSTjtXNhAAAB
+2026-05-15 13:24:57 - INFO - web - Клиент KZ_5aHfbTSTjtXNhAAAB подписался на обновления статуса
+2026-05-15 13:36:06 - INFO - web - Клиент отключился от WebSocket: KZ_5aHfbTSTjtXNhAAAB
+2026-05-15 13:40:28 - INFO - web - ===== WEB APP STARTED =====
+2026-05-15 13:40:29 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-15 13:40:35 - INFO - web - Клиент подключился к WebSocket: m-zu0CCAa8Ewr6qbAAAB
+2026-05-15 13:40:35 - INFO - web - Клиент m-zu0CCAa8Ewr6qbAAAB подписался на обновления статуса
+2026-05-15 13:40:37 - INFO - web - Клиент отключился от WebSocket: m-zu0CCAa8Ewr6qbAAAB
+2026-05-15 13:40:46 - INFO - web - Клиент подключился к WebSocket: _8INVzDERTEXtJFsAAAD
+2026-05-15 13:40:46 - INFO - web - Клиент _8INVzDERTEXtJFsAAAD подписался на обновления статуса
+2026-05-15 13:40:47 - INFO - web - Клиент отключился от WebSocket: _8INVzDERTEXtJFsAAAD

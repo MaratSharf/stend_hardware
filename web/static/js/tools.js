@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     await loadFavoriteTools();
     await loadTools();
     setupModal();
-    setupFavoritesFilter();
 });
 
 async function loadRecentProjects() {
