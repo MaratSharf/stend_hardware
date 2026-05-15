@@ -356,16 +356,17 @@ class StandController:
         folder = os.path.join(base_dir, subfolder)
         if not os.path.exists(folder):
             self.logger.error(f"Папка {folder} не существует")
-            return None
+            return None, None
         time.sleep(0.2)
         files = glob.glob(os.path.join(folder, '*.jpg')) + glob.glob(os.path.join(folder, '*.jpeg')) + \
                 glob.glob(os.path.join(folder, '*.png')) + glob.glob(os.path.join(folder, '*.bmp'))
         if not files:
             self.logger.warning("Нет файлов в папке")
-            return None
+            return None, None
         latest = max(files, key=os.path.getmtime)
         rel_path = os.path.relpath(latest, base_dir).replace('\\', '/')
-        return rel_path
+        image_name = os.path.basename(latest)
+        return rel_path, image_name
 
     def _update_camera_ready(self):
         if not self.camera_available or self.offline_mode:
@@ -1012,13 +1013,32 @@ class StandController:
             return
         result_text = result.get('result', 'NO_RESULT')
         raw_text = result.get('raw', None)
-        image_path = self._save_image(result_text)
+        image_path, image_name = self._save_image(result_text)
+        
+        # Проверяем, не было ли это изображение уже использовано
+        if image_name:
+            try:
+                db = get_database(self.config)
+                if db.is_image_used(image_name):
+                    self.logger.warning(f"Изображение {image_name} уже было использовано ранее! Пропускаем сохранение.")
+                    with self._lock:
+                        self.last_result['result'] = result_text
+                        self.last_result['image'] = image_path
+                        self.last_result['time'] = datetime.now().isoformat()
+                        self.last_result['raw'] = raw_text
+                        self.last_result['project_name'] = self.config.get('camera', {}).get('project_name', '')
+                        self.last_result['duplicate'] = True
+                    return
+            except Exception as e:
+                self.logger.error(f"Ошибка проверки изображения: {e}")
+        
         with self._lock:
             self.last_result['result'] = result_text
             self.last_result['image'] = image_path
             self.last_result['time'] = datetime.now().isoformat()
             self.last_result['raw'] = raw_text
             self.last_result['project_name'] = self.config.get('camera', {}).get('project_name', '')
+            self.last_result['duplicate'] = False
 
         try:
             db = get_database(self.config)  # передаём config, если требуется
@@ -1045,13 +1065,14 @@ class StandController:
             db.add_result(
                 result=result_text,
                 image_path=image_path,
+                image_name=image_name,
                 scenario=self.current_scenario or 'UNKNOWN',
                 project_name=self.config.get('camera', {}).get('project_name', ''),
                 sensors=sensors_dict,
                 raw=raw_text,
                 order_number=None
             )
-            self.logger.info(f"Результат сохранён в БД: {result_text} | Raw: {raw_text}")
+            self.logger.info(f"Результат сохранён в БД: {result_text} | Raw: {raw_text} | Image: {image_name}")
         except Exception as e:
             self.logger.exception(f"Ошибка сохранения в БД: {e}")
 

@@ -78,6 +78,7 @@ class Database:
                     result TEXT NOT NULL,
                     raw TEXT,
                     image_path TEXT,
+                    image_name TEXT,
                     scenario TEXT,
                     project_name TEXT,
                     sensor_d1 INTEGER,
@@ -93,6 +94,19 @@ class Database:
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_inspection_timestamp ON inspection_results(timestamp)")
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_inspection_result ON inspection_results(result)")
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_inspection_order ON inspection_results(order_number)")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_inspection_image_name ON inspection_results(image_name)")
+
+            # Таблица для отслеживания использованных изображений (валидация)
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS used_images (
+                    id SERIAL PRIMARY KEY,
+                    image_name TEXT NOT NULL UNIQUE,
+                    image_path TEXT NOT NULL,
+                    inspection_result_id INTEGER REFERENCES inspection_results(id) ON DELETE CASCADE,
+                    used_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )
+            """)
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_used_images_name ON used_images(image_name)")
 
             # Таблица ежедневной статистики
             cursor.execute("""
@@ -154,23 +168,54 @@ class Database:
     def add_result(self, result: str, image_path: Optional[str] = None,
                    scenario: str = '', project_name: str = '',
                    sensors: Optional[Dict] = None, raw: Optional[str] = None,
-                   order_number: Optional[str] = None) -> int:
+                   order_number: Optional[str] = None, image_name: Optional[str] = None) -> int:
         timestamp = datetime.now().isoformat()
         sensors = sensors or {}
         with self.get_connection() as cursor:
             cursor.execute("""
                 INSERT INTO inspection_results
-                (timestamp, result, raw, image_path, scenario, project_name,
+                (timestamp, result, raw, image_path, image_name, scenario, project_name,
                  sensor_d1, sensor_d2, sensor_d3, sensor_d4,
                  tumbler_a, tumbler_b, order_number)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 RETURNING id
-            """, (timestamp, result, raw, image_path, scenario, project_name,
+            """, (timestamp, result, raw, image_path, image_name, scenario, project_name,
                   sensors.get('d1', 0), sensors.get('d2', 0), sensors.get('d3', 0),
                   sensors.get('d4', 0), sensors.get('tumbler_a', 0),
                   sensors.get('tumbler_b', 0), order_number))
             row = cursor.fetchone()
-            return row['id'] if row else 0
+            result_id = row['id'] if row else 0
+            
+            # Если имя изображения указано, регистрируем его как использованное
+            if image_name and image_path and result_id > 0:
+                try:
+                    cursor.execute("""
+                        INSERT INTO used_images (image_name, image_path, inspection_result_id)
+                        VALUES (%s, %s, %s)
+                    """, (image_name, image_path, result_id))
+                except psycopg2.IntegrityError:
+                    # Изображение уже было использовано ранее
+                    pass
+            
+            return result_id
+
+    def is_image_used(self, image_name: str) -> bool:
+        """Проверяет, было ли изображение уже использовано в проверке."""
+        with self.get_connection() as cursor:
+            cursor.execute("SELECT 1 FROM used_images WHERE image_name = %s", (image_name,))
+            return cursor.fetchone() is not None
+
+    def get_image_usage(self, image_name: str) -> Optional[Dict]:
+        """Возвращает информацию об использовании изображения."""
+        with self.get_connection() as cursor:
+            cursor.execute("""
+                SELECT ui.*, ir.result, ir.timestamp 
+                FROM used_images ui
+                JOIN inspection_results ir ON ui.inspection_result_id = ir.id
+                WHERE ui.image_name = %s
+            """, (image_name,))
+            row = cursor.fetchone()
+            return dict(row) if row else None
 
     def get_results(self, limit: int = 100, offset: int = 0,
                     result_filter: Optional[str] = None,

@@ -1,23 +1,4 @@
 ```
-# Python
 __pycache__/
 *.pyc
-*.pyo
-*.pyd
-.Python
-venv/
-.venv/
-.env
-.env.local
-*.env.*
-
-# Build artifacts
-utils/__pycache__/
-
-# Logs
-*.log
-
-# OS generated files
-.DS_Store
-Thumbs.db
 ```
