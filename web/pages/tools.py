@@ -74,3 +74,47 @@ def api_recent_tools():
     except Exception as e:
         current_app.logger.exception("Ошибка в api_recent_tools")
         return jsonify({'success': False, 'error': 'Internal server error'}), 500
+
+@tools_bp.route('/api/tools/<tool_id>/favorite', methods=['POST'])
+@login_required
+def api_toggle_favorite(tool_id):
+    """Переключает статус избранного для инструмента"""
+    try:
+        db = current_app.config.get('db')
+        if not db:
+            return jsonify({'success': False, 'error': 'Database not available'}), 500
+        
+        current_user = get_current_user(db)
+        if not current_user:
+            return jsonify({'success': False, 'error': 'Требуется авторизация'}), 401
+        
+        # Проверяем существование инструмента
+        tool = db.get_tool_by_id(tool_id)
+        if not tool:
+            return jsonify({'success': False, 'error': f'Instrument {tool_id} not found'}), 404
+        
+        # Переключаем статус
+        new_status = db.toggle_favorite(tool_id, current_user['id'])
+        
+        return jsonify({
+            'success': True,
+            'is_favorite': new_status,
+            'tool_id': tool_id
+        })
+    except Exception as e:
+        current_app.logger.exception("Ошибка в api_toggle_favorite")
+        return jsonify({'success': False, 'error': 'Internal server error'}), 500
+
+@tools_bp.route('/api/tools/favorites')
+def api_favorite_tools():
+    """Возвращает список избранных инструментов"""
+    try:
+        db = current_app.config.get('db')
+        if not db:
+            return jsonify({'success': False, 'error': 'Database not available'}), 500
+        
+        tools = db.get_favorite_tools()
+        return jsonify({'success': True, 'tools': tools})
+    except Exception as e:
+        current_app.logger.exception("Ошибка в api_favorite_tools")
+        return jsonify({'success': False, 'error': 'Internal server error'}), 500
