@@ -148,7 +148,7 @@ def main():
     print("[СЕРВЕР] Запуск MV сервиса на http://0.0.0.0:5001")
     try:
         # Используем Socket.IO сервер вместо Waitress для поддержки WebSocket
-        socketio.run(flask_app, host='0.0.0.0', port=5001, debug=False, use_reloader=False)
+        socketio.run(flask_app, host='0.0.0.0', port=5001, debug=False, use_reloader=False, log_output=False)
     except KeyboardInterrupt:
         pass
     finally:
