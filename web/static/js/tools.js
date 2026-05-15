@@ -4,6 +4,9 @@ let allTools = [];
 let categories = [];
 let selectedTool = null;
 let recentProjectIds = [];
+let favoriteTools = new Set();
+let currentFilter = 'all';
+let showFavoritesOnly = false;
 
 function compareToolId(a, b) {
     const aParts = String(a).split('.').map(Number);
@@ -32,8 +35,10 @@ function getCategoryPrefix(categoryName) {
 
 document.addEventListener('DOMContentLoaded', async () => {
     await loadRecentProjects();
+    await loadFavoriteTools();
     await loadTools();
     setupModal();
+    setupFavoritesFilter();
 });
 
 async function loadRecentProjects() {
@@ -43,6 +48,18 @@ async function loadRecentProjects() {
         if (data.success) recentProjectIds = data.recent_projects || [];
         else recentProjectIds = [];
     } catch (error) { recentProjectIds = []; console.error(error); }
+}
+
+async function loadFavoriteTools() {
+    try {
+        const response = await fetch('/api/tools/favorites');
+        const data = await response.json();
+        if (data.success) {
+            favoriteTools = new Set((data.tools || []).map(t => t.tool_id));
+        }
+    } catch (error) {
+        console.error('Ошибка загрузки избранных:', error);
+    }
 }
 
 async function loadTools() {
@@ -56,13 +73,31 @@ async function loadTools() {
             allTools = data.tools || [];
             categories = data.categories || [];
             renderCategoryButtons(categories);
-            filterTools('all');
+            filterTools(currentFilter);
         } else {
             container.innerHTML = `<div class="empty-state"><div class="empty-state-icon">⚠️</div><p>Ошибка загрузки: ${data.error}</p></div>`;
         }
     } catch (error) {
         container.innerHTML = `<div class="empty-state"><div class="empty-state-icon">❌</div><p>Не удалось загрузить инструменты</p><p class="error-detail">${error.message}</p></div>`;
     }
+}
+
+function setupFavoritesFilter() {
+    const container = document.getElementById('categoryFilterContainer');
+    if (!container) return;
+    
+    const favBtn = document.createElement('button');
+    favBtn.className = 'category-btn';
+    favBtn.textContent = '⭐ Избранное';
+    favBtn.dataset.category = 'favorites';
+    favBtn.addEventListener('click', () => {
+        document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+        favBtn.classList.add('active');
+        showFavoritesOnly = true;
+        currentFilter = 'favorites';
+        filterTools('favorites');
+    });
+    container.appendChild(favBtn);
 }
 
 function renderCategoryButtons(categories) {
@@ -76,6 +111,8 @@ function renderCategoryButtons(categories) {
     allBtn.addEventListener('click', () => {
         document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
         allBtn.classList.add('active');
+        showFavoritesOnly = false;
+        currentFilter = 'all';
         filterTools('all');
     });
     container.appendChild(allBtn);
@@ -94,14 +131,21 @@ function renderCategoryButtons(categories) {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
             btn.classList.add('active');
+            showFavoritesOnly = false;
+            currentFilter = cat.name;
             filterTools(cat.name);
         });
         container.appendChild(btn);
     });
+    
+    // Добавляем кнопку избранного после всех категорий
+    setupFavoritesFilter();
 }
 
 function filterTools(category) {
     let filtered;
+    
+    // Сначала фильтруем по категории
     if (category === 'all') {
         if (!recentProjectIds.length) filtered = [];
         else {
@@ -114,10 +158,14 @@ function filterTools(category) {
                 return idxA - idxB;
             });
         }
+    } else if (category === 'favorites') {
+        filtered = allTools.filter(tool => favoriteTools.has(tool.tool_id));
+        filtered.sort((a, b) => compareToolId(a.tool_id, b.tool_id));
     } else {
         filtered = allTools.filter(tool => (tool.category_ru && tool.category_ru === category) || (tool.category_en && tool.category_en === category));
         filtered.sort((a, b) => compareToolId(a.tool_id, b.tool_id));
     }
+    
     renderTools(filtered);
 }
 
@@ -127,18 +175,35 @@ function renderTools(tools) {
     if (!tools.length) {
         const activeBtn = document.querySelector('.category-btn.active');
         const isAllCategory = activeBtn && activeBtn.dataset.category === 'all';
-        const message = isAllCategory ? 'Нет недавно использованных инструментов. Выберите инструмент из другой категории.' : 'Инструменты не найдены.';
+        const isFavoritesCategory = activeBtn && activeBtn.dataset.category === 'favorites';
+        let message;
+        if (isFavoritesCategory) {
+            message = 'Нет избранных инструментов. Нажмите на звёздочку, чтобы добавить инструмент в избранное.';
+        } else if (isAllCategory) {
+            message = 'Нет недавно использованных инструментов. Выберите инструмент из другой категории.';
+        } else {
+            message = 'Инструменты не найдены.';
+        }
         container.innerHTML = `<div class="empty-state"><div class="empty-state-icon">📭</div><p>${message}</p></div>`;
         return;
     }
-    container.innerHTML = '<div class="tools-grid">' + tools.map(tool => `
+    container.innerHTML = '<div class="tools-grid">' + tools.map(tool => {
+        const isFavorite = favoriteTools.has(tool.tool_id);
+        return `
         <div class="tool-card" data-id="${tool.tool_id}" data-project="${tool.project_name}">
+            <button class="favorite-btn ${isFavorite ? 'active' : ''}" 
+                    data-tool-id="${tool.tool_id}" 
+                    title="${isFavorite ? 'Удалить из избранного' : 'Добавить в избранное'}"
+                    onclick="event.stopPropagation(); toggleFavorite('${tool.tool_id}', this)">
+                ${isFavorite ? '⭐' : '☆'}
+            </button>
             <div class="tool-card-content">
                 <div class="tool-project"><span class="tool-project-label">Проект:</span> ${escapeHtml(tool.project_name || '—')}</div>
                 <div class="tool-name-ru">${escapeHtml(tool.name_ru || tool.name_en || 'Без названия')}</div>
             </div>
         </div>
-    `).join('') + '</div>';
+    `;
+    }).join('') + '</div>';
     document.querySelectorAll('.tool-card').forEach(card => {
         card.addEventListener('click', () => selectTool(card));
     });
@@ -235,4 +300,45 @@ async function updateProjectInHeader(projectName, russianName) {
 function escapeHtml(str) {
     if (!str) return '';
     return str.replace(/[&<>]/g, m => m === '&' ? '&amp;' : m === '<' ? '&lt;' : '&gt;');
+}
+
+async function toggleFavorite(toolId, btnElement) {
+    try {
+        const response = await fetch(`/api/tools/${toolId}/favorite`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+        });
+        const data = await response.json();
+        
+        if (data.success) {
+            const isFavorite = data.is_favorite;
+            
+            // Обновляем локальный набор избранных
+            if (isFavorite) {
+                favoriteTools.add(toolId);
+            } else {
+                favoriteTools.delete(toolId);
+            }
+            
+            // Обновляем кнопку
+            btnElement.textContent = isFavorite ? '⭐' : '☆';
+            btnElement.classList.toggle('active', isFavorite);
+            btnElement.title = isFavorite ? 'Удалить из избранного' : 'Добавить в избранное';
+            
+            // Если мы в режиме "Избранное" и удалили инструмент, перерисовываем
+            if (!isFavorite && showFavoritesOnly) {
+                filterTools('favorites');
+            }
+            
+            window.showToast(
+                isFavorite ? '✅ Добавлено в избранное' : '❌ Удалено из избранного',
+                isFavorite ? 'success' : 'info'
+            );
+        } else {
+            window.showToast(`❌ Ошибка: ${data.error}`, 'error');
+        }
+    } catch (error) {
+        window.showToast(`❌ Ошибка сети: ${error.message}`, 'error');
+        console.error('Ошибка переключения избранного:', error);
+    }
 }
