@@ -96,10 +96,12 @@
     border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 24px;
+    padding-right: 60px;
     transition: all 0.3s ease;
     cursor: pointer;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .tool-card:hover {
@@ -111,6 +113,41 @@
 .tool-card.selected {
     border-color: var(--accent-success);
     box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
+}
+
+/* Кнопка избранного */
+.favorite-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    background: var(--bg-hover);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.favorite-btn:hover {
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.2), rgba(167, 139, 250, 0.2));
+    border-color: var(--accent-primary);
+    transform: scale(1.1);
+}
+
+.favorite-btn.active {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 179, 71, 0.2));
+    border-color: #FFD700;
+}
+
+.favorite-btn.active:hover {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.35), rgba(255, 179, 71, 0.35));
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
 }
 
 .tool-header {

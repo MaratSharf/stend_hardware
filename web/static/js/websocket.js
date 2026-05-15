@@ -31,15 +31,15 @@ function initWebSocket() {
         return false;
     }
 
-    // Определяем URL для WebSocket (используем тот же хост что и для HTTP)
-    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-    const wsUrl = `${protocol}//${window.location.host}`;
-    
-    console.log(`[WebSocket] Подключение к ${wsUrl}`);
-    
+    // Определяем URL для Socket.IO (используем тот же хост что и для HTTP)
+    // Сервер работает в режиме threading — только HTTP long-polling
+    const wsUrl = `${window.location.protocol}//${window.location.host}`;
+
+    console.log(`[WebSocket] Подключение к ${wsUrl} (long-polling)`);
+
     try {
         socket = io(wsUrl, {
-            transports: ['websocket', 'polling'],
+            transports: ['polling'],
             reconnection: true,
             reconnectionDelay: RECONNECT_DELAY_MS,
             reconnectionDelayMax: 10000,
