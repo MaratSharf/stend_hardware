@@ -153,3 +153,17 @@
 2026-05-15 15:11:15 - INFO - web - Клиент отключился от WebSocket: dRt6HUgXrnPLhf18AAAB
 2026-05-15 15:11:20 - INFO - web - Клиент подключился к WebSocket: eJQ-27GKEPQWJcQLAAAD
 2026-05-15 15:11:20 - INFO - web - Клиент eJQ-27GKEPQWJcQLAAAD подписался на обновления статуса
+2026-05-15 15:37:06 - INFO - web - ===== WEB APP STARTED =====
+2026-05-15 15:37:06 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-15 15:37:16 - INFO - web - Клиент подключился к WebSocket: 3hC88ir_2zhHWASbAAAB
+2026-05-15 15:37:17 - INFO - web - Клиент 3hC88ir_2zhHWASbAAAB подписался на обновления статуса
+2026-05-15 15:37:20 - INFO - web - Клиент отключился от WebSocket: 3hC88ir_2zhHWASbAAAB
+2026-05-15 15:37:30 - INFO - web - Команда переключения проекта на '3.2CodeRecognition' отправлена в очередь
+2026-05-15 15:38:06 - INFO - web - Клиент подключился к WebSocket: lXVV9P5tQeq5vCySAAAD
+2026-05-15 15:38:07 - INFO - web - Клиент lXVV9P5tQeq5vCySAAAD подписался на обновления статуса
+2026-05-15 15:39:12 - INFO - web - Клиент отключился от WebSocket: lXVV9P5tQeq5vCySAAAD
+2026-05-15 15:58:20 - INFO - web - Клиент подключился к WebSocket: O-t8hbqYW0kHqSbGAAAF
+2026-05-15 15:58:21 - INFO - web - Клиент O-t8hbqYW0kHqSbGAAAF подписался на обновления статуса
+2026-05-15 15:59:37 - INFO - web - Клиент отключился от WebSocket: O-t8hbqYW0kHqSbGAAAF
+2026-05-15 15:59:39 - INFO - web - Клиент подключился к WebSocket: yzFMWgAvJ6zW7VlOAAAH
+2026-05-15 15:59:40 - INFO - web - Клиент yzFMWgAvJ6zW7VlOAAAH подписался на обновления статуса
