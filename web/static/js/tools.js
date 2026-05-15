@@ -133,6 +133,9 @@ function renderTools(tools) {
     }
     container.innerHTML = '<div class="tools-grid">' + tools.map(tool => `
         <div class="tool-card" data-id="${tool.tool_id}" data-project="${tool.project_name}">
+            <button class="tool-favorite-btn" title="Добавить в избранное" onclick="event.stopPropagation(); toggleFavorite(this, '${tool.tool_id}')">
+                <span class="favorite-icon">☆</span>
+            </button>
             <div class="tool-card-content">
                 <div class="tool-project"><span class="tool-project-label">Проект:</span> ${escapeHtml(tool.project_name || '—')}</div>
                 <div class="tool-name-ru">${escapeHtml(tool.name_ru || tool.name_en || 'Без названия')}</div>
@@ -235,4 +238,17 @@ async function updateProjectInHeader(projectName, russianName) {
 function escapeHtml(str) {
     if (!str) return '';
     return str.replace(/[&<>]/g, m => m === '&' ? '&amp;' : m === '<' ? '&lt;' : '&gt;');
+}
+
+function toggleFavorite(btn, toolId) {
+    const icon = btn.querySelector('.favorite-icon');
+    const isFavorite = icon.textContent === '★';
+    icon.textContent = isFavorite ? '☆' : '★';
+    btn.classList.toggle('active', !isFavorite);
+    
+    if (!isFavorite) {
+        window.showToast(`⭐ Инструмент добавлен в избранное`, 'success');
+    } else {
+        window.showToast(`🗑️ Инструмент удалён из избранного`, 'info');
+    }
 }

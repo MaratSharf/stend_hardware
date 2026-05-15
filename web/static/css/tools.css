@@ -100,6 +100,50 @@
     cursor: pointer;
     display: flex;
     flex-direction: column;
+    position: relative;
+}
+
+/* Кнопка избранного в правом верхнем углу */
+.tool-favorite-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    background: var(--bg-hover);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.tool-favorite-btn:hover {
+    background: rgba(255, 193, 7, 0.2);
+    border-color: #ffc107;
+    transform: scale(1.1);
+}
+
+.tool-favorite-btn.active {
+    background: linear-gradient(135deg, #ffc107, #ff9800);
+    border-color: #ffc107;
+}
+
+.favorite-icon {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
+}
+
+.tool-favorite-btn:hover .favorite-icon {
+    color: #ffc107;
+}
+
+.tool-favorite-btn.active .favorite-icon {
+    color: white;
 }
 
 .tool-card:hover {
@@ -422,6 +466,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    padding-right: 40px; /* Отступ для кнопки избранного */
 }
 
 .tool-project {
