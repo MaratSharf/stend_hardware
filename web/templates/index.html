@@ -155,83 +155,24 @@
             </div>
         </div>
 
-        <!-- ======================= ОСНОВНОЙ КОНТЕНТ (ДВЕ КОЛОНКИ) ======================= -->
+        <!-- ======================= ОСНОВНОЙ КОНТЕНТ ======================= -->
         <div class="t-container">
-            <div class="t-container_flex">
-                <!-- Левая колонка: результат инспекции -->
-                <div class="t-col_7">
-                    <div class="t-card t-card_result" id="resultCard" data-result="waiting">
-                        <div class="t-card_result">
-                            <div class="t-card__header">
-                                <div class="t-card__icon" id="resultIcon">⏳</div>
-                                <div>
-                                    <div class="t-card__title" id="resultTitle">Ожидание</div>
-                                    <div class="t-card__timestamp" id="resultTimestamp">—</div>
-                                </div>
-                            </div>
-                            <div class="t-card__image">
-                                <div class="t-image-container">
-                                    <img id="inspectionImage" class="t-image" style="display: none;" alt="Снимок">
-                                    <div id="noImage" class="t-image-placeholder" style="display: flex;">📷 Нет изображения</div>
-                                </div>
-                            </div>
-                            <!-- Блок для распознанных данных (код, текст, цвет) будет добавлен динамически через JS -->
+            <div class="t-card t-card_result" id="resultCard" data-result="waiting">
+                <div class="t-card_result">
+                    <div class="t-card__header">
+                        <div class="t-card__icon" id="resultIcon">⏳</div>
+                        <div>
+                            <div class="t-card__title" id="resultTitle">Ожидание</div>
+                            <div class="t-card__timestamp" id="resultTimestamp">—</div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Правая колонка: статусы оборудования -->
-                <div class="t-col_5">
-                    <div class="t-status-stack">
-                        <!-- Состояние камеры Hikrobot -->
-                        <div class="t-status-card">
-                            <div class="t-status-card__header">
-                                <span class="t-status-card__icon">📷</span>
-                                <h3>Состояние камеры Hikrobot</h3>
-                            </div>
-                            <div class="t-status-card__content">
-                                <div class="t-status-list">
-                                    <div class="t-status-item"><span>Trigger Ready:</span><span id="cam_trigger_ready">—</span></div>
-                                    <div class="t-status-item"><span>Results Available:</span><span id="cam_results_available">—</span></div>
-                                    <div class="t-status-item"><span>Command Success:</span><span id="cam_command_success">—</span></div>
-                                    <div class="t-status-item"><span>General Fault:</span><span id="cam_general_fault">—</span></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Входы (датчики DI0..DI5) -->
-                        <div class="t-status-card">
-                            <div class="t-status-card__header">
-                                <span class="t-status-card__icon">🟢</span>
-                                <h3>Входы (DI)</h3>
-                            </div>
-                            <div class="t-status-card__content">
-                                <div class="t-sensor-grid">
-                                    <div class="t-sensor"><span>Д1 (вход)</span><span id="di0" class="t-led" data-value="0">0</span></div>
-                                    <div class="t-sensor"><span>Д2 (поз.лев)</span><span id="di1" class="t-led" data-value="0">0</span></div>
-                                    <div class="t-sensor"><span>Д3 (поз.прав)</span><span id="di2" class="t-led" data-value="0">0</span></div>
-                                    <div class="t-sensor"><span>Д4 (выход)</span><span id="di3" class="t-led" data-value="0">0</span></div>
-                                    <div class="t-sensor"><span>Тумблер A</span><span id="di4" class="t-led" data-value="0">0</span></div>
-                                    <div class="t-sensor"><span>Тумблер B</span><span id="di5" class="t-led" data-value="0">0</span></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Выходы (исполнительные механизмы DO0, DO2, DO3) -->
-                        <div class="t-status-card">
-                            <div class="t-status-card__header">
-                                <span class="t-status-card__icon">🔌</span>
-                                <h3>Выходы (DO)</h3>
-                            </div>
-                            <div class="t-status-card__content">
-                                <div class="t-output-grid">
-                                    <div class="t-output"><span>Конвейер</span><span id="do0" class="t-led" data-value="0">0</span></div>
-                                    <div class="t-output"><span>Лампа NG</span><span id="do2" class="t-led" data-value="0">0</span></div>
-                                    <div class="t-output"><span>Лампа OK</span><span id="do3" class="t-led" data-value="0">0</span></div>
-                                </div>
-                            </div>
+                    <div class="t-card__image">
+                        <div class="t-image-container">
+                            <img id="inspectionImage" class="t-image" style="display: none;" alt="Снимок">
+                            <div id="noImage" class="t-image-placeholder" style="display: flex;">📷 Нет изображения</div>
                         </div>
                     </div>
+                    <!-- Блок для распознанных данных (код, текст, цвет) будет добавлен динамически через JS -->
                 </div>
             </div>
         </div>
@@ -312,7 +253,7 @@
 .t-card_result {
     transition: all 0.3s ease;
 }
-@keyframes resultPulse {
+ @keyframes resultPulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.02); }
 }
