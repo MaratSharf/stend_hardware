@@ -66,3 +66,37 @@
 2026-05-14 15:02:04 - INFO - web - Клиент подключился к WebSocket: nJuSoKATQ503-gBbAAAD
 2026-05-14 15:02:04 - INFO - web - Клиент nJuSoKATQ503-gBbAAAD подписался на обновления статуса
 2026-05-14 15:02:20 - INFO - web - Клиент отключился от WebSocket: nJuSoKATQ503-gBbAAAD
+2026-05-14 15:07:43 - INFO - web - ===== WEB APP STARTED =====
+2026-05-14 15:07:44 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-14 15:08:03 - INFO - web - Клиент подключился к WebSocket: zGt_hxPR417Lc-DJAAAB
+2026-05-14 15:08:03 - INFO - web - Клиент zGt_hxPR417Lc-DJAAAB подписался на обновления статуса
+2026-05-14 16:50:56 - INFO - web - Клиент отключился от WebSocket: zGt_hxPR417Lc-DJAAAB
+2026-05-14 17:05:20 - INFO - web - Клиент подключился к WebSocket: kKxaaQw6ncy-OXDmAAAD
+2026-05-14 17:05:20 - INFO - web - Клиент kKxaaQw6ncy-OXDmAAAD подписался на обновления статуса
+2026-05-14 17:05:21 - INFO - web - Клиент отключился от WebSocket: kKxaaQw6ncy-OXDmAAAD
+2026-05-15 07:51:02 - INFO - web - Клиент подключился к WebSocket: gonEx_H-LermcHGAAAAF
+2026-05-15 07:51:02 - INFO - web - Клиент gonEx_H-LermcHGAAAAF подписался на обновления статуса
+2026-05-15 10:40:01 - INFO - web - ===== WEB APP STARTED =====
+2026-05-15 10:40:01 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-15 10:40:13 - INFO - web - Клиент подключился к WebSocket: 33S6Z-6Osu1J5o97AAAB
+2026-05-15 10:40:13 - INFO - web - Клиент 33S6Z-6Osu1J5o97AAAB подписался на обновления статуса
+2026-05-15 10:40:18 - INFO - web - Клиент отключился от WebSocket: 33S6Z-6Osu1J5o97AAAB
+2026-05-15 10:40:43 - INFO - web - Клиент подключился к WebSocket: zesa_TxhCUj1-zrSAAAD
+2026-05-15 10:40:43 - INFO - web - Клиент zesa_TxhCUj1-zrSAAAD подписался на обновления статуса
+2026-05-15 10:40:52 - INFO - web - Клиент отключился от WebSocket: zesa_TxhCUj1-zrSAAAD
+2026-05-15 10:45:17 - INFO - web - Команда переключения проекта на '6.2Fixture' отправлена в очередь
+2026-05-15 10:45:49 - INFO - web - Клиент подключился к WebSocket: Dd-YzTdAJ8JAedd7AAAF
+2026-05-15 10:45:49 - INFO - web - Клиент Dd-YzTdAJ8JAedd7AAAF подписался на обновления статуса
+2026-05-15 11:04:09 - INFO - web - ===== WEB APP STARTED =====
+2026-05-15 11:04:09 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-15 11:07:43 - INFO - web - Клиент подключился к WebSocket: y17OAYlV-4-LDdiSAAAB
+2026-05-15 11:07:43 - INFO - web - Клиент y17OAYlV-4-LDdiSAAAB подписался на обновления статуса
+2026-05-15 11:08:05 - INFO - web - Клиент отключился от WebSocket: y17OAYlV-4-LDdiSAAAB
+2026-05-15 13:20:25 - INFO - web - ===== WEB APP STARTED =====
+2026-05-15 13:20:25 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-15 13:21:53 - INFO - web - Клиент подключился к WebSocket: zAJ-mrLIhlttP0pQAAAB
+2026-05-15 13:21:53 - INFO - web - Клиент zAJ-mrLIhlttP0pQAAAB подписался на обновления статуса
+2026-05-15 13:21:59 - INFO - web - Клиент отключился от WebSocket: zAJ-mrLIhlttP0pQAAAB
+2026-05-15 13:24:48 - INFO - web - ===== WEB APP STARTED =====
+2026-05-15 13:24:49 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-15 13:24:57 - INFO - web - Клиент подключился к WebSocket: KZ_5aHfbTSTjtXNhAAAB

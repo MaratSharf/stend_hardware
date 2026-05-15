@@ -94,7 +94,7 @@ class Database:
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_inspection_timestamp ON inspection_results(timestamp)")
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_inspection_result ON inspection_results(result)")
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_inspection_order ON inspection_results(order_number)")
-            cursor.execute("CREATE INDEX IF NOT EXISTS idx_inspection_image_name ON inspection_results(image_name)")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_inspection_image_path ON inspection_results(image_path)")
 
             # Таблица для отслеживания использованных изображений (валидация)
             cursor.execute("""
@@ -135,26 +135,28 @@ class Database:
                     subroutine_ru TEXT,
                     subroutine_en TEXT,
                     project_name TEXT,
-                    project_name_display TEXT,
-                    is_favorite BOOLEAN DEFAULT FALSE
+                    project_name_display TEXT
                 )
             """)
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_tools_tool_id ON tools(tool_id)")
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_tools_category ON tools(category_ru)")
-            cursor.execute("CREATE INDEX IF NOT EXISTS idx_tools_favorite ON tools(is_favorite)")
             
             # Добавляем колонку is_favorite если её нет (для существующих БД)
             cursor.execute("""
-                DO $$ 
-                BEGIN 
+                DO $do$
+                BEGIN
                     IF NOT EXISTS (
-                        SELECT 1 FROM information_schema.columns 
+                        SELECT 1 FROM information_schema.columns
                         WHERE table_name = 'tools' AND column_name = 'is_favorite'
                     ) THEN
                         ALTER TABLE tools ADD COLUMN is_favorite BOOLEAN DEFAULT FALSE;
                     END IF;
-                END $$;
+                END
+                $do$;
             """)
+            
+            # Индекс для is_favorite создаём после добавления колонки
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_tools_favorite ON tools(is_favorite)")
 
             # Таблица заказов (для совместимости с MES, в MV не используется)
             cursor.execute("""

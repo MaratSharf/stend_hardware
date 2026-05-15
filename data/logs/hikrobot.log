@@ -120,3 +120,550 @@
 2026-05-14 15:01:53 - INFO - hikrobot - Подключение успешно
 2026-05-14 15:01:54 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
 2026-05-14 15:05:41 - INFO - hikrobot - Соединение закрыто
+2026-05-14 15:07:43 - INFO - hikrobot - Инициализация: IP=192.168.1.36, порт=502, unit=1, verify_switch=False
+2026-05-14 15:07:43 - WARNING - hikrobot - Попытка переподключения (задержка 1.0с)...
+2026-05-14 15:07:43 - INFO - hikrobot - Попытка подключения...
+2026-05-14 15:07:43 - INFO - hikrobot - Подключение успешно
+2026-05-14 15:07:43 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:07:53 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:07:53 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:07:53 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:07:54 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:08:50 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:09:25 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:09:39 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:09:39 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:09:39 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:09:39 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:13:46 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:13:59 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:14:00 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:14:00 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:14:11 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:14:12 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:14:12 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:14:12 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:14:47 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:14:47 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:14:47 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:14:48 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:15:15 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:15:15 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:15:15 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:15:15 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:45:32 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:49:35 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': True, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:49:35 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:50:48 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:51:13 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:51:36 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:51:36 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:51:36 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:51:56 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:51:56 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:51:56 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:51:56 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:52:20 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:52:21 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:52:47 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:52:48 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:52:48 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:52:48 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:53:10 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:53:11 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:53:11 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:53:11 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:53:34 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:53:34 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:53:35 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:53:35 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:53:56 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:53:56 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:53:56 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:53:56 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:54:12 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:54:12 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:54:13 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:54:13 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:54:36 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:54:36 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:54:36 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 15:54:37 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:03:04 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:03:04 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:03:04 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:03:04 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:03:16 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:03:16 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:03:17 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:03:17 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:03:26 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:03:27 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:03:27 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:03:27 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:09:47 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:11:08 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:11:08 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:11:08 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:11:39 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:11:40 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:11:40 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:11:40 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:12:01 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:12:01 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:12:01 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:12:01 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-14 16:20:46 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Input/Output] No response received after 3 retries, continue with next request
+2026-05-14 16:20:46 - WARNING - hikrobot - Попытка переподключения (задержка 1.0с)...
+2026-05-14 16:20:46 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:20:49 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:20:55 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:20:55 - WARNING - hikrobot - Попытка переподключения (задержка 2.0с)...
+2026-05-14 16:20:55 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:20:59 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:21:05 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:21:05 - WARNING - hikrobot - Попытка переподключения (задержка 4.0с)...
+2026-05-14 16:21:05 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:21:09 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:21:14 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:21:14 - WARNING - hikrobot - Попытка переподключения (задержка 8.0с)...
+2026-05-14 16:21:14 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:21:17 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:21:26 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:21:35 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:21:35 - WARNING - hikrobot - Попытка переподключения (задержка 16.0с)...
+2026-05-14 16:21:35 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:21:38 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:21:45 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:21:57 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:22:06 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:22:06 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:22:06 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:22:10 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:22:17 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:22:28 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:22:37 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:22:37 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:22:37 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:22:41 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:22:48 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:22:59 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:23:08 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:23:08 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:23:08 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:23:12 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:23:19 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:23:31 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:23:40 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:23:40 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:23:40 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:23:43 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:23:50 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:24:02 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:24:11 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:24:11 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:24:11 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:24:14 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:24:21 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:24:33 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:24:42 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:24:42 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:24:42 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:24:46 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:24:53 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:25:04 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:25:13 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:25:13 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:25:13 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:25:17 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:25:24 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:25:35 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:25:45 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:25:45 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:25:45 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:25:48 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:25:55 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:26:07 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:26:16 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:26:16 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:26:16 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:26:19 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:26:26 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:26:38 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:26:47 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:26:47 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:26:47 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:26:51 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:26:58 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:27:09 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:27:18 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:27:18 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:27:18 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:27:22 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:27:29 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:27:40 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:27:49 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:27:49 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:27:49 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:27:53 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:28:00 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:28:12 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:28:21 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:28:21 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:28:21 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:28:24 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:28:31 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:28:43 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:28:52 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:28:52 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:28:52 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:28:55 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:29:02 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:29:14 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:29:23 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:29:23 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:29:23 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:29:27 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:29:34 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:29:45 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:29:54 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:29:54 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:29:54 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:29:58 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:30:05 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:30:17 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:30:26 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:30:26 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:30:26 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:30:29 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:30:36 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:30:48 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:30:57 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:30:57 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:30:57 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:31:00 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:31:07 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:31:19 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:31:28 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:31:28 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:31:28 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:31:32 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:31:39 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:31:50 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:31:59 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:31:59 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:31:59 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:32:03 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:32:10 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:32:21 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:32:31 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:32:31 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:32:31 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:32:34 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:32:41 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:32:53 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:33:02 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:33:02 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:33:02 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:33:05 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:33:12 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:33:24 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:33:33 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:33:33 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:33:33 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:33:36 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:33:43 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:33:55 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:34:04 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:34:04 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:34:04 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:34:08 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:34:15 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:34:26 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:34:35 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:34:35 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:34:35 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:34:39 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:34:46 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:34:58 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:35:07 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:35:07 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:35:07 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:35:10 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:35:17 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:35:29 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:35:38 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:35:38 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:35:38 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:35:41 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:35:48 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:36:00 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:36:09 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:36:09 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:36:09 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:36:13 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:36:20 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:36:31 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:36:40 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:36:40 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:36:40 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:36:44 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:36:51 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:37:02 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:37:12 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:37:12 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:37:12 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:37:15 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:37:22 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:37:34 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:37:43 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:37:43 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:37:43 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:37:46 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:37:53 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:38:05 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:38:14 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:38:14 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:38:14 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:38:17 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:38:25 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:38:36 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:38:45 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:38:45 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:38:45 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:38:49 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:38:56 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:39:07 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:39:16 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:39:16 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:39:16 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:39:20 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:39:27 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:39:39 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:39:48 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:39:48 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:39:48 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:39:51 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:39:58 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:40:10 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:40:19 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:40:19 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:40:19 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:40:22 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:40:29 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:40:41 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:40:50 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:40:50 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:40:50 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:40:54 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:41:01 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:41:12 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:41:21 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:41:21 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:41:21 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:41:25 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:41:32 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:41:43 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:41:53 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:41:53 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:41:53 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:41:56 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:42:03 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:42:15 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:42:24 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:42:24 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:42:24 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:42:27 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:42:34 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:42:46 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:42:55 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:42:55 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:42:55 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:42:58 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:43:06 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:43:17 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:43:26 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:43:26 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:43:26 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:43:30 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:43:37 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:43:48 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:43:57 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:43:57 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:43:57 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:44:01 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:44:08 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:44:20 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:44:29 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:44:29 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:44:29 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:44:32 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:44:39 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:44:51 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:45:00 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:45:00 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:45:00 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:45:03 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:45:10 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:45:22 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:45:31 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:45:31 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:45:31 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:45:35 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:45:42 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:45:53 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:46:02 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:46:02 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:46:02 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:46:06 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:46:13 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:46:24 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:46:34 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:46:34 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:46:34 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:46:37 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:46:44 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:46:56 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:47:05 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:47:05 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:47:05 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:47:08 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:47:15 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:47:27 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:47:36 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:47:36 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:47:36 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:47:40 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:47:47 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:47:58 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:48:07 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:48:07 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:48:07 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:48:11 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:48:18 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:48:29 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:48:38 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:48:38 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:48:39 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:48:42 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:48:49 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:49:01 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:49:10 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:49:10 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:49:10 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:49:13 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:49:20 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:49:32 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:49:41 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:49:41 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:49:41 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:49:44 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:49:52 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:50:03 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:50:12 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:50:12 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:50:12 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:50:16 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:50:23 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:50:34 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:50:43 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 16:50:43 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 16:50:43 - INFO - hikrobot - Попытка подключения...
+2026-05-14 16:50:47 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 16:50:54 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 17:05:17 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 17:05:17 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 17:05:17 - INFO - hikrobot - Попытка подключения...
+2026-05-14 17:05:18 - ERROR - hikrobot - Ошибка подключения
+2026-05-14 17:35:31 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-14 17:35:31 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-14 17:35:31 - INFO - hikrobot - Попытка подключения...
+2026-05-14 17:35:34 - ERROR - hikrobot - Ошибка подключения
+2026-05-15 07:50:59 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-15 07:50:59 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-15 07:50:59 - INFO - hikrobot - Попытка подключения...
+2026-05-15 07:51:00 - ERROR - hikrobot - Ошибка подключения
+2026-05-15 07:51:13 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-15 07:51:23 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-15 07:51:34 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-15 07:51:34 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-15 07:51:35 - INFO - hikrobot - Попытка подключения...
+2026-05-15 07:51:42 - ERROR - hikrobot - Ошибка подключения
+2026-05-15 07:51:48 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-15 07:51:49 - INFO - hikrobot - Соединение закрыто
+2026-05-15 10:40:01 - INFO - hikrobot - Инициализация: IP=192.168.1.36, порт=502, unit=1, verify_switch=False
+2026-05-15 10:40:01 - WARNING - hikrobot - Попытка переподключения (задержка 1.0с)...
+2026-05-15 10:40:01 - INFO - hikrobot - Попытка подключения...
+2026-05-15 10:40:01 - INFO - hikrobot - Подключение успешно
+2026-05-15 10:40:01 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-15 10:45:17 - INFO - hikrobot - Переключение проекта: 6.2Fixture
+2026-05-15 10:45:17 - INFO - hikrobot - Отправка команды: 'switch 6.2Fixture'
+2026-05-15 10:45:17 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-15 10:45:17 - DEBUG - hikrobot - Запись регистра 500 = 17
+2026-05-15 10:45:17 - DEBUG - hikrobot - Запись в управляющий регистр: 33024 (0x8100)
+2026-05-15 10:45:19 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': True, 'command_failed': False, 'general_fault': False}
+2026-05-15 10:45:19 - INFO - hikrobot - Команда выполнена успешно
+2026-05-15 10:45:19 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-15 10:45:19 - INFO - hikrobot - Проект предположительно переключён на 6.2Fixture (верификация отключена)
+2026-05-15 10:45:19 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-15 10:46:44 - INFO - hikrobot - Запуск цикла измерения
+2026-05-15 10:46:44 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-15 10:46:44 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-15 10:46:45 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-15 10:46:45 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-15 10:46:45 - INFO - hikrobot - Trigger Ready получен
+2026-05-15 10:46:45 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-15 10:46:45 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-15 10:46:45 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-15 10:46:45 - INFO - hikrobot - Результат готов
+2026-05-15 10:46:45 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-15 10:46:45 - INFO - hikrobot - ✅ Результат: NG | Raw: NG;null;
+2026-05-15 10:46:45 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-15 10:48:06 - INFO - hikrobot - Запуск цикла измерения
+2026-05-15 10:48:06 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-15 10:48:06 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-15 10:48:06 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-15 10:48:06 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-15 10:48:16 - ERROR - hikrobot - Таймаут ожидания Trigger Ready
+2026-05-15 10:48:16 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-15 10:48:28 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-15 10:49:04 - INFO - hikrobot - Запуск цикла измерения
+2026-05-15 10:49:04 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-15 10:49:05 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-15 10:49:05 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-15 10:49:05 - INFO - hikrobot - Trigger Ready получен
+2026-05-15 10:49:05 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-15 10:49:05 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-15 10:49:05 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-15 10:49:05 - INFO - hikrobot - Результат готов
+2026-05-15 10:49:05 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-15 10:49:05 - INFO - hikrobot - ✅ Результат: NG | Raw: NG;null;
+2026-05-15 10:49:05 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-15 11:01:48 - INFO - hikrobot - Соединение закрыто
+2026-05-15 11:04:09 - INFO - hikrobot - Инициализация: IP=192.168.1.36, порт=502, unit=1, verify_switch=False
+2026-05-15 11:04:09 - WARNING - hikrobot - Попытка переподключения (задержка 1.0с)...
+2026-05-15 11:04:09 - INFO - hikrobot - Попытка подключения...
+2026-05-15 11:04:09 - INFO - hikrobot - Подключение успешно
+2026-05-15 11:04:09 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-15 11:04:58 - INFO - hikrobot - Запуск цикла измерения
+2026-05-15 11:04:58 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-15 11:04:58 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-15 11:04:59 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-15 11:04:59 - INFO - hikrobot - Trigger Ready получен
+2026-05-15 11:04:59 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-15 11:04:59 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-15 11:04:59 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-15 11:04:59 - INFO - hikrobot - Результат готов
+2026-05-15 11:04:59 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-15 11:04:59 - INFO - hikrobot - ✅ Результат: NG | Raw: NG;null;
+2026-05-15 11:04:59 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-15 11:23:54 - INFO - hikrobot - Соединение закрыто
+2026-05-15 13:20:25 - INFO - hikrobot - Инициализация: IP=192.168.1.36, порт=502, unit=1, verify_switch=False
+2026-05-15 13:20:25 - WARNING - hikrobot - Попытка переподключения (задержка 1.0с)...
+2026-05-15 13:20:25 - INFO - hikrobot - Попытка подключения...
+2026-05-15 13:20:25 - INFO - hikrobot - Подключение успешно
+2026-05-15 13:20:25 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-15 13:24:48 - INFO - hikrobot - Инициализация: IP=192.168.1.36, порт=502, unit=1, verify_switch=False
+2026-05-15 13:24:48 - WARNING - hikrobot - Попытка переподключения (задержка 1.0с)...
+2026-05-15 13:24:48 - INFO - hikrobot - Попытка подключения...
+2026-05-15 13:24:48 - INFO - hikrobot - Подключение успешно
