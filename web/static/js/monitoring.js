@@ -700,3 +700,55 @@ function hideRawData() {
     const recognitionSection = document.getElementById('recognitionResultSection');
     if (recognitionSection) recognitionSection.style.display = 'none';
 }
+
+// ==================== LIGHTBOX: ПОЛНОЭКРАННЫЙ ПРОСМОТР ИЗОБРАЖЕНИЯ ====================
+
+function initImageLightbox() {
+    const imageContainer = document.getElementById('imageContainer');
+    if (!imageContainer) return;
+
+    let lightbox = document.getElementById('imageLightbox');
+    if (!lightbox) {
+        lightbox = document.createElement('div');
+        lightbox.id = 'imageLightbox';
+        lightbox.className = 'image-lightbox';
+        lightbox.innerHTML = '<span class="image-lightbox__close">&times;</span><img id="lightboxImg" src="" alt="Полноэкранный просмотр">';
+        document.body.appendChild(lightbox);
+    }
+
+    const lightboxImg = document.getElementById('lightboxImg');
+
+    function openLightbox(src) {
+        if (!src) return;
+        lightboxImg.src = src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+        setTimeout(() => { lightboxImg.src = ''; }, 250);
+    }
+
+    imageContainer.addEventListener('click', () => {
+        const img = document.getElementById('inspectionImage');
+        if (img && img.style.display !== 'none' && img.src) {
+            openLightbox(img.src);
+        }
+    });
+
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox || e.target.classList.contains('image-lightbox__close')) {
+            closeLightbox();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initImageLightbox);

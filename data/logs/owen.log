@@ -1234,3 +1234,1446 @@
 2026-05-15 15:59:49 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
 2026-05-15 15:59:49 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
 2026-05-15 15:59:49 - INFO - owen - Соединение закрыто
+2026-05-18 08:34:00 - INFO - owen - Инициализация: IP=192.168.1.99, порт=502, unit=1, timeout=1.0
+2026-05-18 08:34:00 - WARNING - owen - Попытка переподключения (задержка 1.0с)...
+2026-05-18 08:34:00 - INFO - owen - Попытка подключения...
+2026-05-18 08:34:00 - INFO - owen - Подключение успешно
+2026-05-18 08:34:00 - INFO - owen - Входы изменились: [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 08:34:00 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 08:34:00 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 08:40:52 - INFO - owen - Соединение закрыто
+2026-05-18 08:40:57 - INFO - owen - Инициализация: IP=192.168.1.99, порт=502, unit=1, timeout=1.0
+2026-05-18 08:40:57 - WARNING - owen - Попытка переподключения (задержка 1.0с)...
+2026-05-18 08:40:57 - INFO - owen - Попытка подключения...
+2026-05-18 08:40:57 - INFO - owen - Подключение успешно
+2026-05-18 08:40:57 - INFO - owen - Входы изменились: [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 08:40:57 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 08:40:57 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 09:19:26 - INFO - owen - Соединение закрыто
+2026-05-18 09:19:29 - INFO - owen - Инициализация: IP=192.168.1.99, порт=502, unit=1, timeout=1.0
+2026-05-18 09:19:29 - WARNING - owen - Попытка переподключения (задержка 1.0с)...
+2026-05-18 09:19:29 - INFO - owen - Попытка подключения...
+2026-05-18 09:19:29 - INFO - owen - Подключение успешно
+2026-05-18 09:19:29 - INFO - owen - Входы изменились: [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 09:19:29 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 09:19:29 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 09:47:40 - INFO - owen - Соединение закрыто
+2026-05-18 09:47:42 - INFO - owen - Инициализация: IP=192.168.1.99, порт=502, unit=1, timeout=1.0
+2026-05-18 09:47:42 - WARNING - owen - Попытка переподключения (задержка 1.0с)...
+2026-05-18 09:47:42 - INFO - owen - Попытка подключения...
+2026-05-18 09:47:42 - INFO - owen - Подключение успешно
+2026-05-18 09:47:42 - INFO - owen - Входы изменились: [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 09:47:42 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 09:47:42 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 10:59:30 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Input/Output] No response received after 3 retries, continue with next request
+2026-05-18 10:59:30 - WARNING - owen - Попытка переподключения (задержка 1.0с)...
+2026-05-18 10:59:30 - INFO - owen - Попытка подключения...
+2026-05-18 10:59:32 - ERROR - owen - Ошибка подключения
+2026-05-18 10:59:33 - WARNING - owen - Ошибка связи при чтении выходов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 10:59:33 - WARNING - owen - Попытка переподключения (задержка 2.0с)...
+2026-05-18 10:59:33 - INFO - owen - Попытка подключения...
+2026-05-18 10:59:34 - ERROR - owen - Ошибка подключения
+2026-05-18 10:59:51 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 10:59:51 - WARNING - owen - Попытка переподключения (задержка 4.0с)...
+2026-05-18 10:59:51 - INFO - owen - Попытка подключения...
+2026-05-18 10:59:53 - ERROR - owen - Ошибка подключения
+2026-05-18 11:00:01 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:00:01 - WARNING - owen - Попытка переподключения (задержка 8.0с)...
+2026-05-18 11:00:01 - INFO - owen - Попытка подключения...
+2026-05-18 11:00:03 - ERROR - owen - Ошибка подключения
+2026-05-18 11:00:11 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:00:22 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:00:22 - WARNING - owen - Попытка переподключения (задержка 16.0с)...
+2026-05-18 11:00:22 - INFO - owen - Попытка подключения...
+2026-05-18 11:00:23 - ERROR - owen - Ошибка подключения
+2026-05-18 11:00:32 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:00:43 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:00:53 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:00:53 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:00:53 - INFO - owen - Попытка подключения...
+2026-05-18 11:00:54 - ERROR - owen - Ошибка подключения
+2026-05-18 11:01:03 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:01:14 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:01:24 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:01:24 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:01:24 - INFO - owen - Попытка подключения...
+2026-05-18 11:01:26 - ERROR - owen - Ошибка подключения
+2026-05-18 11:01:35 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:01:45 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:01:55 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:01:55 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:01:55 - INFO - owen - Попытка подключения...
+2026-05-18 11:01:57 - ERROR - owen - Ошибка подключения
+2026-05-18 11:02:06 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:02:16 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:02:26 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:02:26 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:02:26 - INFO - owen - Попытка подключения...
+2026-05-18 11:02:28 - ERROR - owen - Ошибка подключения
+2026-05-18 11:02:37 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:02:47 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:02:57 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:02:57 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:02:57 - INFO - owen - Попытка подключения...
+2026-05-18 11:02:59 - ERROR - owen - Ошибка подключения
+2026-05-18 11:03:10 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:12:46 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:12:46 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:12:46 - INFO - owen - Попытка подключения...
+2026-05-18 11:12:48 - ERROR - owen - Ошибка подключения
+2026-05-18 11:12:57 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:13:07 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:13:17 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:13:17 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:13:17 - INFO - owen - Попытка подключения...
+2026-05-18 11:13:18 - ERROR - owen - Ошибка подключения
+2026-05-18 11:13:27 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:13:37 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:13:47 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:13:47 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:13:47 - INFO - owen - Попытка подключения...
+2026-05-18 11:13:48 - ERROR - owen - Ошибка подключения
+2026-05-18 11:13:57 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:14:07 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:14:17 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:14:17 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:14:17 - INFO - owen - Попытка подключения...
+2026-05-18 11:14:19 - ERROR - owen - Ошибка подключения
+2026-05-18 11:14:27 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:14:37 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:14:47 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:14:47 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:14:47 - INFO - owen - Попытка подключения...
+2026-05-18 11:14:49 - ERROR - owen - Ошибка подключения
+2026-05-18 11:14:57 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:15:07 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:15:17 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:15:17 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:15:17 - INFO - owen - Попытка подключения...
+2026-05-18 11:15:19 - ERROR - owen - Ошибка подключения
+2026-05-18 11:15:27 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:15:38 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:15:48 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:15:48 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:15:48 - INFO - owen - Попытка подключения...
+2026-05-18 11:15:49 - ERROR - owen - Ошибка подключения
+2026-05-18 11:15:58 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:16:08 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:16:18 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:16:18 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:16:18 - INFO - owen - Попытка подключения...
+2026-05-18 11:16:19 - ERROR - owen - Ошибка подключения
+2026-05-18 11:16:28 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:16:38 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:16:48 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:16:48 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:16:48 - INFO - owen - Попытка подключения...
+2026-05-18 11:16:49 - ERROR - owen - Ошибка подключения
+2026-05-18 11:16:58 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:17:08 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:17:18 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:17:18 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:17:18 - INFO - owen - Попытка подключения...
+2026-05-18 11:17:20 - ERROR - owen - Ошибка подключения
+2026-05-18 11:17:28 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:17:38 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:17:48 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:17:48 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:17:48 - INFO - owen - Попытка подключения...
+2026-05-18 11:17:50 - ERROR - owen - Ошибка подключения
+2026-05-18 11:17:58 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:18:08 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:18:18 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:18:18 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:18:18 - INFO - owen - Попытка подключения...
+2026-05-18 11:18:20 - ERROR - owen - Ошибка подключения
+2026-05-18 11:18:28 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:18:38 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:18:49 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:18:49 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:18:49 - INFO - owen - Попытка подключения...
+2026-05-18 11:18:50 - ERROR - owen - Ошибка подключения
+2026-05-18 11:18:59 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:19:09 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:19:19 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:19:19 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:19:19 - INFO - owen - Попытка подключения...
+2026-05-18 11:19:20 - ERROR - owen - Ошибка подключения
+2026-05-18 11:19:29 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:19:39 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:19:49 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:19:49 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:19:49 - INFO - owen - Попытка подключения...
+2026-05-18 11:19:50 - ERROR - owen - Ошибка подключения
+2026-05-18 11:19:59 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:20:09 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:20:19 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:20:19 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:20:19 - INFO - owen - Попытка подключения...
+2026-05-18 11:20:21 - ERROR - owen - Ошибка подключения
+2026-05-18 11:20:29 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:20:39 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:20:49 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:20:49 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:20:49 - INFO - owen - Попытка подключения...
+2026-05-18 11:20:51 - ERROR - owen - Ошибка подключения
+2026-05-18 11:21:00 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:21:10 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:21:20 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:21:20 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:21:20 - INFO - owen - Попытка подключения...
+2026-05-18 11:21:21 - ERROR - owen - Ошибка подключения
+2026-05-18 11:21:30 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:21:40 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:21:50 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:21:50 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:21:50 - INFO - owen - Попытка подключения...
+2026-05-18 11:21:51 - ERROR - owen - Ошибка подключения
+2026-05-18 11:22:00 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:22:10 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:22:20 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:22:20 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:22:20 - INFO - owen - Попытка подключения...
+2026-05-18 11:22:22 - ERROR - owen - Ошибка подключения
+2026-05-18 11:22:30 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:22:40 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:22:50 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:22:50 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:22:50 - INFO - owen - Попытка подключения...
+2026-05-18 11:22:52 - ERROR - owen - Ошибка подключения
+2026-05-18 11:23:00 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:23:10 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:23:20 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:23:20 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:23:20 - INFO - owen - Попытка подключения...
+2026-05-18 11:23:22 - ERROR - owen - Ошибка подключения
+2026-05-18 11:23:31 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:23:41 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:23:51 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:23:51 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:23:51 - INFO - owen - Попытка подключения...
+2026-05-18 11:23:52 - ERROR - owen - Ошибка подключения
+2026-05-18 11:24:01 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:24:11 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:24:21 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:24:21 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:24:21 - INFO - owen - Попытка подключения...
+2026-05-18 11:24:22 - ERROR - owen - Ошибка подключения
+2026-05-18 11:24:31 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:24:41 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:24:51 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:24:51 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:24:51 - INFO - owen - Попытка подключения...
+2026-05-18 11:24:53 - ERROR - owen - Ошибка подключения
+2026-05-18 11:25:01 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:25:11 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:25:21 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:25:21 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:25:21 - INFO - owen - Попытка подключения...
+2026-05-18 11:25:23 - ERROR - owen - Ошибка подключения
+2026-05-18 11:25:31 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:25:42 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:25:52 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:25:52 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:25:52 - INFO - owen - Попытка подключения...
+2026-05-18 11:25:53 - ERROR - owen - Ошибка подключения
+2026-05-18 11:26:02 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:26:12 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:26:22 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:26:22 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:26:22 - INFO - owen - Попытка подключения...
+2026-05-18 11:26:23 - ERROR - owen - Ошибка подключения
+2026-05-18 11:26:32 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:26:42 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:26:52 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:26:52 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:26:52 - INFO - owen - Попытка подключения...
+2026-05-18 11:26:53 - ERROR - owen - Ошибка подключения
+2026-05-18 11:27:02 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:27:12 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:27:22 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:27:22 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:27:22 - INFO - owen - Попытка подключения...
+2026-05-18 11:27:24 - ERROR - owen - Ошибка подключения
+2026-05-18 11:27:32 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:27:42 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:27:52 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:27:52 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:27:52 - INFO - owen - Попытка подключения...
+2026-05-18 11:27:54 - ERROR - owen - Ошибка подключения
+2026-05-18 11:28:02 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:28:12 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:28:22 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:28:22 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:28:22 - INFO - owen - Попытка подключения...
+2026-05-18 11:28:24 - ERROR - owen - Ошибка подключения
+2026-05-18 11:28:33 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:28:43 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:28:53 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:28:53 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:28:53 - INFO - owen - Попытка подключения...
+2026-05-18 11:28:54 - ERROR - owen - Ошибка подключения
+2026-05-18 11:29:03 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:29:13 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:29:23 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:29:23 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:29:23 - INFO - owen - Попытка подключения...
+2026-05-18 11:29:25 - ERROR - owen - Ошибка подключения
+2026-05-18 11:29:33 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:29:43 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:29:53 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:29:53 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:29:53 - INFO - owen - Попытка подключения...
+2026-05-18 11:29:55 - ERROR - owen - Ошибка подключения
+2026-05-18 11:30:03 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:30:13 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:30:23 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:30:23 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:30:23 - INFO - owen - Попытка подключения...
+2026-05-18 11:30:25 - ERROR - owen - Ошибка подключения
+2026-05-18 11:30:34 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:30:44 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:30:54 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:30:54 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:30:54 - INFO - owen - Попытка подключения...
+2026-05-18 11:30:55 - ERROR - owen - Ошибка подключения
+2026-05-18 11:31:04 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:31:14 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:31:24 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:31:24 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:31:24 - INFO - owen - Попытка подключения...
+2026-05-18 11:31:25 - ERROR - owen - Ошибка подключения
+2026-05-18 11:31:34 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:31:44 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:31:54 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:31:54 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:31:54 - INFO - owen - Попытка подключения...
+2026-05-18 11:31:56 - ERROR - owen - Ошибка подключения
+2026-05-18 11:32:04 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:32:14 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:32:24 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:32:24 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:32:24 - INFO - owen - Попытка подключения...
+2026-05-18 11:32:26 - ERROR - owen - Ошибка подключения
+2026-05-18 11:32:35 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:32:45 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:32:55 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:32:55 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:32:55 - INFO - owen - Попытка подключения...
+2026-05-18 11:32:56 - ERROR - owen - Ошибка подключения
+2026-05-18 11:33:05 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:33:15 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:33:25 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:33:25 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:33:25 - INFO - owen - Попытка подключения...
+2026-05-18 11:33:26 - ERROR - owen - Ошибка подключения
+2026-05-18 11:33:35 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:33:45 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:33:55 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:33:55 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:33:55 - INFO - owen - Попытка подключения...
+2026-05-18 11:33:57 - ERROR - owen - Ошибка подключения
+2026-05-18 11:34:05 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:34:15 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:34:25 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:34:25 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:34:25 - INFO - owen - Попытка подключения...
+2026-05-18 11:34:27 - ERROR - owen - Ошибка подключения
+2026-05-18 11:34:36 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:34:46 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:34:56 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:34:56 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:34:56 - INFO - owen - Попытка подключения...
+2026-05-18 11:34:57 - ERROR - owen - Ошибка подключения
+2026-05-18 11:35:06 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:35:16 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:35:26 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:35:26 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:35:26 - INFO - owen - Попытка подключения...
+2026-05-18 11:35:27 - ERROR - owen - Ошибка подключения
+2026-05-18 11:35:36 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:35:46 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:35:56 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:35:56 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:35:56 - INFO - owen - Попытка подключения...
+2026-05-18 11:35:58 - ERROR - owen - Ошибка подключения
+2026-05-18 11:36:06 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:36:16 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:36:26 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:36:26 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:36:26 - INFO - owen - Попытка подключения...
+2026-05-18 11:36:28 - ERROR - owen - Ошибка подключения
+2026-05-18 11:36:37 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:36:47 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:36:57 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:36:57 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:36:57 - INFO - owen - Попытка подключения...
+2026-05-18 11:36:58 - ERROR - owen - Ошибка подключения
+2026-05-18 11:37:07 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:37:17 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:37:27 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:37:27 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:37:27 - INFO - owen - Попытка подключения...
+2026-05-18 11:37:29 - ERROR - owen - Ошибка подключения
+2026-05-18 11:37:37 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:37:47 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:37:57 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:37:57 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:37:57 - INFO - owen - Попытка подключения...
+2026-05-18 11:37:59 - ERROR - owen - Ошибка подключения
+2026-05-18 11:38:07 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:38:18 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:38:28 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:38:28 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:38:28 - INFO - owen - Попытка подключения...
+2026-05-18 11:38:29 - ERROR - owen - Ошибка подключения
+2026-05-18 11:38:38 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:38:48 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:38:58 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:38:58 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:38:58 - INFO - owen - Попытка подключения...
+2026-05-18 11:38:59 - ERROR - owen - Ошибка подключения
+2026-05-18 11:39:08 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:39:18 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:39:28 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:39:28 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:39:28 - INFO - owen - Попытка подключения...
+2026-05-18 11:39:30 - ERROR - owen - Ошибка подключения
+2026-05-18 11:39:38 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:39:48 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:39:58 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:39:58 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:39:58 - INFO - owen - Попытка подключения...
+2026-05-18 11:40:00 - ERROR - owen - Ошибка подключения
+2026-05-18 11:40:08 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:40:19 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:40:29 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:40:29 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:40:29 - INFO - owen - Попытка подключения...
+2026-05-18 11:40:30 - ERROR - owen - Ошибка подключения
+2026-05-18 11:40:39 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:40:49 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:40:59 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:40:59 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:40:59 - INFO - owen - Попытка подключения...
+2026-05-18 11:41:00 - ERROR - owen - Ошибка подключения
+2026-05-18 11:41:09 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:41:19 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:41:29 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:41:29 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:41:29 - INFO - owen - Попытка подключения...
+2026-05-18 11:41:31 - ERROR - owen - Ошибка подключения
+2026-05-18 11:41:39 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:41:49 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:41:59 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:41:59 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:41:59 - INFO - owen - Попытка подключения...
+2026-05-18 11:42:01 - ERROR - owen - Ошибка подключения
+2026-05-18 11:42:09 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:42:19 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:42:30 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:42:30 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:42:30 - INFO - owen - Попытка подключения...
+2026-05-18 11:42:31 - ERROR - owen - Ошибка подключения
+2026-05-18 11:42:40 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:42:50 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:43:00 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:43:00 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:43:00 - INFO - owen - Попытка подключения...
+2026-05-18 11:43:01 - ERROR - owen - Ошибка подключения
+2026-05-18 11:43:10 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:43:20 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:43:30 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:43:30 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:43:30 - INFO - owen - Попытка подключения...
+2026-05-18 11:43:32 - ERROR - owen - Ошибка подключения
+2026-05-18 11:43:40 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:43:50 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:44:00 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:44:00 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:44:00 - INFO - owen - Попытка подключения...
+2026-05-18 11:44:02 - ERROR - owen - Ошибка подключения
+2026-05-18 11:44:10 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:44:20 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:44:31 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:44:31 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:44:31 - INFO - owen - Попытка подключения...
+2026-05-18 11:44:32 - ERROR - owen - Ошибка подключения
+2026-05-18 11:44:41 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:44:51 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:45:01 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:45:01 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:45:01 - INFO - owen - Попытка подключения...
+2026-05-18 11:45:02 - ERROR - owen - Ошибка подключения
+2026-05-18 11:45:11 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:45:21 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:45:31 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:45:31 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:45:31 - INFO - owen - Попытка подключения...
+2026-05-18 11:45:33 - ERROR - owen - Ошибка подключения
+2026-05-18 11:45:41 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:45:51 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:46:01 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:46:01 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:46:01 - INFO - owen - Попытка подключения...
+2026-05-18 11:46:03 - ERROR - owen - Ошибка подключения
+2026-05-18 11:46:11 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:46:22 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:46:32 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:46:32 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:46:32 - INFO - owen - Попытка подключения...
+2026-05-18 11:46:33 - ERROR - owen - Ошибка подключения
+2026-05-18 11:46:42 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:46:52 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:47:02 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:47:02 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:47:02 - INFO - owen - Попытка подключения...
+2026-05-18 11:47:03 - ERROR - owen - Ошибка подключения
+2026-05-18 11:47:12 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:47:22 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:47:32 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:47:32 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:47:32 - INFO - owen - Попытка подключения...
+2026-05-18 11:47:34 - ERROR - owen - Ошибка подключения
+2026-05-18 11:47:42 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:47:52 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:48:02 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:48:02 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:48:02 - INFO - owen - Попытка подключения...
+2026-05-18 11:48:04 - ERROR - owen - Ошибка подключения
+2026-05-18 11:48:13 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:48:23 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:48:33 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:48:33 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:48:33 - INFO - owen - Попытка подключения...
+2026-05-18 11:48:34 - ERROR - owen - Ошибка подключения
+2026-05-18 11:48:43 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:48:53 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:49:03 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:49:03 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:49:03 - INFO - owen - Попытка подключения...
+2026-05-18 11:49:05 - ERROR - owen - Ошибка подключения
+2026-05-18 11:49:13 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:49:23 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:49:33 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:49:33 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:49:33 - INFO - owen - Попытка подключения...
+2026-05-18 11:49:35 - ERROR - owen - Ошибка подключения
+2026-05-18 11:49:43 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:49:53 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:50:03 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:50:03 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:50:03 - INFO - owen - Попытка подключения...
+2026-05-18 11:50:05 - ERROR - owen - Ошибка подключения
+2026-05-18 11:50:14 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:50:24 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:50:34 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:50:34 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:50:34 - INFO - owen - Попытка подключения...
+2026-05-18 11:50:35 - ERROR - owen - Ошибка подключения
+2026-05-18 11:50:44 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:50:54 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:51:04 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:51:04 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:51:04 - INFO - owen - Попытка подключения...
+2026-05-18 11:51:05 - ERROR - owen - Ошибка подключения
+2026-05-18 11:51:14 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:51:24 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:51:34 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:51:34 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:51:34 - INFO - owen - Попытка подключения...
+2026-05-18 11:51:36 - ERROR - owen - Ошибка подключения
+2026-05-18 11:51:44 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:51:54 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:52:04 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:52:04 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:52:04 - INFO - owen - Попытка подключения...
+2026-05-18 11:52:06 - ERROR - owen - Ошибка подключения
+2026-05-18 11:52:15 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:52:25 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:52:35 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:52:35 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:52:35 - INFO - owen - Попытка подключения...
+2026-05-18 11:52:36 - ERROR - owen - Ошибка подключения
+2026-05-18 11:52:45 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:52:55 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:53:05 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:53:05 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:53:05 - INFO - owen - Попытка подключения...
+2026-05-18 11:53:06 - ERROR - owen - Ошибка подключения
+2026-05-18 11:53:15 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:53:25 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:53:35 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:53:35 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:53:35 - INFO - owen - Попытка подключения...
+2026-05-18 11:53:37 - ERROR - owen - Ошибка подключения
+2026-05-18 11:53:45 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:53:55 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:54:05 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:54:05 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:54:05 - INFO - owen - Попытка подключения...
+2026-05-18 11:54:07 - ERROR - owen - Ошибка подключения
+2026-05-18 11:54:15 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:54:26 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:54:36 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:54:36 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:54:36 - INFO - owen - Попытка подключения...
+2026-05-18 11:54:37 - ERROR - owen - Ошибка подключения
+2026-05-18 11:54:46 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:54:56 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:55:06 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:55:06 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:55:06 - INFO - owen - Попытка подключения...
+2026-05-18 11:55:07 - ERROR - owen - Ошибка подключения
+2026-05-18 11:55:16 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:55:26 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:55:36 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:55:36 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:55:36 - INFO - owen - Попытка подключения...
+2026-05-18 11:55:38 - ERROR - owen - Ошибка подключения
+2026-05-18 11:55:46 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:55:56 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:56:06 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:56:06 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:56:06 - INFO - owen - Попытка подключения...
+2026-05-18 11:56:08 - ERROR - owen - Ошибка подключения
+2026-05-18 11:56:16 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:56:27 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:56:37 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:56:37 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:56:37 - INFO - owen - Попытка подключения...
+2026-05-18 11:56:38 - ERROR - owen - Ошибка подключения
+2026-05-18 11:56:47 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:56:57 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:57:07 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:57:07 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:57:07 - INFO - owen - Попытка подключения...
+2026-05-18 11:57:08 - ERROR - owen - Ошибка подключения
+2026-05-18 11:57:17 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:57:27 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:57:37 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:57:37 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:57:37 - INFO - owen - Попытка подключения...
+2026-05-18 11:57:39 - ERROR - owen - Ошибка подключения
+2026-05-18 11:57:47 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:57:57 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:58:07 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:58:07 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:58:07 - INFO - owen - Попытка подключения...
+2026-05-18 11:58:09 - ERROR - owen - Ошибка подключения
+2026-05-18 11:58:18 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:58:28 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:58:38 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:58:38 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:58:38 - INFO - owen - Попытка подключения...
+2026-05-18 11:58:39 - ERROR - owen - Ошибка подключения
+2026-05-18 11:58:48 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:58:58 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:59:08 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:59:08 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:59:08 - INFO - owen - Попытка подключения...
+2026-05-18 11:59:10 - ERROR - owen - Ошибка подключения
+2026-05-18 11:59:18 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:59:28 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:59:38 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:59:38 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 11:59:38 - INFO - owen - Попытка подключения...
+2026-05-18 11:59:40 - ERROR - owen - Ошибка подключения
+2026-05-18 11:59:48 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 11:59:58 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:00:08 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:00:08 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:00:08 - INFO - owen - Попытка подключения...
+2026-05-18 12:00:10 - ERROR - owen - Ошибка подключения
+2026-05-18 12:00:19 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:00:29 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:00:39 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:00:39 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:00:39 - INFO - owen - Попытка подключения...
+2026-05-18 12:00:40 - ERROR - owen - Ошибка подключения
+2026-05-18 12:00:49 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:00:59 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:01:09 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:01:09 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:01:09 - INFO - owen - Попытка подключения...
+2026-05-18 12:01:11 - ERROR - owen - Ошибка подключения
+2026-05-18 12:01:19 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:01:29 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:01:39 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:01:39 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:01:39 - INFO - owen - Попытка подключения...
+2026-05-18 12:01:41 - ERROR - owen - Ошибка подключения
+2026-05-18 12:01:49 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:02:00 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:02:10 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:02:10 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:02:10 - INFO - owen - Попытка подключения...
+2026-05-18 12:02:11 - ERROR - owen - Ошибка подключения
+2026-05-18 12:02:20 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:02:30 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:02:40 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:02:40 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:02:40 - INFO - owen - Попытка подключения...
+2026-05-18 12:02:41 - ERROR - owen - Ошибка подключения
+2026-05-18 12:02:50 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:03:00 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:03:10 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:03:10 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:03:10 - INFO - owen - Попытка подключения...
+2026-05-18 12:03:12 - ERROR - owen - Ошибка подключения
+2026-05-18 12:03:20 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:03:30 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:03:40 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:03:40 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:03:40 - INFO - owen - Попытка подключения...
+2026-05-18 12:03:42 - ERROR - owen - Ошибка подключения
+2026-05-18 12:03:50 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:04:01 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:04:11 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:04:11 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:04:11 - INFO - owen - Попытка подключения...
+2026-05-18 12:04:12 - ERROR - owen - Ошибка подключения
+2026-05-18 12:04:21 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:04:31 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:04:41 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:04:41 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:04:41 - INFO - owen - Попытка подключения...
+2026-05-18 12:04:42 - ERROR - owen - Ошибка подключения
+2026-05-18 12:04:51 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:05:01 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:05:11 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:05:11 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:05:11 - INFO - owen - Попытка подключения...
+2026-05-18 12:05:13 - ERROR - owen - Ошибка подключения
+2026-05-18 12:05:21 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:05:31 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:05:41 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:05:41 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:05:41 - INFO - owen - Попытка подключения...
+2026-05-18 12:05:43 - ERROR - owen - Ошибка подключения
+2026-05-18 12:05:52 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:06:02 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:06:12 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:06:12 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:06:12 - INFO - owen - Попытка подключения...
+2026-05-18 12:06:13 - ERROR - owen - Ошибка подключения
+2026-05-18 12:06:22 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:06:32 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:06:42 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:06:42 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:06:42 - INFO - owen - Попытка подключения...
+2026-05-18 12:06:43 - ERROR - owen - Ошибка подключения
+2026-05-18 12:06:52 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:07:02 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:07:12 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:07:12 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:07:12 - INFO - owen - Попытка подключения...
+2026-05-18 12:07:14 - ERROR - owen - Ошибка подключения
+2026-05-18 12:07:22 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:07:32 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:07:42 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:07:42 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:07:42 - INFO - owen - Попытка подключения...
+2026-05-18 12:07:44 - ERROR - owen - Ошибка подключения
+2026-05-18 12:07:52 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:08:03 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:08:13 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:08:13 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:08:13 - INFO - owen - Попытка подключения...
+2026-05-18 12:08:14 - ERROR - owen - Ошибка подключения
+2026-05-18 12:08:23 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:08:33 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:08:43 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:08:43 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:08:43 - INFO - owen - Попытка подключения...
+2026-05-18 12:08:44 - ERROR - owen - Ошибка подключения
+2026-05-18 12:08:53 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:09:03 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:09:13 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:09:13 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:09:13 - INFO - owen - Попытка подключения...
+2026-05-18 12:09:15 - ERROR - owen - Ошибка подключения
+2026-05-18 12:09:23 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:09:33 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:09:43 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:09:43 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:09:43 - INFO - owen - Попытка подключения...
+2026-05-18 12:09:45 - ERROR - owen - Ошибка подключения
+2026-05-18 12:09:54 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:10:04 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:10:14 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:10:14 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:10:14 - INFO - owen - Попытка подключения...
+2026-05-18 12:10:15 - ERROR - owen - Ошибка подключения
+2026-05-18 12:10:24 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:10:34 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:10:44 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:10:44 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:10:44 - INFO - owen - Попытка подключения...
+2026-05-18 12:10:45 - ERROR - owen - Ошибка подключения
+2026-05-18 12:10:54 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:11:04 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:11:14 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:11:14 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:11:14 - INFO - owen - Попытка подключения...
+2026-05-18 12:11:16 - ERROR - owen - Ошибка подключения
+2026-05-18 12:11:24 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:11:34 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:11:45 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:11:45 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:11:45 - INFO - owen - Попытка подключения...
+2026-05-18 12:11:46 - ERROR - owen - Ошибка подключения
+2026-05-18 12:11:55 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:12:05 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:12:15 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:12:15 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:12:15 - INFO - owen - Попытка подключения...
+2026-05-18 12:12:16 - ERROR - owen - Ошибка подключения
+2026-05-18 12:12:25 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:12:35 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:12:45 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:12:45 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:12:45 - INFO - owen - Попытка подключения...
+2026-05-18 12:12:47 - ERROR - owen - Ошибка подключения
+2026-05-18 12:12:55 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:13:05 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:13:15 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:13:15 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:13:15 - INFO - owen - Попытка подключения...
+2026-05-18 12:13:17 - ERROR - owen - Ошибка подключения
+2026-05-18 12:13:25 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:13:35 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:13:46 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:13:46 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:13:46 - INFO - owen - Попытка подключения...
+2026-05-18 12:13:47 - ERROR - owen - Ошибка подключения
+2026-05-18 12:13:56 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:14:06 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:14:16 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:14:16 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:14:16 - INFO - owen - Попытка подключения...
+2026-05-18 12:14:17 - ERROR - owen - Ошибка подключения
+2026-05-18 12:14:26 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:14:36 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:14:46 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:14:46 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:14:46 - INFO - owen - Попытка подключения...
+2026-05-18 12:14:48 - ERROR - owen - Ошибка подключения
+2026-05-18 12:14:56 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:15:06 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:15:16 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:15:16 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:15:16 - INFO - owen - Попытка подключения...
+2026-05-18 12:15:18 - ERROR - owen - Ошибка подключения
+2026-05-18 12:15:26 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:15:37 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:15:47 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:15:47 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:15:47 - INFO - owen - Попытка подключения...
+2026-05-18 12:15:48 - ERROR - owen - Ошибка подключения
+2026-05-18 12:15:57 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:16:07 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:16:17 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:16:17 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:16:17 - INFO - owen - Попытка подключения...
+2026-05-18 12:16:18 - ERROR - owen - Ошибка подключения
+2026-05-18 12:16:27 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:16:37 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:16:47 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:16:47 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:16:47 - INFO - owen - Попытка подключения...
+2026-05-18 12:16:49 - ERROR - owen - Ошибка подключения
+2026-05-18 12:16:57 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:17:07 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:17:17 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:17:17 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:17:17 - INFO - owen - Попытка подключения...
+2026-05-18 12:17:19 - ERROR - owen - Ошибка подключения
+2026-05-18 12:17:28 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:17:38 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:17:48 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:17:48 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:17:48 - INFO - owen - Попытка подключения...
+2026-05-18 12:17:49 - ERROR - owen - Ошибка подключения
+2026-05-18 12:17:58 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:18:08 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:18:18 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:18:18 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:18:18 - INFO - owen - Попытка подключения...
+2026-05-18 12:18:19 - ERROR - owen - Ошибка подключения
+2026-05-18 12:18:28 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:18:38 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:18:48 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:18:48 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:18:48 - INFO - owen - Попытка подключения...
+2026-05-18 12:18:50 - ERROR - owen - Ошибка подключения
+2026-05-18 12:18:58 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:19:08 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:19:18 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:19:18 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:19:18 - INFO - owen - Попытка подключения...
+2026-05-18 12:19:20 - ERROR - owen - Ошибка подключения
+2026-05-18 12:19:29 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:19:39 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:19:49 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:19:49 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:19:49 - INFO - owen - Попытка подключения...
+2026-05-18 12:19:50 - ERROR - owen - Ошибка подключения
+2026-05-18 12:19:59 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:20:09 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:20:19 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:20:19 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:20:19 - INFO - owen - Попытка подключения...
+2026-05-18 12:20:20 - ERROR - owen - Ошибка подключения
+2026-05-18 12:20:29 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:20:39 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:20:49 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:20:49 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:20:49 - INFO - owen - Попытка подключения...
+2026-05-18 12:20:51 - ERROR - owen - Ошибка подключения
+2026-05-18 12:20:59 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:21:09 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:21:19 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:21:19 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:21:19 - INFO - owen - Попытка подключения...
+2026-05-18 12:21:21 - ERROR - owen - Ошибка подключения
+2026-05-18 12:21:30 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:21:40 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:21:50 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:21:50 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:21:50 - INFO - owen - Попытка подключения...
+2026-05-18 12:21:51 - ERROR - owen - Ошибка подключения
+2026-05-18 12:22:00 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:22:10 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:22:20 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:22:20 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:22:20 - INFO - owen - Попытка подключения...
+2026-05-18 12:22:22 - ERROR - owen - Ошибка подключения
+2026-05-18 12:22:30 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:22:40 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:22:50 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:22:50 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:22:50 - INFO - owen - Попытка подключения...
+2026-05-18 12:22:52 - ERROR - owen - Ошибка подключения
+2026-05-18 12:23:00 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:23:10 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:23:21 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:23:21 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:23:21 - INFO - owen - Попытка подключения...
+2026-05-18 12:23:22 - ERROR - owen - Ошибка подключения
+2026-05-18 12:23:31 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:23:41 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:23:51 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:23:51 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:23:51 - INFO - owen - Попытка подключения...
+2026-05-18 12:23:52 - ERROR - owen - Ошибка подключения
+2026-05-18 12:24:01 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:24:11 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:24:21 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:24:21 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:24:21 - INFO - owen - Попытка подключения...
+2026-05-18 12:24:23 - ERROR - owen - Ошибка подключения
+2026-05-18 12:24:31 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:24:41 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:24:51 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:24:51 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:24:51 - INFO - owen - Попытка подключения...
+2026-05-18 12:24:53 - ERROR - owen - Ошибка подключения
+2026-05-18 12:25:01 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:25:11 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:25:22 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:25:22 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:25:22 - INFO - owen - Попытка подключения...
+2026-05-18 12:25:23 - ERROR - owen - Ошибка подключения
+2026-05-18 12:25:32 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:25:42 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:25:52 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:25:52 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:25:52 - INFO - owen - Попытка подключения...
+2026-05-18 12:25:53 - ERROR - owen - Ошибка подключения
+2026-05-18 12:26:02 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:26:12 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:26:22 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:26:22 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:26:22 - INFO - owen - Попытка подключения...
+2026-05-18 12:26:24 - ERROR - owen - Ошибка подключения
+2026-05-18 12:26:32 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:26:42 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:26:52 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:26:52 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:26:52 - INFO - owen - Попытка подключения...
+2026-05-18 12:26:54 - ERROR - owen - Ошибка подключения
+2026-05-18 12:27:02 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:27:12 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:27:23 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:27:23 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:27:23 - INFO - owen - Попытка подключения...
+2026-05-18 12:27:24 - ERROR - owen - Ошибка подключения
+2026-05-18 12:57:56 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:57:56 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:57:56 - INFO - owen - Попытка подключения...
+2026-05-18 12:57:58 - ERROR - owen - Ошибка подключения
+2026-05-18 12:58:06 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:58:16 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:58:26 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:58:26 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:58:26 - INFO - owen - Попытка подключения...
+2026-05-18 12:58:28 - ERROR - owen - Ошибка подключения
+2026-05-18 12:58:36 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:58:46 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:58:56 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:58:56 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:58:56 - INFO - owen - Попытка подключения...
+2026-05-18 12:58:58 - ERROR - owen - Ошибка подключения
+2026-05-18 12:59:06 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:59:17 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:59:27 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:59:27 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:59:27 - INFO - owen - Попытка подключения...
+2026-05-18 12:59:28 - ERROR - owen - Ошибка подключения
+2026-05-18 12:59:37 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:59:47 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:59:57 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 12:59:57 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 12:59:57 - INFO - owen - Попытка подключения...
+2026-05-18 12:59:58 - ERROR - owen - Ошибка подключения
+2026-05-18 13:00:07 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:00:17 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:00:27 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:00:27 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 13:00:27 - INFO - owen - Попытка подключения...
+2026-05-18 13:00:28 - ERROR - owen - Ошибка подключения
+2026-05-18 13:00:37 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:00:47 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:00:57 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:00:57 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 13:00:57 - INFO - owen - Попытка подключения...
+2026-05-18 13:00:59 - ERROR - owen - Ошибка подключения
+2026-05-18 13:01:07 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:01:17 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:01:27 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:01:27 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 13:01:27 - INFO - owen - Попытка подключения...
+2026-05-18 13:01:29 - ERROR - owen - Ошибка подключения
+2026-05-18 13:01:37 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:01:47 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:01:57 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:01:57 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 13:01:57 - INFO - owen - Попытка подключения...
+2026-05-18 13:01:59 - ERROR - owen - Ошибка подключения
+2026-05-18 13:02:07 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:02:17 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:02:27 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:02:27 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 13:02:27 - INFO - owen - Попытка подключения...
+2026-05-18 13:02:29 - ERROR - owen - Ошибка подключения
+2026-05-18 13:02:38 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:02:48 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:02:58 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:02:58 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 13:02:58 - INFO - owen - Попытка подключения...
+2026-05-18 13:02:59 - ERROR - owen - Ошибка подключения
+2026-05-18 13:03:08 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:03:18 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:03:28 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:03:28 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 13:03:28 - INFO - owen - Попытка подключения...
+2026-05-18 13:03:29 - ERROR - owen - Ошибка подключения
+2026-05-18 13:03:38 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:03:48 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:03:58 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:03:58 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 13:03:58 - INFO - owen - Попытка подключения...
+2026-05-18 13:03:59 - ERROR - owen - Ошибка подключения
+2026-05-18 13:04:08 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:04:18 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:04:28 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:04:28 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 13:04:28 - INFO - owen - Попытка подключения...
+2026-05-18 13:04:30 - ERROR - owen - Ошибка подключения
+2026-05-18 13:04:38 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:04:48 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:04:58 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:04:58 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 13:04:58 - INFO - owen - Попытка подключения...
+2026-05-18 13:05:00 - ERROR - owen - Ошибка подключения
+2026-05-18 13:05:08 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:05:18 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:05:29 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:05:29 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 13:05:29 - INFO - owen - Попытка подключения...
+2026-05-18 13:05:30 - ERROR - owen - Ошибка подключения
+2026-05-18 13:05:39 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:05:49 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:05:59 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:05:59 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 13:05:59 - INFO - owen - Попытка подключения...
+2026-05-18 13:06:00 - ERROR - owen - Ошибка подключения
+2026-05-18 13:06:09 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:06:19 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:06:29 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:06:29 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 13:06:29 - INFO - owen - Попытка подключения...
+2026-05-18 13:06:31 - ERROR - owen - Ошибка подключения
+2026-05-18 13:06:39 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:06:49 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:06:59 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:06:59 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 13:06:59 - INFO - owen - Попытка подключения...
+2026-05-18 13:07:01 - ERROR - owen - Ошибка подключения
+2026-05-18 13:07:09 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:07:19 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:07:29 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:07:29 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 13:07:29 - INFO - owen - Попытка подключения...
+2026-05-18 13:07:31 - ERROR - owen - Ошибка подключения
+2026-05-18 13:07:40 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:07:50 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:08:00 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:08:00 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 13:08:00 - INFO - owen - Попытка подключения...
+2026-05-18 13:08:01 - ERROR - owen - Ошибка подключения
+2026-05-18 13:08:10 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:08:20 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:08:30 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:08:30 - WARNING - owen - Попытка переподключения (задержка 30.0с)...
+2026-05-18 13:08:30 - INFO - owen - Попытка подключения...
+2026-05-18 13:08:32 - ERROR - owen - Ошибка подключения
+2026-05-18 13:08:40 - WARNING - owen - Ошибка связи при чтении входов: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.99:502]
+2026-05-18 13:08:50 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:15:11 - INFO - owen - Входы изменились: [0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:15:12 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:15:13 - INFO - owen - Входы изменились: [0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:15:33 - INFO - owen - Входы изменились: [0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:15:36 - DEBUG - owen - Запись выходов: states=[1, 0, 0, 1], значение=9
+2026-05-18 13:15:36 - INFO - owen - Выходы установлены: [1, 0, 0, 1]
+2026-05-18 13:15:37 - INFO - owen - Входы изменились: [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:15:42 - INFO - owen - Входы изменились: [1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:15:46 - INFO - owen - Входы изменились: [1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:15:49 - INFO - owen - Входы изменились: [1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:15:50 - DEBUG - owen - Запись выходов: states=[0, 0, 1, 0], значение=4
+2026-05-18 13:15:50 - INFO - owen - Выходы установлены: [0, 0, 1, 0]
+2026-05-18 13:15:51 - INFO - owen - Входы изменились: [1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:15:54 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:15:54 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:15:54 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 1], значение=8
+2026-05-18 13:15:54 - INFO - owen - Выходы установлены: [0, 0, 0, 1]
+2026-05-18 13:16:26 - INFO - owen - Входы изменились: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:16:26 - INFO - owen - Входы изменились: [1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:16:26 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:16:27 - INFO - owen - Входы изменились: [0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:16:27 - DEBUG - owen - Запись выходов: states=[1, 0, 0, 0], значение=1
+2026-05-18 13:16:27 - INFO - owen - Выходы установлены: [1, 0, 0, 0]
+2026-05-18 13:16:29 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:16:33 - INFO - owen - Входы изменились: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:16:33 - INFO - owen - Выходы изменились: [0, 0, 0, 0]
+2026-05-18 13:16:33 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:16:33 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:16:43 - INFO - owen - Выходы изменились: [0, 0, 1, 0]
+2026-05-18 13:16:43 - DEBUG - owen - Запись выходов: states=[0, 0, 1, 0], значение=4
+2026-05-18 13:16:43 - INFO - owen - Выходы установлены: [0, 0, 1, 0]
+2026-05-18 13:16:44 - INFO - owen - Выходы изменились: [0, 0, 0, 0]
+2026-05-18 13:16:44 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:16:44 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:16:44 - INFO - owen - Выходы изменились: [0, 0, 1, 0]
+2026-05-18 13:16:44 - DEBUG - owen - Запись выходов: states=[0, 0, 1, 0], значение=4
+2026-05-18 13:16:44 - INFO - owen - Выходы установлены: [0, 0, 1, 0]
+2026-05-18 13:16:44 - INFO - owen - Выходы изменились: [0, 0, 0, 0]
+2026-05-18 13:16:44 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:16:44 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:16:44 - INFO - owen - Выходы изменились: [0, 0, 1, 0]
+2026-05-18 13:16:44 - DEBUG - owen - Запись выходов: states=[0, 0, 1, 0], значение=4
+2026-05-18 13:16:44 - INFO - owen - Выходы установлены: [0, 0, 1, 0]
+2026-05-18 13:16:44 - INFO - owen - Выходы изменились: [0, 0, 0, 0]
+2026-05-18 13:16:45 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:16:45 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:16:45 - INFO - owen - Выходы изменились: [0, 0, 0, 1]
+2026-05-18 13:16:45 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 1], значение=8
+2026-05-18 13:16:45 - INFO - owen - Выходы установлены: [0, 0, 0, 1]
+2026-05-18 13:17:00 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:17:00 - INFO - owen - Входы изменились: [0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:17:00 - DEBUG - owen - Запись выходов: states=[1, 0, 0, 0], значение=1
+2026-05-18 13:17:00 - INFO - owen - Выходы установлены: [1, 0, 0, 0]
+2026-05-18 13:17:03 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:17:07 - INFO - owen - Входы изменились: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:17:07 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:17:07 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:17:17 - DEBUG - owen - Запись выходов: states=[0, 0, 1, 0], значение=4
+2026-05-18 13:17:17 - INFO - owen - Выходы установлены: [0, 0, 1, 0]
+2026-05-18 13:17:18 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:17:18 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:17:18 - INFO - owen - Выходы изменились: [0, 0, 1, 0]
+2026-05-18 13:17:18 - INFO - owen - Выходы изменились: [0, 0, 0, 0]
+2026-05-18 13:17:18 - DEBUG - owen - Запись выходов: states=[0, 0, 1, 0], значение=4
+2026-05-18 13:17:18 - INFO - owen - Выходы установлены: [0, 0, 1, 0]
+2026-05-18 13:17:18 - INFO - owen - Выходы изменились: [0, 0, 0, 0]
+2026-05-18 13:17:18 - INFO - owen - Выходы изменились: [0, 0, 1, 0]
+2026-05-18 13:17:18 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:17:18 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:17:18 - DEBUG - owen - Запись выходов: states=[0, 0, 1, 0], значение=4
+2026-05-18 13:17:18 - INFO - owen - Выходы установлены: [0, 0, 1, 0]
+2026-05-18 13:17:19 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:17:19 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:17:19 - INFO - owen - Выходы изменились: [0, 0, 1, 0]
+2026-05-18 13:17:19 - INFO - owen - Выходы изменились: [0, 0, 0, 0]
+2026-05-18 13:17:19 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 1], значение=8
+2026-05-18 13:17:19 - INFO - owen - Выходы установлены: [0, 0, 0, 1]
+2026-05-18 13:17:28 - INFO - owen - Входы изменились: [1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:17:31 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:17:31 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:17:38 - INFO - owen - Входы изменились: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:17:41 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 1], значение=8
+2026-05-18 13:17:41 - INFO - owen - Выходы установлены: [0, 0, 0, 1]
+2026-05-18 13:17:41 - INFO - owen - Выходы изменились: [0, 0, 0, 0]
+2026-05-18 13:17:41 - INFO - owen - Выходы изменились: [0, 0, 0, 1]
+2026-05-18 13:17:43 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:17:43 - INFO - owen - Входы изменились: [0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:17:43 - DEBUG - owen - Запись выходов: states=[1, 0, 0, 0], значение=1
+2026-05-18 13:17:43 - INFO - owen - Выходы установлены: [1, 0, 0, 0]
+2026-05-18 13:17:43 - INFO - owen - Выходы изменились: [0, 0, 0, 1]
+2026-05-18 13:17:43 - INFO - owen - Выходы изменились: [1, 0, 0, 0]
+2026-05-18 13:17:44 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:17:48 - INFO - owen - Входы изменились: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:17:48 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:17:48 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:17:48 - INFO - owen - Выходы изменились: [1, 0, 0, 0]
+2026-05-18 13:17:49 - DEBUG - owen - Запись выходов: states=[1, 0, 0, 1], значение=9
+2026-05-18 13:17:49 - INFO - owen - Выходы установлены: [1, 0, 0, 1]
+2026-05-18 13:17:53 - INFO - owen - Входы изменились: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:17:55 - INFO - owen - Входы изменились: [1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:17:56 - INFO - owen - Входы изменились: [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:17:56 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:17:56 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:17:56 - INFO - owen - Выходы изменились: [1, 0, 0, 1]
+2026-05-18 13:17:56 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 1], значение=8
+2026-05-18 13:17:56 - INFO - owen - Выходы установлены: [0, 0, 0, 1]
+2026-05-18 13:17:56 - INFO - owen - Выходы изменились: [0, 0, 0, 0]
+2026-05-18 13:17:56 - INFO - owen - Выходы изменились: [0, 0, 0, 1]
+2026-05-18 13:17:56 - INFO - owen - Выходы изменились: [0, 0, 0, 0]
+2026-05-18 13:17:56 - INFO - owen - Входы изменились: [1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:17:56 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:17:56 - INFO - owen - Выходы изменились: [0, 0, 0, 1]
+2026-05-18 13:17:57 - INFO - owen - Входы изменились: [0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:17:57 - DEBUG - owen - Запись выходов: states=[1, 0, 0, 0], значение=1
+2026-05-18 13:17:57 - INFO - owen - Выходы установлены: [1, 0, 0, 0]
+2026-05-18 13:18:00 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:18:04 - INFO - owen - Входы изменились: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:18:04 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:18:04 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:18:04 - INFO - owen - Выходы изменились: [1, 0, 0, 0]
+2026-05-18 13:18:05 - DEBUG - owen - Запись выходов: states=[1, 0, 0, 1], значение=9
+2026-05-18 13:18:05 - INFO - owen - Выходы установлены: [1, 0, 0, 1]
+2026-05-18 13:18:05 - INFO - owen - Выходы изменились: [0, 0, 0, 0]
+2026-05-18 13:18:05 - INFO - owen - Выходы изменились: [1, 0, 0, 1]
+2026-05-18 13:18:09 - INFO - owen - Входы изменились: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:18:12 - INFO - owen - Входы изменились: [1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:18:15 - INFO - owen - Входы изменились: [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:18:15 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:18:15 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:18:15 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 1], значение=8
+2026-05-18 13:18:15 - INFO - owen - Выходы установлены: [0, 0, 0, 1]
+2026-05-18 13:18:15 - INFO - owen - Выходы изменились: [0, 0, 0, 0]
+2026-05-18 13:18:15 - INFO - owen - Выходы изменились: [0, 0, 0, 1]
+2026-05-18 13:18:44 - INFO - owen - Входы изменились: [1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:18:44 - INFO - owen - Входы изменились: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:18:45 - INFO - owen - Входы изменились: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:18:45 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:18:45 - INFO - owen - Входы изменились: [0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:18:45 - DEBUG - owen - Запись выходов: states=[1, 0, 0, 0], значение=1
+2026-05-18 13:18:45 - INFO - owen - Выходы установлены: [1, 0, 0, 0]
+2026-05-18 13:18:45 - INFO - owen - Выходы изменились: [0, 0, 0, 1]
+2026-05-18 13:18:45 - INFO - owen - Выходы изменились: [1, 0, 0, 0]
+2026-05-18 13:18:46 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:18:47 - INFO - owen - Входы изменились: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:18:47 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:18:47 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:18:48 - DEBUG - owen - Запись выходов: states=[1, 0, 0, 1], значение=9
+2026-05-18 13:18:48 - INFO - owen - Выходы установлены: [1, 0, 0, 1]
+2026-05-18 13:18:48 - INFO - owen - Выходы изменились: [0, 0, 0, 0]
+2026-05-18 13:18:48 - INFO - owen - Выходы изменились: [1, 0, 0, 1]
+2026-05-18 13:18:52 - INFO - owen - Входы изменились: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:18:55 - INFO - owen - Входы изменились: [1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:18:58 - INFO - owen - Входы изменились: [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:18:58 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:18:58 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:18:58 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 1], значение=8
+2026-05-18 13:18:58 - INFO - owen - Выходы установлены: [0, 0, 0, 1]
+2026-05-18 13:18:58 - INFO - owen - Выходы изменились: [0, 0, 0, 0]
+2026-05-18 13:18:58 - INFO - owen - Выходы изменились: [0, 0, 0, 1]
+2026-05-18 13:18:58 - INFO - owen - Выходы изменились: [0, 0, 0, 0]
+2026-05-18 13:18:58 - INFO - owen - Выходы изменились: [0, 0, 0, 1]
+2026-05-18 13:21:00 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:21:01 - INFO - owen - Входы изменились: [0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:21:01 - DEBUG - owen - Запись выходов: states=[1, 0, 0, 0], значение=1
+2026-05-18 13:21:01 - INFO - owen - Выходы установлены: [1, 0, 0, 0]
+2026-05-18 13:21:01 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:21:03 - INFO - owen - Входы изменились: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:21:03 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:21:03 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:21:06 - DEBUG - owen - Запись выходов: states=[1, 0, 0, 1], значение=9
+2026-05-18 13:21:06 - INFO - owen - Выходы установлены: [1, 0, 0, 1]
+2026-05-18 13:21:09 - INFO - owen - Входы изменились: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:21:12 - INFO - owen - Входы изменились: [1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:21:15 - INFO - owen - Входы изменились: [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:21:15 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:21:15 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:21:15 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 1], значение=8
+2026-05-18 13:21:15 - INFO - owen - Выходы установлены: [0, 0, 0, 1]
+2026-05-18 13:21:16 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:21:16 - INFO - owen - Входы изменились: [0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:21:16 - DEBUG - owen - Запись выходов: states=[1, 0, 0, 0], значение=1
+2026-05-18 13:21:16 - INFO - owen - Выходы установлены: [1, 0, 0, 0]
+2026-05-18 13:21:19 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:21:23 - INFO - owen - Входы изменились: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:21:23 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:21:23 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:21:25 - DEBUG - owen - Запись выходов: states=[1, 0, 0, 1], значение=9
+2026-05-18 13:21:25 - INFO - owen - Выходы установлены: [1, 0, 0, 1]
+2026-05-18 13:21:28 - INFO - owen - Входы изменились: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:21:31 - INFO - owen - Входы изменились: [1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:21:34 - INFO - owen - Входы изменились: [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:21:34 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:21:34 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:21:34 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 1], значение=8
+2026-05-18 13:21:34 - INFO - owen - Выходы установлены: [0, 0, 0, 1]
+2026-05-18 13:21:46 - INFO - owen - Выходы изменились: [0, 0, 0, 0]
+2026-05-18 13:21:55 - INFO - owen - Выходы изменились: [0, 0, 0, 1]
+2026-05-18 13:22:35 - INFO - owen - Входы изменились: [1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:22:36 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:22:36 - INFO - owen - Входы изменились: [0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:22:36 - DEBUG - owen - Запись выходов: states=[1, 0, 0, 0], значение=1
+2026-05-18 13:22:36 - INFO - owen - Выходы установлены: [1, 0, 0, 0]
+2026-05-18 13:22:37 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:22:39 - INFO - owen - Входы изменились: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:22:39 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:22:39 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:22:40 - DEBUG - owen - Запись выходов: states=[1, 0, 0, 1], значение=9
+2026-05-18 13:22:40 - INFO - owen - Выходы установлены: [1, 0, 0, 1]
+2026-05-18 13:22:43 - INFO - owen - Входы изменились: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:22:46 - INFO - owen - Входы изменились: [1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:22:49 - INFO - owen - Входы изменились: [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:22:50 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:22:50 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:22:50 - INFO - owen - Выходы изменились: [1, 0, 0, 1]
+2026-05-18 13:22:50 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 1], значение=8
+2026-05-18 13:22:50 - INFO - owen - Выходы установлены: [0, 0, 0, 1]
+2026-05-18 13:22:50 - INFO - owen - Выходы изменились: [0, 0, 0, 0]
+2026-05-18 13:22:50 - INFO - owen - Выходы изменились: [0, 0, 0, 1]
+2026-05-18 13:23:27 - INFO - owen - Входы изменились: [1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:23:27 - INFO - owen - Входы изменились: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:23:27 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:23:27 - INFO - owen - Входы изменились: [0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:23:28 - DEBUG - owen - Запись выходов: states=[1, 0, 0, 0], значение=1
+2026-05-18 13:23:28 - INFO - owen - Выходы установлены: [1, 0, 0, 0]
+2026-05-18 13:23:28 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:23:30 - INFO - owen - Входы изменились: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:23:30 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:23:30 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:23:31 - DEBUG - owen - Запись выходов: states=[1, 0, 0, 1], значение=9
+2026-05-18 13:23:31 - INFO - owen - Выходы установлены: [1, 0, 0, 1]
+2026-05-18 13:23:35 - INFO - owen - Входы изменились: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:23:37 - INFO - owen - Входы изменились: [1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:23:41 - INFO - owen - Входы изменились: [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:23:41 - INFO - owen - Входы изменились: [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:23:41 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:23:41 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:23:41 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 1], значение=8
+2026-05-18 13:23:41 - INFO - owen - Выходы установлены: [0, 0, 0, 1]
+2026-05-18 13:23:41 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:23:41 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:23:41 - INFO - owen - Соединение закрыто
+2026-05-18 13:23:45 - INFO - owen - Инициализация: IP=192.168.1.99, порт=502, unit=1, timeout=1.0
+2026-05-18 13:23:45 - WARNING - owen - Попытка переподключения (задержка 1.0с)...
+2026-05-18 13:23:45 - INFO - owen - Попытка подключения...
+2026-05-18 13:23:45 - INFO - owen - Подключение успешно
+2026-05-18 13:23:45 - INFO - owen - Входы изменились: [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:23:45 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:23:45 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:24:04 - INFO - owen - Входы изменились: [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:24:04 - INFO - owen - Входы изменились: [1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:24:04 - INFO - owen - Входы изменились: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:24:04 - INFO - owen - Входы изменились: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:24:05 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:24:07 - INFO - owen - Входы изменились: [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:24:11 - DEBUG - owen - Запись выходов: states=[1, 0, 0, 1], значение=9
+2026-05-18 13:24:11 - INFO - owen - Выходы установлены: [1, 0, 0, 1]
+2026-05-18 13:24:12 - INFO - owen - Входы изменились: [1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:24:17 - INFO - owen - Входы изменились: [1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:24:19 - DEBUG - owen - Запись выходов: states=[0, 0, 1, 0], значение=4
+2026-05-18 13:24:19 - INFO - owen - Выходы установлены: [0, 0, 1, 0]
+2026-05-18 13:24:19 - INFO - owen - Входы изменились: [1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:25:49 - INFO - owen - Входы изменились: [1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:25:50 - INFO - owen - Входы изменились: [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:25:53 - INFO - owen - Входы изменились: [0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:25:55 - INFO - owen - Входы изменились: [0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:25:59 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:25:59 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:25:59 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 1], значение=8
+2026-05-18 13:25:59 - INFO - owen - Выходы установлены: [0, 0, 0, 1]
+2026-05-18 13:26:00 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:26:00 - INFO - owen - Входы изменились: [0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:26:00 - DEBUG - owen - Запись выходов: states=[1, 0, 0, 0], значение=1
+2026-05-18 13:26:00 - INFO - owen - Выходы установлены: [1, 0, 0, 0]
+2026-05-18 13:26:01 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:26:04 - INFO - owen - Входы изменились: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:26:05 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:26:05 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:26:06 - DEBUG - owen - Запись выходов: states=[1, 0, 0, 1], значение=9
+2026-05-18 13:26:06 - INFO - owen - Выходы установлены: [1, 0, 0, 1]
+2026-05-18 13:26:07 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:26:08 - INFO - owen - Входы изменились: [0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:26:09 - INFO - owen - Входы изменились: [0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:26:09 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:26:09 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:26:09 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 1], значение=8
+2026-05-18 13:26:09 - INFO - owen - Выходы установлены: [0, 0, 0, 1]
+2026-05-18 13:26:09 - INFO - owen - Входы изменились: [0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:26:10 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:26:11 - INFO - owen - Входы изменились: [0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:26:11 - DEBUG - owen - Запись выходов: states=[1, 0, 0, 0], значение=1
+2026-05-18 13:26:11 - INFO - owen - Выходы установлены: [1, 0, 0, 0]
+2026-05-18 13:26:12 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:26:16 - INFO - owen - Входы изменились: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:26:16 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:26:16 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:26:18 - DEBUG - owen - Запись выходов: states=[1, 0, 0, 1], значение=9
+2026-05-18 13:26:18 - INFO - owen - Выходы установлены: [1, 0, 0, 1]
+2026-05-18 13:26:21 - INFO - owen - Входы изменились: [1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:26:24 - INFO - owen - Входы изменились: [1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:26:24 - INFO - owen - Входы изменились: [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:26:24 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:26:24 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:26:24 - INFO - owen - Выходы изменились: [1, 0, 0, 1]
+2026-05-18 13:26:24 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 1], значение=8
+2026-05-18 13:26:24 - INFO - owen - Выходы установлены: [0, 0, 0, 1]
+2026-05-18 13:29:38 - INFO - owen - Входы изменились: [1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:29:38 - INFO - owen - Входы изменились: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:29:38 - INFO - owen - Входы изменились: [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:29:39 - INFO - owen - Входы изменились: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:31:48 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:31:48 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:31:48 - INFO - owen - Соединение закрыто
+2026-05-18 13:31:51 - INFO - owen - Инициализация: IP=192.168.1.99, порт=502, unit=1, timeout=1.0
+2026-05-18 13:31:51 - WARNING - owen - Попытка переподключения (задержка 1.0с)...
+2026-05-18 13:31:51 - INFO - owen - Попытка подключения...
+2026-05-18 13:31:51 - INFO - owen - Подключение успешно
+2026-05-18 13:31:51 - INFO - owen - Входы изменились: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:31:51 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:31:51 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:33:41 - INFO - owen - Соединение закрыто
+2026-05-18 13:34:42 - INFO - owen - Инициализация: IP=192.168.1.99, порт=502, unit=1, timeout=1.0
+2026-05-18 13:34:42 - WARNING - owen - Попытка переподключения (задержка 1.0с)...
+2026-05-18 13:34:42 - INFO - owen - Попытка подключения...
+2026-05-18 13:34:42 - INFO - owen - Подключение успешно
+2026-05-18 13:34:42 - INFO - owen - Входы изменились: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:34:42 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:34:42 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:45:54 - INFO - owen - Соединение закрыто
+2026-05-18 13:45:56 - INFO - owen - Инициализация: IP=192.168.1.99, порт=502, unit=1, timeout=1.0
+2026-05-18 13:45:56 - WARNING - owen - Попытка переподключения (задержка 1.0с)...
+2026-05-18 13:45:56 - INFO - owen - Попытка подключения...
+2026-05-18 13:45:56 - INFO - owen - Подключение успешно
+2026-05-18 13:45:56 - INFO - owen - Входы изменились: [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+2026-05-18 13:45:56 - DEBUG - owen - Запись выходов: states=[0, 0, 0, 0], значение=0
+2026-05-18 13:45:56 - INFO - owen - Выходы установлены: [0, 0, 0, 0]
+2026-05-18 13:47:08 - INFO - owen - Соединение закрыто

@@ -231,6 +231,51 @@ class ExcelReportExporter:
         output.seek(0)
         return self._apply_styles(output, f"Анализ брака {report.get('date_from', '')}")
 
+    def export_history_report(self, report: Dict[str, Any]) -> bytes:
+        """Экспорт истории проверок в Excel (универсальный метод)."""
+        output = io.BytesIO()
+        
+        with pd.ExcelWriter(output, engine='openpyxl') as writer:
+            # Лист со сводкой
+            summary_data = {
+                'Параметр': ['Период', 'Всего проверок', 'Годен (OK)', 'Брак (NG)', '% качества'],
+                'Значение': [
+                    report.get('date', ''),
+                    report.get('total', 0),
+                    report.get('ok_count', 0),
+                    report.get('ng_count', 0),
+                    f"{report.get('ok_percent', 0)}%"
+                ]
+            }
+            df_summary = pd.DataFrame(summary_data)
+            df_summary.to_excel(writer, sheet_name='Сводка', index=False)
+            
+            # Лист с результатами
+            if report.get('results'):
+                df_results = pd.DataFrame(report['results'])
+                if 'timestamp' in df_results.columns:
+                    df_results['timestamp'] = pd.to_datetime(df_results['timestamp'])
+                df_results = df_results.rename(columns={
+                    'timestamp': 'Время',
+                    'result': 'Результат',
+                    'order_number': 'Заказ',
+                    'scenario': 'Сценарий',
+                    'project_name': 'Проект',
+                    'sensor_d1': 'D1',
+                    'sensor_d2': 'D2',
+                    'sensor_d3': 'D3',
+                    'sensor_d4': 'D4',
+                    'tumbler_a': 'Тумблер A',
+                    'tumbler_b': 'Тумблер B'
+                })
+                cols_to_keep = ['Время', 'Результат', 'Заказ', 'Сценарий', 'Проект', 
+                                'D1', 'D2', 'D3', 'D4', 'Тумблер A', 'Тумблер B']
+                df_results = df_results[[c for c in cols_to_keep if c in df_results.columns]]
+                df_results.to_excel(writer, sheet_name='Результаты', index=False)
+        
+        output.seek(0)
+        return self._apply_styles(output, f"История проверок {report.get('date', '')}")
+
     def _apply_styles(self, output: io.BytesIO, title: str) -> bytes:
         """Применение стилей к Excel файлу."""
         from openpyxl import load_workbook

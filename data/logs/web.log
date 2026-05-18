@@ -167,3 +167,72 @@
 2026-05-15 15:59:37 - INFO - web - Клиент отключился от WebSocket: O-t8hbqYW0kHqSbGAAAF
 2026-05-15 15:59:39 - INFO - web - Клиент подключился к WebSocket: yzFMWgAvJ6zW7VlOAAAH
 2026-05-15 15:59:40 - INFO - web - Клиент yzFMWgAvJ6zW7VlOAAAH подписался на обновления статуса
+2026-05-18 08:34:00 - INFO - web - ===== WEB APP STARTED =====
+2026-05-18 08:34:01 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-18 08:34:34 - INFO - web - Клиент подключился к WebSocket: 1h7pn5ZvrGBRA7NrAAAB
+2026-05-18 08:34:34 - INFO - web - Клиент 1h7pn5ZvrGBRA7NrAAAB подписался на обновления статуса
+2026-05-18 08:36:14 - INFO - web - Клиент отключился от WebSocket: 1h7pn5ZvrGBRA7NrAAAB
+2026-05-18 08:36:18 - INFO - web - Клиент подключился к WebSocket: ZjLIHEhB2g49xGMVAAAD
+2026-05-18 08:36:19 - INFO - web - Клиент ZjLIHEhB2g49xGMVAAAD подписался на обновления статуса
+2026-05-18 08:40:57 - INFO - web - ===== WEB APP STARTED =====
+2026-05-18 08:40:58 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-18 08:41:01 - INFO - web - Клиент подключился к WebSocket: l3_62DOrYnbFYm6pAAAB
+2026-05-18 08:41:01 - INFO - web - Клиент l3_62DOrYnbFYm6pAAAB подписался на обновления статуса
+2026-05-18 08:41:07 - INFO - web - Клиент отключился от WebSocket: l3_62DOrYnbFYm6pAAAB
+2026-05-18 08:41:12 - INFO - web - Клиент подключился к WebSocket: m1VaH_GmC10zJhjvAAAD
+2026-05-18 08:41:12 - INFO - web - Клиент m1VaH_GmC10zJhjvAAAD подписался на обновления статуса
+2026-05-18 08:41:23 - INFO - web - Клиент отключился от WebSocket: m1VaH_GmC10zJhjvAAAD
+2026-05-18 08:41:41 - INFO - web - Клиент подключился к WebSocket: 0PXIwB9iIL_ApdwpAAAF
+2026-05-18 08:41:41 - INFO - web - Клиент 0PXIwB9iIL_ApdwpAAAF подписался на обновления статуса
+2026-05-18 08:41:42 - INFO - web - Клиент отключился от WebSocket: 0PXIwB9iIL_ApdwpAAAF
+2026-05-18 09:19:29 - INFO - web - ===== WEB APP STARTED =====
+2026-05-18 09:19:30 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-18 09:19:46 - INFO - web - Клиент подключился к WebSocket: 8Ik5TDvfNSic-MA8AAAB
+2026-05-18 09:19:46 - INFO - web - Клиент 8Ik5TDvfNSic-MA8AAAB подписался на обновления статуса
+2026-05-18 09:19:48 - INFO - web - Клиент отключился от WebSocket: 8Ik5TDvfNSic-MA8AAAB
+2026-05-18 09:47:42 - INFO - web - ===== WEB APP STARTED =====
+2026-05-18 09:47:43 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-18 09:47:54 - INFO - web - Клиент подключился к WebSocket: 46GK0Rs8KIQBEzOhAAAB
+2026-05-18 09:47:54 - INFO - web - Клиент 46GK0Rs8KIQBEzOhAAAB подписался на обновления статуса
+2026-05-18 09:47:55 - INFO - web - Клиент отключился от WebSocket: 46GK0Rs8KIQBEzOhAAAB
+2026-05-18 10:37:36 - INFO - web - Клиент подключился к WebSocket: YCL9YUQ_bJyxIqA6AAAD
+2026-05-18 10:37:37 - INFO - web - Клиент YCL9YUQ_bJyxIqA6AAAD подписался на обновления статуса
+2026-05-18 10:38:00 - INFO - web - Клиент отключился от WebSocket: YCL9YUQ_bJyxIqA6AAAD
+2026-05-18 10:54:20 - INFO - web - Клиент подключился к WebSocket: 3rUj1nalMUnMtXMyAAAF
+2026-05-18 10:54:20 - INFO - web - Клиент 3rUj1nalMUnMtXMyAAAF подписался на обновления статуса
+2026-05-18 10:54:32 - INFO - web - Клиент отключился от WebSocket: 3rUj1nalMUnMtXMyAAAF
+2026-05-18 10:54:35 - INFO - web - Клиент подключился к WebSocket: isnl76mLW-tzesNZAAAH
+2026-05-18 10:54:36 - INFO - web - Клиент isnl76mLW-tzesNZAAAH подписался на обновления статуса
+2026-05-18 10:54:41 - INFO - web - Клиент отключился от WebSocket: isnl76mLW-tzesNZAAAH
+2026-05-18 10:55:49 - INFO - web - Клиент подключился к WebSocket: slVfFEGLJl5R5sHLAAAJ
+2026-05-18 10:55:49 - INFO - web - Клиент slVfFEGLJl5R5sHLAAAJ подписался на обновления статуса
+2026-05-18 10:56:31 - INFO - web - Клиент отключился от WebSocket: slVfFEGLJl5R5sHLAAAJ
+2026-05-18 10:57:11 - INFO - web - Клиент подключился к WebSocket: TLG2pc6EBVPyW9slAAAL
+2026-05-18 10:57:11 - INFO - web - Клиент TLG2pc6EBVPyW9slAAAL подписался на обновления статуса
+2026-05-18 10:57:41 - INFO - web - Клиент отключился от WebSocket: TLG2pc6EBVPyW9slAAAL
+2026-05-18 12:59:18 - INFO - web - Клиент подключился к WebSocket: K4tKH2i5HRy8met_AAAN
+2026-05-18 12:59:18 - INFO - web - Клиент K4tKH2i5HRy8met_AAAN подписался на обновления статуса
+2026-05-18 12:59:32 - INFO - web - Клиент отключился от WebSocket: K4tKH2i5HRy8met_AAAN
+2026-05-18 13:23:45 - INFO - web - ===== WEB APP STARTED =====
+2026-05-18 13:23:45 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-18 13:23:56 - INFO - web - Клиент подключился к WebSocket: lwsUoPKPJOX2zc12AAAB
+2026-05-18 13:23:57 - INFO - web - Клиент lwsUoPKPJOX2zc12AAAB подписался на обновления статуса
+2026-05-18 13:24:07 - INFO - web - Клиент отключился от WebSocket: lwsUoPKPJOX2zc12AAAB
+2026-05-18 13:24:12 - INFO - web - Клиент подключился к WebSocket: rD1ElLhd5qqeBGAYAAAD
+2026-05-18 13:24:13 - INFO - web - Клиент rD1ElLhd5qqeBGAYAAAD подписался на обновления статуса
+2026-05-18 13:24:25 - INFO - web - Клиент отключился от WebSocket: rD1ElLhd5qqeBGAYAAAD
+2026-05-18 13:31:51 - INFO - web - ===== WEB APP STARTED =====
+2026-05-18 13:31:51 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-18 13:32:25 - INFO - web - Клиент подключился к WebSocket: pTHMHZPZ-gVxxOpIAAAB
+2026-05-18 13:32:26 - INFO - web - Клиент pTHMHZPZ-gVxxOpIAAAB подписался на обновления статуса
+2026-05-18 13:32:40 - INFO - web - Клиент отключился от WebSocket: pTHMHZPZ-gVxxOpIAAAB
+2026-05-18 13:34:42 - INFO - web - ===== WEB APP STARTED =====
+2026-05-18 13:34:42 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-18 13:34:51 - INFO - web - Клиент подключился к WebSocket: _6O98-TKZVwbH1lVAAAB
+2026-05-18 13:34:51 - INFO - web - Клиент _6O98-TKZVwbH1lVAAAB подписался на обновления статуса
+2026-05-18 13:34:51 - INFO - web - Клиент отключился от WebSocket: _6O98-TKZVwbH1lVAAAB
+2026-05-18 13:45:56 - INFO - web - ===== WEB APP STARTED =====
+2026-05-18 13:45:57 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-18 13:46:12 - INFO - web - Клиент подключился к WebSocket: gz7yWYorTryivYzTAAAB
+2026-05-18 13:46:12 - INFO - web - Клиент gz7yWYorTryivYzTAAAB подписался на обновления статуса
+2026-05-18 13:46:14 - INFO - web - Клиент отключился от WebSocket: gz7yWYorTryivYzTAAAB
