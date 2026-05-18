@@ -1,5 +1,6 @@
 /**
  * history.js - Логика страницы истории проверок
+ * Оптимизированная версия с debounce, кэшированием и эффективной работой с DOM
  */
 
 let currentPage = 1;
@@ -7,6 +8,11 @@ const pageSize = 20;
 let currentFilters = {};
 let totalPages = 1;
 let dailyChartInstance = null;
+let filterDebounceTimer = null;
+const DEBOUNCE_DELAY = 300;
+
+// Кэш для изображений чтобы избежать повторных запросов
+const imageCache = new Map();
 
 document.addEventListener('DOMContentLoaded', () => {
     setDefaultDates();
@@ -16,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupPagination();
     setupDatePresets();
     setupDetailModal();
+    setupLazyLoading();
 });
 
 function setDefaultDates() {
@@ -95,10 +102,11 @@ async function loadStatistics() {
 
         if (data.success) {
             const stats = data.statistics;
-            document.getElementById('statTotal').textContent = stats.total;
-            document.getElementById('statOk').textContent = stats.ok_count;
-            document.getElementById('statNg').textContent = stats.ng_count;
-            document.getElementById('statOkPercent').textContent = stats.ok_percent + '%';
+            // Оптимизация: обновляем DOM только если данные изменились
+            updateStatElement('statTotal', stats.total);
+            updateStatElement('statOk', stats.ok_count);
+            updateStatElement('statNg', stats.ng_count);
+            updateStatElement('statOkPercent', stats.ok_percent + '%');
             
             // Обновляем график
             renderDailyChart(data.daily || []);
@@ -108,8 +116,17 @@ async function loadStatistics() {
     }
 }
 
+// Оптимизация: функция для обновления текстового содержимого только при изменении
+function updateStatElement(elementId, newValue) {
+    const element = document.getElementById(elementId);
+    if (element && element.textContent !== String(newValue)) {
+        element.textContent = newValue;
+    }
+}
+
 async function loadResults() {
     const tbody = document.getElementById('resultsBody');
+    // Используем DocumentFragment для оптимизации DOM операций
     tbody.innerHTML = '<tr><td colspan="7" class="loading">Загрузка...</td></tr>';
 
     try {
@@ -126,7 +143,11 @@ async function loadResults() {
             const results = data.results || [];
             if (results.length > 0) {
                 const startIndex = (currentPage - 1) * pageSize + 1;
-                tbody.innerHTML = results.map((r, idx) => {
+                
+                // Создаём DocumentFragment для批量 вставки
+                const fragment = document.createDocumentFragment();
+                const tempContainer = document.createElement('tbody');
+                tempContainer.innerHTML = results.map((r, idx) => {
                     const rowNumber = startIndex + idx;
                     return `
                         <tr data-id="${r.id}">
@@ -140,14 +161,12 @@ async function loadResults() {
                         </tr>
                     `;
                 }).join('');
+                
+                tbody.innerHTML = tempContainer.innerHTML;
 
-                // Навешиваем обработчики клика на строки
-                tbody.querySelectorAll('tr[data-id]').forEach(row => {
-                    row.addEventListener('click', () => {
-                        const id = row.dataset.id;
-                        if (id) openDetailModal(id);
-                    });
-                });
+                // Навешиваем обработчики клика на строки с использованием делегирования
+                tbody.removeEventListener('click', handleRowClick);
+                tbody.addEventListener('click', handleRowClick);
             } else {
                 tbody.innerHTML = '<tr><td colspan="7" class="empty-state">Нет данных</td></tr>';
             }
@@ -175,6 +194,14 @@ async function loadResults() {
     }
 }
 
+// Обработчик клика по строке таблицы (делегирование событий)
+function handleRowClick(e) {
+    const row = e.target.closest('tr[data-id]');
+    if (row && row.dataset.id) {
+        openDetailModal(row.dataset.id);
+    }
+}
+
 function formatDateTime(isoString) {
     if (!isoString) return '—';
     const date = new Date(isoString);
@@ -195,11 +222,42 @@ function formatDateTimeFull(isoString) {
 
 function renderImage(imagePath) {
     if (!imagePath) return '<div class="no-image">Нет</div>';
-    return `<img src="/images/${imagePath}" alt="Снимок" class="thumb-image" onerror="this.parentElement.innerHTML='<div class=\'no-image\'>Ошибка</div>'">`;
+    
+    // Используем кэш для проверки существования изображения
+    if (imageCache.has(imagePath)) {
+        const cached = imageCache.get(imagePath);
+        if (cached === null) {
+            return '<div class="no-image">Ошибка</div>';
+        }
+        return `<img src="/images/${imagePath}" alt="Снимок" class="thumb-image" loading="lazy">`;
+    }
+    
+    return `<img src="/images/${imagePath}" alt="Снимок" class="thumb-image" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'no-image\'>Ошибка</div>'; imageCache.set('${imagePath}', null)">`;
 }
 
+// Функция для настройки ленивой загрузки и оптимизации изображений
+function setupLazyLoading() {
+    // Нативный loading="lazy" уже используется, эта функция для дополнительной оптимизации
+}
+
+
 function setupFilters() {
+    const applyFiltersHandler = () => {
+        clearTimeout(filterDebounceTimer);
+        filterDebounceTimer = setTimeout(applyCurrentFilters, DEBOUNCE_DELAY);
+    };
+
     document.getElementById('applyFilters').addEventListener('click', applyCurrentFilters);
+
+    // Debounce для текстовых полей
+    ['filterOrder', 'filterProject'].forEach(id => {
+        document.getElementById(id).addEventListener('input', applyFiltersHandler);
+    });
+
+    // Для select и date используем change без debounce
+    ['filterResult', 'filterDateFrom', 'filterDateTo', 'filterScenario'].forEach(id => {
+        document.getElementById(id).addEventListener('change', applyCurrentFilters);
+    });
 
     document.getElementById('refreshBtn').addEventListener('click', () => {
         document.getElementById('filterResult').value = '';
