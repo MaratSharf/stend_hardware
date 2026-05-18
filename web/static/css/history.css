@@ -1,5 +1,18 @@
 /* history.css - Стили для страницы истории */
 
+/* Оптимизация: используем CSS containment для изоляции сложных компонентов */
+.history-content {
+    contain: layout style;
+}
+
+.table-container {
+    contain: layout style;
+}
+
+.chart-container {
+    contain: layout style;
+}
+
 .content-wrapper {
     max-width: 1400px;
 }
@@ -46,11 +59,15 @@
     min-height: 500px;
     display: flex;
     flex-direction: column;
+    /* Оптимизация: изоляция композитинга для canvas */
+    contain: layout paint;
 }
 
 .chart-sidebar .chart-wrapper {
     flex: 1;
     min-height: 0;
+    /* Оптимизация рендеринга canvas */
+    transform: translateZ(0);
 }
 
 .chart-container {
@@ -132,6 +149,8 @@
     align-items: center;
     gap: 16px;
     transition: all 0.3s ease;
+    /* Оптимизация: используем will-change для анимаций */
+    will-change: transform, box-shadow;
 }
 
 .stat-card:hover {
@@ -188,6 +207,11 @@
     background: var(--bg-card);
     border-radius: 12px;
     border: 1px solid var(--border-color);
+    /* Оптимизация: sticky позиционирование для фильтров */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Быстрые пресеты дат */
@@ -207,6 +231,8 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
+    /* Оптимизация: аппаратное ускорение для hover */
+    will-change: background-color, color;
 }
 
 .preset-btn:hover {
@@ -323,15 +349,23 @@
     border-radius: 16px;
     border: 1px solid var(--border-color);
     overflow: hidden;
+    /* Оптимизация: аппаратное ускорение для скролла */
+    will-change: scroll-position;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
+    /* Оптимизация рендеринга таблицы */
+    transform: translateZ(0);
 }
 
 thead {
     background: var(--bg-hover);
+    /* Закрепляем шапку таблицы */
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 th {
@@ -354,6 +388,8 @@ td {
 
 tbody tr {
     transition: background 0.2s ease;
+    /* Оптимизация: используем will-change для hover эффектов */
+    will-change: background-color;
 }
 
 tbody tr:hover {
@@ -418,6 +454,10 @@ body.dark-theme .order-link {
     border: 1px solid var(--border-color);
     cursor: pointer;
     transition: transform 0.3s ease;
+    /* Оптимизация: аппаратное ускорение для изображений */
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .thumb-image:hover {
@@ -526,6 +566,8 @@ body.dark-theme .order-link {
     z-index: 2000;
     align-items: center;
     justify-content: center;
+    /* Оптимизация: используем contain для модального окна */
+    contain: layout style paint;
 }
 
 .detail-modal.active {
@@ -538,6 +580,8 @@ body.dark-theme .order-link {
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(4px);
     cursor: pointer;
+    /* Оптимизация: аппаратное ускорение overlay */
+    will-change: opacity;
 }
 
 .detail-modal__content {
@@ -553,6 +597,9 @@ body.dark-theme .order-link {
     animation: detailModalIn 0.25s ease-out;
     display: flex;
     flex-direction: column;
+    /* Оптимизация: изоляция композитинга */
+    transform: translateZ(0);
+    will-change: transform, opacity;
 }
 
 @keyframes detailModalIn {
