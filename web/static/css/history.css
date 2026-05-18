@@ -38,7 +38,7 @@
 }
 
 .chart-sidebar {
-    width: 550px;
+    width: 50%;
     flex-shrink: 0;
 }
 
