@@ -68,6 +68,8 @@
     min-height: 0;
     /* Оптимизация рендеринга canvas */
     transform: translateZ(0);
+    /* Увеличиваем минимальную высоту для canvas */
+    min-height: 600px;
 }
 
 .chart-container {
@@ -126,7 +128,7 @@
 
 .chart-wrapper {
     position: relative;
-    height: 500px;
+    height: 600px;
     width: 100%;
 }
 
