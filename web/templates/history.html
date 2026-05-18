@@ -82,17 +82,48 @@
         </div>
 
         <!-- Панель фильтров и кнопок -->
-        <div class="page-actions">
-            <select id="filterResult" class="form-select">
-                <option value="">Все результаты</option>
-                <option value="OK">OK (годен)</option>
-                <option value="NG">NG (брак)</option>
-            </select>
-            <input type="date" id="filterDateFrom" class="form-input">
-            <span>—</span>
-            <input type="date" id="filterDateTo" class="form-input">
-            <button id="applyFilters" class="btn btn-primary">Применить фильтры</button>
-            <button id="refreshBtn" class="btn btn-secondary">Сбросить</button>
+        <div class="filters-bar">
+            <!-- Быстрые пресеты дат -->
+            <div class="date-presets">
+                <button class="preset-btn" data-preset="today">Сегодня</button>
+                <button class="preset-btn" data-preset="yesterday">Вчера</button>
+                <button class="preset-btn" data-preset="week">Неделя</button>
+                <button class="preset-btn" data-preset="month">Месяц</button>
+            </div>
+
+            <div class="filters-row">
+                <select id="filterResult" class="form-select">
+                    <option value="">Все результаты</option>
+                    <option value="OK">OK (годен)</option>
+                    <option value="NG">NG (брак)</option>
+                </select>
+
+                <input type="date" id="filterDateFrom" class="form-input" title="Дата с">
+                <span class="date-separator">—</span>
+                <input type="date" id="filterDateTo" class="form-input" title="Дата по">
+
+                <input type="text" id="filterOrder" class="form-input" placeholder="Заказ..." title="Поиск по номеру заказа">
+                <input type="text" id="filterProject" class="form-input" placeholder="Проект..." title="Поиск по названию проекта">
+                <select id="filterScenario" class="form-select">
+                    <option value="">Все сценарии</option>
+                    <option value="A">Сценарий A</option>
+                    <option value="B">Сценарий B</option>
+                    <option value="C">Сценарий C</option>
+                </select>
+
+                <button id="applyFilters" class="btn btn-primary">Применить</button>
+                <button id="refreshBtn" class="btn btn-secondary">Сбросить</button>
+                
+                <!-- Кнопки экспорта -->
+                <div class="export-divider"></div>
+                
+                <button id="exportCsvBtn" class="btn btn-export" title="Экспорт в CSV">
+                    <span>📄</span> CSV
+                </button>
+                <button id="exportExcelBtn" class="btn btn-export" title="Экспорт в Excel">
+                    <span>📊</span> Excel
+                </button>
+            </div>
         </div>
 
         <!-- Статистика -->
@@ -129,45 +160,121 @@
             </div>
         </div>
 
-        <!-- Таблица результатов -->
-        <div class="table-section">
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>№</th>
-                            <th>Дата/время</th>
-                            <th>Результат</th>
-                            <th>Заказ</th>
-                            <th>Сценарий</th>
-                            <th>Проект</th>
-                            <th>Снимок</th>
-                        </tr>
-                    </thead>
-                    <tbody id="resultsBody">
-                        <tr><td colspan="7" class="loading-cell">Загрузка...</td></tr>
-                    </tbody>
-                </table>
+        <!-- Основной контент: таблица + график -->
+        <div class="history-content">
+            <div class="history-main">
+                <!-- Таблица результатов -->
+                <div class="table-section">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>№</th>
+                                    <th>Дата/время</th>
+                                    <th>Результат</th>
+                                    <th>Заказ</th>
+                                    <th>Сценарий</th>
+                                    <th>Проект</th>
+                                    <th>Снимок</th>
+                                </tr>
+                            </thead>
+                            <tbody id="resultsBody">
+                                <tr><td colspan="7" class="loading-cell">Загрузка...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Пагинация (верхняя и нижняя) -->
+                <div class="pagination-section top-pagination">
+                    <div class="pagination">
+                        <button id="firstPageTop" class="btn btn-secondary">⏮ Первая</button>
+                        <button id="prevPageTop" class="btn btn-secondary">◀ Назад</button>
+                        <span id="pageInfoTop" class="page-info">Страница 1 из 1</span>
+                        <button id="nextPageTop" class="btn btn-secondary">Вперед ▶</button>
+                        <button id="lastPageTop" class="btn btn-secondary">Последняя ⏭</button>
+                    </div>
+                </div>
+                <div class="pagination-section">
+                    <div class="pagination">
+                        <button id="firstPageBottom" class="btn btn-secondary">⏮ Первая</button>
+                        <button id="prevPageBottom" class="btn btn-secondary">◀ Назад</button>
+                        <span id="pageInfoBottom" class="page-info">Страница 1 из 1</span>
+                        <button id="nextPageBottom" class="btn btn-secondary">Вперед ▶</button>
+                        <button id="lastPageBottom" class="btn btn-secondary">Последняя ⏭</button>
+                    </div>
+                </div>
             </div>
+            
+            <!-- График динамики OK/NG -->
+            <aside class="chart-sidebar">
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Динамика проверок (30 дней)</h3>
+                        <div class="chart-legend">
+                            <span class="legend-item"><span class="legend-dot legend-dot-ok"></span> OK</span>
+                            <span class="legend-item"><span class="legend-dot legend-dot-ng"></span> NG</span>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="dailyChart"></canvas>
+                        <div id="chartNoData" class="chart-no-data" style="display: none;">
+                            Нет данных за период
+                        </div>
+                    </div>
+                </div>
+            </aside>
         </div>
 
-        <!-- Пагинация (верхняя и нижняя) -->
-        <div class="pagination-section top-pagination">
-            <div class="pagination">
-                <button id="firstPageTop" class="btn btn-secondary">⏮ Первая</button>
-                <button id="prevPageTop" class="btn btn-secondary">◀ Назад</button>
-                <span id="pageInfoTop" class="page-info">Страница 1 из 1</span>
-                <button id="nextPageTop" class="btn btn-secondary">Вперед ▶</button>
-                <button id="lastPageTop" class="btn btn-secondary">Последняя ⏭</button>
-            </div>
-        </div>
-        <div class="pagination-section">
-            <div class="pagination">
-                <button id="firstPageBottom" class="btn btn-secondary">⏮ Первая</button>
-                <button id="prevPageBottom" class="btn btn-secondary">◀ Назад</button>
-                <span id="pageInfoBottom" class="page-info">Страница 1 из 1</span>
-                <button id="nextPageBottom" class="btn btn-secondary">Вперед ▶</button>
-                <button id="lastPageBottom" class="btn btn-secondary">Последняя ⏭</button>
+        <!-- Модальное окно детального просмотра -->
+        <div id="detailModal" class="detail-modal">
+            <div class="detail-modal__overlay"></div>
+            <div class="detail-modal__content">
+                <button class="detail-modal__close" id="detailModalClose">&times;</button>
+                <div class="detail-modal__body">
+                    <div class="detail-modal__image-col">
+                        <div id="detailImageContainer" class="detail-image-container">
+                            <div class="detail-image-placeholder">Нет изображения</div>
+                        </div>
+                    </div>
+                    <div class="detail-modal__info-col">
+                        <div class="detail-header">
+                            <span id="detailResultBadge" class="result-badge">—</span>
+                            <span id="detailTimestamp" class="detail-timestamp">—</span>
+                        </div>
+                        <div class="detail-section">
+                            <h4>Основная информация</h4>
+                            <div class="detail-grid">
+                                <div class="detail-item">
+                                    <span class="detail-label">ID записи</span>
+                                    <span id="detailId" class="detail-value">—</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Заказ</span>
+                                    <span id="detailOrder" class="detail-value">—</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Сценарий</span>
+                                    <span id="detailScenario" class="detail-value">—</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Проект</span>
+                                    <span id="detailProject" class="detail-value">—</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <h4>Датчики</h4>
+                            <div id="detailSensors" class="detail-sensors">
+                                <!-- Динамически -->
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <h4>Raw-данные</h4>
+                            <pre id="detailRaw" class="detail-raw">—</pre>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

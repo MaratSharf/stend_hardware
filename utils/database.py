@@ -237,7 +237,10 @@ class Database:
     def get_results(self, limit: int = 100, offset: int = 0,
                     result_filter: Optional[str] = None,
                     date_from: Optional[str] = None,
-                    date_to: Optional[str] = None) -> List[Dict]:
+                    date_to: Optional[str] = None,
+                    order_number: Optional[str] = None,
+                    project_name: Optional[str] = None,
+                    scenario: Optional[str] = None) -> List[Dict]:
         query = "SELECT * FROM inspection_results WHERE 1=1"
         params = []
         if result_filter:
@@ -251,6 +254,15 @@ class Database:
             date_to_inclusive = date_to + ' 23:59:59'
             query += " AND timestamp <= %s"
             params.append(date_to_inclusive)
+        if order_number:
+            query += " AND order_number ILIKE %s"
+            params.append(f'%{order_number}%')
+        if project_name:
+            query += " AND project_name ILIKE %s"
+            params.append(f'%{project_name}%')
+        if scenario:
+            query += " AND scenario = %s"
+            params.append(scenario)
         query += " ORDER BY timestamp DESC LIMIT %s OFFSET %s"
         params.extend([limit, offset])
         with self.get_connection() as cursor:

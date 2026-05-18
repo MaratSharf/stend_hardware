@@ -453,6 +453,59 @@ input:checked + .t-toggle__slider:before {
     margin-bottom: 24px;
 }
 
+/* ============================================================
+   LIGHTBOX — полноэкранный просмотр изображения
+   ============================================================ */
+.image-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.92);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    cursor: zoom-out;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+.image-lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.image-lightbox img {
+    max-width: 95vw;
+    max-height: 95vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    transform: scale(0.92);
+    transition: transform 0.25s ease;
+}
+.image-lightbox.active img {
+    transform: scale(1);
+}
+.image-lightbox__close {
+    position: absolute;
+    top: 20px;
+    right: 28px;
+    font-size: 36px;
+    color: #fff;
+    opacity: 0.8;
+    cursor: pointer;
+    user-select: none;
+    transition: opacity 0.2s;
+}
+.image-lightbox__close:hover {
+    opacity: 1;
+}
+.t-image-container {
+    cursor: zoom-in;
+}
+
 /* Адаптивность: на узких экранах панель состояния выстраивается вертикально */
 @media (max-width: 768px) {
     .status-panel {
