@@ -236,3 +236,90 @@
 2026-05-18 13:46:12 - INFO - web - Клиент подключился к WebSocket: gz7yWYorTryivYzTAAAB
 2026-05-18 13:46:12 - INFO - web - Клиент gz7yWYorTryivYzTAAAB подписался на обновления статуса
 2026-05-18 13:46:14 - INFO - web - Клиент отключился от WebSocket: gz7yWYorTryivYzTAAAB
+2026-05-18 13:57:18 - INFO - web - ===== WEB APP STARTED =====
+2026-05-18 13:57:19 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-18 13:57:32 - INFO - web - Клиент подключился к WebSocket: 2cqp6Jdku94qR6ldAAAB
+2026-05-18 13:57:32 - INFO - web - Клиент 2cqp6Jdku94qR6ldAAAB подписался на обновления статуса
+2026-05-18 13:57:34 - INFO - web - Клиент отключился от WebSocket: 2cqp6Jdku94qR6ldAAAB
+2026-05-18 14:06:15 - INFO - web - ===== WEB APP STARTED =====
+2026-05-18 14:06:15 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-18 14:06:26 - INFO - web - Клиент подключился к WebSocket: BtdXH1Ziw9K7peh8AAAB
+2026-05-18 14:06:27 - INFO - web - Клиент BtdXH1Ziw9K7peh8AAAB подписался на обновления статуса
+2026-05-18 14:06:28 - INFO - web - Клиент отключился от WebSocket: BtdXH1Ziw9K7peh8AAAB
+2026-05-18 14:25:24 - INFO - web - ===== WEB APP STARTED =====
+2026-05-18 14:25:25 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-18 14:25:39 - INFO - web - ===== WEB APP STARTED =====
+2026-05-18 14:25:39 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-18 14:25:51 - INFO - web - Клиент подключился к WebSocket: PLCYn6j13OqPVw8RAAAB
+2026-05-18 14:25:51 - INFO - web - Клиент PLCYn6j13OqPVw8RAAAB подписался на обновления статуса
+2026-05-18 14:25:54 - INFO - web - Клиент отключился от WebSocket: PLCYn6j13OqPVw8RAAAB
+2026-05-18 14:35:36 - INFO - web - ===== WEB APP STARTED =====
+2026-05-18 14:35:36 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-18 14:35:52 - INFO - web - Клиент подключился к WebSocket: UvigsPESDxaFlE4HAAAB
+2026-05-18 14:35:52 - INFO - web - Клиент UvigsPESDxaFlE4HAAAB подписался на обновления статуса
+2026-05-18 14:35:55 - INFO - web - Клиент отключился от WebSocket: UvigsPESDxaFlE4HAAAB
+2026-05-18 14:41:42 - INFO - web - ===== WEB APP STARTED =====
+2026-05-18 14:41:42 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-18 14:41:51 - INFO - web - Клиент подключился к WebSocket: Rp1jeWptWWqbpcgEAAAB
+2026-05-18 14:41:52 - INFO - web - Клиент Rp1jeWptWWqbpcgEAAAB подписался на обновления статуса
+2026-05-18 14:41:53 - INFO - web - Клиент отключился от WebSocket: Rp1jeWptWWqbpcgEAAAB
+2026-05-18 15:36:57 - INFO - web - ===== WEB APP STARTED =====
+2026-05-18 15:36:57 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-18 15:37:07 - INFO - web - Клиент подключился к WebSocket: 9DGz6KidwOlm3MKSAAAB
+2026-05-18 15:37:07 - INFO - web - Клиент 9DGz6KidwOlm3MKSAAAB подписался на обновления статуса
+2026-05-18 15:37:10 - INFO - web - Клиент отключился от WebSocket: 9DGz6KidwOlm3MKSAAAB
+2026-05-18 15:37:11 - ERROR - web - Ошибка в api_statistics
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\history.py", line 63, in api_statistics
+    scenario_stats = db.get_scenario_statistics(date_from=date_from, date_to=date_to)
+AttributeError: 'Database' object has no attribute 'get_scenario_statistics'
+2026-05-18 15:37:29 - ERROR - web - Ошибка в api_statistics
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\history.py", line 63, in api_statistics
+    scenario_stats = db.get_scenario_statistics(date_from=date_from, date_to=date_to)
+AttributeError: 'Database' object has no attribute 'get_scenario_statistics'
+2026-05-18 15:37:33 - ERROR - web - Ошибка в api_statistics
+Traceback (most recent call last):
+  File "C:\proj\python\git_stend\stend_hardware\web\pages\history.py", line 63, in api_statistics
+    scenario_stats = db.get_scenario_statistics(date_from=date_from, date_to=date_to)
+AttributeError: 'Database' object has no attribute 'get_scenario_statistics'
+2026-05-18 15:50:14 - INFO - web - ===== WEB APP STARTED =====
+2026-05-18 15:50:14 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-18 15:50:23 - INFO - web - Клиент подключился к WebSocket: n16efljYcpn_bkldAAAB
+2026-05-18 15:50:23 - INFO - web - Клиент n16efljYcpn_bkldAAAB подписался на обновления статуса
+2026-05-18 15:50:24 - INFO - web - Клиент отключился от WebSocket: n16efljYcpn_bkldAAAB
+2026-05-18 15:54:26 - INFO - web - ===== WEB APP STARTED =====
+2026-05-18 15:54:26 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-18 15:54:37 - INFO - web - Клиент подключился к WebSocket: QyhKHQW2pz0A5oWBAAAB
+2026-05-18 15:54:37 - INFO - web - Клиент QyhKHQW2pz0A5oWBAAAB подписался на обновления статуса
+2026-05-18 15:55:03 - INFO - web - Клиент отключился от WebSocket: QyhKHQW2pz0A5oWBAAAB
+2026-05-19 14:29:01 - INFO - web - ===== WEB APP STARTED =====
+2026-05-19 14:29:01 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-19 14:29:11 - INFO - web - Клиент подключился к WebSocket: UNeDWo1FxCHb2H6RAAAB
+2026-05-19 14:29:11 - INFO - web - Клиент UNeDWo1FxCHb2H6RAAAB подписался на обновления статуса
+2026-05-19 14:29:14 - INFO - web - Клиент отключился от WebSocket: UNeDWo1FxCHb2H6RAAAB
+2026-05-19 14:32:41 - INFO - web - ===== WEB APP STARTED =====
+2026-05-19 14:32:41 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-19 14:32:50 - INFO - web - Клиент подключился к WebSocket: DzCkwTkMIqdVkdy7AAAB
+2026-05-19 14:32:51 - INFO - web - Клиент DzCkwTkMIqdVkdy7AAAB подписался на обновления статуса
+2026-05-19 14:32:53 - INFO - web - Клиент отключился от WebSocket: DzCkwTkMIqdVkdy7AAAB
+2026-05-19 15:02:41 - INFO - web - ===== WEB APP STARTED =====
+2026-05-19 15:02:42 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-19 15:02:52 - INFO - web - Клиент подключился к WebSocket: ra4eHGG0NEBXE6pJAAAB
+2026-05-19 15:02:53 - INFO - web - Клиент ra4eHGG0NEBXE6pJAAAB подписался на обновления статуса
+2026-05-19 15:02:53 - INFO - web - Клиент отключился от WebSocket: ra4eHGG0NEBXE6pJAAAB
+2026-05-19 15:17:01 - INFO - web - ===== WEB APP STARTED =====
+2026-05-19 15:17:01 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-19 15:17:10 - INFO - web - Клиент подключился к WebSocket: 2Q35P0WPsWeqEy8-AAAB
+2026-05-19 15:17:10 - INFO - web - Клиент 2Q35P0WPsWeqEy8-AAAB подписался на обновления статуса
+2026-05-19 15:17:14 - INFO - web - Клиент отключился от WebSocket: 2Q35P0WPsWeqEy8-AAAB
+2026-05-19 16:13:25 - INFO - web - ===== WEB APP STARTED =====
+2026-05-19 16:13:26 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-19 16:16:09 - ERROR - web - CLIENT ERROR: Uncaught TypeError: Cannot read properties of null (reading 'addEventListener') | URL: http://localhost:5001/static/js/history.js | UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36 | Stack: TypeError: Cannot read properties of null (reading 'addEventListener')
+    at setupFilters (http://localhost:5001/static/js/history.js:292:44)
+    at HTMLDocument.<anonymous> (http://localhost:5001/static/js/history.js:24:5)
+2026-05-19 16:16:53 - INFO - web - ===== WEB APP STARTED =====
+2026-05-19 16:16:53 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-19 16:17:05 - INFO - web - Клиент подключился к WebSocket: kdzfhrQQhP7QZd9QAAAB
+2026-05-19 16:17:05 - INFO - web - Клиент kdzfhrQQhP7QZd9QAAAB подписался на обновления статуса
+2026-05-19 16:17:07 - INFO - web - Клиент отключился от WebSocket: kdzfhrQQhP7QZd9QAAAB

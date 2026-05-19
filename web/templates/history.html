@@ -126,6 +126,9 @@
                 <button id="exportExcelBtn" class="btn btn-export" title="Экспорт в Excel">
                     <span>📊</span> Excel
                 </button>
+                <button id="exportPdfBtn" class="btn btn-export" title="Экспорт в PDF">
+                    <span>📕</span> PDF
+                </button>
             </div>
         </div>
 
@@ -163,7 +166,7 @@
             </div>
         </div>
 
-        <!-- Основной контент: таблица + график -->
+        <!-- Основной контент: таблица + графики -->
         <div class="history-content">
             <div class="history-main">
                 <!-- Таблица результатов -->
@@ -209,8 +212,9 @@
                 </div>
             </div>
             
-            <!-- График динамики OK/NG -->
+            <!-- Сайдбар с графиками -->
             <aside class="chart-sidebar">
+                <!-- График динамики OK/NG -->
                 <div class="chart-container">
                     <div class="chart-header">
                         <h3>Динамика проверок (30 дней)</h3>
@@ -226,8 +230,40 @@
                         </div>
                     </div>
                 </div>
-            </aside>
-        </div>
+
+                <!-- Круговая диаграмма OK/NG -->
+                <div class="chart-container chart-pie">
+                    <div class="chart-header">
+                        <h3>Соотношение результатов</h3>
+                    </div>
+                    <div class="chart-wrapper chart-wrapper--pie">
+                        <canvas id="pieChart"></canvas>
+                        <div id="pieNoData" class="chart-no-data" style="display: none;">
+                            Нет данных за период
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Гистограмма по проектам -->
+                <div class="chart-container chart-bar">
+                    <div class="chart-header">
+                        <h3>Статистика по проектам</h3>
+                        <div class="chart-legend">
+                            <span class="legend-item"><span class="legend-dot legend-dot-ok"></span> OK</span>
+                            <span class="legend-item"><span class="legend-dot legend-dot-ng"></span> NG</span>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper chart-wrapper--bar">
+                        <canvas id="scenarioChart"></canvas>
+                        <div id="scenarioNoData" class="chart-no-data" style="display: none;">
+                            Нет данных за период
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+        </aside>
+    </main>
 
         <!-- Модальное окно детального просмотра -->
         <div id="detailModal" class="detail-modal">

@@ -8,6 +8,9 @@ const pageSize = 20;
 let currentFilters = {};
 let totalPages = 1;
 let dailyChartInstance = null;
+let pieChartInstance = null;
+let projectChartInstance = null;
+let topNgChartInstance = null;
 let filterDebounceTimer = null;
 const DEBOUNCE_DELAY = 300;
 
@@ -23,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupDatePresets();
     setupDetailModal();
     setupLazyLoading();
+    setupCanvasResizing();
 });
 
 function setDefaultDates() {
@@ -108,8 +112,10 @@ async function loadStatistics() {
             updateStatElement('statNg', stats.ng_count);
             updateStatElement('statOkPercent', stats.ok_percent + '%');
             
-            // Обновляем график
+            // Обновляем все графики
             renderDailyChart(data.daily || []);
+            renderPieChart(stats);
+            renderProjectChart(data.project || []);
         }
     } catch (error) {
         console.error('Ошибка загрузки статистики:', error);
@@ -281,10 +287,16 @@ function setupFilters() {
     document.getElementById('exportExcelBtn').addEventListener('click', () => {
         exportData('excel');
     });
+
+    // Экспорт в PDF
+    document.getElementById('exportPdfBtn').addEventListener('click', () => {
+        exportData('pdf');
+    });
 }
 
 function exportData(format) {
-    const btn = document.getElementById(format === 'csv' ? 'exportCsvBtn' : 'exportExcelBtn');
+    const btnMap = { csv: 'exportCsvBtn', excel: 'exportExcelBtn', pdf: 'exportPdfBtn' };
+    const btn = document.getElementById(btnMap[format]);
     const originalText = btn.innerHTML;
     
     // Показываем индикатор загрузки
@@ -294,7 +306,7 @@ function exportData(format) {
     try {
         const params = new URLSearchParams({
             ...currentFilters,
-            limit: 10000  // Большой лимит для экспорта
+            limit: format === 'pdf' ? 500 : 10000  // Ограничение для PDF
         });
         
         const url = `/api/export/${format}?${params}`;
@@ -308,7 +320,8 @@ function exportData(format) {
         document.body.removeChild(link);
         
         // Показываем уведомление
-        showToast(`Экспорт в ${format === 'csv' ? 'CSV' : 'Excel'} начат`, 'success');
+        const formatName = format === 'csv' ? 'CSV' : format === 'excel' ? 'Excel' : 'PDF';
+        showToast(`Экспорт в ${formatName} начат`, 'success');
     } catch (error) {
         console.error('Ошибка экспорта:', error);
         showToast('Ошибка при экспорте', 'error');
@@ -420,7 +433,7 @@ function populateDetailModal(r) {
     // Изображение
     const imgContainer = document.getElementById('detailImageContainer');
     if (r.image_path) {
-        imgContainer.innerHTML = `<img src="/images/${r.image_path}" alt="Снимок проверки #${r.id}" onerror="this.parentElement.innerHTML='<div class=\\'detail-image-placeholder\\'>Изображение недоступно</div>'">`;
+        imgContainer.innerHTML = `<img src="/images/${r.image_path}" alt="Снимок проверки #${r.id}" onerror="this.parentElement.innerHTML='<div class=\'detail-image-placeholder\'>Изображение недоступно</div>'">`;
     } else {
         imgContainer.innerHTML = '<div class="detail-image-placeholder">Нет изображения</div>';
     }
@@ -485,7 +498,6 @@ function renderDailyChart(dailyData) {
     const canvas = document.getElementById('dailyChart');
     const noDataEl = document.getElementById('chartNoData');
     
-    // Если нет данных
     if (!dailyData || dailyData.length === 0) {
         if (dailyChartInstance) {
             dailyChartInstance.destroy();
@@ -499,8 +511,6 @@ function renderDailyChart(dailyData) {
     canvas.style.display = 'block';
     noDataEl.style.display = 'none';
     
-    // Подготовка данных
-    // dailyData приходит в порядке DESC (свежие сначала), разворачиваем
     const reversed = [...dailyData].reverse();
     
     const labels = reversed.map(d => {
@@ -513,19 +523,16 @@ function renderDailyChart(dailyData) {
     
     const ctx = canvas.getContext('2d');
     
-    // Уничтожаем старый график
     if (dailyChartInstance) {
         dailyChartInstance.destroy();
     }
     
-    // Настраиваем размеры canvas для чёткости
     const dpr = window.devicePixelRatio || 1;
     const rect = canvas.getBoundingClientRect();
     canvas.width = rect.width * dpr;
     canvas.height = rect.height * dpr;
     ctx.scale(dpr, dpr);
     
-    // Рисуем график
     dailyChartInstance = drawChart(ctx, labels, okData, ngData, rect.width, rect.height);
 }
 
@@ -534,15 +541,12 @@ function drawChart(ctx, labels, okData, ngData, width, height) {
     const chartWidth = width - padding.left - padding.right;
     const chartHeight = height - padding.top - padding.bottom;
     
-    // Очищаем canvas
     ctx.clearRect(0, 0, width, height);
     
-    // Находим максимум для масштаба
     const allValues = [...okData, ...ngData];
     const maxVal = Math.max(...allValues, 1);
     const yStep = Math.ceil(maxVal / 5) || 1;
     
-    // Рисуем сетку
     ctx.strokeStyle = 'rgba(128, 128, 128, 0.2)';
     ctx.lineWidth = 1;
     for (let i = 0; i <= 5; i++) {
@@ -552,7 +556,6 @@ function drawChart(ctx, labels, okData, ngData, width, height) {
         ctx.lineTo(width - padding.right, y);
         ctx.stroke();
         
-        // Подписи оси Y
         ctx.fillStyle = 'rgba(128, 128, 128, 0.8)';
         ctx.font = '11px Inter, sans-serif';
         ctx.textAlign = 'right';
@@ -560,13 +563,12 @@ function drawChart(ctx, labels, okData, ngData, width, height) {
         ctx.fillText((maxVal - yStep * i).toString(), padding.left - 8, y);
     }
     
-    // Рисуем подписи оси X
     ctx.fillStyle = 'rgba(128, 128, 128, 0.8)';
     ctx.font = '10px Inter, sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'top';
     
-    const labelStep = Math.ceil(labels.length / 10); // Показываем ~10 подписей
+    const labelStep = Math.ceil(labels.length / 10);
     labels.forEach((label, i) => {
         if (i % labelStep === 0 || i === labels.length - 1) {
             const x = padding.left + (chartWidth / (labels.length - 1)) * i;
@@ -574,7 +576,6 @@ function drawChart(ctx, labels, okData, ngData, width, height) {
         }
     });
     
-    // Функция для рисования линии графика
     const drawLine = (data, color, fill) => {
         ctx.beginPath();
         ctx.strokeStyle = color;
@@ -594,7 +595,6 @@ function drawChart(ctx, labels, okData, ngData, width, height) {
         });
         ctx.stroke();
         
-        // Заполнение под графиком
         if (fill) {
             ctx.lineTo(padding.left + chartWidth, padding.top + chartHeight);
             ctx.lineTo(padding.left, padding.top + chartHeight);
@@ -604,11 +604,9 @@ function drawChart(ctx, labels, okData, ngData, width, height) {
         }
     };
     
-    // Рисуем NG (красный) сначала, чтобы OK был сверху
     drawLine(ngData, 'rgb(255, 71, 87)', true);
     drawLine(okData, 'rgb(0, 255, 136)', true);
     
-    // Рисуем точки на графиках
     const drawDots = (data, color) => {
         data.forEach((val, i) => {
             const x = padding.left + (chartWidth / (data.length - 1)) * i;
@@ -626,4 +624,262 @@ function drawChart(ctx, labels, okData, ngData, width, height) {
     
     drawDots(ngData, 'rgb(255, 71, 87)');
     drawDots(okData, 'rgb(0, 255, 136)');
+}
+
+/* ==================== КРУГОВАЯ ДИАГРАММА OK/NG ==================== */
+
+function renderPieChart(stats) {
+    const canvas = document.getElementById('pieChart');
+    const noDataEl = document.getElementById('pieNoData');
+    
+    if (!stats || stats.total === 0) {
+        canvas.style.display = 'none';
+        noDataEl.style.display = 'flex';
+        return;
+    }
+    
+    canvas.style.display = 'block';
+    noDataEl.style.display = 'none';
+    
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio || 1;
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    ctx.scale(dpr, dpr);
+    
+    const okCount = stats.ok_count || 0;
+    const ngCount = stats.ng_count || 0;
+    const total = stats.total || 1;
+    
+    const okPercent = (okCount / total * 100).toFixed(1);
+    const ngPercent = (ngCount / total * 100).toFixed(1);
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const radius = Math.min(centerX, centerY) - 30;
+    const innerRadius = radius * 0.55;
+    
+    // Очищаем canvas
+    ctx.clearRect(0, 0, rect.width, rect.height);
+    
+    // Рисуем дуги
+    const okAngle = (okCount / total) * Math.PI * 2;
+    const ngAngle = (ngCount / total) * Math.PI * 2;
+    
+    // NG (красный) — сначала
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, -Math.PI / 2, -Math.PI / 2 + ngAngle);
+    ctx.arc(centerX, centerY, innerRadius, -Math.PI / 2 + ngAngle, -Math.PI / 2, true);
+    ctx.closePath();
+    ctx.fillStyle = 'rgb(255, 71, 87)';
+    ctx.fill();
+    
+    // OK (зелёный)
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, -Math.PI / 2 + ngAngle, -Math.PI / 2 + ngAngle + okAngle);
+    ctx.arc(centerX, centerY, innerRadius, -Math.PI / 2 + ngAngle + okAngle, -Math.PI / 2 + ngAngle, true);
+    ctx.closePath();
+    ctx.fillStyle = 'rgb(0, 255, 136)';
+    ctx.fill();
+    
+    // Текст в центре
+    ctx.fillStyle = 'var(--text-primary)';
+    ctx.font = 'bold 18px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(`${stats.ok_percent}%`, centerX, centerY - 8);
+    
+    ctx.fillStyle = 'var(--text-secondary)';
+    ctx.font = '11px Inter, sans-serif';
+    ctx.fillText('качество', centerX, centerY + 10);
+    
+    // Легенда под диаграммой
+    const legendY = rect.height - 20;
+    
+    // OK
+    ctx.fillStyle = 'rgb(0, 255, 136)';
+    ctx.beginPath();
+    ctx.arc(centerX - 60, legendY, 6, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = 'var(--text-secondary)';
+    ctx.font = '12px Inter, sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText(`OK ${okPercent}%`, centerX - 48, legendY + 4);
+    
+    // NG
+    ctx.fillStyle = 'rgb(255, 71, 87)';
+    ctx.beginPath();
+    ctx.arc(centerX + 20, legendY, 6, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = 'var(--text-secondary)';
+    ctx.fillText(`NG ${ngPercent}%`, centerX + 32, legendY + 4);
+}
+
+/* ==================== ГИСТОГРАММА ПО ПРОЕКТАМ ==================== */
+
+function renderProjectChart(projectData) {
+    const canvas = document.getElementById('scenarioChart');
+    const noDataEl = document.getElementById('scenarioNoData');
+    
+    if (!projectData || projectData.length === 0) {
+        canvas.style.display = 'none';
+        noDataEl.style.display = 'flex';
+        return;
+    }
+    
+    canvas.style.display = 'block';
+    noDataEl.style.display = 'none';
+    
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio || 1;
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    ctx.scale(dpr, dpr);
+    
+    ctx.clearRect(0, 0, rect.width, rect.height);
+    
+    const padding = { top: 20, right: 20, bottom: 50, left: 50 };
+    const chartWidth = rect.width - padding.left - padding.right;
+    const chartHeight = rect.height - padding.top - padding.bottom;
+    
+    const maxVal = Math.max(...projectData.map(d => d.total || 0), 1);
+    
+    // Сетка
+    ctx.strokeStyle = 'rgba(128, 128, 128, 0.15)';
+    ctx.lineWidth = 1;
+    for (let i = 0; i <= 4; i++) {
+        const y = padding.top + (chartHeight / 4) * i;
+        ctx.beginPath();
+        ctx.moveTo(padding.left, y);
+        ctx.lineTo(rect.width - padding.right, y);
+        ctx.stroke();
+        
+        ctx.fillStyle = 'rgba(128, 128, 128, 0.6)';
+        ctx.font = '10px Inter, sans-serif';
+        ctx.textAlign = 'right';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(Math.round(maxVal - (maxVal / 4) * i).toString(), padding.left - 6, y);
+    }
+    
+    const barWidth = chartWidth / projectData.length * 0.6;
+    const barGap = chartWidth / projectData.length * 0.4;
+    
+    projectData.forEach((d, i) => {
+        const x = padding.left + (chartWidth / projectData.length) * i + barGap / 2;
+        const okHeight = ((d.ok_count || 0) / maxVal) * chartHeight;
+        const ngHeight = ((d.ng_count || 0) / maxVal) * chartHeight;
+        
+        // NG bar (снизу)
+        ctx.fillStyle = 'rgb(255, 71, 87)';
+        ctx.fillRect(x, padding.top + chartHeight - ngHeight, barWidth / 2, ngHeight);
+        
+        // OK bar (снизу, рядом)
+        ctx.fillStyle = 'rgb(0, 255, 136)';
+        ctx.fillRect(x + barWidth / 2, padding.top + chartHeight - okHeight, barWidth / 2, okHeight);
+        
+        // Подпись проекта (с обрезкой если длинная)
+        ctx.fillStyle = 'rgba(128, 128, 128, 0.8)';
+        ctx.font = '11px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'top';
+        let projectName = d.project_name || '—';
+        if (projectName.length > 12) {
+            projectName = projectName.substring(0, 10) + '...';
+        }
+        ctx.fillText(projectName, x + barWidth / 2, padding.top + chartHeight + 8);
+        
+        // Значение над столбцом
+        if (d.total > 0) {
+            ctx.fillStyle = 'var(--text-primary)';
+            ctx.font = 'bold 10px Inter, sans-serif';
+            ctx.fillText(d.total.toString(), x + barWidth / 2, padding.top - 4);
+        }
+    });
+}
+
+// Для обратной совместимости
+function renderScenarioChart(projectData) {
+    renderProjectChart(projectData);
+}
+
+/* ==================== ТОП ЗАКАЗОВ ПО БРАКУ ==================== */
+
+function renderTopNgChart(topNgData) {
+    const canvas = document.getElementById('topNgChart');
+    const noDataEl = document.getElementById('topNgNoData');
+    
+    if (!topNgData || topNgData.length === 0) {
+        canvas.style.display = 'none';
+        noDataEl.style.display = 'flex';
+        return;
+    }
+    
+    canvas.style.display = 'block';
+    noDataEl.style.display = 'none';
+    
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio || 1;
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    ctx.scale(dpr, dpr);
+    
+    ctx.clearRect(0, 0, rect.width, rect.height);
+    
+    const padding = { top: 15, right: 60, bottom: 10, left: 120 };
+    const chartWidth = rect.width - padding.left - padding.right;
+    const chartHeight = rect.height - padding.top - padding.bottom;
+    
+    const maxVal = Math.max(...topNgData.map(d => d.ng_count || 0), 1);
+    const rowHeight = chartHeight / topNgData.length;
+    
+    topNgData.forEach((d, i) => {
+        const y = padding.top + i * rowHeight + rowHeight * 0.15;
+        const barHeight = rowHeight * 0.7;
+        const barWidth = ((d.ng_count || 0) / maxVal) * chartWidth;
+        
+        // Фон полосы
+        ctx.fillStyle = 'rgba(255, 71, 87, 0.08)';
+        ctx.fillRect(padding.left, y, chartWidth, barHeight);
+        
+        // Бар
+        ctx.fillStyle = 'rgb(255, 71, 87)';
+        ctx.fillRect(padding.left, y, barWidth, barHeight);
+        
+        // Название заказа (слева)
+        ctx.fillStyle = 'var(--text-primary)';
+        ctx.font = '11px Inter, sans-serif';
+        ctx.textAlign = 'right';
+        ctx.textBaseline = 'middle';
+        const label = d.order_number || 'Без заказа';
+        const truncated = label.length > 18 ? label.substring(0, 15) + '...' : label;
+        ctx.fillText(truncated, padding.left - 8, y + barHeight / 2);
+        
+        // Значение NG (справа от бара)
+        ctx.fillStyle = 'var(--text-primary)';
+        ctx.font = 'bold 11px Inter, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(d.ng_count.toString(), padding.left + barWidth + 6, y + barHeight / 2);
+        
+        // OK count
+        ctx.fillStyle = 'var(--text-secondary)';
+        ctx.font = '9px Inter, sans-serif';
+        ctx.fillText(`(OK: ${d.ok_count || 0})`, padding.left + barWidth + 30, y + barHeight / 2);
+    });
+}
+
+/* ==================== УТИЛИТЫ ДЛЯ CANVAS ==================== */
+
+
+function setupCanvasResizing() {
+    // Обновляем все графики при изменении размера окна
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            loadStatistics();
+        }, 250);
+    });
 }

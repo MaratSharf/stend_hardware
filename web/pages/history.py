@@ -9,6 +9,7 @@ from web.pages.auth import login_required, get_current_user
 from utils.database import get_database
 from core.config import get_config
 from utils.excel_export import get_excel_exporter
+from utils.pdf_export import get_pdf_exporter
 import io
 from datetime import datetime
 
@@ -60,7 +61,15 @@ def api_statistics():
         date_to = request.args.get('date_to', None)
         stats = db.get_statistics(date_from=date_from, date_to=date_to)
         daily_stats = db.get_daily_statistics(days=30)
-        return jsonify({'success': True, 'statistics': stats, 'daily': daily_stats})
+        project_stats = db.get_project_statistics(date_from=date_from, date_to=date_to)
+        order_ng_stats = db.get_top_ng_orders(limit=10, date_from=date_from, date_to=date_to)
+        return jsonify({
+            'success': True,
+            'statistics': stats,
+            'daily': daily_stats,
+            'project': project_stats,
+            'top_ng_orders': order_ng_stats
+        })
     except Exception as e:
         current_app.logger.exception("Ошибка в api_statistics")
         return jsonify({'success': False, 'error': 'Internal server error'}), 500
@@ -186,4 +195,62 @@ def api_export_excel():
         )
     except Exception as e:
         current_app.logger.exception("Ошибка в api_export_excel")
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+@history_bp.route('/api/export/pdf')
+@login_required
+def api_export_pdf():
+    """Экспорт результатов в PDF с учётом фильтров."""
+    try:
+        db = current_app.config.get('db')
+        if not db:
+            return jsonify({'success': False, 'error': 'Database not available'}), 500
+        
+        # Получаем фильтры из запроса
+        result_filter = request.args.get('result', None) or None
+        date_from = request.args.get('date_from', None) or None
+        date_to = request.args.get('date_to', None) or None
+        order_number = request.args.get('order_number', None) or None
+        project_name = request.args.get('project_name', None) or None
+        scenario = request.args.get('scenario', None) or None
+        limit = request.args.get('limit', 500, type=int)  # Ограничение для PDF (100 строк максимум)
+        
+        results = db.get_results(limit=limit, offset=0,
+                                 result_filter=result_filter,
+                                 date_from=date_from, date_to=date_to,
+                                 order_number=order_number,
+                                 project_name=project_name,
+                                 scenario=scenario)
+        
+        # Получаем статистику за период
+        stats = db.get_statistics(date_from=date_from, date_to=date_to)
+        project_stats = db.get_project_statistics(date_from=date_from, date_to=date_to)
+        
+        # Формируем отчёт для экспортера
+        report = {
+            'date': f"{date_from or 'Начало'} — {date_to or 'Сегодня'}",
+            'statistics': stats,
+            'project': project_stats,
+            'results': results
+        }
+        
+        # Экспортируем в PDF
+        exporter = get_pdf_exporter()
+        pdf_data = exporter.export_history_report(report)
+        
+        # Формируем имя файла с датой
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        filename = f'export_{timestamp}.pdf'
+        
+        return send_file(
+            io.BytesIO(pdf_data),
+            mimetype='application/pdf',
+            as_attachment=True,
+            download_name=filename
+        )
+    except ImportError:
+        current_app.logger.error("PDF export not available")
+        return jsonify({'success': False, 'error': 'PDF export requires reportlab: pip install reportlab'}), 503
+    except Exception as e:
+        current_app.logger.exception("Ошибка в api_export_pdf")
         return jsonify({'success': False, 'error': str(e)}), 500

@@ -539,7 +539,86 @@ class Database:
             cursor.execute(query, params)
             row = cursor.fetchone()
             return row['count'] if row else 0
-    
+
+    def get_scenario_statistics(self, date_from: Optional[str] = None,
+                                 date_to: Optional[str] = None) -> List[Dict]:
+        query = """
+            SELECT 
+                COALESCE(NULLIF(scenario, ''), 'Не указан') as scenario,
+                COUNT(*) as total,
+                SUM(CASE WHEN result = 'OK' THEN 1 ELSE 0 END) as ok_count,
+                SUM(CASE WHEN result = 'NG' THEN 1 ELSE 0 END) as ng_count
+            FROM inspection_results
+            WHERE 1=1
+        """
+        params = []
+        if date_from:
+            query += " AND timestamp >= %s"
+            params.append(date_from)
+        if date_to:
+            date_to_inclusive = date_to + ' 23:59:59'
+            query += " AND timestamp <= %s"
+            params.append(date_to_inclusive)
+        query += " GROUP BY COALESCE(NULLIF(scenario, ''), 'Не указан') ORDER BY total DESC"
+        with self.get_connection() as cursor:
+            cursor.execute(query, params)
+            return [dict(row) for row in cursor.fetchall()]
+
+    def get_project_statistics(self, date_from: Optional[str] = None,
+                                date_to: Optional[str] = None) -> List[Dict]:
+        query = """
+            SELECT 
+                COALESCE(NULLIF(project_name, ''), 'Без проекта') as project_name,
+                COUNT(*) as total,
+                SUM(CASE WHEN result = 'OK' THEN 1 ELSE 0 END) as ok_count,
+                SUM(CASE WHEN result = 'NG' THEN 1 ELSE 0 END) as ng_count
+            FROM inspection_results
+            WHERE 1=1
+        """
+        params = []
+        if date_from:
+            query += " AND timestamp >= %s"
+            params.append(date_from)
+        if date_to:
+            date_to_inclusive = date_to + ' 23:59:59'
+            query += " AND timestamp <= %s"
+            params.append(date_to_inclusive)
+        query += " GROUP BY COALESCE(NULLIF(project_name, ''), 'Без проекта') ORDER BY total DESC"
+        with self.get_connection() as cursor:
+            cursor.execute(query, params)
+            return [dict(row) for row in cursor.fetchall()]
+
+    def get_top_ng_orders(self, limit: int = 10,
+                          date_from: Optional[str] = None,
+                          date_to: Optional[str] = None) -> List[Dict]:
+        query = """
+            SELECT 
+                COALESCE(NULLIF(order_number, ''), 'Без заказа') as order_number,
+                COUNT(*) as total,
+                SUM(CASE WHEN result = 'NG' THEN 1 ELSE 0 END) as ng_count,
+                SUM(CASE WHEN result = 'OK' THEN 1 ELSE 0 END) as ok_count
+            FROM inspection_results
+            WHERE 1=1
+        """
+        params = []
+        if date_from:
+            query += " AND timestamp >= %s"
+            params.append(date_from)
+        if date_to:
+            date_to_inclusive = date_to + ' 23:59:59'
+            query += " AND timestamp <= %s"
+            params.append(date_to_inclusive)
+        query += """
+            GROUP BY COALESCE(NULLIF(order_number, ''), 'Без заказа')
+            HAVING SUM(CASE WHEN result = 'NG' THEN 1 ELSE 0 END) > 0
+            ORDER BY ng_count DESC
+            LIMIT %s
+        """
+        params.append(limit)
+        with self.get_connection() as cursor:
+            cursor.execute(query, params)
+            return [dict(row) for row in cursor.fetchall()]
+
     def get_tool_by_project_name(self, project_name: str) -> Optional[Dict]:
         with self.get_connection() as cursor:
             cursor.execute("SELECT name_ru FROM tools WHERE project_name = %s LIMIT 1", (project_name,))

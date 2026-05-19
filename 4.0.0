@@ -1,0 +1,12 @@
+Looking in indexes: https://pypi.org/simple, https://pypi.ngc.nvidia.com
+Collecting reportlab
+  Downloading reportlab-4.5.1-py3-none-any.whl (2.0 MB)
+     ---------------------------------------- 2.0/2.0 MB 5.4 MB/s eta 0:00:00
+Collecting charset-normalizer
+  Downloading charset_normalizer-3.4.7-cp310-cp310-win_amd64.whl (159 kB)
+     -------------------------------------- 159.2/159.2 kB 9.3 MB/s eta 0:00:00
+Collecting pillow>=9.0.0
+  Downloading pillow-12.2.0-cp310-cp310-win_amd64.whl (7.1 MB)
+     ---------------------------------------- 7.1/7.1 MB 6.0 MB/s eta 0:00:00
+Installing collected packages: pillow, charset-normalizer, reportlab
+Successfully installed charset-normalizer-3.4.7 pillow-12.2.0 reportlab-4.5.1
