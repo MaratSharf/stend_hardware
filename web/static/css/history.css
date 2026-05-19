@@ -25,21 +25,31 @@
     margin-bottom: 24px;
 }
 
-/* Основной контент: таблица + график */
+/* Основной контент: графики в одну строку, таблица ниже */
 .history-content {
     display: flex;
+    flex-direction: column;
     gap: 24px;
-    align-items: flex-start;
 }
 
 .history-main {
-    flex: 1;
-    min-width: 0;
+    width: 100%;
+    order: 2;
 }
 
 .chart-sidebar {
-    width: 50%;
-    flex-shrink: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    flex-wrap: wrap;
+    order: 1;
+}
+
+/* Каждый график занимает равную долю */
+.chart-sidebar .chart-container {
+    flex: 1;
+    min-width: 280px;
 }
 
 /* Статистика */
@@ -55,12 +65,13 @@
 
 /* График */
 .chart-sidebar .chart-container {
-    height: calc(100vh - 320px);
-    min-height: 600px;
+    height: auto;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     /* Оптимизация: изоляция композитинга для canvas */
     contain: layout paint;
+    margin-bottom: 20px;
 }
 
 .chart-sidebar .chart-wrapper {
@@ -69,7 +80,37 @@
     /* Оптимизация рендеринга canvas */
     transform: translateZ(0);
     /* Увеличиваем минимальную высоту для canvas */
-    min-height: 600px;
+    min-height: 350px;
+}
+
+/* Круговая диаграмма */
+.chart-sidebar .chart-container.chart-pie {
+    min-height: 320px;
+}
+
+.chart-sidebar .chart-wrapper--pie {
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Гистограмма по сценариям */
+.chart-sidebar .chart-container.chart-bar {
+    min-height: 350px;
+}
+
+.chart-sidebar .chart-wrapper--bar {
+    min-height: 300px;
+}
+
+/* Топ заказов по браку */
+.chart-sidebar .chart-container.chart-top-ng {
+    min-height: 380px;
+}
+
+.chart-sidebar .chart-wrapper--top-ng {
+    min-height: 330px;
 }
 
 .chart-container {
@@ -128,8 +169,14 @@
 
 .chart-wrapper {
     position: relative;
-    height: 600px;
+    height: 350px;
     width: 100%;
+}
+
+.chart-wrapper canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
 .chart-no-data {
