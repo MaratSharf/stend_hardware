@@ -130,7 +130,7 @@ def api_set_project():
 
 @monitoring_bp.route('/api/switch_project', methods=['POST'])
 def switch_project():
-    """Отправляет команду переключения проекта в очередь контроллера."""
+    """Выполняет переключение проекта камеры синхронно с возвратом результата."""
     controller = current_app.config.get('controller')
     if not controller:
         return jsonify({'success': False, 'error': 'Controller not available'}), 500
@@ -144,16 +144,21 @@ def switch_project():
         if not validate_project_name(project_name):
             return jsonify({'success': False, 'error': 'Invalid project name format'}), 400
 
-        # Отправляем команду в очередь контроллера
-        controller.send_command(ControllerCommand.SWITCH_PROJECT, {'project_name': project_name})
-        # Обновляем конфигурацию (для отображения)
-        config = current_app.config.get('config', {})
-        config['camera']['project_name'] = project_name
-        current_app.logger.info(f"Команда переключения проекта на '{project_name}' отправлена в очередь")
-        return jsonify({'success': True, 'message': f'Команда переключения на {project_name} принята'})
+        if not controller.camera:
+            return jsonify({'success': False, 'error': 'Camera not initialized'}), 500
+
+        success = controller.camera.switch_project(project_name)
+        if success:
+            config = current_app.config.get('config', {})
+            config['camera']['project_name'] = project_name
+            current_app.logger.info(f"Проект успешно переключён на '{project_name}'")
+            return jsonify({'success': True, 'message': f'Проект переключён на {project_name}'})
+        else:
+            current_app.logger.error(f"Ошибка переключения проекта на '{project_name}'")
+            return jsonify({'success': False, 'error': f'Не удалось переключить проект на {project_name}'}), 500
     except Exception as e:
         current_app.logger.exception("Ошибка в switch_project")
-        return jsonify({'success': False, 'error': 'Internal server error'}), 500
+        return jsonify({'success': False, 'error': str(e)}), 500
 
 @monitoring_bp.route('/api/scenario_settings', methods=['GET'])
 def api_get_scenario_settings():

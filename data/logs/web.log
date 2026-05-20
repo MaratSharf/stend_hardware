@@ -323,3 +323,120 @@ AttributeError: 'Database' object has no attribute 'get_scenario_statistics'
 2026-05-19 16:17:05 - INFO - web - Клиент подключился к WebSocket: kdzfhrQQhP7QZd9QAAAB
 2026-05-19 16:17:05 - INFO - web - Клиент kdzfhrQQhP7QZd9QAAAB подписался на обновления статуса
 2026-05-19 16:17:07 - INFO - web - Клиент отключился от WebSocket: kdzfhrQQhP7QZd9QAAAB
+2026-05-20 08:52:59 - INFO - web - ===== WEB APP STARTED =====
+2026-05-20 08:53:00 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-20 08:53:40 - INFO - web - Клиент подключился к WebSocket: ARAgREXf3RodoxPFAAAB
+2026-05-20 08:53:41 - INFO - web - Клиент ARAgREXf3RodoxPFAAAB подписался на обновления статуса
+2026-05-20 08:53:46 - INFO - web - Клиент отключился от WebSocket: ARAgREXf3RodoxPFAAAB
+2026-05-20 09:13:30 - INFO - web - Команда переключения проекта на '3.2CodeRecognition' отправлена в очередь
+2026-05-20 09:14:12 - INFO - web - Клиент подключился к WebSocket: 3HYzB831k3F_GR7KAAAD
+2026-05-20 09:14:13 - INFO - web - Клиент 3HYzB831k3F_GR7KAAAD подписался на обновления статуса
+2026-05-20 09:14:30 - INFO - web - Клиент отключился от WebSocket: 3HYzB831k3F_GR7KAAAD
+2026-05-20 09:15:04 - INFO - web - Команда переключения проекта на '1.1DiameterMeasurement' отправлена в очередь
+2026-05-20 09:15:22 - INFO - web - Клиент подключился к WebSocket: fnIVYPWSH7LeSYNHAAAF
+2026-05-20 09:15:23 - INFO - web - Клиент fnIVYPWSH7LeSYNHAAAF подписался на обновления статуса
+2026-05-20 09:15:38 - INFO - web - Клиент отключился от WebSocket: fnIVYPWSH7LeSYNHAAAF
+2026-05-20 09:22:49 - INFO - web - Клиент подключился к WebSocket: kenPbfd5RS4Qq_8nAAAH
+2026-05-20 09:22:50 - INFO - web - Клиент kenPbfd5RS4Qq_8nAAAH подписался на обновления статуса
+2026-05-20 09:23:17 - INFO - web - Клиент подключился к WebSocket: hRPV4BC26FiXnKLhAAAJ
+2026-05-20 09:23:17 - INFO - web - Клиент hRPV4BC26FiXnKLhAAAJ подписался на обновления статуса
+2026-05-20 09:23:34 - INFO - web - Клиент отключился от WebSocket: hRPV4BC26FiXnKLhAAAJ
+2026-05-20 09:23:52 - INFO - web - Клиент подключился к WebSocket: EQPvXpww6kD5X2CJAAAL
+2026-05-20 09:23:52 - INFO - web - Клиент EQPvXpww6kD5X2CJAAAL подписался на обновления статуса
+2026-05-20 09:24:00 - INFO - web - Клиент отключился от WebSocket: kenPbfd5RS4Qq_8nAAAH
+2026-05-20 09:25:48 - INFO - web - Клиент отключился от WebSocket: EQPvXpww6kD5X2CJAAAL
+2026-05-20 09:25:57 - INFO - web - Команда переключения проекта на '6.2Fixture' отправлена в очередь
+2026-05-20 09:26:04 - INFO - web - Клиент подключился к WebSocket: ihFoaI7Oy5lmHHadAAAN
+2026-05-20 09:26:04 - INFO - web - Клиент ihFoaI7Oy5lmHHadAAAN подписался на обновления статуса
+2026-05-20 09:26:33 - INFO - web - Клиент отключился от WebSocket: ihFoaI7Oy5lmHHadAAAN
+2026-05-20 09:26:41 - INFO - web - Команда переключения проекта на '6.2Fixture' отправлена в очередь
+2026-05-20 09:27:15 - INFO - web - ===== WEB APP STARTED =====
+2026-05-20 09:27:16 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-20 09:27:59 - INFO - web - Клиент подключился к WebSocket: pD1t7ACqlBbIDoZqAAAB
+2026-05-20 09:27:59 - INFO - web - Клиент pD1t7ACqlBbIDoZqAAAB подписался на обновления статуса
+2026-05-20 09:28:07 - INFO - web - Клиент отключился от WebSocket: pD1t7ACqlBbIDoZqAAAB
+2026-05-20 09:28:23 - INFO - web - Команда переключения проекта на '3.2CodeRecognition' отправлена в очередь
+2026-05-20 09:29:13 - INFO - web - Клиент подключился к WebSocket: C7rRczxK2b9XHrxHAAAD
+2026-05-20 09:29:13 - INFO - web - Клиент C7rRczxK2b9XHrxHAAAD подписался на обновления статуса
+2026-05-20 09:29:37 - INFO - web - Клиент отключился от WebSocket: C7rRczxK2b9XHrxHAAAD
+2026-05-20 09:39:45 - INFO - web - ===== WEB APP STARTED =====
+2026-05-20 09:39:46 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-20 09:40:01 - INFO - web - Клиент подключился к WebSocket: MNtzwES5zTUQw2l0AAAB
+2026-05-20 09:40:01 - INFO - web - Клиент MNtzwES5zTUQw2l0AAAB подписался на обновления статуса
+2026-05-20 09:40:03 - INFO - web - Клиент отключился от WebSocket: MNtzwES5zTUQw2l0AAAB
+2026-05-20 09:40:31 - INFO - web - Клиент подключился к WebSocket: FsBxCZrrZWVJP8f7AAAD
+2026-05-20 09:40:32 - INFO - web - Клиент FsBxCZrrZWVJP8f7AAAD подписался на обновления статуса
+2026-05-20 09:40:43 - INFO - web - Клиент отключился от WebSocket: FsBxCZrrZWVJP8f7AAAD
+2026-05-20 09:40:46 - INFO - web - Команда переключения проекта на '6.2Fixture' отправлена в очередь
+2026-05-20 09:41:12 - INFO - web - Клиент подключился к WebSocket: 1MJK-8zBXxJ1sQt8AAAF
+2026-05-20 09:41:12 - INFO - web - Клиент 1MJK-8zBXxJ1sQt8AAAF подписался на обновления статуса
+2026-05-20 09:41:15 - INFO - web - Клиент отключился от WebSocket: 1MJK-8zBXxJ1sQt8AAAF
+2026-05-20 09:44:03 - INFO - web - Клиент подключился к WebSocket: sXaiA31xj8LzPPOwAAAH
+2026-05-20 09:44:03 - INFO - web - Клиент sXaiA31xj8LzPPOwAAAH подписался на обновления статуса
+2026-05-20 09:49:28 - INFO - web - ===== WEB APP STARTED =====
+2026-05-20 09:49:28 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-20 09:49:31 - INFO - web - Клиент подключился к WebSocket: qsa1cj5n9UT4Q9_2AAAB
+2026-05-20 09:49:31 - INFO - web - Клиент qsa1cj5n9UT4Q9_2AAAB подписался на обновления статуса
+2026-05-20 09:50:08 - INFO - web - Клиент отключился от WebSocket: qsa1cj5n9UT4Q9_2AAAB
+2026-05-20 09:50:13 - INFO - web - Клиент подключился к WebSocket: hZvtoZIwQ6UJDqusAAAD
+2026-05-20 09:50:13 - INFO - web - Клиент hZvtoZIwQ6UJDqusAAAD подписался на обновления статуса
+2026-05-20 09:50:15 - INFO - web - Клиент отключился от WebSocket: hZvtoZIwQ6UJDqusAAAD
+2026-05-20 09:50:26 - INFO - web - Команда переключения проекта на '6.2Fixture' отправлена в очередь
+2026-05-20 09:50:30 - INFO - web - Клиент подключился к WebSocket: Hwj2LLacYEtTl4ZYAAAF
+2026-05-20 09:50:31 - INFO - web - Клиент Hwj2LLacYEtTl4ZYAAAF подписался на обновления статуса
+2026-05-20 09:50:42 - INFO - web - Клиент отключился от WebSocket: Hwj2LLacYEtTl4ZYAAAF
+2026-05-20 09:50:55 - INFO - web - Команда переключения проекта на '3.2CodeRecognition' отправлена в очередь
+2026-05-20 09:51:16 - INFO - web - Клиент подключился к WebSocket: SCqPNpDr-pWDLEwcAAAH
+2026-05-20 09:51:16 - INFO - web - Клиент SCqPNpDr-pWDLEwcAAAH подписался на обновления статуса
+2026-05-20 09:51:45 - INFO - web - Клиент отключился от WebSocket: SCqPNpDr-pWDLEwcAAAH
+2026-05-20 09:51:51 - INFO - web - Команда переключения проекта на '6.2Fixture' отправлена в очередь
+2026-05-20 09:51:55 - INFO - web - Клиент подключился к WebSocket: 1jehQy1HGOq3AfT9AAAJ
+2026-05-20 09:51:55 - INFO - web - Клиент 1jehQy1HGOq3AfT9AAAJ подписался на обновления статуса
+2026-05-20 09:52:09 - INFO - web - Клиент отключился от WebSocket: 1jehQy1HGOq3AfT9AAAJ
+2026-05-20 09:52:23 - INFO - web - Клиент подключился к WebSocket: Qwq2Hbp76WLhK3-kAAAL
+2026-05-20 09:52:24 - INFO - web - Клиент Qwq2Hbp76WLhK3-kAAAL подписался на обновления статуса
+2026-05-20 09:52:39 - INFO - web - Клиент отключился от WebSocket: Qwq2Hbp76WLhK3-kAAAL
+2026-05-20 09:52:44 - INFO - web - Команда переключения проекта на '6.2Fixture' отправлена в очередь
+2026-05-20 09:53:23 - INFO - web - Команда переключения проекта на '6.2Fixture' отправлена в очередь
+2026-05-20 09:57:44 - INFO - web - ===== WEB APP STARTED =====
+2026-05-20 10:01:53 - INFO - web - ===== WEB APP STARTED =====
+2026-05-20 10:06:31 - INFO - web - ===== WEB APP STARTED =====
+2026-05-20 10:06:32 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-20 10:06:44 - INFO - web - Клиент подключился к WebSocket: WcFqRbWjIohZfqHIAAAB
+2026-05-20 10:06:44 - INFO - web - Клиент WcFqRbWjIohZfqHIAAAB подписался на обновления статуса
+2026-05-20 10:06:46 - INFO - web - Клиент отключился от WebSocket: WcFqRbWjIohZfqHIAAAB
+2026-05-20 10:06:53 - INFO - web - Клиент подключился к WebSocket: ZtIQoa0NvO7G07Z-AAAD
+2026-05-20 10:06:54 - INFO - web - Клиент ZtIQoa0NvO7G07Z-AAAD подписался на обновления статуса
+2026-05-20 10:07:00 - INFO - web - Клиент отключился от WebSocket: ZtIQoa0NvO7G07Z-AAAD
+2026-05-20 10:07:11 - INFO - web - Проект успешно переключён на '3.4ColorRecognition'
+2026-05-20 10:07:35 - INFO - web - Клиент подключился к WebSocket: HLd8GNokTHk4ZOVOAAAF
+2026-05-20 10:07:35 - INFO - web - Клиент HLd8GNokTHk4ZOVOAAAF подписался на обновления статуса
+2026-05-20 10:07:45 - INFO - web - Клиент отключился от WebSocket: HLd8GNokTHk4ZOVOAAAF
+2026-05-20 10:08:01 - INFO - web - Проект успешно переключён на '1.1DiameterMeasurement'
+2026-05-20 10:08:07 - INFO - web - Клиент подключился к WebSocket: 7yU0yJAYpgyALWLHAAAH
+2026-05-20 10:08:07 - INFO - web - Клиент 7yU0yJAYpgyALWLHAAAH подписался на обновления статуса
+2026-05-20 10:08:29 - INFO - web - Клиент отключился от WebSocket: 7yU0yJAYpgyALWLHAAAH
+2026-05-20 10:09:01 - INFO - web - Клиент подключился к WebSocket: UsJeXYFCeLShnMznAAAJ
+2026-05-20 10:09:01 - INFO - web - Клиент UsJeXYFCeLShnMznAAAJ подписался на обновления статуса
+2026-05-20 10:09:06 - INFO - web - Клиент отключился от WebSocket: UsJeXYFCeLShnMznAAAJ
+2026-05-20 10:09:29 - INFO - web - Клиент подключился к WebSocket: XZQ-r93hwAPb2P4NAAAL
+2026-05-20 10:09:29 - INFO - web - Клиент XZQ-r93hwAPb2P4NAAAL подписался на обновления статуса
+2026-05-20 10:09:33 - INFO - web - Клиент отключился от WebSocket: XZQ-r93hwAPb2P4NAAAL
+2026-05-20 10:13:30 - INFO - web - Клиент подключился к WebSocket: MAXvBtvUuKjx-AbwAAAN
+2026-05-20 10:13:30 - INFO - web - Клиент MAXvBtvUuKjx-AbwAAAN подписался на обновления статуса
+2026-05-20 10:13:31 - INFO - web - Клиент отключился от WebSocket: MAXvBtvUuKjx-AbwAAAN
+2026-05-20 10:44:57 - INFO - web - ===== WEB APP STARTED =====
+2026-05-20 10:44:57 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-20 10:45:11 - INFO - web - Клиент подключился к WebSocket: l5X_HpdoFhIfCVC1AAAB
+2026-05-20 10:45:11 - INFO - web - Клиент l5X_HpdoFhIfCVC1AAAB подписался на обновления статуса
+2026-05-20 10:45:12 - INFO - web - Клиент отключился от WebSocket: l5X_HpdoFhIfCVC1AAAB
+2026-05-20 10:46:18 - INFO - web - Проект успешно переключён на '3.2CodeRecognition'
+2026-05-20 10:46:25 - INFO - web - Клиент подключился к WebSocket: s2nNie7okm592vDIAAAD
+2026-05-20 10:46:25 - INFO - web - Клиент s2nNie7okm592vDIAAAD подписался на обновления статуса
+2026-05-20 10:46:31 - INFO - web - Клиент отключился от WebSocket: s2nNie7okm592vDIAAAD
+2026-05-20 10:49:35 - INFO - web - Клиент подключился к WebSocket: 1fGV8jADg2AJP2LTAAAF
+2026-05-20 10:49:35 - INFO - web - Клиент 1fGV8jADg2AJP2LTAAAF подписался на обновления статуса
+2026-05-20 10:50:03 - INFO - web - Клиент отключился от WebSocket: 1fGV8jADg2AJP2LTAAAF
+2026-05-20 10:50:24 - INFO - web - Клиент подключился к WebSocket: JVtd6Vvn1xua0Db-AAAH
+2026-05-20 10:50:25 - INFO - web - Клиент JVtd6Vvn1xua0Db-AAAH подписался на обновления статуса
+2026-05-20 10:50:26 - INFO - web - Клиент отключился от WebSocket: JVtd6Vvn1xua0Db-AAAH

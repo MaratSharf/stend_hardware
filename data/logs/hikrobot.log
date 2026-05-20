@@ -6377,3 +6377,533 @@
 2026-05-19 16:18:16 - ERROR - hikrobot - Ошибка подключения
 2026-05-19 16:18:21 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
 2026-05-19 16:18:22 - INFO - hikrobot - Соединение закрыто
+2026-05-20 08:52:59 - INFO - hikrobot - Инициализация: IP=192.168.1.36, порт=502, unit=1, verify_switch=False
+2026-05-20 08:53:00 - WARNING - hikrobot - Попытка переподключения (задержка 1.0с)...
+2026-05-20 08:53:00 - INFO - hikrobot - Попытка подключения...
+2026-05-20 08:53:03 - ERROR - hikrobot - Ошибка подключения
+2026-05-20 08:53:09 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:53:09 - WARNING - hikrobot - Попытка переподключения (задержка 2.0с)...
+2026-05-20 08:53:09 - INFO - hikrobot - Попытка подключения...
+2026-05-20 08:53:12 - ERROR - hikrobot - Ошибка подключения
+2026-05-20 08:53:19 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:53:19 - WARNING - hikrobot - Попытка переподключения (задержка 4.0с)...
+2026-05-20 08:53:19 - INFO - hikrobot - Попытка подключения...
+2026-05-20 08:53:22 - ERROR - hikrobot - Ошибка подключения
+2026-05-20 08:53:29 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:53:29 - WARNING - hikrobot - Попытка переподключения (задержка 8.0с)...
+2026-05-20 08:53:29 - INFO - hikrobot - Попытка подключения...
+2026-05-20 08:53:32 - ERROR - hikrobot - Ошибка подключения
+2026-05-20 08:53:37 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:53:49 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:53:49 - WARNING - hikrobot - Попытка переподключения (задержка 16.0с)...
+2026-05-20 08:53:49 - INFO - hikrobot - Попытка подключения...
+2026-05-20 08:53:52 - ERROR - hikrobot - Ошибка подключения
+2026-05-20 08:53:57 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:54:07 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:54:19 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:54:19 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-20 08:54:19 - INFO - hikrobot - Попытка подключения...
+2026-05-20 08:54:23 - ERROR - hikrobot - Ошибка подключения
+2026-05-20 08:54:28 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:54:38 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:54:49 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:54:49 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-20 08:54:49 - INFO - hikrobot - Попытка подключения...
+2026-05-20 08:54:53 - ERROR - hikrobot - Ошибка подключения
+2026-05-20 08:54:58 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:55:08 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:55:19 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:55:19 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-20 08:55:19 - INFO - hikrobot - Попытка подключения...
+2026-05-20 08:55:23 - ERROR - hikrobot - Ошибка подключения
+2026-05-20 08:55:28 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:55:38 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:55:49 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:55:49 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-20 08:55:49 - INFO - hikrobot - Попытка подключения...
+2026-05-20 08:55:53 - ERROR - hikrobot - Ошибка подключения
+2026-05-20 08:55:58 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:56:08 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:56:20 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:56:20 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-20 08:56:20 - INFO - hikrobot - Попытка подключения...
+2026-05-20 08:56:23 - ERROR - hikrobot - Ошибка подключения
+2026-05-20 08:56:28 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:56:38 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:56:50 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:56:50 - WARNING - hikrobot - Попытка переподключения (задержка 30.0с)...
+2026-05-20 08:56:50 - INFO - hikrobot - Попытка подключения...
+2026-05-20 08:56:53 - ERROR - hikrobot - Ошибка подключения
+2026-05-20 08:56:58 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:57:06 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 08:57:15 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:13:30 - INFO - hikrobot - Переключение проекта: 3.2CodeRecognition
+2026-05-20 09:13:30 - INFO - hikrobot - Отправка команды: 'switch 3.2CodeRecognition'
+2026-05-20 09:13:30 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:13:30 - DEBUG - hikrobot - Запись регистра 500 = 25
+2026-05-20 09:13:30 - DEBUG - hikrobot - Запись в управляющий регистр: 33024 (0x8100)
+2026-05-20 09:13:35 - ERROR - hikrobot - Таймаут ожидания выполнения команды
+2026-05-20 09:13:35 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:13:35 - ERROR - hikrobot - Ошибка выполнения switch 3.2CodeRecognition
+2026-05-20 09:14:07 - INFO - hikrobot - Запуск цикла измерения
+2026-05-20 09:14:07 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:14:07 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:14:07 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-20 09:14:08 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:14:08 - INFO - hikrobot - Trigger Ready получен
+2026-05-20 09:14:08 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-20 09:14:08 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:14:08 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:14:08 - INFO - hikrobot - Результат готов
+2026-05-20 09:14:08 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:14:08 - INFO - hikrobot - ✅ Результат: NG | Raw: NG;
+2026-05-20 09:14:08 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:15:04 - INFO - hikrobot - Переключение проекта: 1.1DiameterMeasurement
+2026-05-20 09:15:04 - INFO - hikrobot - Отправка команды: 'switch 1.1DiameterMeasurement'
+2026-05-20 09:15:04 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:15:04 - DEBUG - hikrobot - Запись регистра 500 = 29
+2026-05-20 09:15:04 - DEBUG - hikrobot - Запись в управляющий регистр: 33024 (0x8100)
+2026-05-20 09:15:04 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:15:07 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': True, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:15:07 - INFO - hikrobot - Команда выполнена успешно
+2026-05-20 09:15:07 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:15:07 - INFO - hikrobot - Проект предположительно переключён на 1.1DiameterMeasurement (верификация отключена)
+2026-05-20 09:15:07 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:15:17 - INFO - hikrobot - Запуск цикла измерения
+2026-05-20 09:15:17 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:15:18 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:15:18 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-20 09:15:18 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:15:18 - INFO - hikrobot - Trigger Ready получен
+2026-05-20 09:15:18 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-20 09:15:18 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:15:18 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:15:18 - INFO - hikrobot - Результат готов
+2026-05-20 09:15:18 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:15:18 - INFO - hikrobot - ✅ Результат: OK | Raw: OK;60.855;132.167;208.968;10.228;22.214;35.122;5.950;0.001;0.994;
+2026-05-20 09:15:19 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:17:36 - INFO - hikrobot - Запуск цикла измерения
+2026-05-20 09:17:36 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:17:36 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:17:36 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-20 09:17:37 - INFO - hikrobot - Trigger Ready получен
+2026-05-20 09:17:37 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-20 09:17:37 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:17:37 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:17:37 - INFO - hikrobot - Результат готов
+2026-05-20 09:17:37 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:17:37 - INFO - hikrobot - ✅ Результат: OK | Raw: OK;60.867;132.092;208.955;10.230;22.201;35.120;5.950;0.001;0.994;
+2026-05-20 09:17:37 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:19:16 - INFO - hikrobot - Запуск цикла измерения
+2026-05-20 09:19:16 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:19:16 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:19:16 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-20 09:19:22 - INFO - hikrobot - Trigger Ready получен
+2026-05-20 09:19:22 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-20 09:19:38 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:19:39 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': True, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:19:39 - WARNING - hikrobot - Таймаут результата
+2026-05-20 09:19:39 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:19:39 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:19:39 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:24:22 - INFO - hikrobot - Запуск цикла измерения
+2026-05-20 09:24:22 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:24:22 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:24:22 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-20 09:24:23 - INFO - hikrobot - Trigger Ready получен
+2026-05-20 09:24:23 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-20 09:24:23 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:24:29 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': True, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:24:29 - WARNING - hikrobot - Таймаут результата
+2026-05-20 09:24:29 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:24:29 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:25:57 - INFO - hikrobot - Переключение проекта: 6.2Fixture
+2026-05-20 09:25:57 - INFO - hikrobot - Отправка команды: 'switch 6.2Fixture'
+2026-05-20 09:25:57 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:25:57 - DEBUG - hikrobot - Запись регистра 500 = 17
+2026-05-20 09:25:57 - DEBUG - hikrobot - Запись в управляющий регистр: 33024 (0x8100)
+2026-05-20 09:25:57 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': True, 'general_fault': False}
+2026-05-20 09:25:57 - ERROR - hikrobot - Команда завершилась ошибкой
+2026-05-20 09:25:57 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:25:58 - ERROR - hikrobot - Ошибка выполнения switch 6.2Fixture
+2026-05-20 09:25:58 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:26:14 - INFO - hikrobot - Запуск цикла измерения
+2026-05-20 09:26:14 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:26:15 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:26:15 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-20 09:26:15 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:26:15 - INFO - hikrobot - Trigger Ready получен
+2026-05-20 09:26:15 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-20 09:26:15 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:26:21 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': True, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:26:21 - WARNING - hikrobot - Таймаут результата
+2026-05-20 09:26:21 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:26:22 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:26:41 - INFO - hikrobot - Переключение проекта: 6.2Fixture
+2026-05-20 09:26:41 - INFO - hikrobot - Отправка команды: 'switch 6.2Fixture'
+2026-05-20 09:26:41 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:26:41 - DEBUG - hikrobot - Запись регистра 500 = 17
+2026-05-20 09:26:42 - DEBUG - hikrobot - Запись в управляющий регистр: 33024 (0x8100)
+2026-05-20 09:26:42 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': True, 'general_fault': False}
+2026-05-20 09:26:42 - ERROR - hikrobot - Команда завершилась ошибкой
+2026-05-20 09:26:42 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:26:42 - ERROR - hikrobot - Ошибка выполнения switch 6.2Fixture
+2026-05-20 09:26:42 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:27:04 - INFO - hikrobot - Соединение закрыто
+2026-05-20 09:27:15 - INFO - hikrobot - Инициализация: IP=192.168.1.36, порт=502, unit=1, verify_switch=False
+2026-05-20 09:27:16 - WARNING - hikrobot - Попытка переподключения (задержка 1.0с)...
+2026-05-20 09:27:16 - INFO - hikrobot - Попытка подключения...
+2026-05-20 09:27:16 - INFO - hikrobot - Подключение успешно
+2026-05-20 09:27:18 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:27:44 - INFO - hikrobot - Запуск цикла измерения
+2026-05-20 09:27:44 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:27:44 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:27:44 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-20 09:27:45 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:27:45 - INFO - hikrobot - Trigger Ready получен
+2026-05-20 09:27:45 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-20 09:27:45 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:27:51 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': True, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:27:51 - WARNING - hikrobot - Таймаут результата
+2026-05-20 09:27:51 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:27:52 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:28:23 - INFO - hikrobot - Переключение проекта: 3.2CodeRecognition
+2026-05-20 09:28:23 - INFO - hikrobot - Отправка команды: 'switch 3.2CodeRecognition'
+2026-05-20 09:28:23 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:28:24 - DEBUG - hikrobot - Запись регистра 500 = 25
+2026-05-20 09:28:24 - DEBUG - hikrobot - Запись в управляющий регистр: 33024 (0x8100)
+2026-05-20 09:28:24 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:28:27 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': True, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:28:27 - INFO - hikrobot - Команда выполнена успешно
+2026-05-20 09:28:27 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:28:28 - INFO - hikrobot - Проект предположительно переключён на 3.2CodeRecognition (верификация отключена)
+2026-05-20 09:28:28 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:29:27 - INFO - hikrobot - Запуск цикла измерения
+2026-05-20 09:29:27 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:29:28 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:29:28 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-20 09:29:28 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:29:28 - INFO - hikrobot - Trigger Ready получен
+2026-05-20 09:29:28 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-20 09:29:28 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:29:28 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:29:28 - INFO - hikrobot - Результат готов
+2026-05-20 09:29:28 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:29:28 - INFO - hikrobot - ✅ Результат: NG | Raw: NG;
+2026-05-20 09:29:29 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:39:43 - INFO - hikrobot - Соединение закрыто
+2026-05-20 09:39:45 - INFO - hikrobot - Инициализация: IP=192.168.1.36, порт=502, unit=1, verify_switch=False
+2026-05-20 09:39:45 - WARNING - hikrobot - Попытка переподключения (задержка 1.0с)...
+2026-05-20 09:39:45 - INFO - hikrobot - Попытка подключения...
+2026-05-20 09:39:45 - INFO - hikrobot - Подключение успешно
+2026-05-20 09:39:45 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:40:47 - INFO - hikrobot - Переключение проекта: 6.2Fixture
+2026-05-20 09:40:47 - INFO - hikrobot - Отправка команды: 'switch 6.2Fixture'
+2026-05-20 09:40:47 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:40:47 - DEBUG - hikrobot - Запись регистра 500 = 17
+2026-05-20 09:40:48 - DEBUG - hikrobot - Запись в управляющий регистр: 33024 (0x8100)
+2026-05-20 09:40:48 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': True, 'general_fault': False}
+2026-05-20 09:40:48 - ERROR - hikrobot - Команда завершилась ошибкой
+2026-05-20 09:40:48 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:40:48 - ERROR - hikrobot - Ошибка выполнения switch 6.2Fixture
+2026-05-20 09:40:48 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:41:08 - INFO - hikrobot - Запуск цикла измерения
+2026-05-20 09:41:08 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:41:08 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:41:09 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-20 09:41:09 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:41:09 - INFO - hikrobot - Trigger Ready получен
+2026-05-20 09:41:09 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-20 09:41:09 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:41:09 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:41:09 - INFO - hikrobot - Результат готов
+2026-05-20 09:41:09 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:41:09 - INFO - hikrobot - ✅ Результат: NG | Raw: NG;
+2026-05-20 09:41:10 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:43:46 - INFO - hikrobot - Запуск цикла измерения
+2026-05-20 09:43:46 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:43:46 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:43:47 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-20 09:43:47 - INFO - hikrobot - Trigger Ready получен
+2026-05-20 09:43:47 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-20 09:43:47 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:43:47 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:43:47 - INFO - hikrobot - Результат готов
+2026-05-20 09:43:47 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:43:47 - INFO - hikrobot - ✅ Результат: NG | Raw: NG;
+2026-05-20 09:43:47 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:49:16 - INFO - hikrobot - Соединение закрыто
+2026-05-20 09:49:28 - INFO - hikrobot - Инициализация: IP=192.168.1.36, порт=502, unit=1, verify_switch=False
+2026-05-20 09:49:28 - WARNING - hikrobot - Попытка переподключения (задержка 1.0с)...
+2026-05-20 09:49:28 - INFO - hikrobot - Попытка подключения...
+2026-05-20 09:49:28 - INFO - hikrobot - Подключение успешно
+2026-05-20 09:49:28 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:50:02 - INFO - hikrobot - Запуск цикла измерения
+2026-05-20 09:50:02 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:50:02 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:50:02 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-20 09:50:02 - INFO - hikrobot - Trigger Ready получен
+2026-05-20 09:50:02 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-20 09:50:02 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:50:03 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:50:03 - INFO - hikrobot - Результат готов
+2026-05-20 09:50:03 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:50:03 - INFO - hikrobot - ✅ Результат: NG | Raw: NG;
+2026-05-20 09:50:03 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:50:26 - INFO - hikrobot - Переключение проекта: 6.2Fixture
+2026-05-20 09:50:26 - INFO - hikrobot - Отправка команды: 'switch 6.2Fixture'
+2026-05-20 09:50:26 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:50:26 - DEBUG - hikrobot - Запись регистра 500 = 17
+2026-05-20 09:50:26 - DEBUG - hikrobot - Запись в управляющий регистр: 33024 (0x8100)
+2026-05-20 09:50:26 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': True, 'general_fault': False}
+2026-05-20 09:50:26 - ERROR - hikrobot - Команда завершилась ошибкой
+2026-05-20 09:50:26 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:50:26 - ERROR - hikrobot - Ошибка выполнения switch 6.2Fixture
+2026-05-20 09:50:26 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:50:39 - INFO - hikrobot - Запуск цикла измерения
+2026-05-20 09:50:39 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:50:40 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:50:40 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-20 09:50:40 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:50:40 - INFO - hikrobot - Trigger Ready получен
+2026-05-20 09:50:40 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-20 09:50:40 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:50:40 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:50:40 - INFO - hikrobot - Результат готов
+2026-05-20 09:50:40 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:50:40 - INFO - hikrobot - ✅ Результат: NG | Raw: NG;
+2026-05-20 09:50:41 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:50:55 - INFO - hikrobot - Переключение проекта: 3.2CodeRecognition
+2026-05-20 09:50:55 - INFO - hikrobot - Отправка команды: 'switch 3.2CodeRecognition'
+2026-05-20 09:50:55 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:50:56 - DEBUG - hikrobot - Запись регистра 500 = 25
+2026-05-20 09:50:56 - DEBUG - hikrobot - Запись в управляющий регистр: 33024 (0x8100)
+2026-05-20 09:50:56 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:50:59 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': True, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:50:59 - INFO - hikrobot - Команда выполнена успешно
+2026-05-20 09:50:59 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:50:59 - INFO - hikrobot - Проект предположительно переключён на 3.2CodeRecognition (верификация отключена)
+2026-05-20 09:50:59 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:51:14 - INFO - hikrobot - Запуск цикла измерения
+2026-05-20 09:51:14 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:51:14 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:51:14 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-20 09:51:14 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:51:14 - INFO - hikrobot - Trigger Ready получен
+2026-05-20 09:51:14 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-20 09:51:14 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:51:15 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:51:15 - INFO - hikrobot - Результат готов
+2026-05-20 09:51:15 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:51:15 - INFO - hikrobot - ✅ Результат: NG | Raw: NG;
+2026-05-20 09:51:15 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:51:42 - INFO - hikrobot - Запуск цикла измерения
+2026-05-20 09:51:42 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:51:43 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:51:43 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-20 09:51:43 - INFO - hikrobot - Trigger Ready получен
+2026-05-20 09:51:43 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-20 09:51:43 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:51:43 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:51:43 - INFO - hikrobot - Результат готов
+2026-05-20 09:51:43 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:51:43 - INFO - hikrobot - ✅ Результат: NG | Raw: NG;
+2026-05-20 09:51:44 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:51:51 - INFO - hikrobot - Переключение проекта: 6.2Fixture
+2026-05-20 09:51:51 - INFO - hikrobot - Отправка команды: 'switch 6.2Fixture'
+2026-05-20 09:51:51 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:51:51 - DEBUG - hikrobot - Запись регистра 500 = 17
+2026-05-20 09:51:51 - DEBUG - hikrobot - Запись в управляющий регистр: 33024 (0x8100)
+2026-05-20 09:51:51 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': True, 'general_fault': False}
+2026-05-20 09:51:51 - ERROR - hikrobot - Команда завершилась ошибкой
+2026-05-20 09:51:51 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:51:51 - ERROR - hikrobot - Ошибка выполнения switch 6.2Fixture
+2026-05-20 09:51:51 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:52:03 - INFO - hikrobot - Запуск цикла измерения
+2026-05-20 09:52:03 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:52:03 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:52:03 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-20 09:52:04 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:52:04 - INFO - hikrobot - Trigger Ready получен
+2026-05-20 09:52:04 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-20 09:52:04 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:52:04 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:52:04 - INFO - hikrobot - Результат готов
+2026-05-20 09:52:04 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 09:52:04 - INFO - hikrobot - ✅ Результат: NG | Raw: NG;
+2026-05-20 09:52:05 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:52:44 - INFO - hikrobot - Переключение проекта: 6.2Fixture
+2026-05-20 09:52:44 - INFO - hikrobot - Отправка команды: 'switch 6.2Fixture'
+2026-05-20 09:52:44 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:52:44 - DEBUG - hikrobot - Запись регистра 500 = 17
+2026-05-20 09:52:44 - DEBUG - hikrobot - Запись в управляющий регистр: 33024 (0x8100)
+2026-05-20 09:52:44 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': True, 'general_fault': False}
+2026-05-20 09:52:44 - ERROR - hikrobot - Команда завершилась ошибкой
+2026-05-20 09:52:44 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:52:44 - ERROR - hikrobot - Ошибка выполнения switch 6.2Fixture
+2026-05-20 09:52:44 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:53:23 - INFO - hikrobot - Переключение проекта: 6.2Fixture
+2026-05-20 09:53:23 - INFO - hikrobot - Отправка команды: 'switch 6.2Fixture'
+2026-05-20 09:53:23 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:53:23 - DEBUG - hikrobot - Запись регистра 500 = 17
+2026-05-20 09:53:23 - DEBUG - hikrobot - Запись в управляющий регистр: 33024 (0x8100)
+2026-05-20 09:53:23 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': True, 'general_fault': False}
+2026-05-20 09:53:23 - ERROR - hikrobot - Команда завершилась ошибкой
+2026-05-20 09:53:23 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 09:53:23 - ERROR - hikrobot - Ошибка выполнения switch 6.2Fixture
+2026-05-20 09:53:23 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 09:57:40 - INFO - hikrobot - Соединение закрыто
+2026-05-20 09:57:44 - INFO - hikrobot - Инициализация: IP=192.168.1.36, порт=502, unit=1, verify_switch=False
+2026-05-20 10:01:53 - INFO - hikrobot - Инициализация: IP=192.168.1.36, порт=502, unit=1, verify_switch=False
+2026-05-20 10:01:53 - WARNING - hikrobot - Попытка переподключения (задержка 1.0с)...
+2026-05-20 10:01:53 - INFO - hikrobot - Попытка подключения...
+2026-05-20 10:01:53 - INFO - hikrobot - Подключение успешно
+2026-05-20 10:01:53 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:06:31 - INFO - hikrobot - Инициализация: IP=192.168.1.36, порт=502, unit=1, verify_switch=False
+2026-05-20 10:06:31 - WARNING - hikrobot - Попытка переподключения (задержка 1.0с)...
+2026-05-20 10:06:31 - INFO - hikrobot - Попытка подключения...
+2026-05-20 10:06:31 - INFO - hikrobot - Подключение успешно
+2026-05-20 10:06:31 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:07:08 - INFO - hikrobot - Переключение проекта: 3.4ColorRecognition
+2026-05-20 10:07:08 - INFO - hikrobot - Отправка команды: 'switch 3.4ColorRecognition'
+2026-05-20 10:07:08 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 10:07:09 - DEBUG - hikrobot - Запись регистра 500 = 26
+2026-05-20 10:07:09 - DEBUG - hikrobot - Запись в управляющий регистр: 33024 (0x8100)
+2026-05-20 10:07:11 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': True, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:07:11 - INFO - hikrobot - Команда выполнена успешно
+2026-05-20 10:07:11 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 10:07:11 - INFO - hikrobot - Проект предположительно переключён на 3.4ColorRecognition (верификация отключена)
+2026-05-20 10:07:11 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:07:34 - INFO - hikrobot - Запуск цикла измерения
+2026-05-20 10:07:34 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 10:07:34 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 10:07:34 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-20 10:07:34 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:07:34 - INFO - hikrobot - Trigger Ready получен
+2026-05-20 10:07:34 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-20 10:07:35 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:07:35 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:07:35 - INFO - hikrobot - Результат готов
+2026-05-20 10:07:35 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 10:07:35 - INFO - hikrobot - ✅ Результат: NG | Raw: NG;red;
+2026-05-20 10:07:35 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:07:58 - INFO - hikrobot - Переключение проекта: 1.1DiameterMeasurement
+2026-05-20 10:07:58 - INFO - hikrobot - Отправка команды: 'switch 1.1DiameterMeasurement'
+2026-05-20 10:07:58 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 10:07:58 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:07:58 - DEBUG - hikrobot - Запись регистра 500 = 29
+2026-05-20 10:07:58 - DEBUG - hikrobot - Запись в управляющий регистр: 33024 (0x8100)
+2026-05-20 10:08:01 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': True, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:08:01 - INFO - hikrobot - Команда выполнена успешно
+2026-05-20 10:08:01 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 10:08:01 - INFO - hikrobot - Проект предположительно переключён на 1.1DiameterMeasurement (верификация отключена)
+2026-05-20 10:08:01 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:08:20 - INFO - hikrobot - Запуск цикла измерения
+2026-05-20 10:08:20 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 10:08:20 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 10:08:20 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-20 10:08:21 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:08:21 - INFO - hikrobot - Trigger Ready получен
+2026-05-20 10:08:21 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-20 10:08:21 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:08:27 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': True, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:08:27 - WARNING - hikrobot - Таймаут результата
+2026-05-20 10:08:27 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 10:08:27 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:08:27 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:08:54 - INFO - hikrobot - Запуск цикла измерения
+2026-05-20 10:08:54 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 10:08:54 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 10:08:54 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-20 10:08:55 - INFO - hikrobot - Trigger Ready получен
+2026-05-20 10:08:55 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-20 10:08:55 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:08:55 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:08:55 - INFO - hikrobot - Результат готов
+2026-05-20 10:08:56 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 10:08:56 - INFO - hikrobot - ✅ Результат: OK | Raw: OK;60.875;132.245;209.044;10.231;22.227;35.135;5.950;0.001;0.994;
+2026-05-20 10:08:57 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:09:24 - INFO - hikrobot - Запуск цикла измерения
+2026-05-20 10:09:24 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 10:09:24 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 10:09:24 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-20 10:09:24 - INFO - hikrobot - Trigger Ready получен
+2026-05-20 10:09:24 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-20 10:09:24 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:09:30 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': True, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:09:30 - WARNING - hikrobot - Таймаут результата
+2026-05-20 10:09:30 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 10:09:30 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:09:30 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:14:38 - INFO - hikrobot - Соединение закрыто
+2026-05-20 10:44:56 - INFO - hikrobot - Инициализация: IP=192.168.1.36, порт=502, unit=1, verify_switch=False
+2026-05-20 10:44:57 - WARNING - hikrobot - Попытка переподключения (задержка 1.0с)...
+2026-05-20 10:44:57 - INFO - hikrobot - Попытка подключения...
+2026-05-20 10:44:57 - INFO - hikrobot - Подключение успешно
+2026-05-20 10:44:57 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:46:09 - INFO - hikrobot - Переключение проекта: 3.2CodeRecognition
+2026-05-20 10:46:09 - INFO - hikrobot - Отправка команды: 'switch 3.2CodeRecognition'
+2026-05-20 10:46:09 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 10:46:09 - DEBUG - hikrobot - Запись регистра 500 = 25
+2026-05-20 10:46:09 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:46:11 - DEBUG - hikrobot - Запись в управляющий регистр: 33024 (0x8100)
+2026-05-20 10:46:17 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': True, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:46:17 - INFO - hikrobot - Команда выполнена успешно
+2026-05-20 10:46:17 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 10:46:18 - INFO - hikrobot - Проект предположительно переключён на 3.2CodeRecognition (верификация отключена)
+2026-05-20 10:46:19 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:49:17 - INFO - hikrobot - Запуск цикла измерения
+2026-05-20 10:49:17 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 10:49:17 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 10:49:17 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-20 10:49:18 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:49:18 - INFO - hikrobot - Trigger Ready получен
+2026-05-20 10:49:18 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-20 10:49:18 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:49:18 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:49:18 - INFO - hikrobot - Результат готов
+2026-05-20 10:49:18 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 10:49:19 - INFO - hikrobot - ✅ Результат: NG | Raw: NG;
+2026-05-20 10:49:21 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:49:52 - INFO - hikrobot - Запуск цикла измерения
+2026-05-20 10:49:52 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 10:49:52 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 10:49:53 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-20 10:49:53 - INFO - hikrobot - Trigger Ready получен
+2026-05-20 10:49:53 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-20 10:49:53 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:49:53 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:49:53 - INFO - hikrobot - Результат готов
+2026-05-20 10:49:53 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 10:49:53 - INFO - hikrobot - ✅ Результат: OK | Raw: OK;4605246006494;0104640171780477215g<+>ft06IJmk91EE1092Q6L4Re9TCgBD6+8XlhjqM2ALCel/AHDShDvCi1KE
+2026-05-20 10:49:54 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:50:21 - INFO - hikrobot - Запуск цикла измерения
+2026-05-20 10:50:21 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-20 10:50:21 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 10:50:21 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-20 10:50:21 - INFO - hikrobot - Trigger Ready получен
+2026-05-20 10:50:21 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-20 10:50:21 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:50:22 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 10:50:22 - INFO - hikrobot - Результат готов
+2026-05-20 10:50:22 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-20 10:50:22 - INFO - hikrobot - ✅ Результат: OK | Raw: OK;4605246006494;0104640171780477215g<+>ft06IJmk91EE1092Q6L4Re9TCgBD6+8XlhjqM2ALCel/AHDShDvCi1KE
+2026-05-20 10:50:22 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 12:50:48 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] ModbusTcpClient 192.168.1.36:502: Connection unexpectedly closed 0.000 seconds into read of unbounded read bytes without response from device before it closed connection
+2026-05-20 12:50:48 - WARNING - hikrobot - Попытка переподключения (задержка 1.0с)...
+2026-05-20 12:50:48 - INFO - hikrobot - Попытка подключения...
+2026-05-20 12:50:52 - ERROR - hikrobot - Ошибка подключения
+2026-05-20 12:50:55 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 12:50:55 - WARNING - hikrobot - Попытка переподключения (задержка 2.0с)...
+2026-05-20 12:50:55 - INFO - hikrobot - Попытка подключения...
+2026-05-20 12:50:58 - ERROR - hikrobot - Ошибка подключения
+2026-05-20 12:51:04 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 12:51:04 - WARNING - hikrobot - Попытка переподключения (задержка 4.0с)...
+2026-05-20 12:51:04 - INFO - hikrobot - Попытка подключения...
+2026-05-20 12:51:07 - ERROR - hikrobot - Ошибка подключения
+2026-05-20 12:51:15 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-20 12:51:15 - WARNING - hikrobot - Попытка переподключения (задержка 8.0с)...
+2026-05-20 12:51:15 - INFO - hikrobot - Попытка подключения...
+2026-05-20 12:51:17 - INFO - hikrobot - Подключение успешно
+2026-05-20 12:51:24 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 12:53:22 - INFO - hikrobot - Соединение закрыто

@@ -96,6 +96,20 @@ class Database:
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_inspection_order ON inspection_results(order_number)")
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_inspection_image_path ON inspection_results(image_path)")
 
+            # Миграция: добавляем колонку image_name если её нет (для существующих БД)
+            cursor.execute("""
+                DO $do$
+                BEGIN
+                    IF NOT EXISTS (
+                        SELECT 1 FROM information_schema.columns
+                        WHERE table_name = 'inspection_results' AND column_name = 'image_name'
+                    ) THEN
+                        ALTER TABLE inspection_results ADD COLUMN image_name TEXT;
+                    END IF;
+                END
+                $do$;
+            """)
+
             # Таблица для отслеживания использованных изображений (валидация)
             cursor.execute("""
                 CREATE TABLE IF NOT EXISTS used_images (

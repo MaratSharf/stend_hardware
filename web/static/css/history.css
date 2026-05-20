@@ -1,5 +1,10 @@
 /* history.css - Стили для страницы истории */
 
+/* Включаем вертикальный скроллинг на странице истории */
+#allrecords .main-content {
+    overflow-y: auto;
+}
+
 /* Оптимизация: используем CSS containment для изоляции сложных компонентов */
 .history-content {
     contain: layout style;
@@ -958,8 +963,5 @@ tbody tr {
     .pagination {
         flex-direction: column;
         gap: 12px;
-    }
-    .top-pagination {
-    margin-bottom: 20px;
     }
 }
