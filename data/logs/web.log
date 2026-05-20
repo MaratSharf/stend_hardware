@@ -440,3 +440,20 @@ AttributeError: 'Database' object has no attribute 'get_scenario_statistics'
 2026-05-20 10:50:24 - INFO - web - Клиент подключился к WebSocket: JVtd6Vvn1xua0Db-AAAH
 2026-05-20 10:50:25 - INFO - web - Клиент JVtd6Vvn1xua0Db-AAAH подписался на обновления статуса
 2026-05-20 10:50:26 - INFO - web - Клиент отключился от WebSocket: JVtd6Vvn1xua0Db-AAAH
+2026-05-20 12:56:00 - INFO - web - ===== WEB APP STARTED =====
+2026-05-20 12:56:01 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-20 12:56:10 - INFO - web - Клиент подключился к WebSocket: TpC6LqdWL6nLODoDAAAB
+2026-05-20 12:56:10 - INFO - web - Клиент TpC6LqdWL6nLODoDAAAB подписался на обновления статуса
+2026-05-20 12:56:11 - INFO - web - Переключение офлайн-режима: True
+2026-05-20 12:56:28 - INFO - web - Клиент отключился от WebSocket: TpC6LqdWL6nLODoDAAAB
+2026-05-20 15:22:20 - INFO - web - ===== WEB APP STARTED =====
+2026-05-20 15:22:21 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-20 15:22:33 - INFO - web - Клиент подключился к WebSocket: JV9AtewnaFWeEuMbAAAB
+2026-05-20 15:22:33 - INFO - web - Клиент JV9AtewnaFWeEuMbAAAB подписался на обновления статуса
+2026-05-20 15:22:38 - INFO - web - Переключение офлайн-режима: True
+2026-05-20 15:22:47 - INFO - web - Клиент отключился от WebSocket: JV9AtewnaFWeEuMbAAAB
+2026-05-20 15:23:23 - INFO - web - Клиент подключился к WebSocket: lkSXuqpjnB7lBXnbAAAD
+2026-05-20 15:23:23 - INFO - web - Клиент lkSXuqpjnB7lBXnbAAAD подписался на обновления статуса
+2026-05-20 15:23:37 - INFO - web - Клиент отключился от WebSocket: lkSXuqpjnB7lBXnbAAAD
+2026-05-20 15:25:39 - INFO - web - Клиент подключился к WebSocket: W6Z6JZJqM5te5zTdAAAF
+2026-05-20 15:25:39 - INFO - web - Клиент W6Z6JZJqM5te5zTdAAAF подписался на обновления статуса

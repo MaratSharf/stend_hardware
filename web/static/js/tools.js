@@ -103,18 +103,6 @@ function renderCategoryButtons(categories) {
     const container = document.getElementById('categoryFilterContainer');
     if (!container) return;
     container.innerHTML = '';
-    const allBtn = document.createElement('button');
-    allBtn.className = 'category-btn active';
-    allBtn.textContent = '📋 Все';
-    allBtn.dataset.category = 'all';
-    allBtn.addEventListener('click', () => {
-        document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
-        allBtn.classList.add('active');
-        showFavoritesOnly = false;
-        currentFilter = 'all';
-        filterTools('all');
-    });
-    container.appendChild(allBtn);
 
     const categoriesWithPrefix = categories.map(cat => ({
         name: cat.name_ru || cat.name_en,
@@ -122,9 +110,9 @@ function renderCategoryButtons(categories) {
     }));
     categoriesWithPrefix.sort((a, b) => a.prefix - b.prefix);
 
-    categoriesWithPrefix.forEach(cat => {
+    categoriesWithPrefix.forEach((cat, index) => {
         const btn = document.createElement('button');
-        btn.className = 'category-btn';
+        btn.className = 'category-btn' + (index === 0 ? ' active' : '');
         btn.textContent = `${cat.prefix}. ${cat.name}`;
         btn.dataset.category = cat.name;
         btn.addEventListener('click', () => {
@@ -139,6 +127,12 @@ function renderCategoryButtons(categories) {
     
     // Добавляем кнопку избранного после всех категорий
     setupFavoritesFilter();
+    
+    // По умолчанию показываем первую категорию
+    if (categoriesWithPrefix.length > 0) {
+        currentFilter = categoriesWithPrefix[0].name;
+        filterTools(currentFilter);
+    }
 }
 
 function filterTools(category) {
