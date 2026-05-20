@@ -1,1 +1,51 @@
-Nothing should be ignored based on the provided file changes. The only modified file is a CSS source file (`web/static/css/history.css`), which is a legitimate source code file that should be tracked in version control. There are no build artifacts, dependencies, temporary files, or other items that need to be ignored.
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Environment variables
+.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+data/logs/*.log
+data/logs/*.log.*
+*.log
+
+# Images (keep folder structure, ignore contents)
+data/images/foto/OK/*
+data/images/foto/NG/*
+!data/images/foto/OK/.gitkeep
+!data/images/foto/NG/.gitkeep
+
+# Database backups
+data/backups/*
+!data/backups/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Temporary files
+*.tmp
+*.bak
+*.cache
