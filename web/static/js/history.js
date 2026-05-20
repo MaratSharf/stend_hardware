@@ -12,7 +12,9 @@ let pieChartInstance = null;
 let projectChartInstance = null;
 let topNgChartInstance = null;
 let filterDebounceTimer = null;
+let autoUpdateTimer = null;
 const DEBOUNCE_DELAY = 300;
+const AUTO_UPDATE_INTERVAL = 30000; // 30 секунд
 
 // Кэш для изображений чтобы избежать повторных запросов
 const imageCache = new Map();
@@ -27,7 +29,35 @@ document.addEventListener('DOMContentLoaded', () => {
     setupDetailModal();
     setupLazyLoading();
     setupCanvasResizing();
+    startAutoUpdate();
 });
+
+// Автообновление статистики и графиков
+function startAutoUpdate() {
+    if (autoUpdateTimer) {
+        clearInterval(autoUpdateTimer);
+    }
+    autoUpdateTimer = setInterval(() => {
+        loadStatistics();
+        updateLastUpdateTime();
+    }, AUTO_UPDATE_INTERVAL);
+}
+
+function stopAutoUpdate() {
+    if (autoUpdateTimer) {
+        clearInterval(autoUpdateTimer);
+        autoUpdateTimer = null;
+    }
+}
+
+function updateLastUpdateTime() {
+    const now = new Date();
+    const timeStr = now.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    const el = document.getElementById('lastUpdate');
+    if (el) {
+        el.textContent = timeStr;
+    }
+}
 
 function setDefaultDates() {
     const today = new Date().toISOString().split('T')[0];
@@ -336,15 +366,10 @@ function exportData(format) {
 }
 
 function setupPagination() {
-    document.getElementById('firstPageTop').addEventListener('click', () => goToPage(1));
-    document.getElementById('prevPageTop').addEventListener('click', () => goToPage(currentPage - 1));
-    document.getElementById('nextPageTop').addEventListener('click', () => goToPage(currentPage + 1));
-    document.getElementById('lastPageTop').addEventListener('click', () => goToPage(totalPages));
-
-    document.getElementById('firstPageBottom').addEventListener('click', () => goToPage(1));
-    document.getElementById('prevPageBottom').addEventListener('click', () => goToPage(currentPage - 1));
-    document.getElementById('nextPageBottom').addEventListener('click', () => goToPage(currentPage + 1));
-    document.getElementById('lastPageBottom').addEventListener('click', () => goToPage(totalPages));
+    document.getElementById('firstPage').addEventListener('click', () => goToPage(1));
+    document.getElementById('prevPage').addEventListener('click', () => goToPage(currentPage - 1));
+    document.getElementById('nextPage').addEventListener('click', () => goToPage(currentPage + 1));
+    document.getElementById('lastPage').addEventListener('click', () => goToPage(totalPages));
 }
 
 function goToPage(page) {
@@ -354,21 +379,17 @@ function goToPage(page) {
 }
 
 function updatePagination() {
-    const update = (prefix) => {
-        const infoEl = document.getElementById(`pageInfo${prefix}`);
-        const firstBtn = document.getElementById(`firstPage${prefix}`);
-        const prevBtn = document.getElementById(`prevPage${prefix}`);
-        const nextBtn = document.getElementById(`nextPage${prefix}`);
-        const lastBtn = document.getElementById(`lastPage${prefix}`);
+    const infoEl = document.getElementById('pageInfo');
+    const firstBtn = document.getElementById('firstPage');
+    const prevBtn = document.getElementById('prevPage');
+    const nextBtn = document.getElementById('nextPage');
+    const lastBtn = document.getElementById('lastPage');
 
-        if (infoEl) infoEl.textContent = `Страница ${currentPage} из ${totalPages}`;
-        if (firstBtn) firstBtn.disabled = currentPage === 1;
-        if (prevBtn) prevBtn.disabled = currentPage === 1;
-        if (nextBtn) nextBtn.disabled = currentPage === totalPages;
-        if (lastBtn) lastBtn.disabled = currentPage === totalPages;
-    };
-    update('Top');
-    update('Bottom');
+    if (infoEl) infoEl.textContent = `Страница ${currentPage} из ${totalPages}`;
+    if (firstBtn) firstBtn.disabled = currentPage === 1;
+    if (prevBtn) prevBtn.disabled = currentPage === 1;
+    if (nextBtn) nextBtn.disabled = currentPage === totalPages;
+    if (lastBtn) lastBtn.disabled = currentPage === totalPages;
 }
 
 /* ==================== ДЕТАЛЬНЫЙ ПРОСМОТР ==================== */
