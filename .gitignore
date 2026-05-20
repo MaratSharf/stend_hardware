@@ -25,11 +25,8 @@ data/logs/*.log
 data/logs/*.log.*
 *.log
 
-# Images (keep folder structure, ignore contents)
-data/images/foto/OK/*
-data/images/foto/NG/*
-!data/images/foto/OK/.gitkeep
-!data/images/foto/NG/.gitkeep
+# Images (entire directory ignored)
+data/images/
 
 # Database backups
 data/backups/*
