@@ -20,12 +20,12 @@ def create_app(config: dict, controller, db) -> Flask:
     app.config['controller'] = controller
     app.config['db'] = db
 
-    # Инициализация Socket.IO (threading mode — только HTTP long-polling, WebSocket не поддерживается)
+    # Инициализация Socket.IO с поддержкой WebSocket
     socketio = SocketIO(
         app,
         cors_allowed_origins="*",
         async_mode='threading',
-        allow_upgrades=False,
+        allow_upgrades=True,  # Разрешить переход с polling на WebSocket
         logger=False,
         engineio_logger=False
     )
