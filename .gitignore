@@ -1,1 +1,23 @@
-Nothing should be ignored since the changes only include source files (.py, .js) without any build artifacts, dependencies, or temporary files.
+# Данные и логи
+data/
+*.log
+
+# Виртуальное окружение
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Системные файлы
+.DS_Store
+Thumbs.db

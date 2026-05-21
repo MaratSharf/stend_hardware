@@ -575,3 +575,7 @@ AttributeError: 'Database' object has no attribute 'get_scenario_statistics'
 2026-05-21 15:06:05 - INFO - web - Клиент отключился от WebSocket: EAGZz9I0d3qHQv3bAAAF
 2026-05-21 15:06:18 - INFO - web - Клиент подключился к WebSocket: -nHTWMr3k0EvRw9-AAAH
 2026-05-21 15:06:18 - INFO - web - Клиент -nHTWMr3k0EvRw9-AAAH подписался на обновления статуса
+2026-05-21 16:03:45 - INFO - web - ===== WEB APP STARTED =====
+2026-05-21 16:03:45 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-21 16:03:51 - INFO - web - Клиент подключился к WebSocket: vnncDkylFtiST3CNAAAB
+2026-05-21 16:03:51 - INFO - web - Клиент vnncDkylFtiST3CNAAAB подписался на обновления статуса
