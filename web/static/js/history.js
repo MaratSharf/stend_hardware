@@ -394,6 +394,8 @@ function updatePagination() {
 
 /* ==================== ДЕТАЛЬНЫЙ ПРОСМОТР ==================== */
 
+let currentDetailResultId = null;
+
 function setupDetailModal() {
     const modal = document.getElementById('detailModal');
     const overlay = modal.querySelector('.detail-modal__overlay');
@@ -414,9 +416,16 @@ function setupDetailModal() {
             img.classList.toggle('zoomed');
         }
     });
+
+    // Экспорт в PDF из модального окна
+    const exportDetailBtn = document.getElementById('exportDetailPdfBtn');
+    if (exportDetailBtn) {
+        exportDetailBtn.addEventListener('click', exportDetailPdf);
+    }
 }
 
 async function openDetailModal(resultId) {
+    currentDetailResultId = resultId;
     const modal = document.getElementById('detailModal');
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -511,6 +520,43 @@ function closeDetailModal() {
     // Сбросить zoom изображения
     const img = modal.querySelector('.detail-image-container img');
     if (img) img.classList.remove('zoomed');
+}
+
+/**
+ * Экспорт текущей записи из модального окна в PDF.
+ */
+function exportDetailPdf() {
+    if (!currentDetailResultId) {
+        showToast('Нет данных для экспорта', 'error');
+        return;
+    }
+
+    const btn = document.getElementById('exportDetailPdfBtn');
+    const originalText = btn.innerHTML;
+    btn.classList.add('spinner');
+    btn.disabled = true;
+
+    try {
+        const url = `/api/export/pdf/${currentDetailResultId}`;
+
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = '';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        showToast('PDF сохранён', 'success');
+    } catch (error) {
+        console.error('Ошибка экспорта PDF:', error);
+        showToast('Ошибка при сохранении PDF', 'error');
+    } finally {
+        setTimeout(() => {
+            btn.classList.remove('spinner');
+            btn.disabled = false;
+            btn.innerHTML = originalText;
+        }, 1000);
+    }
 }
 
 /* ==================== ГРАФИК ДИНАМИКИ ==================== */

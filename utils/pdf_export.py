@@ -201,6 +201,191 @@ class PDFExporter:
         buffer.seek(0)
         return buffer.getvalue()
 
+    def export_detail_report(self, result: dict) -> bytes:
+        """Генерирует PDF-карточку одной проверки (для модального окна)."""
+        buffer = io.BytesIO()
+        doc = BaseDocTemplate(
+            buffer,
+            pagesize=A4,
+            leftMargin=15 * mm,
+            rightMargin=15 * mm,
+            topMargin=15 * mm,
+            bottomMargin=15 * mm,
+        )
+
+        frame = Frame(
+            doc.leftMargin,
+            doc.bottomMargin,
+            doc.width,
+            doc.height,
+            id='normal',
+        )
+        template = PageTemplate(id='main', frames=frame, onPage=self._draw_header_footer)
+        doc.addPageTemplates([template])
+
+        story = []
+
+        # Заголовок
+        story.append(Paragraph("Карточка проверки", self.title_style))
+        story.append(Paragraph(f"Запись № {result.get('id', '—')}", self.subtitle_style))
+        story.append(Spacer(1, 4 * mm))
+
+        # Результат
+        result_val = result.get('result', '—')
+        result_color = _COLOR_OK if result_val == 'OK' else _COLOR_NG
+        result_style = ParagraphStyle(
+            'DetailResult',
+            parent=self.normal_style,
+            fontName=_get_font_name(bold=True),
+            fontSize=14,
+            textColor=result_color,
+            alignment=1,
+            spaceAfter=4 * mm,
+        )
+        story.append(Paragraph(f"Результат: {result_val}", result_style))
+
+        # Изображение (если есть)
+        image_path = result.get('image_path')
+        if image_path:
+            # Пробуем несколько возможных путей к изображению
+            possible_paths = [
+                # Путь относительно pdf_export.py -> data/images/foto/...
+                os.path.join(os.path.dirname(__file__), '..', 'data', 'images', image_path),
+                # Путь с подкаталогом foto (если image_path уже содержит OK/NG)
+                os.path.join(os.path.dirname(__file__), '..', 'data', 'images', 'foto', image_path),
+                # Прямой путь (если image_path абсолютный или относительный от корня проекта)
+                os.path.join(os.path.dirname(__file__), '..', image_path),
+            ]
+            
+            full_image_path = None
+            for path in possible_paths:
+                if os.path.exists(path):
+                    full_image_path = path
+                    break
+            
+            if full_image_path:
+                story.append(Paragraph("Изображение детали", self.heading_style))
+                story.append(self._build_detail_image(full_image_path))
+                story.append(Spacer(1, 4 * mm))
+
+        # Основная информация
+        story.append(Paragraph("Основная информация", self.heading_style))
+        story.append(self._build_detail_info_table(result))
+        story.append(Spacer(1, 4 * mm))
+
+        # Датчики
+        sensors = [
+            ('sensor_d1', 'D1'),
+            ('sensor_d2', 'D2'),
+            ('sensor_d3', 'D3'),
+            ('sensor_d4', 'D4'),
+            ('tumbler_a', 'Тумблер A'),
+            ('tumbler_b', 'Тумблер B'),
+        ]
+        story.append(Paragraph("Датчики", self.heading_style))
+        story.append(self._build_sensors_table(result, sensors))
+        story.append(Spacer(1, 4 * mm))
+
+        # Raw-данные
+        raw = result.get('raw')
+        if raw:
+            story.append(Paragraph("Raw-данные", self.heading_style))
+            try:
+                import json
+                parsed = json.loads(raw)
+                raw_text = json.dumps(parsed, ensure_ascii=False, indent=2)
+            except Exception:
+                raw_text = str(raw)
+            raw_style = ParagraphStyle(
+                'RawStyle',
+                parent=self.normal_style,
+                fontName='Courier',
+                fontSize=8,
+                leading=10,
+            )
+            story.append(Paragraph(raw_text.replace('\n', '<br/>').replace(' ', '&nbsp;'), raw_style))
+            story.append(Spacer(1, 2 * mm))
+
+        doc.build(story)
+        buffer.seek(0)
+        return buffer.getvalue()
+
+    def _build_detail_image(self, image_path: str):
+        """Создаёт изображение для карточки проверки."""
+        try:
+            img = RLImage(image_path, width=120 * mm, height=90 * mm)
+            return img
+        except Exception:
+            return Paragraph("Изображение недоступно", self.normal_style)
+
+    def _build_detail_info_table(self, result: dict):
+        """Создаёт таблицу с основной информацией о проверке."""
+        data = [
+            [Paragraph("<b>Поле</b>", self.cell_header_style), Paragraph("<b>Значение</b>", self.cell_header_style)],
+            [Paragraph("ID записи", self.cell_style), Paragraph(str(result.get('id', '—')), self.cell_style)],
+            [Paragraph("Дата/время", self.cell_style), Paragraph(str(result.get('timestamp', '—')), self.cell_style)],
+            [Paragraph("Результат", self.cell_style), Paragraph(str(result.get('result', '—')), self.cell_style)],
+            [Paragraph("Заказ", self.cell_style), Paragraph(str(result.get('order_number') or '—'), self.cell_style)],
+            [Paragraph("Сценарий", self.cell_style), Paragraph(str(result.get('scenario') or '—'), self.cell_style)],
+            [Paragraph("Проект", self.cell_style), Paragraph(str(result.get('project_name') or '—'), self.cell_style)],
+        ]
+
+        col_widths = [50 * mm, 110 * mm]
+        table = Table(data, colWidths=col_widths, hAlign='LEFT')
+        table.setStyle(TableStyle([
+            ('BACKGROUND', (0, 0), (-1, 0), _COLOR_PRIMARY),
+            ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+            ('ALIGN', (0, 0), (0, -1), 'LEFT'),
+            ('ALIGN', (1, 0), (1, -1), 'LEFT'),
+            ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+            ('FONTNAME', (0, 0), (-1, 0), _get_font_name(bold=True)),
+            ('FONTSIZE', (0, 0), (-1, 0), 9),
+            ('BOTTOMPADDING', (0, 0), (-1, 0), 8),
+            ('TOPPADDING', (0, 0), (-1, 0), 8),
+            ('BACKGROUND', (0, 1), (-1, -1), _COLOR_BG),
+            ('GRID', (0, 0), (-1, -1), 0.5, colors.Color(0.85, 0.85, 0.85)),
+            ('LEFTPADDING', (0, 0), (-1, -1), 6),
+            ('RIGHTPADDING', (0, 0), (-1, -1), 6),
+        ]))
+        return table
+
+    def _build_sensors_table(self, result: dict, sensors: list):
+        """Создаёт таблицу состояния датчиков."""
+        data = [
+            [Paragraph("<b>Датчик</b>", self.cell_header_style), Paragraph("<b>Состояние</b>", self.cell_header_style)],
+        ]
+        for key, label in sensors:
+            val = result.get(key)
+            is_on = val == 1 or val is True
+            state_text = 'ON' if is_on else 'OFF'
+            state_color = 'green' if is_on else 'red'
+            state_cell = Paragraph(
+                f'<font color="{state_color}"><b>{state_text}</b></font>',
+                self.cell_style,
+            )
+            data.append([
+                Paragraph(label, self.cell_style),
+                state_cell,
+            ])
+
+        col_widths = [50 * mm, 50 * mm]
+        table = Table(data, colWidths=col_widths, hAlign='LEFT')
+        table.setStyle(TableStyle([
+            ('BACKGROUND', (0, 0), (-1, 0), _COLOR_PRIMARY),
+            ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+            ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+            ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+            ('FONTNAME', (0, 0), (-1, 0), _get_font_name(bold=True)),
+            ('FONTSIZE', (0, 0), (-1, 0), 9),
+            ('BOTTOMPADDING', (0, 0), (-1, 0), 8),
+            ('TOPPADDING', (0, 0), (-1, 0), 8),
+            ('BACKGROUND', (0, 1), (-1, -1), _COLOR_BG),
+            ('GRID', (0, 0), (-1, -1), 0.5, colors.Color(0.85, 0.85, 0.85)),
+            ('LEFTPADDING', (0, 0), (-1, -1), 6),
+            ('RIGHTPADDING', (0, 0), (-1, -1), 6),
+        ]))
+        return table
+
     def _draw_header_footer(self, canvas, doc):
         """Рисует логотип в шапке и номер страницы в подвале."""
         width, height = A4

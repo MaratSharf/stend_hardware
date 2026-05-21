@@ -39,7 +39,7 @@ function updateConnectionIndicators(owenOk, cameraOk) {
 
 /**
  * Основная функция проверки состояния связи.
- * Вызывается периодически (каждые 5 секунд) и при загрузке страницы.
+ * Вызывается периодически (каждые 30 секунд) и при загрузке страницы.
  */
 async function checkConnectionStatus() {
     try {
@@ -108,7 +108,7 @@ async function checkConnectionStatus() {
 // Запускаем мониторинг после полной загрузки DOM
 document.addEventListener('DOMContentLoaded', () => {
     checkConnectionStatus();                     // первая проверка сразу
-    connectionCheckInterval = setInterval(checkConnectionStatus, 5000); // затем каждые 5 секунд
+    connectionCheckInterval = setInterval(checkConnectionStatus, 30000); // затем каждые 30 секунд
 });
 
 // Очищаем интервал при выгрузке страницы (чтобы не было утечек)
