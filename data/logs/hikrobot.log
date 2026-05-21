@@ -6919,3 +6919,127 @@
 2026-05-20 15:22:20 - INFO - hikrobot - Подключение успешно
 2026-05-20 15:22:20 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
 2026-05-20 15:28:10 - INFO - hikrobot - Соединение закрыто
+2026-05-20 16:18:25 - INFO - hikrobot - Инициализация: IP=192.168.1.36, порт=502, unit=1, verify_switch=False
+2026-05-20 16:18:25 - WARNING - hikrobot - Попытка переподключения (задержка 1.0с)...
+2026-05-20 16:18:25 - INFO - hikrobot - Попытка подключения...
+2026-05-20 16:18:25 - INFO - hikrobot - Подключение успешно
+2026-05-20 16:18:25 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-20 16:27:40 - INFO - hikrobot - Соединение закрыто
+2026-05-21 07:52:59 - INFO - hikrobot - Инициализация: IP=192.168.1.36, порт=502, unit=1, verify_switch=False
+2026-05-21 07:52:59 - WARNING - hikrobot - Попытка переподключения (задержка 1.0с)...
+2026-05-21 07:52:59 - INFO - hikrobot - Попытка подключения...
+2026-05-21 07:52:59 - INFO - hikrobot - Подключение успешно
+2026-05-21 07:52:59 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 09:03:42 - INFO - hikrobot - Соединение закрыто
+2026-05-21 09:14:15 - INFO - hikrobot - Инициализация: IP=192.168.1.36, порт=502, unit=1, verify_switch=False
+2026-05-21 09:14:15 - WARNING - hikrobot - Попытка переподключения (задержка 1.0с)...
+2026-05-21 09:14:15 - INFO - hikrobot - Попытка подключения...
+2026-05-21 09:14:15 - INFO - hikrobot - Подключение успешно
+2026-05-21 09:14:15 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 10:02:23 - INFO - hikrobot - Соединение закрыто
+2026-05-21 10:02:27 - INFO - hikrobot - Инициализация: IP=192.168.1.36, порт=502, unit=1, verify_switch=False
+2026-05-21 10:02:27 - WARNING - hikrobot - Попытка переподключения (задержка 1.0с)...
+2026-05-21 10:02:27 - INFO - hikrobot - Попытка подключения...
+2026-05-21 10:02:27 - INFO - hikrobot - Подключение успешно
+2026-05-21 10:02:27 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 10:18:33 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Input/Output] No response received after 3 retries, continue with next request
+2026-05-21 10:18:33 - WARNING - hikrobot - Попытка переподключения (задержка 1.0с)...
+2026-05-21 10:18:33 - INFO - hikrobot - Попытка подключения...
+2026-05-21 10:18:36 - ERROR - hikrobot - Ошибка подключения
+2026-05-21 10:48:21 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Input/Output] No response received after 3 retries, continue with next request
+2026-05-21 10:48:21 - WARNING - hikrobot - Попытка переподключения (задержка 2.0с)...
+2026-05-21 10:48:21 - INFO - hikrobot - Попытка подключения...
+2026-05-21 10:48:24 - ERROR - hikrobot - Ошибка подключения
+2026-05-21 10:48:28 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-21 10:48:28 - WARNING - hikrobot - Попытка переподключения (задержка 4.0с)...
+2026-05-21 10:48:28 - INFO - hikrobot - Попытка подключения...
+2026-05-21 10:48:32 - ERROR - hikrobot - Ошибка подключения
+2026-05-21 10:48:37 - WARNING - hikrobot - Ошибка связи при чтении статуса: Modbus Error: [Connection] Failed to connect[ModbusTcpClient 192.168.1.36:502]
+2026-05-21 10:48:37 - WARNING - hikrobot - Попытка переподключения (задержка 8.0с)...
+2026-05-21 10:48:37 - INFO - hikrobot - Попытка подключения...
+2026-05-21 10:48:40 - ERROR - hikrobot - Ошибка подключения
+2026-05-21 10:48:46 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 10:50:48 - INFO - hikrobot - Соединение закрыто
+2026-05-21 10:50:51 - INFO - hikrobot - Инициализация: IP=192.168.1.36, порт=502, unit=1, verify_switch=False
+2026-05-21 10:50:51 - WARNING - hikrobot - Попытка переподключения (задержка 1.0с)...
+2026-05-21 10:50:51 - INFO - hikrobot - Попытка подключения...
+2026-05-21 10:50:51 - INFO - hikrobot - Подключение успешно
+2026-05-21 10:50:51 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 10:57:57 - INFO - hikrobot - Соединение закрыто
+2026-05-21 10:57:59 - INFO - hikrobot - Инициализация: IP=192.168.1.36, порт=502, unit=1, verify_switch=False
+2026-05-21 10:57:59 - WARNING - hikrobot - Попытка переподключения (задержка 1.0с)...
+2026-05-21 10:57:59 - INFO - hikrobot - Попытка подключения...
+2026-05-21 10:57:59 - INFO - hikrobot - Подключение успешно
+2026-05-21 10:57:59 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 10:58:55 - INFO - hikrobot - Соединение закрыто
+2026-05-21 10:58:59 - INFO - hikrobot - Инициализация: IP=192.168.1.36, порт=502, unit=1, verify_switch=False
+2026-05-21 10:58:59 - WARNING - hikrobot - Попытка переподключения (задержка 1.0с)...
+2026-05-21 10:58:59 - INFO - hikrobot - Попытка подключения...
+2026-05-21 10:58:59 - INFO - hikrobot - Подключение успешно
+2026-05-21 10:58:59 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 11:10:47 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': True, 'general_fault': False}
+2026-05-21 11:10:47 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 11:11:08 - INFO - hikrobot - Запуск цикла измерения
+2026-05-21 11:11:08 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-21 11:11:08 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-21 11:11:08 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-21 11:11:18 - ERROR - hikrobot - Таймаут ожидания Trigger Ready
+2026-05-21 11:11:18 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-21 11:11:29 - INFO - hikrobot - Запуск цикла измерения
+2026-05-21 11:11:29 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-21 11:11:29 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-21 11:11:30 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-21 11:11:40 - ERROR - hikrobot - Таймаут ожидания Trigger Ready
+2026-05-21 11:11:40 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-21 11:12:03 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 11:12:13 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 11:12:13 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': True, 'general_fault': False}
+2026-05-21 11:12:13 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 11:12:31 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': True, 'general_fault': False}
+2026-05-21 11:12:31 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 11:13:25 - INFO - hikrobot - Запуск цикла измерения
+2026-05-21 11:13:25 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-21 11:13:26 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-21 11:13:26 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-21 11:13:36 - ERROR - hikrobot - Таймаут ожидания Trigger Ready
+2026-05-21 11:13:36 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-21 11:13:50 - INFO - hikrobot - Запуск цикла измерения
+2026-05-21 11:13:50 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-21 11:13:51 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-21 11:13:51 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-21 11:13:51 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 11:13:51 - INFO - hikrobot - Trigger Ready получен
+2026-05-21 11:13:51 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-21 11:13:51 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 11:13:51 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 11:13:51 - INFO - hikrobot - Результат готов
+2026-05-21 11:13:51 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-21 11:13:51 - INFO - hikrobot - ✅ Результат: None | Raw: 0;18;37.213;
+2026-05-21 11:13:51 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 11:13:51 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 11:13:51 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 11:16:40 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 11:16:42 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': True, 'command_failed': False, 'general_fault': False}
+2026-05-21 11:16:43 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 11:16:49 - INFO - hikrobot - Запуск цикла измерения
+2026-05-21 11:16:49 - DEBUG - hikrobot - Запись в управляющий регистр: 32768 (0x8000)
+2026-05-21 11:16:50 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-21 11:16:50 - DEBUG - hikrobot - Запись в управляющий регистр: 1 (0x0001)
+2026-05-21 11:16:50 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 11:16:50 - INFO - hikrobot - Trigger Ready получен
+2026-05-21 11:16:50 - DEBUG - hikrobot - Запись в управляющий регистр: 3 (0x0003)
+2026-05-21 11:16:50 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 11:16:50 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': False, 'decoding': False, 'results_available': True, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 11:16:50 - INFO - hikrobot - Результат готов
+2026-05-21 11:16:50 - DEBUG - hikrobot - Запись в управляющий регистр: 5 (0x0005)
+2026-05-21 11:16:50 - INFO - hikrobot - ✅ Результат: None | Raw: 0;29;26.728;
+2026-05-21 11:16:50 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 11:16:50 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': False, 'trigger_ack': True, 'acquiring': True, 'decoding': True, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 11:16:51 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 12:00:10 - INFO - hikrobot - Соединение закрыто
+2026-05-21 12:00:12 - INFO - hikrobot - Инициализация: IP=192.168.1.36, порт=502, unit=1, verify_switch=False
+2026-05-21 12:00:12 - WARNING - hikrobot - Попытка переподключения (задержка 1.0с)...
+2026-05-21 12:00:12 - INFO - hikrobot - Попытка подключения...
+2026-05-21 12:00:12 - INFO - hikrobot - Подключение успешно
+2026-05-21 12:00:12 - DEBUG - hikrobot - Статус прочитан: {'trigger_ready': True, 'trigger_ack': False, 'acquiring': False, 'decoding': False, 'results_available': False, 'results_timeout': False, 'command_success': False, 'command_failed': False, 'general_fault': False}
+2026-05-21 12:27:06 - INFO - hikrobot - Соединение закрыто

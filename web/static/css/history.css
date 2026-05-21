@@ -862,6 +862,15 @@ body.dark-theme .order-link {
     font-family: 'Courier New', monospace;
 }
 
+/* Кнопка экспорта в PDF в модальном окне */
+.detail-actions {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+}
+
 /* Курсор-указатель на строки таблицы */
 tbody tr {
     cursor: pointer;

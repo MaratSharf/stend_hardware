@@ -254,3 +254,36 @@ def api_export_pdf():
     except Exception as e:
         current_app.logger.exception("Ошибка в api_export_pdf")
         return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@history_bp.route('/api/export/pdf/<int:result_id>')
+@login_required
+def api_export_detail_pdf(result_id):
+    """Экспорт одной записи в PDF (из модального окна)."""
+    try:
+        db = current_app.config.get('db')
+        if not db:
+            return jsonify({'success': False, 'error': 'Database not available'}), 500
+        
+        result = db.get_result_by_id(result_id)
+        if not result:
+            return jsonify({'success': False, 'error': 'Result not found'}), 404
+        
+        exporter = get_pdf_exporter()
+        pdf_data = exporter.export_detail_report(result)
+        
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        filename = f'record_{result_id}_{timestamp}.pdf'
+        
+        return send_file(
+            io.BytesIO(pdf_data),
+            mimetype='application/pdf',
+            as_attachment=True,
+            download_name=filename
+        )
+    except ImportError:
+        current_app.logger.error("PDF export not available")
+        return jsonify({'success': False, 'error': 'PDF export requires reportlab: pip install reportlab'}), 503
+    except Exception as e:
+        current_app.logger.exception("Ошибка в api_export_detail_pdf")
+        return jsonify({'success': False, 'error': str(e)}), 500
