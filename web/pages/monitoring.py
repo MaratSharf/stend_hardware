@@ -278,3 +278,30 @@ def project_russian_name():
     except Exception as e:
         current_app.logger.exception("Ошибка получения русского названия")
         return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@monitoring_bp.route('/api/recent_results')
+def api_recent_results():
+    """Возвращает последние N результатов инспекции для карточки истории на мониторинге."""
+    try:
+        db = current_app.config.get('db')
+        if not db:
+            return jsonify({'success': False, 'error': 'Database not available'}), 500
+        limit = request.args.get('limit', 10, type=int)
+        if limit > 50:
+            limit = 50
+        results = db.get_results(limit=limit, offset=0)
+        # Сокращаем данные для фронтенда
+        simplified = []
+        for r in results:
+            simplified.append({
+                'id': r.get('id'),
+                'result': r.get('result'),
+                'project_name': r.get('project_name') or '—',
+                'timestamp': r.get('timestamp'),
+                'scenario': r.get('scenario') or '—',
+            })
+        return jsonify({'success': True, 'results': simplified})
+    except Exception as e:
+        current_app.logger.exception("Ошибка в api_recent_results")
+        return jsonify({'success': False, 'error': 'Internal server error'}), 500
