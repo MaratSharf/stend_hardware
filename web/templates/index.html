@@ -87,76 +87,73 @@
             </div>
         </div>
 
-        <!-- ===== ПАНЕЛЬ СОСТОЯНИЯ (верхняя) ===== -->
-        <!-- Содержит карточку текущего проекта и индикаторы связи -->
-        <div class="status-panel">
-            <!-- Карточка текущего проекта -->
+        <!-- ===== ОБЪЕДИНЁННАЯ ПАНЕЛЬ УПРАВЛЕНИЯ ===== -->
+        <div class="control-panel">
+            <!-- Карточка текущего проекта (с индикаторами) -->
             <div class="t-project-card">
                 <div class="t-project-card__header">
                     <span class="t-project-card__label">ТЕКУЩИЙ ПРОЕКТ</span>
                     <span class="t-project-card__name" id="projectName">—</span>
                     <span class="t-project-card__status"></span>
                 </div>
+                <!-- Индикаторы связи (внутри карточки проекта) -->
+                <div class="t-project-card__indicators">
+                    <div class="indicator" id="owenIndicator">
+                        <span class="indicator-led" id="owenLed"></span>
+                        <span class="indicator-text" id="owenText">ОВЕН: проверка...</span>
+                    </div>
+                    <div class="indicator" id="cameraIndicator">
+                        <span class="indicator-led" id="cameraLed"></span>
+                        <span class="indicator-text" id="cameraText">Камера: проверка...</span>
+                    </div>
+                    <div class="indicator" id="wsIndicator" title="WebSocket соединение">
+                        <span class="indicator-led" id="wsConnectionIndicator"></span>
+                        <span class="indicator-text" id="wsText">Real-time: подключение...</span>
+                    </div>
+                </div>
                 <div class="t-project-card__description">Инструмент камеры</div>
             </div>
 
-            <!-- Индикаторы связи (ОВЕН и камера) -->
-            <div class="connection-indicators">
-                <div class="indicator" id="owenIndicator">
-                    <span class="indicator-led" id="owenLed"></span>
-                    <span class="indicator-text" id="owenText">ОВЕН: проверка...</span>
+            <!-- Правая группа: режим, сценарий, офлайн -->
+            <div class="control-panel__actions">
+                <!-- Переключатель АВТО / РУЧНОЙ -->
+                <div class="t-mode-switch">
+                    <span class="t-mode-switch__label">РЕЖИМ</span>
+                    <label class="t-toggle">
+                        <input type="checkbox" id="autoModeToggle">
+                        <span class="t-toggle__slider"></span>
+                    </label>
+                    <span id="modeText" class="t-mode-switch__text">АВТО</span>
                 </div>
-                <div class="indicator" id="cameraIndicator">
-                    <span class="indicator-led" id="cameraLed"></span>
-                    <span class="indicator-text" id="cameraText">Камера: проверка...</span>
+
+                <!-- Блок выбора сценария из веб -->
+                <div class="t-scenario-selector">
+                    <label class="t-checkbox-label">
+                        <input type="checkbox" id="webScenarioToggle"> Выбор сценария из веб
+                    </label>
+                    <select id="scenarioSelect" class="t-select" disabled>
+                        <option value="A">Сценарий A</option>
+                        <option value="B">Сценарий B</option>
+                        <option value="C" selected>Сценарий C</option>
+                    </select>
+                    <button id="runScenarioBtn" class="btn btn-secondary">▶ Запуск</button>
                 </div>
-                <!-- Индикатор WebSocket соединения -->
-                <div class="indicator" id="wsIndicator" title="WebSocket соединение">
-                    <span class="indicator-led" id="wsConnectionIndicator"></span>
-                    <span class="indicator-text" id="wsText">Real-time: подключение...</span>
+
+                <!-- Переключатель офлайн-режима -->
+                <div class="t-mode-switch">
+                    <span class="t-mode-switch__label">ОФЛАЙН</span>
+                    <label class="t-toggle">
+                        <input type="checkbox" id="offlineModeToggle">
+                        <span class="t-toggle__slider"></span>
+                    </label>
+                    <span id="offlineModeText" class="t-mode-switch__text">Выкл</span>
                 </div>
-            </div>
-        </div>
-
-        <!-- ===== ПАНЕЛЬ ДЕЙСТВИЙ (нижняя) ===== -->
-        <!-- Последовательно: переключатель режима, выбор сценария, офлайн-переключатель -->
-        <div class="actions-panel">
-            <!-- Переключатель АВТО / РУЧНОЙ -->
-            <div class="t-mode-switch">
-                <span class="t-mode-switch__label">РЕЖИМ</span>
-                <label class="t-toggle">
-                    <input type="checkbox" id="autoModeToggle">
-                    <span class="t-toggle__slider"></span>
-                </label>
-                <span id="modeText" class="t-mode-switch__text">АВТО</span>
-            </div>
-
-            <!-- Блок выбора сценария из веб (чекбокс + выпадающий список + кнопка "Запуск") -->
-            <div class="t-scenario-selector">
-                <label class="t-checkbox-label">
-                    <input type="checkbox" id="webScenarioToggle"> Выбор сценария из веб
-                </label>
-                <select id="scenarioSelect" class="t-select" disabled>
-                    <option value="A">Сценарий A (непрерывный)</option>
-                    <option value="B">Сценарий B (одиночный)</option>
-                    <option value="C" selected>Сценарий C (циклический)</option>
-                </select>
-                <button id="runScenarioBtn" class="btn btn-secondary" style="padding: 6px 16px; margin-left: 8px;">▶ Запуск</button>
-            </div>
-
-            <!-- Переключатель офлайн-режима (работа без оборудования) -->
-            <div class="t-mode-switch">
-                <span class="t-mode-switch__label">ОФЛАЙН</span>
-                <label class="t-toggle">
-                    <input type="checkbox" id="offlineModeToggle">
-                    <span class="t-toggle__slider"></span>
-                </label>
-                <span id="offlineModeText" class="t-mode-switch__text">Выкл</span>
             </div>
         </div>
 
         <!-- ======================= ОСНОВНОЙ КОНТЕНТ ======================= -->
-        <div class="t-container">
+        <div class="t-container t-container_flex">
+            <!-- Карточка результата (левая/основная колонка) -->
             <div class="t-card t-card_result" id="resultCard" data-result="waiting">
                 <div class="t-card_result">
                     <div class="t-card__header">
@@ -173,6 +170,31 @@
                         </div>
                     </div>
                     <!-- Блок для распознанных данных (код, текст, цвет) будет добавлен динамически через JS -->
+                </div>
+            </div>
+
+            <!-- Карточка истории (правая колонка) -->
+            <div class="t-card t-card_history" id="historyCard">
+                <div class="t-card__header">
+                    <div class="t-card__icon">📋</div>
+                    <div>
+                        <div class="t-card__title">История</div>
+                        <div class="t-card__subtitle">Последние проверки</div>
+                    </div>
+                </div>
+                <div class="t-history-table-wrapper">
+                    <table class="t-history-table" id="historyTable">
+                        <thead>
+                            <tr>
+                                <th>Статус</th>
+                                <th>Проект</th>
+                                <th>Дата/время</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyTableBody">
+                            <tr class="t-history-empty"><td colspan="3">Загрузка...</td></tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

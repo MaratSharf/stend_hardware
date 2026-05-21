@@ -517,3 +517,61 @@ AttributeError: 'Database' object has no attribute 'get_scenario_statistics'
 2026-05-21 12:14:55 - INFO - web - Клиент Gv2562H7gADDuJ8WAAAD подписался на обновления статуса
 2026-05-21 12:14:56 - INFO - web - Переключение офлайн-режима: True
 2026-05-21 12:15:01 - INFO - web - Клиент отключился от WebSocket: Gv2562H7gADDuJ8WAAAD
+2026-05-21 12:36:26 - INFO - web - ===== WEB APP STARTED =====
+2026-05-21 12:36:26 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-21 12:37:15 - INFO - web - Клиент подключился к WebSocket: vdVOzuAzUY4EC2RnAAAB
+2026-05-21 12:37:15 - INFO - web - Клиент vdVOzuAzUY4EC2RnAAAB подписался на обновления статуса
+2026-05-21 12:37:17 - INFO - web - Клиент отключился от WebSocket: vdVOzuAzUY4EC2RnAAAB
+2026-05-21 12:43:31 - INFO - web - Клиент подключился к WebSocket: 9CsBbXBMSAxtkxG7AAAD
+2026-05-21 12:43:31 - INFO - web - Клиент 9CsBbXBMSAxtkxG7AAAD подписался на обновления статуса
+2026-05-21 12:46:28 - INFO - web - Клиент отключился от WebSocket: 9CsBbXBMSAxtkxG7AAAD
+2026-05-21 12:50:17 - INFO - web - Клиент подключился к WebSocket: t2C8dTI6FI4aRC-iAAAF
+2026-05-21 12:50:17 - INFO - web - Клиент t2C8dTI6FI4aRC-iAAAF подписался на обновления статуса
+2026-05-21 13:08:45 - INFO - web - ===== WEB APP STARTED =====
+2026-05-21 13:08:46 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-21 13:08:46 - INFO - web - Клиент подключился к WebSocket: WIIHFa3G_BK5B6VAAAAB
+2026-05-21 13:08:46 - INFO - web - Клиент WIIHFa3G_BK5B6VAAAAB подписался на обновления статуса
+2026-05-21 13:08:53 - INFO - web - Клиент отключился от WebSocket: WIIHFa3G_BK5B6VAAAAB
+2026-05-21 13:08:56 - INFO - web - Клиент подключился к WebSocket: YDqPPMHYw2fNqPc7AAAD
+2026-05-21 13:08:56 - INFO - web - Клиент YDqPPMHYw2fNqPc7AAAD подписался на обновления статуса
+2026-05-21 13:09:13 - INFO - web - Переключение офлайн-режима: True
+2026-05-21 13:09:59 - INFO - web - Клиент отключился от WebSocket: YDqPPMHYw2fNqPc7AAAD
+2026-05-21 13:10:08 - INFO - web - Клиент подключился к WebSocket: 04hu6veLK1sJDwbzAAAF
+2026-05-21 13:10:08 - INFO - web - Клиент 04hu6veLK1sJDwbzAAAF подписался на обновления статуса
+2026-05-21 13:31:50 - INFO - web - Клиент отключился от WebSocket: 04hu6veLK1sJDwbzAAAF
+2026-05-21 13:41:27 - INFO - web - Клиент подключился к WebSocket: jxMrDlmH1FetowhLAAAH
+2026-05-21 13:41:27 - INFO - web - Клиент jxMrDlmH1FetowhLAAAH подписался на обновления статуса
+2026-05-21 14:08:43 - INFO - web - ===== WEB APP STARTED =====
+2026-05-21 14:08:43 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-21 14:09:04 - INFO - web - Переключение офлайн-режима: False
+2026-05-21 14:09:04 - INFO - web - Переключение офлайн-режима: True
+2026-05-21 14:09:10 - INFO - web - Клиент подключился к WebSocket: KGeY_J_6iuk2zO-KAAAB
+2026-05-21 14:09:10 - INFO - web - Клиент KGeY_J_6iuk2zO-KAAAB подписался на обновления статуса
+2026-05-21 14:09:19 - INFO - web - Клиент отключился от WebSocket: KGeY_J_6iuk2zO-KAAAB
+2026-05-21 14:09:20 - INFO - web - Клиент подключился к WebSocket: XsfwPjH1bc9maNZTAAAD
+2026-05-21 14:09:20 - INFO - web - Клиент XsfwPjH1bc9maNZTAAAD подписался на обновления статуса
+2026-05-21 14:09:26 - INFO - web - Клиент отключился от WebSocket: XsfwPjH1bc9maNZTAAAD
+2026-05-21 14:09:28 - INFO - web - Клиент подключился к WebSocket: -JNsJSGMQ-JMfjTnAAAF
+2026-05-21 14:09:28 - INFO - web - Клиент -JNsJSGMQ-JMfjTnAAAF подписался на обновления статуса
+2026-05-21 14:15:23 - INFO - web - ===== WEB APP STARTED =====
+2026-05-21 14:15:24 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-21 14:15:35 - INFO - web - Клиент подключился к WebSocket: xOx42nRYlakxQbS4AAAB
+2026-05-21 14:15:35 - INFO - web - Клиент xOx42nRYlakxQbS4AAAB подписался на обновления статуса
+2026-05-21 14:16:02 - INFO - web - Клиент отключился от WebSocket: xOx42nRYlakxQbS4AAAB
+2026-05-21 14:16:06 - INFO - web - Клиент подключился к WebSocket: 27dEWt_4KwwfA8x3AAAD
+2026-05-21 14:16:06 - INFO - web - Клиент 27dEWt_4KwwfA8x3AAAD подписался на обновления статуса
+2026-05-21 14:16:12 - INFO - web - Переключение офлайн-режима: True
+2026-05-21 14:42:02 - INFO - web - ===== WEB APP STARTED =====
+2026-05-21 14:42:02 - INFO - web - Запущен фоновый поток WebSocket обновлений
+2026-05-21 14:42:02 - INFO - web - Клиент подключился к WebSocket: 84aW7UA53Yx1_tVDAAAB
+2026-05-21 14:42:02 - INFO - web - Клиент 84aW7UA53Yx1_tVDAAAB подписался на обновления статуса
+2026-05-21 14:42:05 - INFO - web - Клиент отключился от WebSocket: 84aW7UA53Yx1_tVDAAAB
+2026-05-21 14:42:09 - INFO - web - Клиент подключился к WebSocket: Xj_F-J8XkcC4ce_eAAAD
+2026-05-21 14:42:09 - INFO - web - Клиент Xj_F-J8XkcC4ce_eAAAD подписался на обновления статуса
+2026-05-21 14:42:22 - INFO - web - Переключение офлайн-режима: True
+2026-05-21 14:42:56 - INFO - web - Клиент отключился от WebSocket: Xj_F-J8XkcC4ce_eAAAD
+2026-05-21 14:54:26 - INFO - web - Клиент подключился к WebSocket: EAGZz9I0d3qHQv3bAAAF
+2026-05-21 14:54:26 - INFO - web - Клиент EAGZz9I0d3qHQv3bAAAF подписался на обновления статуса
+2026-05-21 15:06:05 - INFO - web - Клиент отключился от WebSocket: EAGZz9I0d3qHQv3bAAAF
+2026-05-21 15:06:18 - INFO - web - Клиент подключился к WebSocket: -nHTWMr3k0EvRw9-AAAH
+2026-05-21 15:06:18 - INFO - web - Клиент -nHTWMr3k0EvRw9-AAAH подписался на обновления статуса

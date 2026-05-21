@@ -752,3 +752,44 @@ function initImageLightbox() {
 }
 
 document.addEventListener('DOMContentLoaded', initImageLightbox);
+
+// ==================== КАРТОЧКА ИСТОРИИ (правая колонка) ====================
+
+/**
+ * Загружает последние результаты инспекции и обновляет таблицу истории.
+ */
+async function updateHistory() {
+    const tbody = document.getElementById('historyTableBody');
+    if (!tbody) return;
+    try {
+        const response = await fetch('/api/recent_results?limit=15');
+        const data = await response.json();
+        if (!data.success || !data.results || data.results.length === 0) {
+            tbody.innerHTML = '<tr class="t-history-empty"><td colspan="3">Нет данных</td></tr>';
+            return;
+        }
+        const rows = data.results.map(r => {
+            const statusClass = r.result === 'OK' ? 'ok' : (r.result === 'NG' ? 'ng' : 'waiting');
+            const statusText = r.result === 'OK' ? 'Годен' : (r.result === 'NG' ? 'Брак' : '—');
+            const timeStr = r.timestamp ? new Date(r.timestamp).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }) : '—';
+            const projectName = r.project_name || '—';
+            return `
+                <tr>
+                    <td><span class="t-history-status" data-result="${statusClass}"></span>${statusText}</td>
+                    <td class="t-history-project" title="${projectName}">${projectName}</td>
+                    <td class="t-history-time">${timeStr}</td>
+                </tr>
+            `;
+        }).join('');
+        tbody.innerHTML = rows;
+    } catch (error) {
+        console.error('Ошибка загрузки истории:', error);
+        tbody.innerHTML = '<tr class="t-history-empty"><td colspan="3">Ошибка загрузки</td></tr>';
+    }
+}
+
+// Загружаем историю при старте и обновляем каждые 5 секунд
+document.addEventListener('DOMContentLoaded', () => {
+    updateHistory();
+    setInterval(updateHistory, 5000);
+});
