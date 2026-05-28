@@ -1,23 +1,56 @@
-# Данные и логи
-data/
+```
+# Python compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Python virtual environments
+venv/
+.venv/
+env/
+.ENV/
+
+# Python build/dist directories
+build/
+dist/
+*.egg-info/
+
+# Logs
 *.log
 
-# Виртуальное окружение
-venv/
-env/
-
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-
-# IDE
-.vscode/
-.idea/
+# Temporary files
+*.tmp
 *.swp
 *.swo
 
-# Системные файлы
+# OS generated files
 .DS_Store
 Thumbs.db
+
+# Environment files
+.env
+.env.local
+*.env.*
+
+# Coverage reports
+.coverage
+htmlcov/
+coverage/
+
+# IDE specific
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# MyPy cache
+.mypy_cache/
+
+# PyTest cache
+.pytest_cache/
+
+# Local configuration
+config_local.py
+local_settings.py
+```
