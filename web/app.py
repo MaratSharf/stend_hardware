@@ -49,6 +49,15 @@ def create_app(config: dict, controller, db) -> Flask:
     def serve_image(filename):
         return send_from_directory(images_dir, filename)
 
+    # Маршрут для Service Worker (требуется для PWA scope '/')
+    static_dir = os.path.join(os.path.dirname(__file__), 'static')
+    @app.route('/service-worker.js')
+    def serve_service_worker():
+        response = send_from_directory(static_dir, 'service-worker.js')
+        response.headers['Service-Worker-Allowed'] = '/'
+        response.headers['Content-Type'] = 'application/javascript'
+        return response
+
     # Регистрация Blueprints
     from web.pages.monitoring import monitoring_bp
     from web.pages.tools import tools_bp

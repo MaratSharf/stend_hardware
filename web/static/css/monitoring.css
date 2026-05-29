@@ -334,6 +334,141 @@
     }
 }
 
+/* ============================================================
+   PWA / МОБИЛЬНЫЕ СТИЛИ
+   ============================================================ */
+
+/* Учёт безопасной зоны на iPhone с notch */
+@supports (padding-top: env(safe-area-inset-top)) {
+    .app-container {
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+
+/* Стандалон-режим PWA: скрываем сайдбар, основной контент на весь экран */
+@media all and (display-mode: standalone) {
+    .sidebar {
+        display: none;
+    }
+    .main-content {
+        margin-left: 0 !important;
+        padding: 8px;
+        width: 100%;
+    }
+    .page-header {
+        padding: 8px 12px;
+    }
+    .vdt-logo {
+        height: 28px;
+    }
+}
+
+/* Стили для смартфона (до 480px) */
+@media (max-width: 480px) {
+    .app-container {
+        padding-top: env(safe-area-inset-top, 0);
+        padding-bottom: env(safe-area-inset-bottom, 0);
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .main-content {
+        padding: 8px;
+    }
+
+    .page-header {
+        padding: 8px 12px;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .page-header__title h1 {
+        font-size: 1.2rem;
+    }
+    .page-header__subtitle {
+        font-size: 0.7rem;
+    }
+    .vdt-logo {
+        height: 24px;
+    }
+
+    /* Панель управления — вертикально */
+    .control-panel {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 10px;
+    }
+    .t-project-card {
+        width: 100%;
+    }
+    .t-project-card__indicators {
+        justify-content: space-around;
+    }
+    .control-panel__actions {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+    .t-mode-switch, .t-scenario-selector {
+        flex: 1 1 auto;
+        min-width: 120px;
+        justify-content: center;
+    }
+
+    /* Контент — одна колонка */
+    .t-container_flex {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .t-card {
+        border-radius: 14px;
+    }
+    .t-card_result {
+        padding: 14px;
+        gap: 10px;
+    }
+    .t-card_result > .t-card_result {
+        gap: 10px;
+    }
+    .t-card__icon {
+        font-size: 2rem;
+    }
+    .t-card__title {
+        font-size: 1.2rem;
+    }
+    .t-card__image {
+        border-radius: 10px;
+        min-height: 200px;
+    }
+    .t-image-placeholder {
+        padding: 24px;
+        font-size: 1.4rem;
+    }
+
+    .t-card_history {
+        flex: none;
+        max-width: 100%;
+    }
+    .t-history-table-wrapper {
+        padding: 0 10px 10px;
+    }
+    .t-history-table {
+        font-size: 0.8rem;
+    }
+    .t-history-table thead th,
+    .t-history-table tbody td {
+        padding: 6px;
+    }
+
+    /* Подвал */
+    .app-footer {
+        padding: 8px;
+        font-size: 0.65rem;
+    }
+}
 
 
 

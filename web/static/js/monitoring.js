@@ -16,6 +16,8 @@ let projectRussianNamesCache = {};
 let currentProjectName = '';
 // Кэш последнего пути изображения (чтобы не перезагружать то же самое)
 let lastImagePath = '';
+// PWA install prompt
+let pwaInstallPrompt = null;
 
 // ==================== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ====================
 

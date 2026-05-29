@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#667eea"/>
+  <rect x="160" y="192" width="192" height="128" rx="24" fill="none" stroke="white" stroke-width="16"/>
+  <circle cx="256" cy="256" r="48" fill="white"/>
+  <line x1="352" y1="160" x2="416" y2="96" stroke="white" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="424" cy="88" r="24" fill="white"/>
+  <text x="256" y="440" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="56" font-weight="bold">MV</text>
+</svg>

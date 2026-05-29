@@ -160,3 +160,106 @@ window.updateProjectInHeader = async function(projectName) {
         console.error('Ошибка обновления проекта:', error);
     }
 };
+
+// ==================== PWA: SERVICE WORKER & INSTALL ====================
+
+window.pwaInstallPrompt = null;
+
+/**
+ * Регистрирует Service Worker для PWA
+ */
+function registerServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
+            .then(reg => console.log('[PWA] Service Worker зарегистрирован:', reg.scope))
+            .catch(err => console.error('[PWA] Ошибка регистрации SW:', err));
+    }
+}
+
+/**
+ * Слушает событие beforeinstallprompt для отложенной установки PWA
+ */
+function setupPwaInstall() {
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        window.pwaInstallPrompt = e;
+        showInstallButton();
+    });
+
+    window.addEventListener('appinstalled', () => {
+        window.pwaInstallPrompt = null;
+        hideInstallButton();
+        console.log('[PWA] Приложение установлено');
+    });
+}
+
+/**
+ * Показывает кнопку установки PWA (встраивает в шапку)
+ */
+function showInstallButton() {
+    if (document.getElementById('pwaInstallBtn')) return;
+    const headerRight = document.querySelector('.page-header__right');
+    if (!headerRight) return;
+    const btn = document.createElement('button');
+    btn.id = 'pwaInstallBtn';
+    btn.className = 'btn btn-primary';
+    btn.style.cssText = 'padding:6px 14px;font-size:13px;margin-right:8px;';
+    btn.innerHTML = '📲 Установить';
+    btn.addEventListener('click', async () => {
+        if (!window.pwaInstallPrompt) return;
+        window.pwaInstallPrompt.prompt();
+        const { outcome } = await window.pwaInstallPrompt.userChoice;
+        if (outcome === 'accepted') {
+            window.showToast('Приложение установлено!', 'success');
+        }
+        window.pwaInstallPrompt = null;
+        hideInstallButton();
+    });
+    headerRight.insertBefore(btn, headerRight.firstChild);
+}
+
+function hideInstallButton() {
+    const btn = document.getElementById('pwaInstallBtn');
+    if (btn) btn.remove();
+}
+
+/**
+ * Показывает fallback-кнопку с инструкцией по ручной установке
+ * (для HTTP, iOS Safari и других случаев, когда beforeinstallprompt не срабатывает)
+ */
+function showManualInstallFallback() {
+    if (document.getElementById('pwaInstallBtn') || document.getElementById('pwaManualInstallBtn')) return;
+    const headerRight = document.querySelector('.page-header__right');
+    if (!headerRight) return;
+
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const btn = document.createElement('button');
+    btn.id = 'pwaManualInstallBtn';
+    btn.className = 'btn btn-secondary';
+    btn.style.cssText = 'padding:6px 14px;font-size:13px;margin-right:8px;';
+    btn.innerHTML = isIOS ? '📲 Добавить на экран' : '📲 Установить';
+
+    btn.addEventListener('click', () => {
+        const msg = isIOS
+            ? 'Нажмите «Поделиться» (квадрат со стрелкой) внизу Safari, затем «На экран «Домой»»'
+            : 'Chrome → Меню (⋮) → «Добавить на главный экран» или «Установить приложение»';
+        window.showToast(msg, 'info', 8000);
+    });
+
+    headerRight.insertBefore(btn, headerRight.firstChild);
+}
+
+// Инициализация PWA при загрузке
+document.addEventListener('DOMContentLoaded', () => {
+    registerServiceWorker();
+    setupPwaInstall();
+
+    // Fallback: если через 4 секунды beforeinstallprompt не сработал
+    // (обычно из-за HTTP или iOS), показываем ручную кнопку
+    setTimeout(() => {
+        if (!window.pwaInstallPrompt && !document.getElementById('pwaInstallBtn')) {
+            console.log('[PWA] beforeinstallprompt не сработал (возможно HTTP или iOS), показываем fallback');
+            showManualInstallFallback();
+        }
+    }, 4000);
+});
