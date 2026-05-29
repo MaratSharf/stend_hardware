@@ -266,6 +266,7 @@
     top: 0;
     z-index: 100;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 24px;
 }
 
 /* Быстрые пресеты дат */
@@ -350,6 +351,11 @@
     margin: 0 4px;
 }
 
+/* Выпадающий список экспорта */
+.export-dropdown {
+    position: relative;
+}
+
 .btn-export {
     display: inline-flex;
     align-items: center;
@@ -363,6 +369,7 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
+    white-space: nowrap;
 }
 
 .btn-export:hover {
@@ -391,6 +398,49 @@
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
     margin-left: 4px;
+}
+
+.export-dropdown-menu {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    min-width: 160px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.export-dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.export-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.export-dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.export-dropdown-item:hover {
+    background: var(--bg-hover);
+    color: var(--accent-primary);
 }
 
 @keyframes spin {

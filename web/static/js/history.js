@@ -308,20 +308,33 @@ function setupFilters() {
         loadStatistics();
     });
 
-    // Экспорт в CSV
-    document.getElementById('exportCsvBtn').addEventListener('click', () => {
-        exportData('csv');
-    });
+    // Экспорт через выпадающий список
+    const exportDropdownBtn = document.getElementById('exportDropdownBtn');
+    const exportDropdownMenu = document.getElementById('exportDropdownMenu');
 
-    // Экспорт в Excel
-    document.getElementById('exportExcelBtn').addEventListener('click', () => {
-        exportData('excel');
-    });
+    if (exportDropdownBtn && exportDropdownMenu) {
+        // Открытие/закрытие выпадающего списка
+        exportDropdownBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            exportDropdownMenu.classList.toggle('show');
+        });
 
-    // Экспорт в PDF
-    document.getElementById('exportPdfBtn').addEventListener('click', () => {
-        exportData('pdf');
-    });
+        // Обработка выбора формата
+        exportDropdownMenu.querySelectorAll('.export-dropdown-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const format = item.dataset.format;
+                exportDropdownMenu.classList.remove('show');
+                exportData(format);
+            });
+        });
+
+        // Закрытие при клике вне
+        document.addEventListener('click', () => {
+            exportDropdownMenu.classList.remove('show');
+        });
+    }
 }
 
 function exportData(format) {

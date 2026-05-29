@@ -117,18 +117,23 @@
                 <button id="applyFilters" class="btn btn-primary">Применить</button>
                 <button id="refreshBtn" class="btn btn-secondary">Сбросить</button>
                 
-                <!-- Кнопки экспорта -->
-                <div class="export-divider"></div>
-                
-                <button id="exportCsvBtn" class="btn btn-export" title="Экспорт в CSV">
-                    <span>📄</span> CSV
-                </button>
-                <button id="exportExcelBtn" class="btn btn-export" title="Экспорт в Excel">
-                    <span>📊</span> Excel
-                </button>
-                <button id="exportPdfBtn" class="btn btn-export" title="Экспорт в PDF">
-                    <span>📕</span> PDF
-                </button>
+                <!-- Выпадающий список экспорта -->
+                <div class="export-dropdown">
+                    <button id="exportDropdownBtn" class="btn btn-export" title="Экспорт данных">
+                        <span>📥</span> Экспорт ▾
+                    </button>
+                    <div class="export-dropdown-menu" id="exportDropdownMenu">
+                        <a href="#" class="export-dropdown-item" data-format="csv">
+                            <span>📄</span> CSV
+                        </a>
+                        <a href="#" class="export-dropdown-item" data-format="excel">
+                            <span>📊</span> Excel
+                        </a>
+                        <a href="#" class="export-dropdown-item" data-format="pdf">
+                            <span>📕</span> PDF
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 
