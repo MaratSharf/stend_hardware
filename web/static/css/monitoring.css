@@ -346,11 +346,8 @@
     }
 }
 
-/* Стандалон-режим PWA: скрываем сайдбар, основной контент на весь экран */
-@media all and (display-mode: standalone) {
-    .sidebar {
-        display: none;
-    }
+/* Стили для планшета (до 768px) */
+@media (max-width: 768px) {
     .main-content {
         margin-left: 0 !important;
         padding: 8px;
@@ -381,7 +378,7 @@
 
     .page-header {
         padding: 8px 12px;
-        flex-direction: column;
+        flex-direction: row;
         gap: 8px;
     }
     .page-header__title h1 {

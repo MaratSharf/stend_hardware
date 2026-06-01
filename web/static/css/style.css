@@ -110,17 +110,80 @@ body {
     overflow-y: auto;
     flex-shrink: 0;
     border-right: 1px solid var(--border-color);
+    transition: transform 0.3s ease, width 0.3s ease;
+}
+
+.sidebar.collapsed {
+    width: 64px;
+}
+
+.sidebar.collapsed .logo-text,
+.sidebar.collapsed .nav-item span:not(.nav-icon),
+.sidebar.collapsed .sidebar-user .user-info,
+.sidebar.collapsed .btn-logout {
+    display: none;
+}
+
+.sidebar.collapsed .nav-item {
+    justify-content: center;
+    padding: 10px;
 }
 
 .sidebar-header {
     padding: 20px 20px;
     border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .logo-text {
     font-size: 1.4rem;
     font-weight: 700;
     color: var(--accent-primary);
+}
+
+/* Кнопка-бургер — скрыта на десктопе, видна на мобильных */
+.t-menuburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    gap: 4px;
+    padding: 4px;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.t-menuburger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.t-menuburger.active span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.t-menuburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.t-menuburger.active span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+.t-menuburger.active span:nth-child(4) {
+    opacity: 0;
 }
 
 .sidebar-nav {
@@ -504,11 +567,105 @@ button.btn-logout-main,
     .page-header__title h1 { font-size: 1.4rem; }
 }
 
+/* ----- МОБИЛЬНАЯ АДАПТАЦИЯ (≤768px) ----- */
 @media (max-width: 768px) {
-    .sidebar { position: fixed; left: -260px; transition: left 0.3s; }
-    .sidebar.open { left: 0; }
-    .main-content { padding: 12px; }
-    .page-header { flex-direction: column; align-items: flex-start; }
+    .sidebar {
+        position: fixed;
+        left: -260px;
+        top: 0;
+        height: 100vh;
+        z-index: 1000;
+        transition: left 0.3s ease;
+        box-shadow: 2px 0 20px rgba(0,0,0,0.3);
+    }
+    .sidebar.open {
+        left: 0;
+    }
+    .sidebar.collapsed {
+        width: 260px;
+    }
+    .sidebar.collapsed .logo-text,
+    .sidebar.collapsed .nav-item span:not(.nav-icon),
+    .sidebar.collapsed .sidebar-user .user-info,
+    .sidebar.collapsed .btn-logout {
+        display: initial;
+    }
+    .sidebar.collapsed .nav-item {
+        justify-content: flex-start;
+        padding: 10px 12px;
+    }
+
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,0.5);
+        z-index: 999;
+        backdrop-filter: blur(2px);
+    }
+    .sidebar-overlay.active {
+        display: block;
+    }
+
+    .t-menuburger {
+        display: flex;
+    }
+
+    .main-content {
+        padding: 8px 12px;
+        width: 100%;
+    }
+
+    .page-header {
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 0;
+    }
+    .page-header__title h1 {
+        font-size: 1.2rem;
+    }
+    .page-header__subtitle {
+        font-size: 0.65rem;
+    }
+    .vdt-logo {
+        height: 28px;
+    }
+
+    /* Toast на мобильном — во всю ширину сверху */
+    .toast-container {
+        top: 8px;
+        left: 8px;
+        right: 8px;
+        width: auto;
+        max-width: none;
+    }
+    .toast {
+        min-width: auto;
+        width: 100%;
+    }
+}
+
+/* ----- ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ (≤480px) ----- */
+@media (max-width: 480px) {
+    .page-header__title h1 {
+        font-size: 1.05rem;
+    }
+    .page-header__right {
+        gap: 6px;
+    }
+    .btn-logout-main {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+    .theme-toggle {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
 }
 
 .app-footer {

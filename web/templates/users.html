@@ -197,12 +197,18 @@
 <body>
 <div class="app-container">
     {% include '_sidebar.html' %}
+
+    <!-- Overlay для мобильного меню -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
     
     <main class="main-content">
         <div id="notification" class="notification hidden"></div>
         
         <div class="page-header">
             <div class="page-header__left">
+                <button class="t-menuburger" id="burgerBtn" aria-label="Меню">
+                    <span></span><span></span><span></span><span></span>
+                </button>
                 <div class="page-header__title">
                     <h1>Управление пользователями</h1>
                     <p class="page-header__subtitle">Добавление, редактирование и удаление пользователей</p>

@@ -26,10 +26,6 @@
             <div class="logo">
                 <span class="logo-text">MV Stend</span>
             </div>
-            <!-- Кнопка-бургер для мобильных устройств (сворачивание/разворачивание меню) -->
-            <button class="t-menuburger" id="burgerBtn" aria-label="Меню">
-                <span></span><span></span><span></span><span></span>
-            </button>
         </div>
         <!-- Навигационные ссылки -->
         <nav class="sidebar-nav">
@@ -76,11 +72,18 @@
         </div>
     </aside>
 
+    <!-- Overlay для мобильного меню -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
     <!-- ======================= ОСНОВНАЯ ОБЛАСТЬ ======================= -->
     <main class="main-content">
         <!-- Верхняя панель: заголовок страницы + логотип VDT -->
         <div class="page-header">
             <div class="page-header__left">
+                <!-- Кнопка-бургер для мобильных устройств -->
+                <button class="t-menuburger" id="burgerBtn" aria-label="Меню">
+                    <span></span><span></span><span></span><span></span>
+                </button>
                 <div class="page-header__title">
                     <h1>Мониторинг</h1>
                     <p class="page-header__subtitle">Hikrobot MV-SC3016-06M-WBN</p>
