@@ -49,6 +49,10 @@ coverage/
 
 # PyTest cache
 .pytest_cache/
+# Изображения (хранить вне Git)
+data/images/foto/
+data/images/foto/*
+!data/images/foto/.gitkeep
 
 # Local configuration
 config_local.py
