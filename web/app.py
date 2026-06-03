@@ -15,6 +15,13 @@ def create_app(config: dict, controller, db) -> Flask:
     
     # Время жизни сессии (24 часа)
     app.config['PERMANENT_SESSION_LIFETIME'] = 86400
+    
+    # Настройки cookie для сессий
+    app.config['SESSION_COOKIE_HTTPONLY'] = True
+    app.config['SESSION_COOKIE_SECURE'] = False  # False для HTTP
+    app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
+    app.config['SESSION_COOKIE_NAME'] = 'session'
+    app.config['SESSION_TYPE'] = 'filesystem'  # Использовать файлы для сессий
 
     app.config['config'] = config
     app.config['controller'] = controller

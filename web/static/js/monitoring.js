@@ -22,6 +22,18 @@ let pwaInstallPrompt = null;
 // ==================== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ====================
 
 /**
+ * Очищает строку от невидимых управляющих символов (ASCII 0-31, кроме \n, \t, \r)
+ * Заменяет их на видимые представления или удаляет.
+ * @param {string} str - входная строка
+ * @returns {string} очищенная строка
+ */
+function sanitizeDisplayString(str) {
+    if (!str) return '—';
+    // Удаляем управляющие символы ASCII 0-31 (кроме \n=10, \t=9, \r=13)
+    return str.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, '').trim();
+}
+
+/**
  * Определяет тип инструмента по имени проекта камеры.
  * Используется для правильного отображения распознанных данных (код, текст, цвет).
  * @param {string} projectName - имя проекта камеры
@@ -646,6 +658,7 @@ async function showRawData(raw) {
             recognitionSection.innerHTML = `
                 <div class="t-recognition-header"><span>📊</span><span>Считанный код</span></div>
                 <div class="t-code-display"><span class="t-code-value" id="codeValue">—</span></div>
+                <div class="t-code-extra"><span class="t-code-extra-label">Код:</span> <span class="t-code-extra-value" id="codeExtra">—</span></div>
             `;
         } else if (instrumentType === 'text') {
             recognitionSection.innerHTML = `
@@ -673,13 +686,25 @@ async function showRawData(raw) {
         recognitionSection = document.getElementById('recognitionResultSection');
     }
     if (instrumentType === 'code') {
+        // Формат: OK;<код>;460524600 — берём всё между первым и последним ';'
         const parts = raw.split(';');
-        const code = parts.length > 1 ? parts[1] : raw;
+        let code = raw;
+        let codeExtra = '—';
+        if (parts.length >= 3) {
+            // Берём часть между первым и последним разделителем
+            code = parts.slice(1, -1).join(';');
+            // Вторая часть — после последнего ';'
+            codeExtra = parts[parts.length - 1];
+        } else if (parts.length === 2) {
+            code = parts[1];
+        }
         const codeEl = document.getElementById('codeValue');
-        if (codeEl) codeEl.innerText = code || '—';
+        if (codeEl) codeEl.innerText = sanitizeDisplayString(code);
+        const codeExtraEl = document.getElementById('codeExtra');
+        if (codeExtraEl) codeExtraEl.innerText = sanitizeDisplayString(codeExtra);
     } else if (instrumentType === 'text') {
         const textEl = document.getElementById('textValue');
-        if (textEl) textEl.innerText = raw || '—';
+        if (textEl) textEl.innerText = sanitizeDisplayString(raw);
     } else if (instrumentType === 'color') {
         const parts = raw.split(';');
         const colorName = parts.length > 1 ? parts[1] : raw;
@@ -688,12 +713,12 @@ async function showRawData(raw) {
         const colorRgbEl = document.getElementById('colorRgb');
         if (colorSampleEl && colorNameEl) {
             colorSampleEl.style.backgroundColor = colorName || '#808080';
-            colorNameEl.innerText = colorName ? colorName.charAt(0).toUpperCase() + colorName.slice(1) : '—';
+            colorNameEl.innerText = sanitizeDisplayString(colorName) || '—';
             if (colorRgbEl) colorRgbEl.innerText = getColorRgb(colorName) || '—';
         }
     } else {
         const rawEl = document.getElementById('rawValue');
-        if (rawEl) rawEl.innerText = raw || '—';
+        if (rawEl) rawEl.innerText = sanitizeDisplayString(raw);
     }
     recognitionSection.style.display = 'block';
 }
