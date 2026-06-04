@@ -261,11 +261,13 @@ class Database:
             query += " AND result = %s"
             params.append(result_filter)
         if date_from:
+            # Добавляем T00:00:00 для корректного сравнения с ISO форматом
+            date_from_inclusive = date_from + 'T00:00:00'
             query += " AND timestamp >= %s"
-            params.append(date_from)
+            params.append(date_from_inclusive)
         if date_to:
-            # Включаем весь день до 23:59:59
-            date_to_inclusive = date_to + ' 23:59:59'
+            # Включаем весь день до 23:59:59 (используем T для ISO формата)
+            date_to_inclusive = date_to + 'T23:59:59'
             query += " AND timestamp <= %s"
             params.append(date_to_inclusive)
         if order_number:
@@ -301,10 +303,11 @@ class Database:
         """
         params = []
         if date_from:
+            date_from_inclusive = date_from + 'T00:00:00'
             query += " AND timestamp >= %s"
-            params.append(date_from)
+            params.append(date_from_inclusive)
         if date_to:
-            date_to_inclusive = date_to + ' 23:59:59'
+            date_to_inclusive = date_to + 'T23:59:59'
             query += " AND timestamp <= %s"
             params.append(date_to_inclusive)
         with self.get_connection() as cursor:
@@ -543,10 +546,11 @@ class Database:
             query += " AND result = %s"
             params.append(result_filter)
         if date_from:
+            date_from_inclusive = date_from + 'T00:00:00'
             query += " AND timestamp >= %s"
-            params.append(date_from)
+            params.append(date_from_inclusive)
         if date_to:
-            date_to_inclusive = date_to + ' 23:59:59'
+            date_to_inclusive = date_to + 'T23:59:59'
             query += " AND timestamp <= %s"
             params.append(date_to_inclusive)
         with self.get_connection() as cursor:
@@ -567,10 +571,11 @@ class Database:
         """
         params = []
         if date_from:
+            date_from_inclusive = date_from + 'T00:00:00'
             query += " AND timestamp >= %s"
-            params.append(date_from)
+            params.append(date_from_inclusive)
         if date_to:
-            date_to_inclusive = date_to + ' 23:59:59'
+            date_to_inclusive = date_to + 'T23:59:59'
             query += " AND timestamp <= %s"
             params.append(date_to_inclusive)
         query += " GROUP BY COALESCE(NULLIF(scenario, ''), 'Не указан') ORDER BY total DESC"
@@ -591,10 +596,11 @@ class Database:
         """
         params = []
         if date_from:
+            date_from_inclusive = date_from + 'T00:00:00'
             query += " AND timestamp >= %s"
-            params.append(date_from)
+            params.append(date_from_inclusive)
         if date_to:
-            date_to_inclusive = date_to + ' 23:59:59'
+            date_to_inclusive = date_to + 'T23:59:59'
             query += " AND timestamp <= %s"
             params.append(date_to_inclusive)
         query += " GROUP BY COALESCE(NULLIF(project_name, ''), 'Без проекта') ORDER BY total DESC"
@@ -616,10 +622,11 @@ class Database:
         """
         params = []
         if date_from:
+            date_from_inclusive = date_from + 'T00:00:00'
             query += " AND timestamp >= %s"
-            params.append(date_from)
+            params.append(date_from_inclusive)
         if date_to:
-            date_to_inclusive = date_to + ' 23:59:59'
+            date_to_inclusive = date_to + 'T23:59:59'
             query += " AND timestamp <= %s"
             params.append(date_to_inclusive)
         query += """

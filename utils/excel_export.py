@@ -235,24 +235,49 @@ class ExcelReportExporter:
         """Экспорт истории проверок в Excel (универсальный метод)."""
         output = io.BytesIO()
         
+        # Форматируем дату: YYYY-MM-DD -> DD.MM.YY
+        date_str = report.get('date', '')
+        if date_str and len(date_str) == 10:
+            try:
+                date_obj = datetime.strptime(date_str, '%Y-%m-%d')
+                date_str = date_obj.strftime('%d.%m.%y')
+            except ValueError:
+                pass
+        
         with pd.ExcelWriter(output, engine='openpyxl') as writer:
-            # Лист со сводкой
+            # Лист со сводкой (KPI) - аналогично PDF
+            stats = report.get('statistics', report)  # Поддержка обоих форматов
             summary_data = {
                 'Параметр': ['Период', 'Всего проверок', 'Годен (OK)', 'Брак (NG)', '% качества'],
                 'Значение': [
-                    report.get('date', ''),
-                    report.get('total', 0),
-                    report.get('ok_count', 0),
-                    report.get('ng_count', 0),
-                    f"{report.get('ok_percent', 0)}%"
+                    date_str,
+                    stats.get('total', 0),
+                    stats.get('ok_count', 0),
+                    stats.get('ng_count', 0),
+                    f"{stats.get('ok_percent', 0):.1f}%"
                 ]
             }
             df_summary = pd.DataFrame(summary_data)
             df_summary.to_excel(writer, sheet_name='Сводка', index=False)
             
+            # Лист со статистикой по проектам (как в PDF)
+            project_data = report.get('project', [])
+            if project_data:
+                df_projects = pd.DataFrame(project_data)
+                df_projects = df_projects.rename(columns={
+                    'project_name': 'Проект',
+                    'total': 'Всего',
+                    'ok_count': 'OK',
+                    'ng_count': 'NG'
+                })
+                cols_to_keep = ['Проект', 'Всего', 'OK', 'NG']
+                df_projects = df_projects[[c for c in cols_to_keep if c in df_projects.columns]]
+                df_projects.to_excel(writer, sheet_name='Проекты', index=False)
+            
             # Лист с результатами
-            if report.get('results'):
-                df_results = pd.DataFrame(report['results'])
+            results = report.get('results', [])[:100]  # Ограничение как в PDF
+            if results:
+                df_results = pd.DataFrame(results)
                 if 'timestamp' in df_results.columns:
                     df_results['timestamp'] = pd.to_datetime(df_results['timestamp'])
                 df_results = df_results.rename(columns={

@@ -1,5 +1,9 @@
 // toast.js - Современная система уведомлений (Toast)
 
+let toastLogBuffer = [];
+let logFlushTimer = null;
+const LOG_FLUSH_INTERVAL = 5000; // 5 секунд
+
 /**
  * Показать toast-уведомление
  * @param {string} message - Текст сообщения
@@ -36,9 +40,62 @@ function showToast(message, type = 'info', title = '', duration = 4000) {
 
     container.appendChild(toast);
 
+    // Логирование toast
+    logToast(type, message, title);
+
     // Автоматическое скрытие через указанное время
     setTimeout(() => hideToast(toast), duration);
 }
+
+/**
+ * Логирование toast-сообщения в буфер
+ */
+function logToast(type, message, title) {
+    const logEntry = {
+        timestamp: new Date().toISOString(),
+        type,
+        message,
+        title: title || null,
+        page: window.location.pathname
+    };
+    
+    toastLogBuffer.push(logEntry);
+    
+    // Автоматическая отправка буфера
+    if (!logFlushTimer) {
+        logFlushTimer = setTimeout(flushToastLog, LOG_FLUSH_INTERVAL);
+    }
+}
+
+/**
+ * Отправка буфера логов на сервер
+ */
+async function flushToastLog() {
+    if (toastLogBuffer.length === 0) return;
+    
+    const entries = [...toastLogBuffer];
+    toastLogBuffer = [];
+    logFlushTimer = null;
+    
+    try {
+        await fetch('/api/toast-log', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ logs: entries })
+        });
+    } catch (error) {
+        console.warn('Ошибка отправки логов toast:', error);
+        // Возвращаем записи в буфер для повторной попытки
+        toastLogBuffer = [...entries, ...toastLogBuffer];
+    }
+}
+
+// Отправка буфера при закрытии страницы
+window.addEventListener('beforeunload', () => {
+    if (toastLogBuffer.length > 0) {
+        navigator.sendBeacon('/api/toast-log', JSON.stringify({ logs: toastLogBuffer }));
+    }
+});
 
 /**
  * Скрыть toast с анимацией
