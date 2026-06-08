@@ -912,6 +912,64 @@ body.dark-theme .order-link {
     font-family: 'Courier New', monospace;
 }
 
+/* Raw-данные в таблице (общий стиль) */
+.t-raw-display {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: #333333 !important;
+    white-space: pre-wrap;
+    word-break: break-word;
+    padding: 8px;
+    background: #f5f5f5 !important;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0 !important;
+}
+
+.t-raw-value {
+    color: #333333 !important;
+    display: block;
+}
+
+/* В тёмной теме raw-данные остаются со светлым фоном и тёмным текстом */
+body.dark-theme .t-raw-display {
+    color: #333333 !important;
+    background: #f5f5f5 !important;
+    border-color: #e0e0e0 !important;
+}
+
+body.dark-theme .t-raw-value {
+    color: #333333 !important;
+}
+
+/* Raw-данные в модальном окне */
+.detail-raw {
+    background: var(--bg-hover);
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-primary);
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    font-family: 'Courier New', monospace;
+}
+
+body.dark-theme .detail-raw {
+    color: #f0f0f0 !important;
+    background: rgba(0, 0, 0, 0.4) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+body.light-theme .detail-raw {
+    color: #333333 !important;
+    background: #f5f5f5 !important;
+    border-color: #e0e0e0 !important;
+}
+
 /* Кнопка экспорта в PDF в модальном окне */
 .detail-actions {
     margin-top: 16px;
