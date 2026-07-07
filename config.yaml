@@ -56,7 +56,6 @@ database:
   type: postgresql
   host: localhost
   port: 5432
-  dbname: stend_db
-  user: stend_user
-  # Пароль вынесен в .env файл (переменная DB_PASSWORD)
-  # password: ЗАКОММЕНТИРОВАНО ДЛЯ БЕЗОПАСНОСТИ - используйте переменную окружения
+  dbname: stend_hardware
+  user: stend
+  password: "Alexej@12"

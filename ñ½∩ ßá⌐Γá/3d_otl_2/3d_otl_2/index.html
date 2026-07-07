@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Система машинного зрения для контроля отливок</title>
+    <link rel="icon" href="images/logo/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="canvas-container"></div>
+
+    <div id="logo-container">
+        <a href="https://vdt-service.ru/" target="_blank">
+            <img src="images/logo/vdt_logo.jpg" alt="ВДТ-Сервис Логотип">
+        </a>
+    </div>
+
+    <div id="info-panel">
+        <h1>🔍 Система машинного зрения</h1>
+        <p><strong>Объект:</strong> Блок цилиндров двигателя</p>
+        <p><strong>Задача:</strong> Выявление дефектов от 0.5 мм</p>
+        <p><strong>Камеры:</strong> 4× Hikrobot MV-CH120-10GC</p>
+        <p><strong>Освещение:</strong> 4× LED стробоскоп</p>
+        <p><strong>Триггер:</strong> Omron E3Z-D82</p>
+        <p><strong>ПК:</strong> Advantech IPC-7130</p>
+    </div>
+
+    <div id="status-panel">
+        <h2>⚡ Статус системы</h2>
+        <div class="status-item">
+            <div class="status-indicator status-active"></div>
+            <span>Конвейер работает</span>
+        </div>
+        <div class="status-item">
+            <div class="status-indicator status-active"></div>
+            <span>Камеры активны</span>
+        </div>
+        <div class="status-item">
+            <div class="status-indicator status-warning" id="trigger-status"></div>
+            <span id="trigger-text">Ожидание детали...</span>
+        </div>
+        <div class="status-item">
+            <div class="status-indicator status-active"></div>
+            <span>ПК подключен</span>
+        </div>
+        <div class="status-item">
+            <div id="part-counter-indicator" class="status-indicator status-active"></div>
+            <span id="part-counter">Деталей: 0</span>
+        </div>
+    </div>
+
+    <div id="controls">
+        <span>🎮 Управление:</span>
+        <button onclick="toggleConveyor()">⏯ Конвейер</button>
+        <button onclick="triggerCapture()">📸 Захват</button>
+        <button onclick="resetCamera()">🔄 Сброс камеры</button>
+        <button onclick="resetPartCounter()">🔄 Сброс счетчика</button>
+        <span>Мышь: вращение | Колесо: зум</span>
+    </div>
+
+    <div id="counter-panel">
+        <h2>📊 План производства</h2>
+        <div class="counter-item">
+            <span>План:</span>
+            <span id="production-plan">100</span>
+        </div>
+        <div class="counter-item">
+            <span>Факт:</span>
+            <span id="production-actual">0</span>
+        </div>
+        <div class="counter-item">
+            <span>Отклонение:</span>
+            <span id="production-deviation">-100</span>
+        </div>
+    </div>
+
+    <canvas id="counter-canvas" style="display: none;" width="512" height="256"></canvas>
+
+    <footer id="main-footer">
+        <div class="footer-content">
+            <a href="https://vdt-service.ru/" target="_blank" class="footer-link">
+                <strong>Разработано ООО "ВДТ-Сервис"</strong>
+            </a>
+            <!-- <span class="footer-divider">|</span> -->
+            <!-- span class="footer-address">Россия, г. Тольятти, ул. Маршала Жукова, Дом 6, Офис 9</span> -->
+            <!-- <span class="footer-divider">|</span> -->
+            <!-- <span class="footer-copyright">© Copyright, 2006 - 2026 г.</span> -->
+            <!-- <a href="docs/privacy-policy.pdf" target="_blank" class="footer-link">Политика конфиденциальности</a> -->
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
