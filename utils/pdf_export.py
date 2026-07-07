@@ -54,7 +54,7 @@ _REGISTERED = _register_fonts()
 
 # Цветовая палитра проекта
 _COLOR_OK = colors.Color(0 / 255, 255 / 255, 136 / 255)
-_COLOR_NG = colors.Color(180 / 255, 40 / 255, 50 / 255)  # Более тёмный красный для NG
+_COLOR_NG = colors.Color(255 / 255, 71 / 255, 87 / 255)
 _COLOR_PRIMARY = colors.Color(102 / 255, 126 / 255, 234 / 255)
 _COLOR_PRIMARY_DARK = colors.Color(82 / 255, 106 / 255, 214 / 255)
 _COLOR_TEXT = colors.Color(51 / 255, 51 / 255, 51 / 255)
@@ -158,7 +158,7 @@ class PDFExporter:
             pagesize=A4,
             leftMargin=15 * mm,
             rightMargin=15 * mm,
-            topMargin=20 * mm,  # Увеличено для логотипа
+            topMargin=15 * mm,
             bottomMargin=15 * mm,
         )
 
@@ -174,18 +174,9 @@ class PDFExporter:
 
         story = []
 
-        # Форматируем дату: YYYY-MM-DD -> DD.MM.YY
-        date_str = report.get('date', '')
-        if date_str and len(date_str) == 10:
-            try:
-                date_obj = datetime.strptime(date_str, '%Y-%m-%d')
-                date_str = date_obj.strftime('%d.%m.%y')
-            except ValueError:
-                pass
-
         # Заголовок
         story.append(Paragraph("Отчёт по истории проверок", self.title_style))
-        story.append(Paragraph(f"Период: {date_str}", self.subtitle_style))
+        story.append(Paragraph(f"Период: {report.get('date', '')}", self.subtitle_style))
         story.append(Spacer(1, 4 * mm))
 
         # KPI таблица
@@ -213,13 +204,12 @@ class PDFExporter:
     def export_detail_report(self, result: dict) -> bytes:
         """Генерирует PDF-карточку одной проверки (для модального окна)."""
         buffer = io.BytesIO()
-        # Отступы с учётом печати (минимум 15 мм для принтера) и места для логотипа
         doc = BaseDocTemplate(
             buffer,
             pagesize=A4,
             leftMargin=15 * mm,
             rightMargin=15 * mm,
-            topMargin=20 * mm,  # Увеличено для логотипа
+            topMargin=15 * mm,
             bottomMargin=15 * mm,
         )
 
@@ -235,10 +225,10 @@ class PDFExporter:
 
         story = []
 
-        # Заголовок (уменьшен)
+        # Заголовок
         story.append(Paragraph("Карточка проверки", self.title_style))
         story.append(Paragraph(f"Запись № {result.get('id', '—')}", self.subtitle_style))
-        story.append(Spacer(1, 2 * mm))
+        story.append(Spacer(1, 4 * mm))
 
         # Результат
         result_val = result.get('result', '—')
@@ -247,19 +237,23 @@ class PDFExporter:
             'DetailResult',
             parent=self.normal_style,
             fontName=_get_font_name(bold=True),
-            fontSize=12,
+            fontSize=14,
             textColor=result_color,
             alignment=1,
-            spaceAfter=2 * mm,
+            spaceAfter=4 * mm,
         )
         story.append(Paragraph(f"Результат: {result_val}", result_style))
 
-        # Изображение (если есть) - уменьшено
+        # Изображение (если есть)
         image_path = result.get('image_path')
         if image_path:
+            # Пробуем несколько возможных путей к изображению
             possible_paths = [
+                # Путь относительно pdf_export.py -> data/images/foto/...
                 os.path.join(os.path.dirname(__file__), '..', 'data', 'images', image_path),
+                # Путь с подкаталогом foto (если image_path уже содержит OK/NG)
                 os.path.join(os.path.dirname(__file__), '..', 'data', 'images', 'foto', image_path),
+                # Прямой путь (если image_path абсолютный или относительный от корня проекта)
                 os.path.join(os.path.dirname(__file__), '..', image_path),
             ]
             
@@ -270,15 +264,16 @@ class PDFExporter:
                     break
             
             if full_image_path:
-                story.append(self._build_detail_image_compact(full_image_path))
-                story.append(Spacer(1, 2 * mm))
+                story.append(Paragraph("Изображение детали", self.heading_style))
+                story.append(self._build_detail_image(full_image_path))
+                story.append(Spacer(1, 4 * mm))
 
         # Основная информация
         story.append(Paragraph("Основная информация", self.heading_style))
         story.append(self._build_detail_info_table(result))
-        story.append(Spacer(1, 1 * mm))
+        story.append(Spacer(1, 4 * mm))
 
-        # Датчики - компактно
+        # Датчики
         sensors = [
             ('sensor_d1', 'D1'),
             ('sensor_d2', 'D2'),
@@ -288,10 +283,10 @@ class PDFExporter:
             ('tumbler_b', 'Тумблер B'),
         ]
         story.append(Paragraph("Датчики", self.heading_style))
-        story.append(self._build_sensors_table_compact(result, sensors))
-        story.append(Spacer(1, 1 * mm))
+        story.append(self._build_sensors_table(result, sensors))
+        story.append(Spacer(1, 4 * mm))
 
-        # Raw-данные - только если есть и компактно
+        # Raw-данные
         raw = result.get('raw')
         if raw:
             story.append(Paragraph("Raw-данные", self.heading_style))
@@ -305,13 +300,11 @@ class PDFExporter:
                 'RawStyle',
                 parent=self.normal_style,
                 fontName='Courier',
-                fontSize=7,
-                leading=9,
+                fontSize=8,
+                leading=10,
             )
-            # Обрезаем если слишком длинный
-            if len(raw_text) > 500:
-                raw_text = raw_text[:500] + '...'
             story.append(Paragraph(raw_text.replace('\n', '<br/>').replace(' ', '&nbsp;'), raw_style))
+            story.append(Spacer(1, 2 * mm))
 
         doc.build(story)
         buffer.seek(0)
@@ -324,49 +317,6 @@ class PDFExporter:
             return img
         except Exception:
             return Paragraph("Изображение недоступно", self.normal_style)
-
-    def _build_detail_image_compact(self, image_path: str):
-        """Создаёт компактное изображение для карточки проверки."""
-        try:
-            img = RLImage(image_path, width=70 * mm, height=50 * mm)
-            return img
-        except Exception:
-            return Paragraph("Изображение недоступно", self.normal_style)
-
-    def _build_sensors_table_compact(self, result: dict, sensors: list):
-        """Создаёт компактную таблицу состояния датчиков (2 колонки)."""
-        data = []
-        for i in range(0, len(sensors), 2):
-            row = []
-            for j in range(2):
-                if i + j < len(sensors):
-                    key, label = sensors[i + j]
-                    val = result.get(key)
-                    is_on = val == 1 or val is True
-                    state_text = 'ON' if is_on else 'OFF'
-                    state_color = 'green' if is_on else 'red'
-                    row.append(
-                        Paragraph(
-                            f'{label}: <font color="{state_color}"><b>{state_text}</b></font>',
-                            self.cell_style,
-                        )
-                    )
-                else:
-                    row.append(Paragraph("", self.cell_style))
-            data.append(row)
-
-        col_widths = [60 * mm, 60 * mm]
-        table = Table(data, colWidths=col_widths, hAlign='LEFT')
-        table.setStyle(TableStyle([
-            ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
-            ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
-            ('FONTSIZE', (0, 0), (-1, -1), 8),
-            ('BOTTOMPADDING', (0, 0), (-1, -1), 4),
-            ('TOPPADDING', (0, 0), (-1, -1), 4),
-            ('LEFTPADDING', (0, 0), (-1, -1), 4),
-            ('RIGHTPADDING', (0, 0), (-1, -1), 4),
-        ]))
-        return table
 
     def _build_detail_info_table(self, result: dict):
         """Создаёт таблицу с основной информацией о проверке."""
@@ -570,20 +520,6 @@ class PDFExporter:
 
         return drawing
 
-    def _format_timestamp(self, ts: str) -> str:
-        """Преобразует timestamp в формат DD.MM.YY, HH:MM."""
-        if not ts:
-            return '—'
-        try:
-            # Пробуем ISO формат с T
-            if 'T' in ts:
-                dt = datetime.strptime(ts[:19], '%Y-%m-%dT%H:%M:%S')
-            else:
-                dt = datetime.strptime(ts[:19], '%Y-%m-%d %H:%M:%S')
-            return dt.strftime('%d.%m.%y, %H:%M')
-        except (ValueError, TypeError):
-            return ts
-
     def _build_results_table(self, results: list):
         """Создаёт таблицу с результатами проверок."""
         headers = [
@@ -599,11 +535,9 @@ class PDFExporter:
                 f'<font color="{result_color}"><b>{result_val}</b></font>',
                 self.cell_style,
             )
-            # Форматируем timestamp
-            timestamp = self._format_timestamp(r.get('timestamp', ''))
             row = [
                 Paragraph(str(i), self.cell_style),
-                Paragraph(timestamp, self.cell_style),
+                Paragraph(str(r.get('timestamp', '')), self.cell_style),
                 result_cell,
                 Paragraph(str(r.get('order_number', '') or '—'), self.cell_style),
                 Paragraph(str(r.get('scenario', '') or '—'), self.cell_style),
@@ -611,18 +545,8 @@ class PDFExporter:
             ]
             data.append(row)
 
-        col_widths = [12 * mm, 38 * mm, 18 * mm, 30 * mm, 20 * mm, 38 * mm]
+        col_widths = [12 * mm, 32 * mm, 18 * mm, 30 * mm, 20 * mm, 38 * mm]
         table = Table(data, colWidths=col_widths, repeatRows=1)
-        
-        # Динамически генерируем стили для чередования строк
-        num_rows = len(data)
-        row_styles = []
-        for row_idx in range(1, num_rows):  # Пропускаем заголовок (индекс 0)
-            if row_idx % 2 == 1:  # Нечётные строки (1, 3, 5...) — белый
-                row_styles.append(('BACKGROUND', (0, row_idx), (-1, row_idx), colors.white))
-            else:  # Чётные строки (2, 4, 6...) — серый
-                row_styles.append(('BACKGROUND', (0, row_idx), (-1, row_idx), _COLOR_BG))
-        
         table.setStyle(TableStyle([
             ('BACKGROUND', (0, 0), (-1, 0), _COLOR_PRIMARY),
             ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
@@ -634,12 +558,19 @@ class PDFExporter:
             ('FONTSIZE', (0, 0), (-1, 0), 8),
             ('BOTTOMPADDING', (0, 0), (-1, 0), 6),
             ('TOPPADDING', (0, 0), (-1, 0), 6),
+            ('BACKGROUND', (0, 1), (-1, -1), colors.white),
             ('GRID', (0, 0), (-1, -1), 0.5, colors.Color(0.85, 0.85, 0.85)),
             ('LEFTPADDING', (0, 0), (-1, -1), 4),
             ('RIGHTPADDING', (0, 0), (-1, -1), 4),
             ('BOTTOMPADDING', (0, 1), (-1, -1), 4),
             ('TOPPADDING', (0, 1), (-1, -1), 4),
-        ] + row_styles))
+            # Чередование фона строк
+            ('BACKGROUND', (0, 2), (-1, 2), _COLOR_BG),
+            ('BACKGROUND', (0, 4), (-1, 4), _COLOR_BG),
+            ('BACKGROUND', (0, 6), (-1, 6), _COLOR_BG),
+            ('BACKGROUND', (0, 8), (-1, 8), _COLOR_BG),
+            ('BACKGROUND', (0, 10), (-1, 10), _COLOR_BG),
+        ]))
         return table
 
 

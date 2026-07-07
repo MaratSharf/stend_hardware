@@ -109,19 +109,11 @@ function setupDatePresets() {
 
 function applyCurrentFilters() {
     const result = document.getElementById('filterResult').value;
-    let dateFrom = document.getElementById('filterDateFrom').value;
-    let dateTo = document.getElementById('filterDateTo').value;
+    const dateFrom = document.getElementById('filterDateFrom').value;
+    const dateTo = document.getElementById('filterDateTo').value;
     const orderNumber = document.getElementById('filterOrder').value.trim();
     const projectName = document.getElementById('filterProject').value.trim();
     const scenario = document.getElementById('filterScenario').value;
-
-    // Если выбрана только одна дата (в любом поле), установить её в оба поля
-    if (dateFrom && !dateTo) {
-        dateTo = dateFrom;
-    }
-    if (dateTo && !dateFrom) {
-        dateFrom = dateTo;
-    }
 
     currentFilters = {};
     if (result) currentFilters.result = result;
@@ -198,7 +190,7 @@ async function loadResults() {
                             <td>${rowNumber}</td>
                             <td>${formatDateTime(r.timestamp)}</td>
                             <td><span class="result-badge ${r.result.toLowerCase()}">${r.result}</span></td>
-                            <td>${r.order_number ? `<span class="order-link">${r.order_number}</span>` : '<span class="no-order">—</span>'}</td>
+                            <td>${r.order_number ? `<span class="order-link">${r.order_number}</span>` : '<span class="no-order">—'}</td>
                             <td>${r.scenario || '—'}</td>
                             <td>${r.project_name || '—'}</td>
                             <td>${renderImage(r.image_path)}</td>
@@ -346,6 +338,14 @@ function setupFilters() {
 }
 
 function exportData(format) {
+    const btnMap = { csv: 'exportCsvBtn', excel: 'exportExcelBtn', pdf: 'exportPdfBtn' };
+    const btn = document.getElementById(btnMap[format]);
+    const originalText = btn.innerHTML;
+    
+    // Показываем индикатор загрузки
+    btn.classList.add('spinner');
+    btn.disabled = true;
+    
     try {
         const params = new URLSearchParams({
             ...currentFilters,
@@ -368,6 +368,13 @@ function exportData(format) {
     } catch (error) {
         console.error('Ошибка экспорта:', error);
         showToast('Ошибка при экспорте', 'error');
+    } finally {
+        // Сбрасываем состояние кнопки
+        setTimeout(() => {
+            btn.classList.remove('spinner');
+            btn.disabled = false;
+            btn.innerHTML = originalText;
+        }, 1000);
     }
 }
 

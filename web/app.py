@@ -3,9 +3,7 @@ import os
 import secrets
 import threading
 import time
-import logging
-from datetime import datetime
-from flask import Flask, request, send_from_directory, jsonify
+from flask import Flask, request, send_from_directory
 from flask_socketio import SocketIO, emit
 from utils.logger import setup_logger
 
@@ -17,13 +15,6 @@ def create_app(config: dict, controller, db) -> Flask:
     
     # Время жизни сессии (24 часа)
     app.config['PERMANENT_SESSION_LIFETIME'] = 86400
-    
-    # Настройки cookie для сессий
-    app.config['SESSION_COOKIE_HTTPONLY'] = True
-    app.config['SESSION_COOKIE_SECURE'] = False  # False для HTTP
-    app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
-    app.config['SESSION_COOKIE_NAME'] = 'session'
-    app.config['SESSION_TYPE'] = 'filesystem'  # Использовать файлы для сессий
 
     app.config['config'] = config
     app.config['controller'] = controller
@@ -70,18 +61,20 @@ def create_app(config: dict, controller, db) -> Flask:
     # Регистрация Blueprints
     from web.pages.monitoring import monitoring_bp
     from web.pages.tools import tools_bp
-    from web.pages.reports import reports_bp
+    from web.pages.history import history_bp
     from web.pages.debug import debug_bp
     from web.pages.settings import settings_bp
+    from web.pages.reports import reports_bp
     from web.pages.auth import auth_bp
     from web.pages.users import users_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(monitoring_bp)
     app.register_blueprint(tools_bp)
-    app.register_blueprint(reports_bp)
+    app.register_blueprint(history_bp)
     app.register_blueprint(debug_bp)
     app.register_blueprint(settings_bp)
+    app.register_blueprint(reports_bp)
     app.register_blueprint(users_bp)
 
     @app.after_request
@@ -90,42 +83,6 @@ def create_app(config: dict, controller, db) -> Flask:
             response.cache_control.max_age = 3600
             response.cache_control.public = True
         return response
-
-    # API: Логирование toast-уведомлений
-    @app.route('/api/toast-log', methods=['POST'])
-    def log_toast():
-        """Получение и запись toast-уведомлений от клиента"""
-        try:
-            data = request.get_json() or {}
-            logs = data.get('logs', [])
-            
-            if not logs:
-                return jsonify({'success': False, 'error': 'Нет данных'}), 400
-            
-            # Настройка логгера для toast
-            toast_logger = setup_logger(
-                'toast',
-                log_dir=log_dir,
-                level=logging.INFO,
-                max_bytes=10 * 1024 * 1024,  # 10 MB
-                backup_count=5
-            )
-            
-            # Запись каждого лога
-            for entry in logs:
-                timestamp = entry.get('timestamp', '')
-                log_type = entry.get('type', 'info')
-                message = entry.get('message', '')
-                title = entry.get('title', '')
-                page = entry.get('page', '')
-                
-                log_line = f"[{timestamp}] [{log_type.upper()}] [{page}] {title}: {message}"
-                toast_logger.info(log_line)
-            
-            return jsonify({'success': True, 'logged': len(logs)})
-        except Exception as e:
-            app.logger.error(f"Ошибка в /api/toast-log: {e}")
-            return jsonify({'success': False, 'error': str(e)}), 500
 
     # Обработчики WebSocket событий
     @socketio.on('connect')

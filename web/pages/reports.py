@@ -1,17 +1,16 @@
 # web/pages/reports.py
 # -*- coding: utf-8 -*-
 """
-Blueprint для страницы отчётов и истории проверок.
+Blueprint для страницы отчётов и экспорта.
 """
 
-from flask import Blueprint, render_template, jsonify, request, current_app, send_file
+from flask import Blueprint, render_template, jsonify, request, current_app
+from datetime import datetime
+from utils.report_generator import get_report_generator
+from utils.excel_export import get_excel_exporter
 from web.pages.auth import login_required, get_current_user
 from utils.database import get_database
 from core.config import get_config
-from utils.excel_export import get_excel_exporter
-from utils.pdf_export import get_pdf_exporter
-import io
-from datetime import datetime
 
 reports_bp = Blueprint('reports', __name__)
 
@@ -23,267 +22,109 @@ def reports_page():
     current_user = get_current_user(db)
     return render_template('reports.html', current_user=current_user)
 
-@reports_bp.route('/api/results')
-def api_results():
+@reports_bp.route('/api/reports/daily', methods=['GET'])
+def api_daily_report():
     try:
-        db = current_app.config.get('db')
-        if not db:
-            return jsonify({'success': False, 'error': 'Database not available'}), 500
-        limit = request.args.get('limit', 100, type=int)
-        offset = request.args.get('offset', 0, type=int)
-        result_filter = request.args.get('result', None) or None
-        date_from = request.args.get('date_from', None) or None
-        date_to = request.args.get('date_to', None) or None
-        order_number = request.args.get('order_number', None) or None
-        project_name = request.args.get('project_name', None) or None
-        scenario = request.args.get('scenario', None) or None
-        
-        # Получаем точное количество записей с учётом фильтров
-        total = db.get_filtered_count(result_filter, date_from, date_to)
-        results = db.get_results(limit=limit, offset=offset,
-                                 result_filter=result_filter,
-                                 date_from=date_from, date_to=date_to,
-                                 order_number=order_number,
-                                 project_name=project_name,
-                                 scenario=scenario)
-        return jsonify({'success': True, 'results': results, 'total': total})
+        date = request.args.get('date')
+        if not date:
+            return jsonify({'success': False, 'error': 'Missing date parameter'}), 400
+        generator = get_report_generator()
+        report = generator.get_daily_report(date)
+        return jsonify({'success': True, 'report': report})
     except Exception as e:
-        current_app.logger.exception("Ошибка в api_results")
+        current_app.logger.exception("Ошибка в api_daily_report")
         return jsonify({'success': False, 'error': 'Internal server error'}), 500
 
-@reports_bp.route('/api/statistics')
-def api_statistics():
+@reports_bp.route('/api/reports/shift', methods=['GET'])
+def api_shift_report():
     try:
-        db = current_app.config.get('db')
-        if not db:
-            return jsonify({'success': False, 'error': 'Database not available'}), 500
-        date_from = request.args.get('date_from', None)
-        date_to = request.args.get('date_to', None)
-        stats = db.get_statistics(date_from=date_from, date_to=date_to)
-        daily_stats = db.get_daily_statistics(days=30)
-        project_stats = db.get_project_statistics(date_from=date_from, date_to=date_to)
-        order_ng_stats = db.get_top_ng_orders(limit=10, date_from=date_from, date_to=date_to)
-        return jsonify({
-            'success': True,
-            'statistics': stats,
-            'daily': daily_stats,
-            'project': project_stats,
-            'top_ng_orders': order_ng_stats
-        })
+        date = request.args.get('date')
+        shift = request.args.get('shift', type=int)
+        if not date:
+            return jsonify({'success': False, 'error': 'Missing date parameter'}), 400
+        if not shift or shift not in [1,2,3]:
+            return jsonify({'success': False, 'error': 'Invalid shift number'}), 400
+        generator = get_report_generator()
+        report = generator.get_shift_report(date, shift)
+        return jsonify({'success': True, 'report': report})
     except Exception as e:
-        current_app.logger.exception("Ошибка в api_statistics")
+        current_app.logger.exception("Ошибка в api_shift_report")
         return jsonify({'success': False, 'error': 'Internal server error'}), 500
 
-@reports_bp.route('/api/results/<int:result_id>')
-def api_result_by_id(result_id):
+@reports_bp.route('/api/reports/weekly', methods=['GET'])
+def api_weekly_report():
     try:
-        db = current_app.config.get('db')
-        if not db:
-            return jsonify({'success': False, 'error': 'Database not available'}), 500
-        result = db.get_result_by_id(result_id)
-        if result:
-            return jsonify({'success': True, 'result': result})
-        return jsonify({'success': False, 'error': 'Result not found'}), 404
+        year = request.args.get('year', type=int)
+        week = request.args.get('week', type=int)
+        if not year or not week:
+            return jsonify({'success': False, 'error': 'Missing year or week parameter'}), 400
+        generator = get_report_generator()
+        report = generator.get_weekly_report(year, week)
+        return jsonify({'success': True, 'report': report})
     except Exception as e:
-        current_app.logger.exception("Ошибка в api_result_by_id")
+        current_app.logger.exception("Ошибка в api_weekly_report")
         return jsonify({'success': False, 'error': 'Internal server error'}), 500
 
-@reports_bp.route('/api/export/csv')
-@login_required
-def api_export_csv():
-    """Экспорт результатов в CSV с учётом фильтров."""
+@reports_bp.route('/api/reports/monthly', methods=['GET'])
+def api_monthly_report():
     try:
-        db = current_app.config.get('db')
-        if not db:
-            return jsonify({'success': False, 'error': 'Database not available'}), 500
-        
-        # Получаем фильтры из запроса
-        result_filter = request.args.get('result', None) or None
-        date_from = request.args.get('date_from', None) or None
-        date_to = request.args.get('date_to', None) or None
-        order_number = request.args.get('order_number', None) or None
-        project_name = request.args.get('project_name', None) or None
-        scenario = request.args.get('scenario', None) or None
-        limit = request.args.get('limit', 10000, type=int)  # Большой лимит для экспорта
-        
-        results = db.get_results(limit=limit, offset=0,
-                                 result_filter=result_filter,
-                                 date_from=date_from, date_to=date_to,
-                                 order_number=order_number,
-                                 project_name=project_name,
-                                 scenario=scenario)
-        
-        # Формируем CSV
-        import csv
-        output = io.StringIO()
-        fieldnames = ['id', 'timestamp', 'result', 'order_number', 'scenario', 
-                      'project_name', 'sensor_d1', 'sensor_d2', 'sensor_d3', 
-                      'sensor_d4', 'tumbler_a', 'tumbler_b', 'raw']
-        writer = csv.DictWriter(output, fieldnames=fieldnames, delimiter=';', quoting=csv.QUOTE_ALL)
-        writer.writeheader()
-        
-        for r in results:
-            row = {k: r.get(k, '') for k in fieldnames}
-            writer.writerow(row)
-        
-        # Формируем имя файла с датой
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        filename = f'export_{timestamp}.csv'
-        
-        output.seek(0)
-        return send_file(
-            io.BytesIO(output.getvalue().encode('utf-8-sig')),  # BOM для Excel
-            mimetype='text/csv',
-            as_attachment=True,
-            download_name=filename
-        )
+        year = request.args.get('year', type=int)
+        month = request.args.get('month', type=int)
+        if not year or not month:
+            return jsonify({'success': False, 'error': 'Missing year or month parameter'}), 400
+        generator = get_report_generator()
+        report = generator.get_monthly_report(year, month)
+        return jsonify({'success': True, 'report': report})
     except Exception as e:
-        current_app.logger.exception("Ошибка в api_export_csv")
-        return jsonify({'success': False, 'error': str(e)}), 500
+        current_app.logger.exception("Ошибка в api_monthly_report")
+        return jsonify({'success': False, 'error': 'Internal server error'}), 500
 
-@reports_bp.route('/api/export/excel')
-@login_required
-def api_export_excel():
-    """Экспорт результатов в Excel с учётом фильтров."""
+@reports_bp.route('/api/reports/ng-analysis', methods=['GET'])
+def api_ng_analysis():
     try:
-        db = current_app.config.get('db')
-        if not db:
-            return jsonify({'success': False, 'error': 'Database not available'}), 500
-        
-        # Получаем фильтры из запроса
-        result_filter = request.args.get('result', None) or None
-        date_from = request.args.get('date_from', None) or None
-        date_to = request.args.get('date_to', None) or None
-        order_number = request.args.get('order_number', None) or None
-        project_name = request.args.get('project_name', None) or None
-        scenario = request.args.get('scenario', None) or None
-        limit = request.args.get('limit', 10000, type=int)  # Большой лимит для экспорта
-        
-        results = db.get_results(limit=limit, offset=0,
-                                 result_filter=result_filter,
-                                 date_from=date_from, date_to=date_to,
-                                 order_number=order_number,
-                                 project_name=project_name,
-                                 scenario=scenario)
-        
-        # Получаем статистику за период
-        stats = db.get_statistics(date_from=date_from, date_to=date_to)
-        
-        # Формируем отчёт для экспортера
-        report = {
-            'date': f"{date_from or 'Начало'} — {date_to or 'Сегодня'}",
-            'total': stats['total'],
-            'ok_count': stats['ok_count'],
-            'ng_count': stats['ng_count'],
-            'ok_percent': stats['ok_percent'],
-            'results': results
-        }
-        
-        # Экспортируем в Excel
+        date_from = request.args.get('date_from')
+        date_to = request.args.get('date_to')
+        if not date_from or not date_to:
+            return jsonify({'success': False, 'error': 'Missing date parameters'}), 400
+        generator = get_report_generator()
+        report = generator.get_ng_analysis(date_from, date_to)
+        return jsonify({'success': True, 'report': report})
+    except Exception as e:
+        current_app.logger.exception("Ошибка в api_ng_analysis")
+        return jsonify({'success': False, 'error': 'Internal server error'}), 500
+
+@reports_bp.route('/api/reports/export', methods=['POST'])
+def api_export_report():
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({'success': False, 'error': 'Missing data'}), 400
+        report_type = data.get('report_type')
+        report_data = data.get('report_data')
+        if not report_type or not report_data:
+            return jsonify({'success': False, 'error': 'Missing report_type or report_data'}), 400
         exporter = get_excel_exporter()
-        excel_data = exporter.export_history_report(report)
-        
-        # Формируем имя файла с датой
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        filename = f'export_{timestamp}.xlsx'
-        
-        return send_file(
-            io.BytesIO(excel_data),
+        if report_type == 'daily':
+            excel_data = exporter.export_daily_report(report_data)
+        elif report_type == 'shift':
+            excel_data = exporter.export_shift_report(report_data)
+        elif report_type == 'weekly':
+            excel_data = exporter.export_weekly_report(report_data)
+        elif report_type == 'monthly':
+            excel_data = exporter.export_monthly_report(report_data)
+        elif report_type == 'ng-analysis':
+            excel_data = exporter.export_ng_analysis(report_data)
+        else:
+            return jsonify({'success': False, 'error': 'Unknown report type'}), 400
+        return current_app.response_class(
+            response=excel_data,
+            status=200,
             mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-            as_attachment=True,
-            download_name=filename
+            headers={'Content-Disposition': f'attachment; filename=report_{report_type}_{datetime.now().strftime("%Y%m%d")}.xlsx'}
         )
+    except ImportError as e:
+        current_app.logger.error(f"Excel export not available: {e}")
+        return jsonify({'success': False, 'error': 'Excel export requires pandas and openpyxl: pip install pandas openpyxl'}), 503
     except Exception as e:
-        current_app.logger.exception("Ошибка в api_export_excel")
-        return jsonify({'success': False, 'error': str(e)}), 500
-
-@reports_bp.route('/api/export/pdf')
-@login_required
-def api_export_pdf():
-    """Экспорт результатов в PDF с учётом фильтров."""
-    try:
-        db = current_app.config.get('db')
-        if not db:
-            return jsonify({'success': False, 'error': 'Database not available'}), 500
-        
-        # Получаем фильтры из запроса
-        result_filter = request.args.get('result', None) or None
-        date_from = request.args.get('date_from', None) or None
-        date_to = request.args.get('date_to', None) or None
-        order_number = request.args.get('order_number', None) or None
-        project_name = request.args.get('project_name', None) or None
-        scenario = request.args.get('scenario', None) or None
-        limit = request.args.get('limit', 500, type=int)  # Ограничение для PDF (100 строк максимум)
-        
-        results = db.get_results(limit=limit, offset=0,
-                                 result_filter=result_filter,
-                                 date_from=date_from, date_to=date_to,
-                                 order_number=order_number,
-                                 project_name=project_name,
-                                 scenario=scenario)
-        
-        # Получаем статистику за период
-        stats = db.get_statistics(date_from=date_from, date_to=date_to)
-        project_stats = db.get_project_statistics(date_from=date_from, date_to=date_to)
-        
-        # Формируем отчёт для экспортера
-        report = {
-            'date': f"{date_from or 'Начало'} — {date_to or 'Сегодня'}",
-            'statistics': stats,
-            'project': project_stats,
-            'results': results
-        }
-        
-        # Экспортируем в PDF
-        exporter = get_pdf_exporter()
-        pdf_data = exporter.export_history_report(report)
-        
-        # Формируем имя файла с датой
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        filename = f'export_{timestamp}.pdf'
-        
-        return send_file(
-            io.BytesIO(pdf_data),
-            mimetype='application/pdf',
-            as_attachment=True,
-            download_name=filename
-        )
-    except ImportError:
-        current_app.logger.error("PDF export not available")
-        return jsonify({'success': False, 'error': 'PDF export requires reportlab: pip install reportlab'}), 503
-    except Exception as e:
-        current_app.logger.exception("Ошибка в api_export_pdf")
-        return jsonify({'success': False, 'error': str(e)}), 500
-
-
-@reports_bp.route('/api/export/pdf/<int:result_id>')
-@login_required
-def api_export_detail_pdf(result_id):
-    """Экспорт одной записи в PDF (из модального окна)."""
-    try:
-        db = current_app.config.get('db')
-        if not db:
-            return jsonify({'success': False, 'error': 'Database not available'}), 500
-        
-        result = db.get_result_by_id(result_id)
-        if not result:
-            return jsonify({'success': False, 'error': 'Result not found'}), 404
-        
-        exporter = get_pdf_exporter()
-        pdf_data = exporter.export_detail_report(result)
-        
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        filename = f'record_{result_id}_{timestamp}.pdf'
-        
-        return send_file(
-            io.BytesIO(pdf_data),
-            mimetype='application/pdf',
-            as_attachment=True,
-            download_name=filename
-        )
-    except ImportError:
-        current_app.logger.error("PDF export not available")
-        return jsonify({'success': False, 'error': 'PDF export requires reportlab: pip install reportlab'}), 503
-    except Exception as e:
-        current_app.logger.exception("Ошибка в api_export_detail_pdf")
-        return jsonify({'success': False, 'error': str(e)}), 500
+        current_app.logger.exception("Ошибка в api_export_report")
+        return jsonify({'success': False, 'error': 'Internal server error'}), 500

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="История проверок и результаты инспекции деталей">
+    <title>MV Stend - История проверок</title>
+    <!-- Базовые стили -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Стили страницы истории -->
+    <link rel="stylesheet" href="/static/css/history.css">
+    <link rel="stylesheet" href="/static/fonts/inter.css">
+    <!-- Предзагрузка критических ресурсов -->
+    <link rel="preconnect" href="/api">
+</head>
+<body>
+<div class="app-container" id="allrecords">
+    <!-- ======================= ЛЕВОЕ БОКОВОЕ МЕНЮ ======================= -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-text">MV Stend</span>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="/" class="nav-item">
+                <span class="nav-icon">📊</span>
+                <span>Мониторинг</span>
+            </a>
+            <a href="/tools" class="nav-item">
+                <span class="nav-icon">🔧</span>
+                <span>Инструменты</span>
+            </a>
+            <a href="/history" class="nav-item active">
+                <span class="nav-icon">📋</span>
+                <span>История</span>
+            </a>
+            <a href="/debug" class="nav-item">
+                <span class="nav-icon">🐞</span>
+                <span>Отладка</span>
+            </a>
+            <a href="/settings" class="nav-item">
+                <span class="nav-icon">⚙️</span>
+                <span>Настройки</span>
+            </a>
+            <a href="/reports" class="nav-item">
+                <span class="nav-icon">📈</span>
+                <span>Отчёты</span>
+            </a>
+            <!-- Ссылка на управление пользователями (для администраторов) -->
+            <a href="/users" class="nav-item admin-only" style="display: none;">
+                <span class="nav-icon">👥</span>
+                <span>Пользователи</span>
+            </a>
+        </nav>
+
+        <!-- Блок пользователя в сайдбаре -->
+        <div class="sidebar-user" id="sidebarUser" style="display: none;">
+            <div class="user-info">
+                <span class="user-name" id="userName">—</span>
+                <span class="user-role" id="userRole">—</span>
+            </div>
+            <a href="/auth/logout" class="btn-logout" title="Выйти">
+                <span>🚪</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Overlay для мобильного меню -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ======================= ОСНОВНАЯ ОБЛАСТЬ ======================= -->
+    <main class="main-content">
+        <!-- Верхняя панель с заголовком и логотипом VDT -->
+        <div class="page-header">
+            <div class="page-header__left">
+                <button class="t-menuburger" id="burgerBtn" aria-label="Меню">
+                    <span></span><span></span><span></span><span></span>
+                </button>
+                <div class="page-header__title">
+                    <h1>История проверок</h1>
+                    <p class="page-header__subtitle">Результаты инспекции деталей</p>
+                </div>
+            </div>
+            <div class="page-header__right">
+                <img src="/static/images/VDT-Service_logo%20(compact)_medium_2.jpg" alt="VDT Logo" class="vdt-logo">
+            </div>
+        </div>
+
+        <!-- Панель фильтров и кнопок -->
+        <div class="filters-bar">
+            <!-- Быстрые пресеты дат -->
+            <div class="date-presets">
+                <button class="preset-btn" data-preset="today">Сегодня</button>
+                <button class="preset-btn" data-preset="yesterday">Вчера</button>
+                <button class="preset-btn" data-preset="week">Неделя</button>
+                <button class="preset-btn" data-preset="month">Месяц</button>
+            </div>
+
+            <div class="filters-row">
+                <select id="filterResult" class="form-select">
+                    <option value="">Все результаты</option>
+                    <option value="OK">OK (годен)</option>
+                    <option value="NG">NG (брак)</option>
+                </select>
+
+                <input type="date" id="filterDateFrom" class="form-input" title="Дата с">
+                <span class="date-separator">—</span>
+                <input type="date" id="filterDateTo" class="form-input" title="Дата по">
+
+                <input type="text" id="filterOrder" class="form-input" placeholder="Заказ..." title="Поиск по номеру заказа">
+                <input type="text" id="filterProject" class="form-input" placeholder="Проект..." title="Поиск по названию проекта">
+                <select id="filterScenario" class="form-select">
+                    <option value="">Все сценарии</option>
+                    <option value="A">Сценарий A</option>
+                    <option value="B">Сценарий B</option>
+                    <option value="C">Сценарий C</option>
+                </select>
+
+                <button id="applyFilters" class="btn btn-primary">Применить</button>
+                <button id="refreshBtn" class="btn btn-secondary">Сбросить</button>
+                
+                <!-- Выпадающий список экспорта -->
+                <div class="export-dropdown">
+                    <button id="exportDropdownBtn" class="btn btn-export" title="Экспорт данных">
+                        <span>📥</span> Экспорт ▾
+                    </button>
+                    <div class="export-dropdown-menu" id="exportDropdownMenu">
+                        <a href="#" class="export-dropdown-item" data-format="csv">
+                            <span>📄</span> CSV
+                        </a>
+                        <a href="#" class="export-dropdown-item" data-format="excel">
+                            <span>📊</span> Excel
+                        </a>
+                        <a href="#" class="export-dropdown-item" data-format="pdf">
+                            <span>📕</span> PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Статистика -->
+        <div class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="statTotal">0</div>
+                        <div class="stat-label">Всего проверок</div>
+                    </div>
+                </div>
+                <div class="stat-card stat-ok">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="statOk">0</div>
+                        <div class="stat-label">Годен (OK)</div>
+                    </div>
+                </div>
+                <div class="stat-card stat-ng">
+                    <div class="stat-icon">❌</div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="statNg">0</div>
+                        <div class="stat-label">Брак (NG)</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="statOkPercent">0%</div>
+                        <div class="stat-label">% качества</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Основной контент: таблица + графики -->
+        <div class="history-content">
+            <div class="history-main">
+                <!-- Таблица результатов -->
+                <div class="table-section">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>№</th>
+                                    <th>Дата/время</th>
+                                    <th>Результат</th>
+                                    <th>Заказ</th>
+                                    <th>Сценарий</th>
+                                    <th>Проект</th>
+                                    <th>Снимок</th>
+                                </tr>
+                            </thead>
+                            <tbody id="resultsBody">
+                                <tr><td colspan="7" class="loading-cell">Загрузка...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Пагинация -->
+                <div class="pagination-section">
+                    <div class="pagination">
+                        <button id="firstPage" class="btn btn-secondary">⏮ Первая</button>
+                        <button id="prevPage" class="btn btn-secondary">◀ Назад</button>
+                        <span id="pageInfo" class="page-info">Страница 1 из 1</span>
+                        <button id="nextPage" class="btn btn-secondary">Вперед ▶</button>
+                        <button id="lastPage" class="btn btn-secondary">Последняя ⏭</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Сайдбар с графиками -->
+            <aside class="chart-sidebar">
+                <!-- График динамики OK/NG -->
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Динамика проверок (30 дней)</h3>
+                        <div class="chart-legend">
+                            <span class="legend-item"><span class="legend-dot legend-dot-ok"></span> OK</span>
+                            <span class="legend-item"><span class="legend-dot legend-dot-ng"></span> NG</span>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="dailyChart"></canvas>
+                        <div id="chartNoData" class="chart-no-data" style="display: none;">
+                            Нет данных за период
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Круговая диаграмма OK/NG -->
+                <div class="chart-container chart-pie">
+                    <div class="chart-header">
+                        <h3>Соотношение результатов</h3>
+                    </div>
+                    <div class="chart-wrapper chart-wrapper--pie">
+                        <canvas id="pieChart"></canvas>
+                        <div id="pieNoData" class="chart-no-data" style="display: none;">
+                            Нет данных за период
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Гистограмма по проектам -->
+                <div class="chart-container chart-bar">
+                    <div class="chart-header">
+                        <h3>Статистика по проектам</h3>
+                        <div class="chart-legend">
+                            <span class="legend-item"><span class="legend-dot legend-dot-ok"></span> OK</span>
+                            <span class="legend-item"><span class="legend-dot legend-dot-ng"></span> NG</span>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper chart-wrapper--bar">
+                        <canvas id="scenarioChart"></canvas>
+                        <div id="scenarioNoData" class="chart-no-data" style="display: none;">
+                            Нет данных за период
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Модальное окно детального просмотра -->
+        <div id="detailModal" class="detail-modal">
+            <div class="detail-modal__overlay"></div>
+            <div class="detail-modal__content">
+                <button class="detail-modal__close" id="detailModalClose">&times;</button>
+                <div class="detail-modal__body">
+                    <div class="detail-modal__image-col">
+                        <div id="detailImageContainer" class="detail-image-container">
+                            <div class="detail-image-placeholder">Нет изображения</div>
+                        </div>
+                    </div>
+                    <div class="detail-modal__info-col">
+                        <div class="detail-header">
+                            <span id="detailResultBadge" class="result-badge">—</span>
+                            <span id="detailTimestamp" class="detail-timestamp">—</span>
+                        </div>
+                        <div class="detail-section">
+                            <h4>Основная информация</h4>
+                            <div class="detail-grid">
+                                <div class="detail-item">
+                                    <span class="detail-label">ID записи</span>
+                                    <span id="detailId" class="detail-value">—</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Заказ</span>
+                                    <span id="detailOrder" class="detail-value">—</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Сценарий</span>
+                                    <span id="detailScenario" class="detail-value">—</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Проект</span>
+                                    <span id="detailProject" class="detail-value">—</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <h4>Датчики</h4>
+                            <div id="detailSensors" class="detail-sensors">
+                                <!-- Динамически -->
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <h4>Raw-данные</h4>
+                            <pre id="detailRaw" class="detail-raw">—</pre>
+                        </div>
+                        <!-- Кнопка экспорта в PDF -->
+                        <div class="detail-actions">
+                            <button id="exportDetailPdfBtn" class="btn btn-export" title="Сохранить в PDF">
+                                <span>📕</span> Сохранить в PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Подвал -->
+        <div class="content-footer">
+            <span>Последнее обновление: <span id="lastUpdate">—</span></span>
+        </div>
+    </main>
+</div>
+
+<!-- Кнопка выхода (видна всем пользователям) -->
+<button id="logoutBtn" class="btn-logout-main" style="display: none;" title="Выйти из системы">
+    <span>🚪</span> Выйти
+</button>
+
+<!-- Контейнер для уведомлений toast -->
+<div id="toastContainer" class="toast-container"></div>
+
+<!-- Стили для блока пользователя в сайдбаре -->
+<style>
+.sidebar-user {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    margin: 16px;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+}
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow: hidden;
+}
+.user-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.user-role {
+    font-size: 11px;
+    color: #667eea;
+    font-weight: 500;
+}
+.btn-logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: transparent;
+    transition: background 0.2s;
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.btn-logout:hover {
+    background: rgba(220, 38, 38, 0.1);
+}
+</style>
+
+<!-- Скрипты -->
+<script src="/static/js/common.js"></script>
+<script src="/static/js/auth.js"></script>
+<script src="/static/js/connection_monitor.js"></script>
+<script src="/static/js/sidebar.js"></script>
+<script src="/static/js/history.js"></script>
+    <!-- Скрипт переключения темы -->
+    <script src="/static/js/theme.js"></script>
+    <script src="/static/js/toast.js"></script>
+</body>
+</html>
