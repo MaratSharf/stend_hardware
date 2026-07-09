@@ -406,9 +406,25 @@ class StandController:
         # Сброс выходов
         self._reset_outputs()
 
-        # НЕ активируем сценарий автоматически – ждём команды activate_scenario
-        self.scenario_active = False
-        self.logger.info("Инициализация завершена. Сценарий не активен, ожидание команды «Запуск».")
+        # Активируем сценарий по положению тумблеров при запуске
+        if not self.web_scenario_selection:
+            toggle = (self.di[self.DI_TOGGLE_A], self.di[self.DI_TOGGLE_B])
+            scenario = self._toggle_to_scenario(toggle)
+            if scenario:
+                self.current_scenario = scenario
+                self.scenario_active = True
+                self.scenario_c_state = ScenarioCState.IDLE
+                self.logger.info(f"Сценарий {scenario} активирован автоматически по тумблерам")
+                # Устанавливаем начальные выходы для сценария
+                if scenario == 'C' and self.camera_ready:
+                    self.do[self.DO_LAMP_GREEN] = 1
+                self.logger.info("Инициализация завершена. Сценарий активен.")
+            else:
+                self.scenario_active = False
+                self.logger.info("Инициализация завершена. Сценарий не активен (недействительное положение тумблеров).")
+        else:
+            self.scenario_active = False
+            self.logger.info("Инициализация завершена. Выбор сценария из веб, ожидание команды «Запуск».")
         return True
 
     def _run(self):
@@ -496,7 +512,10 @@ class StandController:
                     elif not self.auto_mode:
                         self.logger.debug("Вызов _run_manual()")
                         self._run_manual()
-                    # Если auto_mode включен, но scenario_active == False – ничего не делаем
+                    # Если auto_mode включен, но scenario_active == False – сбрасываем выходы
+                    elif self.auto_mode and not self.scenario_active:
+                        self.do = [0, 0, 0, 0]
+                        self.logger.debug("Сценарий не активен, выходы сброшены")
 
                 self._apply_outputs()
                 self.prev_di = self.di.copy()
@@ -677,8 +696,8 @@ class StandController:
             self.logger.debug("Остановка непрерывного режима камеры (stop_continuous)")
             self.camera.stop_continuous()
             self.a_active = False
-        self.do = [0, 0, 0, 0]
-        self._apply_outputs()
+        # Не сбрасываем выходы здесь — новый сценарий сам установит нужные значения.
+        # Это предотвращает короткий импульс DO0 (конвейер) при переключении.
         self._after_scenario_switch(new_scenario)
 
     def _after_scenario_switch(self, new_scenario):

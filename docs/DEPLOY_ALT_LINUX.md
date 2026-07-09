@@ -313,28 +313,184 @@ python init_postgres.py
 python create_admin.py
 ```
 
-## 8. Мониторинг и управление
+## 8. Первый запуск сервиса
 
-### Просмотр логов
+### Запуск
 ```bash
-# Логи systemd
-sudo journalctl -u stend_hardware -f
+# Перезагрузка systemd (после создания/изменения .service файла)
+sudo systemctl daemon-reload
+
+# Запуск сервиса
+sudo systemctl start stend_hardware
+
+# Включение автозапуска при загрузке системы
+sudo systemctl enable stend_hardware
+```
+
+### Проверка после первого запуска
+```bash
+# Статус сервиса (должен быть active (running))
+sudo systemctl status stend_hardware
+
+# Проверка порта (должен слушать 5001)
+ss -tlnp | grep 5001
+
+# Проверка процесса
+ps aux | grep run.py
+
+# Проверка веб-интерфейса
+curl -I http://localhost:5001
+```
+
+### Просмотр логов при старте
+```bash
+# Логи systemd (последние 50 строк + следить за новыми)
+sudo journalctl -u stend_hardware -n 50 -f
 
 # Логи приложения
 tail -f /home/marat/proj/stend_hardware/data/logs/controller.log
 tail -f /home/marat/proj/stend_hardware/data/logs/web.log
 ```
 
-### Управление сервисом
+---
+
+## 9. Перезапуск сервиса после корректировок
+
+### Когда нужен перезапуск
+
+| Тип изменений | Нужен перезапуск? | Команда |
+|---------------|-------------------|---------|
+| Изменение Python-кода (`.py` файлы) | Да | `restart` |
+| Изменение `config.yaml` | Да | `restart` |
+| Изменение `.env` | Да | `restart` |
+| Обновление зависимостей (`requirements.txt`) | Да | `restart` |
+| Изменение HTML/CSS/JS шаблонов | Да | `restart` |
+| Логи, изображения (`data/`) | Нет | — |
+| `update.sh` (git pull + pip install) | Да | в скрипте |
+
+### Процедура перезапуска
+
+#### Вариант А: Быстрый перезапуск (изменения в коде)
 ```bash
+# 1. Остановить сервис
+sudo systemctl stop stend_hardware
+
+# 2. Внести изменения в код
+nano /home/marat/proj/stend_hardware/имя_файла.py
+
+# 3. Запустить сервис
+sudo systemctl start stend_hardware
+
+# 4. Проверить статус
+sudo systemctl status stend_hardware
+```
+
+#### Вариант Б: Перезапуск одной командой
+```bash
+sudo systemctl restart stend_hardware
+```
+
+#### Вариант В: Обновление из Git + перезапуск
+```bash
+# 1. Перейти в директорию проекта
+cd /home/marat/proj/stend_hardware
+
+# 2. Активировать виртуальное окружение
+source venv/bin/activate
+
+# 3. Получить последние изменения
+git pull origin main
+
+# 4. Установить обновлённые зависимости (если requirements.txt изменился)
+pip install -r requirements.txt
+
+# 5. Перезапустить сервис
+sudo systemctl restart stend_hardware
+
+# 6. Проверить статус
+sudo systemctl status stend_hardware
+```
+
+#### Вариант Г: Использование скрипта обновления (рекомендуется)
+```bash
+# Если скрипт update.sh уже создан (раздел 11):
+/home/marat/proj/stend_hardware/update.sh
+
+# Или одной строкой:
+cd /home/marat/proj/stend_hardware && ./update.sh
+```
+
+### Что делать после перезапуска
+
+```bash
+# 1. Убедиться, что сервис запущен
+sudo systemctl status stend_hardware
+
+# 2. Проверить логи на наличие ошибок
+sudo journalctl -u stend_hardware -n 20
+
+# 3. Открыть веб-интерфейс и проверить работу
+# http://<IP_СЕРВЕРА>:5001
+
+# 4. Проверить подключение к оборудованию (если есть)
+ping 192.168.1.99  # ОВЕН
+ping 192.168.1.36  # Камера
+```
+
+### Автозапуск после перезагрузки сервера
+```bash
+# Проверить, что автозапуск включён
+sudo systemctl is-enabled stend_hardware
+
+# Если не включён:
+sudo systemctl enable stend_hardware
+```
+
+---
+
+## 10. Управление сервисом (справочник)
+
+### Основные команды
+```bash
+# Запуск
+sudo systemctl start stend_hardware
+
 # Остановка
 sudo systemctl stop stend_hardware
 
-# Перезапуск
+# Перезапуск (остановка + запуск)
 sudo systemctl restart stend_hardware
+
+# Перезагрузка конфигурации (без остановки, если поддерживается)
+sudo systemctl reload stend_hardware
 
 # Статус
 sudo systemctl status stend_hardware
+
+# Включение автозапуска
+sudo systemctl enable stend_hardware
+
+# Отключение автозапуска
+sudo systemctl disable stend_hardware
+```
+
+### Просмотр логов
+```bash
+# Логи systemd (все)
+sudo journalctl -u stend_hardware
+
+# Логи systemd (последние 100 строк)
+sudo journalctl -u stend_hardware -n 100
+
+# Логи systemd (следить в реальном времени)
+sudo journalctl -u stend_hardware -f
+
+# Логи за конкретный период
+sudo journalctl -u stend_hardware --since "2026-07-08 10:00:00"
+
+# Логи приложения
+tail -f /home/marat/proj/stend_hardware/data/logs/controller.log
+tail -f /home/marat/proj/stend_hardware/data/logs/web.log
 ```
 
 ### Проверка работоспособности
@@ -344,39 +500,162 @@ ss -tlnp | grep 5001
 
 # Проверка процесса
 ps aux | grep run.py
+
+# Проверка веб-интерфейса
+curl -I http://localhost:5001
+
+# Проверка с другого компьютера
+curl -I http://192.168.1.100:5001
 ```
 
-## 9. Решение проблем
+---
 
-### Типовые проблемы
+## 11. Решение проблем
 
-| Проблема | Причина | Решение |
-|----------|---------|---------|
-| `ModuleNotFoundError` | Виртуальное окружение не активировано | `source venv/bin/activate` |
+### Типовые ошибки при запуске и перезапуске
+
+| Симптом | Причина | Решение |
+|---------|---------|---------|
+| `Job for stend_hardware.service failed` | Ошибка в коде или конфигурации | `journalctl -u stend_hardware -n 50` — посмотреть ошибку |
+| `Address already in use` | Старый процесс не завершился | `sudo fuser -k 5001/tcp` затем `sudo systemctl start stend_hardware` |
+| `ModuleNotFoundError` | Venv не активирован в .service | Проверить `ExecStart` — должен быть полный путь к Python из venv |
+| `Permission denied` к БД | Пароль в .env не совпадает | Проверить `.env` и `config.yaml` |
+| Сервис запущен, но сайт не открывается | Файрвол блокирует порт | `sudo firewall-cmd --add-port=5001/tcp --permanent && sudo firewall-cmd --reload` |
 | `Connection refused` к БД | PostgreSQL не запущен | `sudo systemctl start postgresql` |
-| `Permission denied` | Нет прав на запись | `chmod -R 755 data/` |
-| Порт 5001 занят | Другой процесс | `ss -tlnp | grep 5001`, убить процесс |
-| Modbus timeout | Нет сети к оборудованию | Проверить `ping`, кабели, IP |
+| Сервис падает сразу после старта | Ошибка в Python-коде | `journalctl -u stend_hardware -n 100` — найти traceback |
+| `git pull` конфликтует | Незакоммиченные изменения на сервере | `git stash` перед `git pull`, или `git reset --hard origin/main` |
+
+### Правильный порядок действий при ошибке
+
+```bash
+# 1. Посмотреть последние логи
+sudo journalctl -u stend_hardware -n 100
+
+# 2. Остановить сервис (если "завис")
+sudo systemctl stop stend_hardware
+
+# 3. Проверить, нет ли "повисшего" процесса
+ps aux | grep run.py
+# Если есть — убить:
+sudo kill $(pgrep -f "run.py")
+
+# 4. Исправить проблему
+
+# 5. Запустить заново
+sudo systemctl start stend_hardware
+
+# 6. Проверить статус
+sudo systemctl status stend_hardware
+```
 
 ### Проверка зависимостей
 ```bash
 # Активация venv
-source venv/bin/activate
+source /home/marat/proj/stend_hardware/venv/bin/activate
 
 # Проверка установленных пакетов
 pip list
 
 # Проверка версии Python
 python --version
-```
 
-### Проверка подключения к БД
-```bash
-# Тест подключения
+# Проверка подключения к БД
 psql -h localhost -U stend -d stend_hardware
 ```
 
-## 10. Резервное копирование
+### Дублирующий пользовательский сервис (stend.service)
+
+**Проблема:** Приложение продолжает работать и общаться с оборудованием (OWEN моргает, камера отвечает), хотя системный сервис `stend_hardware.service` остановлен и отключен.
+
+**Причина:** Существует **два разных systemd сервиса**, запускающих одно и то же приложение:
+
+| Сервис | Уровень | Файл | Управление |
+|--------|---------|------|------------|
+| `stend_hardware.service` | системный | `/etc/systemd/system/stend_hardware.service` | `sudo systemctl ...` |
+| `stend.service` | **пользовательский** | `~/.config/systemd/user/stend.service` | `systemctl --user ...` |
+
+Пользовательский сервис `stend.service` имеет `Restart=on-failure` с `RestartSec=5` — приложение падает и перезапускается каждые 5 секунд, из-за чего лампа на OWEN постоянно моргает.
+
+**Диагностика:**
+```bash
+# Проверка системного сервиса (показывает "inactive" — создаёт ложное впечатление, что всё остановлено)
+sudo systemctl status stend_hardware.service
+
+# Проверка пользовательских сервисов (вот он — активный!)
+systemctl --user list-units --type=service | grep stend
+
+# Детальный статус
+systemctl --user status stend.service
+```
+
+**Решение:**
+```bash
+# Остановка пользовательского сервиса
+systemctl --user stop stend.service
+
+# Отключение автозапуска
+systemctl --user disable stend.service
+
+# Удаление файла сервиса (если больше не нужен)
+rm ~/.config/systemd/user/stend.service
+systemctl --user daemon-reload
+```
+
+**Предотвращение:** При развертывании использовать **только один** из двух вариантов:
+- Системный сервис (`stend_hardware.service`) — управление через `sudo systemctl`
+- Пользовательский сервис (`stend.service`) — управление через `systemctl --user`
+
+Не использовать оба одновременно. Если ранее был создан пользовательский сервис, удалить его перед настройкой системного.
+
+---
+
+## 12. Обновление проекта из GitHub
+
+### Ручное обновление
+```bash
+# 1. Перейти в директорию проекта
+cd /home/marat/proj/stend_hardware
+
+# 2. Остановить сервис
+sudo systemctl stop stend_hardware
+
+# 3. Получить изменения
+git pull origin main
+
+# 4. Установить обновлённые зависимости
+source venv/bin/activate
+pip install -r requirements.txt
+
+# 5. Выполнить миграции БД (если есть)
+# python init_postgres.py  # раскомментировать при необходимости
+
+# 6. Запустить сервис
+sudo systemctl start stend_hardware
+
+# 7. Проверить статус
+sudo systemctl status stend_hardware
+```
+
+### Автоматическое обновление (скрипт)
+```bash
+# Запуск скрипта обновления (если создан раздел 13)
+/home/marat/proj/stend_hardware/update.sh
+```
+
+### Что делать при конфликтах git
+```bash
+# Если есть локальные изменения, которые не нужны:
+git reset --hard origin/main
+
+# Если локальные изменения нужно сохранить:
+git stash
+git pull origin main
+git stash pop
+```
+
+---
+
+## 13. Резервное копирование
 
 ### Бэкап базы данных
 ```bash
@@ -396,7 +675,7 @@ cp config.yaml config.yaml.backup.$(date +%Y%m%d)
 cp .env .env.backup.$(date +%Y%m%d)
 ```
 
-## 11. Автоматическое обновление (опционально)
+## 14. Автоматическое обновление (опционально)
 
 ### Создание скрипта обновления
 ```bash
@@ -418,7 +697,7 @@ sudo systemctl restart stend_hardware
 chmod +x /home/marat/proj/stend_hardware/update.sh
 ```
 
-## 12. Проверка после установки
+## 15. Проверка после установки
 
 1. **Веб-интерфейс**: Откройте http://192.168.1.100:5001
 2. **Авторизация**: Войдите с созданным администратором
