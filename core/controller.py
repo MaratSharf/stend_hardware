@@ -19,6 +19,12 @@ class ScenarioCState(Enum):
     CONVEYOR_RUNNING_TO_EXIT = 3
 
 
+class ScenarioBState(Enum):
+    IDLE = 0
+    WAITING_FOR_DI6 = 1
+    TRIGGERED = 2
+
+
 class ControllerCommand(Enum):
     """Команды, отправляемые из веб-потоков в главный цикл контроллера."""
     TRIGGER_B = "trigger_b"
@@ -35,6 +41,7 @@ class StandController:
     DI_EXIT = 3
     DI_TOGGLE_A = 4
     DI_TOGGLE_B = 5
+    DI_DETECT_RIGHT = 6
 
     # Индексы выходов (DO)
     DO_CONVEYOR = 0
@@ -83,10 +90,10 @@ class StandController:
         self.logger.info("=" * 50)
 
         # Состояние входов
-        self.di = [0] * 6
-        self.prev_di = [0] * 6
-        self.di_debounce = [None] * 6
-        self.di_change_time = [0.0] * 6
+        self.di = [0] * 12
+        self.prev_di = [0] * 12
+        self.di_debounce = [None] * 12
+        self.di_change_time = [0.0] * 12
         self.input_read_errors = 0
 
         # Состояние выходов
@@ -115,6 +122,12 @@ class StandController:
             'result': None,
             'state_start_time': 0.0,
             'measurement_done': False,
+        }
+
+        # Состояние автомата сценария B
+        self.scenario_b_state = ScenarioBState.IDLE
+        self.scenario_b_data = {
+            'state_start_time': 0.0,
         }
 
         # Мигание ламп
@@ -391,12 +404,12 @@ class StandController:
         raw = self.owen.read_inputs()
         self.logger.debug("owen.read_inputs() завершён")
         if raw is not None:
-            self.di = raw[:6].copy()
+            self.di = raw[:12].copy()
             self.prev_di = self.di.copy()
             self.logger.info(f"Состояние входов: {self.di}")
             self.owen_available = True
         else:
-            self.di = [1] * 6
+            self.di = [1] * 12
             self.prev_di = self.di.copy()
             self.owen_available = False
             self.hardware_available = False
@@ -415,9 +428,6 @@ class StandController:
                 self.scenario_active = True
                 self.scenario_c_state = ScenarioCState.IDLE
                 self.logger.info(f"Сценарий {scenario} активирован автоматически по тумблерам")
-                # Устанавливаем начальные выходы для сценария
-                if scenario == 'C' and self.camera_ready:
-                    self.do[self.DO_LAMP_GREEN] = 1
                 self.logger.info("Инициализация завершена. Сценарий активен.")
             else:
                 self.scenario_active = False
@@ -439,7 +449,7 @@ class StandController:
                 self.logger.warning("ОФЛАЙН-РЕЖИМ – работа с оборудованием отключена")
             else:
                 self.logger.warning("ОБОРУДОВАНИЕ НЕДОСТУПНО – работа в демо-режиме")
-            self.di = [1] * 6
+            self.di = [1] * 12
             self.prev_di = self.di.copy()
 
         next_cycle = time.time()
@@ -635,7 +645,7 @@ class StandController:
 
         self.input_read_errors = 0
         now_ms = time.time() * 1000
-        for i in range(6):
+        for i in range(12):
             current_raw = raw_inputs[i]
             if current_raw == self.di[i]:
                 self.di_debounce[i] = None
@@ -699,6 +709,8 @@ class StandController:
         # Не сбрасываем выходы здесь — новый сценарий сам установит нужные значения.
         # Это предотвращает короткий импульс DO0 (конвейер) при переключении.
         self._after_scenario_switch(new_scenario)
+        # Сбрасываем prev_di, чтобы первый фронт не был пропущен
+        self.prev_di = self.di.copy()
 
     def _after_scenario_switch(self, new_scenario):
         self._update_camera_ready()
@@ -713,25 +725,21 @@ class StandController:
                 'measurement_done': False
             }
             if self.camera_ready:
-                self.do[self.DO_LAMP_GREEN] = 1
+                pass
         elif new_scenario == 'A':
             self.last_a_trigger = 0.0
             self.a_active = False
             self.waiting_for_ng_stop = False
             self.has_valid_measurement = False
+        elif new_scenario == 'B':
+            self.scenario_b_state = ScenarioBState.IDLE
+            self.scenario_b_data = {'state_start_time': 0.0}
 
     def _handle_camera_not_ready(self):
         if not self._camera_error_blink_started:
             self._camera_error_blink_started = True
-            self.logger.warning("Камера не готова – мигание красной лампы")
-            self._start_blink(green=False, red=True, frequency=1.0, duration=3.0,
-                              callback=self._camera_error_steady)
+            self.logger.warning("Камера не готова")
         self.do[self.DO_CONVEYOR] = 0
-
-    def _camera_error_steady(self):
-        self.do[self.DO_LAMP_RED] = 1
-        self._camera_error_blink_started = False
-        self.logger.warning("Камера не готова – красная лампа горит постоянно")
 
     def _run_auto(self, now):
         if self.scenario_override:
@@ -771,12 +779,10 @@ class StandController:
     def _run_scenario_A(self, now):
         if not self.camera_ready:
             self.logger.warning("Сценарий A: камера не готова, сценарий не выполняется")
-            self.do[self.DO_LAMP_RED] = 1
             return
 
         if not self.a_active:
             self.logger.info("Сценарий A: запуск периодических измерений (интервал 0.25 сек)")
-            self.do[self.DO_LAMP_GREEN] = 1
             self.do[self.DO_CONVEYOR] = 1
             self._apply_outputs()
             self.a_active = True
@@ -832,6 +838,7 @@ class StandController:
                         self.waiting_for_ng_stop = True
                 elif result_text == 'OK':
                     self.logger.info("Сценарий A: OK")
+                    self.do[self.DO_LAMP_GREEN] = 1
                     self.do[self.DO_LAMP_RED] = 0
                     self.waiting_for_ng_stop = True
                 else:
@@ -841,6 +848,7 @@ class StandController:
                 if self.has_valid_measurement:
                     self.logger.info("Сценарий A: получен null/невалидный результат после валидных измерений, сброс флагов")
                     self.waiting_for_ng_stop = False
+                    self.do[self.DO_LAMP_GREEN] = 0
                     self.do[self.DO_LAMP_RED] = 0
 
             self.last_a_trigger = now
@@ -849,10 +857,24 @@ class StandController:
     # Сценарий B
     # -------------------------------------------------------------------------
     def _run_scenario_B(self):
-        if self.di[self.DI_TOGGLE_B] == 1 and self.prev_di[self.DI_TOGGLE_B] == 0:
-            self.logger.info("Сценарий B: фронт DI5, запуск измерения")
-            self._start_blink(green=True, red=False, frequency=0, duration=1.0,
-                              callback=self._trigger_and_process_B)
+        now = time.time()
+
+        if self.scenario_b_state == ScenarioBState.IDLE:
+            # Фронт DI5 (0→1) ИЛИ DI5 уже активен при старте сценария
+            if self.di[self.DI_TOGGLE_B] == 1 and self.prev_di[self.DI_TOGGLE_B] == 0:
+                self.logger.info("Сценарий B: фронт DI5, ожидание DI6")
+                self.scenario_b_state = ScenarioBState.WAITING_FOR_DI6
+                self.scenario_b_data['state_start_time'] = now
+            elif self.di[self.DI_TOGGLE_B] == 1:
+                self.logger.info("Сценарий B: DI5 уже активен, ожидание DI6")
+                self.scenario_b_state = ScenarioBState.WAITING_FOR_DI6
+                self.scenario_b_data['state_start_time'] = now
+
+        elif self.scenario_b_state == ScenarioBState.WAITING_FOR_DI6:
+            if self.di[self.DI_DETECT_RIGHT] == 1 and self.prev_di[self.DI_DETECT_RIGHT] == 0:
+                self.logger.info("Сценарий B: фронт DI6, триггер камеры")
+                self.scenario_b_state = ScenarioBState.TRIGGERED
+                self._trigger_and_process_B()
 
     def _trigger_and_process_B(self):
         self.logger.info("Сценарий B: измерение...")
@@ -871,6 +893,7 @@ class StandController:
             self.logger.error("Сценарий B: ошибка")
             self._start_blink(green=False, red=True, frequency=2.0, duration=1.5)
         self._save_measurement_result(result)
+        self.scenario_b_state = ScenarioBState.IDLE
 
     # -------------------------------------------------------------------------
     # Сценарий C
@@ -881,7 +904,6 @@ class StandController:
             if not self._no_tool_warning_shown:
                 self.logger.warning("Сценарий C: не выбран инструмент (проект камеры пуст). Работа заблокирована. Выберите инструмент на странице 'Инструменты'.")
                 self._no_tool_warning_shown = True
-                self._start_blink(green=False, red=True, frequency=1.0, duration=1.0)
             if self.scenario_c_state != ScenarioCState.IDLE:
                 self.scenario_c_state = ScenarioCState.IDLE
                 self.do[self.DO_CONVEYOR] = 0
@@ -900,15 +922,12 @@ class StandController:
                 return
 
         if self.scenario_c_state == ScenarioCState.IDLE:
-            self.do[self.DO_LAMP_GREEN] = 1 if self.camera_ready else 0
-            self.do[self.DO_LAMP_RED] = 0
             self.do[self.DO_CONVEYOR] = 0
             if self.di[self.DI_DETECT_LEFT] == 0 and self.prev_di[self.DI_DETECT_LEFT] == 1:
                 if not self.camera_ready:
                     self.logger.warning("Сценарий C: камера не готова, деталь не будет обработана")
                     return
                 self.logger.info("Сценарий C: деталь на входе (спад DI0), запуск")
-                self.do[self.DO_LAMP_GREEN] = 0
                 self.do[self.DO_CONVEYOR] = 1
                 self.scenario_c_state = ScenarioCState.CONVEYOR_RUNNING_TO_CAMERA
                 self.scenario_c_data['state_start_time'] = now

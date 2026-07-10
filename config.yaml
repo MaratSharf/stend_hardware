@@ -59,3 +59,6 @@ database:
   dbname: stend_hardware
   user: stend
   password: "Alexej@12"
+
+web:
+  secret_key: "4a78b89f562149e6c25b2508938f717c30d470000c40736796728f2e5e4438af"
