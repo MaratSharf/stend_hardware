@@ -67,7 +67,7 @@ EOF
 | `origin` | `https://github.com/MaratSharf/stend_hardware.git` | GitHub (основной) |
 | `github` | `https://github.com/MaratSharf/stend_hardware.git` | GitHub (дубль) |
 | `gitverse` | `https://gitverse.ru/vdtnch/stend_hardware.git` | GitVerse (бэкап) |
-| `gitverse-ssh` | `git@github.com:MaratSharf/stend_hardware.git` | GitHub через SSH |
+| `gitverse-ssh` | `git@gitverse.ru:vdtnch/stend_hardware.git` | GitVerse через SSH |
 
 ### Просмотр remote
 
@@ -188,6 +188,36 @@ git pull --rebase origin main # Скачать + rebase
 git push origin main         # Отправить ветку
 git push -u origin main      # Отправить + установить отслеживание
 git push origin --all        # Отправить все ветки
+```
+
+### Push на GitHub и GitVerse одновременно
+
+```bash
+# Обычный push на оба репозитория
+git push github main
+git push gitverse main
+
+# Force push (после очистки истории filter-repo)
+git push github main --force
+git push gitverse main --force
+```
+
+### Очистка истории (git filter-repo)
+
+```bash
+# Удалить тяжёлые файлы из всей истории
+# Создать файл filter-paths.txt со списком путей:
+#   venv/
+#   data/logs/
+#   __pycache__/
+#   *.pyc
+#   *.mp4
+
+git filter-repo --invert-paths --paths-from-file filter-paths.txt --force
+
+# После очистки — force push на оба репозитория
+git push github main --force
+git push gitverse main --force
 ```
 
 ### Синхронизация с GitHub
