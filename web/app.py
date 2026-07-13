@@ -128,6 +128,9 @@ def create_app(config: dict, controller, db) -> Flask:
                         'offline_mode': status.get('offline_mode', False),
                         'auto_mode': status.get('auto_mode', True),
                         'current_scenario': status.get('current_scenario'),
+                        'web_scenario_selection': status.get('web_scenario_selection', False),
+                        'web_selected_scenario': status.get('web_selected_scenario', 'C'),
+                        'scenario_active': status.get('scenario_active', False),
                         'timestamp': time.time()
                     }
                     

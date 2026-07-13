@@ -17,7 +17,7 @@ from hardware.owen import OwenMK210
 from hardware.hikrobot import HikrobotCamera
 from core.controller import StandController
 from web.app import create_app
-from utils.database import get_database
+from utils.database import get_database, close_database
 
 # Глобальные переменные для обработчика сигналов
 controller = None
@@ -26,13 +26,18 @@ camera = None
 
 
 def signal_handler(sig, frame):
-    """Обработчик Ctrl+C и SIGTERM."""
-    print("\n[ЗАВЕРШЕНИЕ] Получен сигнал остановки.")
+    """Обработчик Ctrl+C и SIGTERM – гарантированный сброс всех выходов."""
+    print("\n[ЗАВЕРШЕНИЕ] Получен сигнал остановки...")
     global controller, owen, camera
 
+    # 1) Останавливаем контроллер и сбрасываем выходы
     if controller:
-        controller.stop()
+        try:
+            controller.stop()
+        except Exception as e:
+            print(f"[ЗАВЕРШЕНИЕ] Ошибка остановки контроллера: {e}")
 
+    # 2) Отключаем устройства
     for dev in (owen, camera):
         if dev:
             try:
@@ -40,8 +45,11 @@ def signal_handler(sig, frame):
             except Exception:
                 pass
 
-    if controller and controller._thread and controller._thread.is_alive():
-        controller._thread.join(timeout=2.0)
+    # 3) Закрываем пул БД
+    try:
+        close_database()
+    except Exception:
+        pass
 
     print("[ЗАВЕРШЕНИЕ] Ресурсы освобождены. Выход.")
     os._exit(0)
@@ -153,14 +161,22 @@ def main():
         pass
     finally:
         # Освобождение ресурсов (на случай нештатного завершения)
+        print("[ЗАВЕРШЕНИЕ] Освобождение ресурсов...")
         if controller:
-            controller.stop()
+            try:
+                controller.stop()
+            except Exception as e:
+                print(f"[ЗАВЕРШЕНИЕ] Ошибка остановки контроллера: {e}")
         for dev in (owen, camera):
             if dev:
                 try:
                     dev.disconnect()
                 except Exception:
                     pass
+        try:
+            close_database()
+        except Exception:
+            pass
         print("[ЗАВЕРШЕНИЕ] Ресурсы освобождены.")
 
 

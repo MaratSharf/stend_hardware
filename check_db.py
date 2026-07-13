@@ -1,11 +1,15 @@
+import os
 import psycopg2
+from dotenv import load_dotenv
+
+load_dotenv()
 
 conn = psycopg2.connect(
-    host='localhost',
-    port=5432,
-    dbname='stend_db',
-    user='stend_user',
-    password='Alexej@12'
+    host=os.getenv('DB_HOST', 'localhost'),
+    port=int(os.getenv('DB_PORT', 5432)),
+    dbname=os.getenv('DB_NAME', 'stend_db'),
+    user=os.getenv('DB_USER', 'stend_user'),
+    password=os.getenv('DB_PASSWORD')
 )
 cur = conn.cursor()
 

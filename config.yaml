@@ -58,7 +58,7 @@ database:
   port: 5432
   dbname: stend_hardware
   user: stend
-  password: "Alexej@12"
+  # Пароль берётся из переменной окружения DB_PASSWORD
 
 web:
-  secret_key: "4a78b89f562149e6c25b2508938f717c30d470000c40736796728f2e5e4438af"
+  # SECRET_KEY берётся из переменной окружения SECRET_KEY

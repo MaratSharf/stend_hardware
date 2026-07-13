@@ -13,7 +13,7 @@
 let socket = null;
 let wsConnected = false;
 let reconnectAttempts = 0;
-const MAX_RECONNECT_ATTEMPTS = 10;
+let maxReconnectReached = false;
 const RECONNECT_DELAY_MS = 2000;
 
 // Callback функции для обработки обновлений
@@ -42,7 +42,7 @@ function initWebSocket() {
             reconnection: true,
             reconnectionDelay: RECONNECT_DELAY_MS,
             reconnectionDelayMax: 10000,
-            reconnectionAttempts: MAX_RECONNECT_ATTEMPTS,
+            reconnectionAttempts: Infinity,  // Бесконечные попытки переподключения
             timeout: 20000,
             upgradeTimeout: 10000,
             pingTimeout: 60000,
@@ -51,21 +51,22 @@ function initWebSocket() {
 
         // Обработчик подключения
         socket.on('connect', () => {
-            console.log('[WebSocket] Подключено');
+            console.log('[WebSocket] Подключено (попытка #' + reconnectAttempts + ')');
             wsConnected = true;
             reconnectAttempts = 0;
+            maxReconnectReached = false;
             updateConnectionIndicator('connected');
             updateWsText('connected');
-            
+
             // Подписываемся на обновления статуса
             socket.emit('subscribe_status');
-            
+
             // Отключаем polling так как WebSocket активен
             if (typeof window.stopPolling === 'function') {
                 window.stopPolling();
                 console.log('[WebSocket] Polling отключён');
             }
-            
+
             // Вызываем callback успешного подключения
             if (typeof onWebSocketConnect === 'function') {
                 onWebSocketConnect();
@@ -78,7 +79,12 @@ function initWebSocket() {
             wsConnected = false;
             updateConnectionIndicator('disconnected');
             updateWsText('disconnected');
-            
+
+            // Запускаем polling как fallback пока идёт переподключение
+            if (typeof window.startPollingFallback === 'function') {
+                window.startPollingFallback();
+            }
+
             if (typeof onWebSocketDisconnect === 'function') {
                 onWebSocketDisconnect(reason);
             }
@@ -86,15 +92,16 @@ function initWebSocket() {
 
         // Обработчик ошибок
         socket.on('connect_error', (error) => {
-            console.error('[WebSocket] Ошибка подключения:', error);
+            console.error('[WebSocket] Ошибка подключения:', error.message || error);
             wsConnected = false;
             updateConnectionIndicator('error');
             updateWsText('error');
-            
+
             reconnectAttempts++;
-            if (reconnectAttempts >= MAX_RECONNECT_ATTEMPTS) {
-                console.warn('[WebSocket] Превышено максимальное количество попыток подключения, используем polling');
-                if (typeof onWebSocketMaxRetriesExceeded === 'function') {
+            // Показываем предупреждение каждые 10 попыток
+            if (reconnectAttempts % 10 === 1) {
+                console.warn(`[WebSocket] Попытка переподключения #${reconnectAttempts}...`);
+                if (reconnectAttempts === 1 && typeof onWebSocketMaxRetriesExceeded === 'function') {
                     onWebSocketMaxRetriesExceeded();
                 }
             }
@@ -259,7 +266,13 @@ window.WebSocketClient = {
     isConnected: isWebSocketConnected,
     send: sendWebSocketEvent,
     onStatusUpdate: onStatusUpdate,
-    removeCallback: removeStatusUpdateCallback
+    removeCallback: removeStatusUpdateCallback,
+    reconnect: () => {
+        if (socket && !socket.connected) {
+            console.log('[WebSocket] Ручное переподключение...');
+            socket.connect();
+        }
+    }
 };
 
 // ==================== АВТОМАТИЧЕСКАЯ ИНИЦИАЛИЗАЦИЯ ====================

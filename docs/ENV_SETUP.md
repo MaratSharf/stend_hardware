@@ -57,7 +57,7 @@ DEBUG=False
 **До:**
 ```yaml
 database:
-  password: Alexej@12
+  password: mysecretpassword
 ```
 
 **После:**
@@ -69,5 +69,5 @@ database:
 
 ```bash
 # .env
-DB_PASSWORD=Alexej@12
+DB_PASSWORD=mysecretpassword
 ```

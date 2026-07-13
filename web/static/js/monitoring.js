@@ -74,6 +74,7 @@ async function getRussianProjectName(projectName) {
 // ==================== ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ДЛЯ POLLING ====================
 let statusPollingInterval = null;
 let hardwarePollingInterval = null;
+let scenarioPollingInterval = null;
 
 // ==================== ИНИЦИАЛИЗАЦИЯ ====================
 document.addEventListener('DOMContentLoaded', () => {
@@ -110,6 +111,7 @@ function startPollingFallback() {
             console.log('[Monitoring] WebSocket недоступен, запускаем polling');
             statusPollingInterval = setInterval(updateStatus, 2000);
             hardwarePollingInterval = setInterval(updateHardwareStatus, 1000);
+            scenarioPollingInterval = setInterval(updateScenarioStatus, 2000);
         }
     }, 500);
 }
@@ -126,6 +128,10 @@ function stopPolling() {
         clearInterval(hardwarePollingInterval);
         hardwarePollingInterval = null;
     }
+    if (scenarioPollingInterval) {
+        clearInterval(scenarioPollingInterval);
+        scenarioPollingInterval = null;
+    }
 }
 
 // Экспортируем функцию для использования в websocket.js
@@ -140,7 +146,7 @@ function handleWebSocketStatusUpdate(data) {
     if (data.result) {
         applyStatusData(data.result);
     }
-    
+
     // Обновляем статус оборудования (входы/выходы/камера)
     if (data.inputs || data.outputs || data.camera_status) {
         applyHardwareData({
@@ -149,7 +155,7 @@ function handleWebSocketStatusUpdate(data) {
             camera_status: data.camera_status
         });
     }
-    
+
     // Обновляем индикаторы доступности оборудования
     if (data.hardware_available !== undefined) {
         window.isHardwareAvailable = data.hardware_available;
@@ -157,6 +163,9 @@ function handleWebSocketStatusUpdate(data) {
             window.resetHardwareDisplay();
         }
     }
+
+    // Обновляем отображение текущего сценария
+    updateScenarioDisplay(data);
 }
 
 /**
@@ -396,6 +405,74 @@ async function initScenarioSelection() {
                 runBtn.disabled = false;
             }
         });
+    }
+}
+
+// ==================== ОТОБРАЖЕНИЕ ТЕКУЩЕГО СЦЕНАРИЯ ====================
+
+/**
+ * Обновляет отображение текущего сценария на панели мониторинга.
+ * @param {Object} data - данные от сервера (WebSocket или polling)
+ */
+function updateScenarioDisplay(data) {
+    const scenarioDisplay = document.getElementById('currentScenarioDisplay');
+    const activeIndicator = document.getElementById('scenarioActiveIndicator');
+    if (!scenarioDisplay) return;
+
+    const currentScenario = data.current_scenario;
+    const scenarioActive = data.scenario_active;
+    const webSelected = data.web_selected_scenario;
+
+    // Показываем текущий активный сценарий или выбранный из веб
+    if (currentScenario) {
+        scenarioDisplay.innerText = currentScenario;
+        scenarioDisplay.style.color = '#00a86b';
+    } else if (webSelected) {
+        scenarioDisplay.innerText = webSelected;
+        scenarioDisplay.style.color = '#666';
+    } else {
+        scenarioDisplay.innerText = '—';
+        scenarioDisplay.style.color = '#666';
+    }
+
+    // Обновляем индикатор активности
+    if (activeIndicator) {
+        if (scenarioActive) {
+            activeIndicator.innerText = 'активен';
+            activeIndicator.style.color = '#00a86b';
+        } else {
+            activeIndicator.innerText = 'неактивен';
+            activeIndicator.style.color = '#666';
+        }
+    }
+
+    // Обновляем селект сценария в блоке выбора
+    const select = document.getElementById('scenarioSelect');
+    const checkbox = document.getElementById('webScenarioToggle');
+    if (select && checkbox) {
+        if (data.web_scenario_selection !== undefined) {
+            checkbox.checked = data.web_scenario_selection;
+            select.disabled = !data.web_scenario_selection;
+        }
+        if (webSelected) {
+            select.value = webSelected;
+        }
+    }
+}
+
+/**
+ * Загружает статус сценария с сервера и обновляет отображение.
+ * Вызывается периодически (раз в 2 секунды) как fallback для WebSocket.
+ */
+async function updateScenarioStatus() {
+    try {
+        const response = await fetch('/api/scenario_status');
+        const data = await response.json();
+        if (data.success) {
+            updateScenarioDisplay(data);
+        }
+    } catch (error) {
+        console.error('Ошибка загрузки статуса сценария:', error);
     }
 }
 

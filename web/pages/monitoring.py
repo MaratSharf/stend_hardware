@@ -82,6 +82,26 @@ def connection_status():
         current_app.logger.exception("Ошибка в connection_status")
         return jsonify({'success': False, 'error': 'Internal server error'}), 500
 
+@monitoring_bp.route('/api/scenario_status')
+def scenario_status():
+    """Возвращает текущий статус сценария для polling."""
+    controller = current_app.config.get('controller')
+    if not controller:
+        return jsonify({'success': False, 'error': 'Controller not available'}), 500
+    try:
+        status = controller.get_status()
+        return jsonify({
+            'success': True,
+            'current_scenario': status.get('current_scenario'),
+            'web_scenario_selection': status.get('web_scenario_selection', False),
+            'web_selected_scenario': status.get('web_selected_scenario', 'C'),
+            'scenario_active': status.get('scenario_active', False),
+            'auto_mode': status.get('auto_mode', True)
+        })
+    except Exception as e:
+        current_app.logger.exception("Ошибка в scenario_status")
+        return jsonify({'success': False, 'error': 'Internal server error'}), 500
+
 @monitoring_bp.route('/api/offline_mode', methods=['POST'])
 def set_offline_mode():
     controller = current_app.config.get('controller')

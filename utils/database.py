@@ -2,6 +2,7 @@
 import os
 import psycopg2
 import psycopg2.extras
+import psycopg2.pool
 from contextlib import contextmanager
 from datetime import datetime, timedelta
 from typing import List, Dict, Optional
@@ -21,11 +22,16 @@ class Database:
             'user': db_cfg['user'],
             'password': db_cfg['password']
         }
+        minconn = int(os.getenv('DB_POOL_MIN', 1))
+        maxconn = int(os.getenv('DB_POOL_MAX', 10))
+        self._pool = psycopg2.pool.ThreadedConnectionPool(
+            minconn, maxconn, **self.conn_params
+        )
         self.init_db()
 
     @contextmanager
     def get_connection(self):
-        conn = psycopg2.connect(**self.conn_params)
+        conn = self._pool.getconn()
         conn.autocommit = False
         cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
         try:
@@ -36,7 +42,13 @@ class Database:
             raise
         finally:
             cursor.close()
-            conn.close()
+            self._pool.putconn(conn)
+
+    def close(self):
+        """Закрытие пула соединений."""
+        if self._pool:
+            self._pool.closeall()
+            self._pool = None
 
     def init_db(self):
         """Создание всех необходимых таблиц"""
@@ -791,3 +803,10 @@ def get_database(config=None):
             raise Exception("Database not initialized. Pass config first.")
         _db = Database(config)
     return _db
+
+def close_database():
+    """Закрытие пула соединений при завершении."""
+    global _db
+    if _db is not None:
+        _db.close()
+        _db = None

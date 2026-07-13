@@ -12,6 +12,28 @@ from utils.logger import setup_logger
 from utils.database import get_database
 
 
+# ==================== ИСКЛЮЧЕНИЯ ====================
+
+class CriticalError(Exception):
+    """Критическая ошибка, требующая остановки системы."""
+    pass
+
+
+class HardwareError(CriticalError):
+    """Ошибка оборудования (ОВЕН, камера)."""
+    pass
+
+
+class DatabaseError(CriticalError):
+    """Ошибка базы данных."""
+    pass
+
+
+class ConfigurationError(CriticalError):
+    """Ошибка конфигурации."""
+    pass
+
+
 class ScenarioCState(Enum):
     IDLE = 0
     CONVEYOR_RUNNING_TO_CAMERA = 1
@@ -58,6 +80,11 @@ class StandController:
     DEFAULT_SCENARIO_A_INTERVAL = 0.5
     RECONNECT_CHECK_INTERVAL = 10.0
 
+    # Пороги критических ошибок (после которых система останавливается)
+    MAX_CONSECUTIVE_HW_ERRORS = 50      # Непрерывные ошибки оборудования
+    MAX_DB_ERRORS = 10                  # Ошибки БД подряд
+    MAX_CAMERA_TRIGGER_ERRORS = 20      # Ошибки триггера камеры
+
     def __init__(self, owen, camera, config, db=None):
         self.owen = owen
         self.camera = camera
@@ -74,6 +101,11 @@ class StandController:
 
         # Флаг активности сценария (запущен ли он по кнопке «Запуск»)
         self.scenario_active = False
+
+        # Счётчики ошибок (для определения критических ситуаций)
+        self.consecutive_hw_errors = 0
+        self.consecutive_db_errors = 0
+        self.consecutive_camera_trigger_errors = 0
 
         # Логгер
         log_cfg = config.get('logging', {}).get('controller', {})
@@ -216,7 +248,8 @@ class StandController:
             self._thread.join(timeout=3.0)
             if self._thread.is_alive():
                 self.logger.warning("Поток контроллера не завершился, продолжаем освобождение ресурсов")
-        self._reset_outputs()
+        # Принудительно сбрасываем все выходы (конвейер, лампы, выбрасыватель)
+        self._reset_outputs(force=True)
         self.logger.info("Контроллер остановлен")
 
     def send_command(self, command: ControllerCommand, data: Optional[Dict[str, Any]] = None):
@@ -294,6 +327,8 @@ class StandController:
                 'camera_available': self.camera_available,
                 'offline_mode': self.offline_mode,
                 'scenario_active': self.scenario_active,
+                'web_scenario_selection': self.web_scenario_selection,
+                'web_selected_scenario': self.web_selected_scenario,
             }
 
     def manual_set_output(self, output_num, state):
@@ -344,9 +379,22 @@ class StandController:
     # -------------------------------------------------------------------------
     # Внутренние методы (выполняются только в главном цикле)
     # -------------------------------------------------------------------------
-    def _reset_outputs(self):
+    def _reset_outputs(self, force: bool = False):
+        """Сброс всех выходов в ноль.
+        :param force: если True, сбрасывает выходы даже если оборудование недоступно
+        """
         self.do = [0, 0, 0, 0]
-        self._apply_outputs()
+        if force:
+            # Принудительный сброс – пишем напрямую, минуя проверки
+            if self.owen:
+                try:
+                    self.owen.write_outputs(self.do)
+                    self._last_written_do = self.do.copy()
+                    self.logger.info("Выходы принудительно сброшены")
+                except Exception as e:
+                    self.logger.error(f"Ошибка принудительного сброса выходов: {e}")
+        else:
+            self._apply_outputs()
         self.logger.info("Выходы сброшены")
 
     def _apply_outputs(self):
@@ -488,10 +536,14 @@ class StandController:
                 if inputs_ok:
                     self.owen_available = True
                     self.hardware_available = True
+                    self.consecutive_hw_errors = 0
                 else:
                     self.owen_available = False
                     self.hardware_available = False
-                    self.logger.warning("ОВЕН недоступен")
+                    self.consecutive_hw_errors += 1
+                    self.logger.warning(f"ОВЕН недоступен (ошибок подряд: {self.consecutive_hw_errors})")
+                    if self.consecutive_hw_errors >= self.MAX_CONSECUTIVE_HW_ERRORS:
+                        raise HardwareError(f"Превышен порог ошибок оборудования: {self.consecutive_hw_errors} подряд")
 
                 with self._lock:
                     self.last_inputs = self.di.copy()
@@ -549,6 +601,7 @@ class StandController:
                     break
                 if cam_status:
                     self.camera_available = True
+                    self.consecutive_hw_errors = 0
                     with self._lock:
                         if cam_status != self.last_camera_status:
                             self.last_camera_status = cam_status.copy()
@@ -556,6 +609,10 @@ class StandController:
                 else:
                     self.camera_available = False
                     self.hardware_available = False
+                    self.consecutive_hw_errors += 1
+                    self.logger.warning(f"Камера недоступна (ошибок подряд: {self.consecutive_hw_errors})")
+                    if self.consecutive_hw_errors >= self.MAX_CONSECUTIVE_HW_ERRORS:
+                        raise HardwareError(f"Превышен порог ошибок оборудования: {self.consecutive_hw_errors} подряд")
 
                 next_cycle += self.cycle_time
                 sleep_time = max(0, next_cycle - time.time())
@@ -565,8 +622,16 @@ class StandController:
                     time.sleep(step)
                     sleep_time -= step
 
+            except CriticalError as e:
+                # Критическая ошибка – останавливаем систему
+                self.logger.critical(f"КРИТИЧЕСКАЯ ОШИБКА: {e}")
+                self.logger.info("Система останавливается из-за критической ошибки")
+                self._running = False
+                self._stop_event.set()
+                break
             except Exception as e:
-                self.logger.exception(f"Ошибка в главном цикле: {e}")
+                # Некритичная ошибка – логируем и продолжаем
+                self.logger.error(f"Ошибка в главном цикле (восстанавливаемая): {e}")
                 time.sleep(self.cycle_time)
 
         self.logger.info("Цикл управления завершён")
@@ -793,10 +858,8 @@ class StandController:
 
         if now - self.last_a_trigger >= self.scenario_a_interval:
             self.logger.debug("Сценарий A: отправка триггера")
-            self.logger.debug("Вызов camera.trigger_measurement()...")
-            result = self.camera.trigger_measurement(timeout=10)
-            self.logger.debug("camera.trigger_measurement() завершён")
-            if not self._running or self._stop_event.is_set():
+            result = self._trigger_measurement("Сценарий A")
+            if result is None:
                 return
 
             raw_text = result.get('raw') if result else None
@@ -825,8 +888,7 @@ class StandController:
                     if self.waiting_for_ng_stop:
                         self.logger.info("Сценарий A: обнаружен брак (NG после OK или NG) – останов")
                         self.do[self.DO_CONVEYOR] = 0
-                        self.do[self.DO_LAMP_GREEN] = 0
-                        self.do[self.DO_LAMP_RED] = 1
+                        self._set_lamps(green=False, red=True)
                         self.a_active = False
                         self.current_scenario = None
                         self.scenario_active = False
@@ -838,8 +900,7 @@ class StandController:
                         self.waiting_for_ng_stop = True
                 elif result_text == 'OK':
                     self.logger.info("Сценарий A: OK")
-                    self.do[self.DO_LAMP_GREEN] = 1
-                    self.do[self.DO_LAMP_RED] = 0
+                    self._set_lamps(green=True, red=False)
                     self.waiting_for_ng_stop = True
                 else:
                     self.logger.warning(f"Сценарий A: неизвестный результат {result_text}")
@@ -848,8 +909,7 @@ class StandController:
                 if self.has_valid_measurement:
                     self.logger.info("Сценарий A: получен null/невалидный результат после валидных измерений, сброс флагов")
                     self.waiting_for_ng_stop = False
-                    self.do[self.DO_LAMP_GREEN] = 0
-                    self.do[self.DO_LAMP_RED] = 0
+                    self._reset_lamps()
 
             self.last_a_trigger = now
 
@@ -878,10 +938,8 @@ class StandController:
 
     def _trigger_and_process_B(self):
         self.logger.info("Сценарий B: измерение...")
-        self.logger.debug("Вызов camera.trigger_measurement()...")
-        result = self.camera.trigger_measurement(timeout=10)
-        self.logger.debug("camera.trigger_measurement() завершён")
-        if not self._running or self._stop_event.is_set():
+        result = self._trigger_measurement("Сценарий B")
+        if result is None:
             return
         if result and result.get('result') == 'OK':
             self.logger.info("Сценарий B: OK")
@@ -907,8 +965,7 @@ class StandController:
             if self.scenario_c_state != ScenarioCState.IDLE:
                 self.scenario_c_state = ScenarioCState.IDLE
                 self.do[self.DO_CONVEYOR] = 0
-                self.do[self.DO_LAMP_GREEN] = 0
-                self.do[self.DO_LAMP_RED] = 0
+                self._reset_lamps()
             return
 
         if self._no_tool_warning_shown:
@@ -943,10 +1000,8 @@ class StandController:
         elif self.scenario_c_state == ScenarioCState.POSITIONED:
             if not self.scenario_c_data['measurement_done']:
                 self.logger.info("Сценарий C: запуск измерения")
-                self.logger.debug("Вызов camera.trigger_measurement()...")
-                result = self.camera.trigger_measurement(timeout=10)
-                self.logger.debug("camera.trigger_measurement() завершён")
-                if not self._running or self._stop_event.is_set():
+                result = self._trigger_measurement("Сценарий C")
+                if result is None:
                     return
                 if result and result.get('result') in ('OK', 'NG'):
                     self.scenario_c_data['result'] = result['result']
@@ -954,11 +1009,11 @@ class StandController:
                     self._save_measurement_result(result, sensors=self.di)
                     if result['result'] == 'OK':
                         self.scenario_c_data['target_sensor'] = self.DI_EXIT
-                        self.do[self.DO_LAMP_GREEN] = 1
+                        self._set_lamps(green=True, red=False)
                         self.logger.info("Сценарий C: OK – движение до DI4")
                     else:
                         self.scenario_c_data['target_sensor'] = self.DI_POS_RIGHT
-                        self.do[self.DO_LAMP_RED] = 1
+                        self._set_lamps(green=False, red=True)
                         self.logger.info("Сценарий C: NG – движение до DI3")
                     self.do[self.DO_CONVEYOR] = 1
                     self.scenario_c_state = ScenarioCState.CONVEYOR_RUNNING_TO_EXIT
@@ -977,8 +1032,7 @@ class StandController:
     def _scenario_c_finish(self):
         self.logger.info("Сценарий C: обработка завершена")
         self.do[self.DO_CONVEYOR] = 0
-        self.do[self.DO_LAMP_GREEN] = 0
-        self.do[self.DO_LAMP_RED] = 0
+        self._reset_lamps()
         self.do[self.DO_EJECTOR] = 0
         self.scenario_c_state = ScenarioCState.IDLE
         self.scenario_c_data = {
@@ -991,8 +1045,7 @@ class StandController:
     def _scenario_c_error(self):
         self.logger.error("Сценарий C: ошибка, возврат в IDLE")
         self.do[self.DO_CONVEYOR] = 0
-        self.do[self.DO_LAMP_GREEN] = 0
-        self.do[self.DO_LAMP_RED] = 0
+        self._reset_lamps()
         self.do[self.DO_EJECTOR] = 0
         self._start_blink(green=False, red=True, frequency=2.0, duration=1.5,
                           callback=self._scenario_c_reset)
@@ -1020,28 +1073,64 @@ class StandController:
             self._manual_trigger()
         elif self.di[self.DI_TOGGLE_B] == 0 and self.prev_di[self.DI_TOGGLE_B] == 1:
             self.logger.debug("Ручной режим: спад DI5, гашение ламп")
-            self.do[self.DO_LAMP_GREEN] = 0
-            self.do[self.DO_LAMP_RED] = 0
+            self._reset_lamps()
 
     def _manual_trigger(self):
         self.logger.info("Ручной режим: измерение...")
-        self.logger.debug("Вызов camera.trigger_measurement()...")
-        result = self.camera.trigger_measurement(timeout=10)
-        self.logger.debug("camera.trigger_measurement() завершён")
-        if not self._running or self._stop_event.is_set():
+        result = self._trigger_measurement("Ручной режим")
+        if result is None:
             return
-        if result and result.get('result') == 'OK':
-            self.logger.info("Ручной режим: OK")
-            self.do[self.DO_LAMP_GREEN] = 1
-            self.do[self.DO_LAMP_RED] = 0
-        elif result and result.get('result') == 'NG':
-            self.logger.info("Ручной режим: NG")
-            self.do[self.DO_LAMP_GREEN] = 0
-            self.do[self.DO_LAMP_RED] = 1
-        else:
-            self.logger.error("Ручной режим: ошибка измерения")
-            self._start_blink(green=False, red=True, frequency=2.0, duration=1.5)
+        self._handle_result_lamps(result, "Ручной режим")
         self._save_measurement_result(result)
+
+    # -------------------------------------------------------------------------
+    # Общие методы для измерений и ламп
+    # -------------------------------------------------------------------------
+    def _trigger_measurement(self, scenario_name: str) -> Optional[Dict]:
+        """Общий метод триггера камеры с проверкой состояния."""
+        self.logger.debug(f"{scenario_name}: вызов camera.trigger_measurement()...")
+        try:
+            result = self.camera.trigger_measurement(timeout=10)
+            self.logger.debug(f"{scenario_name}: camera.trigger_measurement() завершён")
+            if result is not None:
+                self.consecutive_camera_trigger_errors = 0
+            else:
+                self.consecutive_camera_trigger_errors += 1
+                self.logger.warning(f"{scenario_name}: камера вернула None (ошибок подряд: {self.consecutive_camera_trigger_errors})")
+                if self.consecutive_camera_trigger_errors >= self.MAX_CAMERA_TRIGGER_ERRORS:
+                    raise HardwareError(f"Превышен порог ошибок триггера камеры: {self.consecutive_camera_trigger_errors} подряд")
+        except HardwareError:
+            raise
+        except Exception as e:
+            self.consecutive_camera_trigger_errors += 1
+            self.logger.error(f"{scenario_name}: ошибка триггера камеры: {e} (ошибок подряд: {self.consecutive_camera_trigger_errors})")
+            if self.consecutive_camera_trigger_errors >= self.MAX_CAMERA_TRIGGER_ERRORS:
+                raise HardwareError(f"Превышен порог ошибок триггера камеры: {self.consecutive_camera_trigger_errors} подряд")
+            result = None
+        if not self._running or self._stop_event.is_set():
+            return None
+        return result
+
+    def _set_lamps(self, green: bool, red: bool):
+        """Установка состояния ламп."""
+        self.do[self.DO_LAMP_GREEN] = 1 if green else 0
+        self.do[self.DO_LAMP_RED] = 1 if red else 0
+
+    def _reset_lamps(self):
+        """Выключение всех ламп."""
+        self._set_lamps(False, False)
+
+    def _handle_result_lamps(self, result: Optional[Dict], scenario_name: str):
+        """Установка ламп в зависимости от результата измерения."""
+        if result and result.get('result') == 'OK':
+            self.logger.info(f"{scenario_name}: OK")
+            self._set_lamps(green=True, red=False)
+        elif result and result.get('result') == 'NG':
+            self.logger.info(f"{scenario_name}: NG")
+            self._set_lamps(green=False, red=True)
+        else:
+            self.logger.error(f"{scenario_name}: ошибка измерения")
+            self._start_blink(green=False, red=True, frequency=2.0, duration=1.5)
 
     # -------------------------------------------------------------------------
     # Сохранение результатов
@@ -1110,9 +1199,13 @@ class StandController:
                 raw=raw_text,
                 order_number=None
             )
+            self.consecutive_db_errors = 0
             self.logger.info(f"Результат сохранён в БД: {result_text} | Raw: {raw_text} | Image: {image_name}")
         except Exception as e:
-            self.logger.exception(f"Ошибка сохранения в БД: {e}")
+            self.consecutive_db_errors += 1
+            self.logger.exception(f"Ошибка сохранения в БД: {e} (ошибок подряд: {self.consecutive_db_errors})")
+            if self.consecutive_db_errors >= self.MAX_DB_ERRORS:
+                raise DatabaseError(f"Превышен порог ошибок базы данных: {self.consecutive_db_errors} подряд")
 
     # -------------------------------------------------------------------------
     # Мигание ламп
@@ -1134,8 +1227,7 @@ class StandController:
         elapsed = now - self.blink_start
         if elapsed >= self.blink_duration:
             self.blink_active = False
-            self.do[self.DO_LAMP_GREEN] = 0
-            self.do[self.DO_LAMP_RED] = 0
+            self._reset_lamps()
             if self.blink_callback:
                 self.blink_callback()
             return

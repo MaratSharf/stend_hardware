@@ -60,16 +60,26 @@ class ConfigManager:
             return
 
         # База данных
-        db_cfg = self._config_cache.get('database', {})
-        if db_cfg:
-            db_cfg['host'] = os.getenv('DB_HOST', db_cfg.get('host', 'localhost'))
-            db_cfg['port'] = int(os.getenv('DB_PORT', db_cfg.get('port', 5432)))
-            db_cfg['dbname'] = os.getenv('DB_NAME', db_cfg.get('dbname', 'stend_db'))
-            db_cfg['user'] = os.getenv('DB_USER', db_cfg.get('user', 'stend_user'))
-            # Пароль берём ТОЛЬКО из переменной окружения, если она задана
-            env_password = os.getenv('DB_PASSWORD')
-            if env_password:
-                db_cfg['password'] = env_password
+        db_cfg = self._config_cache.get('database') or {}
+        db_cfg.setdefault('host', 'localhost')
+        db_cfg.setdefault('port', 5432)
+        db_cfg.setdefault('dbname', 'stend_db')
+        db_cfg.setdefault('user', 'stend_user')
+        db_cfg['host'] = os.getenv('DB_HOST', db_cfg['host'])
+        db_cfg['port'] = int(os.getenv('DB_PORT', db_cfg['port']))
+        db_cfg['dbname'] = os.getenv('DB_NAME', db_cfg['dbname'])
+        db_cfg['user'] = os.getenv('DB_USER', db_cfg['user'])
+        env_password = os.getenv('DB_PASSWORD')
+        if env_password:
+            db_cfg['password'] = env_password
+        self._config_cache['database'] = db_cfg
+
+        # Web-сервер
+        web_cfg = self._config_cache.get('web') or {}
+        env_secret = os.getenv('SECRET_KEY')
+        if env_secret:
+            web_cfg['secret_key'] = env_secret
+        self._config_cache['web'] = web_cfg
 
     def save(self, config: Dict[str, Any]) -> bool:
         """

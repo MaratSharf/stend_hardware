@@ -46,7 +46,7 @@ sudo systemctl start postgresql
 sudo -u postgres psql
 
 # Создание пользователя и базы данных
-CREATE USER stend WITH PASSWORD 'Alexej@12';
+CREATE USER stend WITH PASSWORD 'your_password_here';
 CREATE DATABASE stend_hardware OWNER stend;
 GRANT ALL PRIVILEGES ON DATABASE stend_hardware TO stend;
 
@@ -167,7 +167,7 @@ nano .env
 
 Содержимое `.env`:
 ```bash
-DB_PASSWORD=Alexej@12
+DB_PASSWORD=your_password_here
 ```
 
 ### Настройка прав доступа
@@ -188,7 +188,7 @@ database:
   port: 5432
   dbname: stend_hardware
   user: stend
-  password: Alexej@12
+  # Пароль берётся из переменной окружения DB_PASSWORD
 
 owen:
   ip: 192.168.1.99
@@ -719,7 +719,7 @@ sudo apt-get install -y python3 python3-pip python3-venv python3-dev gcc make li
 sudo postgresql-setup --initdb
 sudo systemctl enable postgresql
 sudo systemctl start postgresql
-sudo -u postgres psql -c "CREATE USER stend WITH PASSWORD 'Alexej@12';"
+sudo -u postgres psql -c "CREATE USER stend WITH PASSWORD 'your_password_here';"
 sudo -u postgres psql -c "CREATE DATABASE stend_hardware OWNER stend;"
 
 # 3. Установка приложения
