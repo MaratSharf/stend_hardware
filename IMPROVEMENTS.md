@@ -35,8 +35,8 @@
 
 ## Удобства
 
-### 8. Нет healthcheck endpoint
-`/api/health` — uptime, статус БД, OWEN, камера.
+### 8. ~~Нет healthcheck endpoint~~ ✅ РЕШЕНО
+`/api/health` — uptime, статус БД, OWEN, камера. Реализован в `web/pages/health.py`.
 
 ### 9. Нет rate limiting на API
 Открытый доступ к `/api/*` без ограничений.

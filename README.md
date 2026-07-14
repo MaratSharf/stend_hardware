@@ -2,8 +2,8 @@
 
 Автоматизированная система контроля качества деталей на основе промышленной камеры Hikrobot и контроллера ОВЕН.
 
-**Версия:** 4.6.0  
-**Последнее обновление:** 9 июля 2026
+**Версия:** 4.8.0  
+**Последнее обновление:** 14 июля 2026
 
 ## 📋 Содержание
 
@@ -226,15 +226,19 @@ pip install -r requirements.txt
 
 ### Настройка базы данных PostgreSQL
 
-Создайте базу данных и пользователя, укажите параметры в `config.yaml`:
-```yaml
-database:
-  type: postgresql
-  host: localhost
-  port: 5432
-  dbname: stend_hardware
-  user: stend
-  password: your_password
+Создайте базу данных и пользователя:
+```bash
+sudo -u postgres psql
+CREATE USER stend WITH PASSWORD 'your_password';
+CREATE DATABASE stend_hardware OWNER stend;
+GRANT ALL PRIVILEGES ON DATABASE stend_hardware TO stend;
+\q
+```
+
+Скопируйте `.env.example` в `.env` и укажите пароль:
+```bash
+cp .env.example .env
+# Отредактируйте .env: укажите DB_PASSWORD
 ```
 
 ### Запуск приложения
@@ -251,8 +255,9 @@ python run.py
 
 ## Конфигурация
 
-Файл `config.yaml` содержит все настройки. Основные параметры:
+Настройки хранятся в двух местах:
 
+**`config.yaml`** — основные настройки оборудования и контроллера:
 ```yaml
 owen:
   ip: 192.168.1.99
@@ -279,12 +284,26 @@ controller:
   ejector_pulse: 0.5
   state_timeout: 30.0
 
+database:
+  type: postgresql
+  host: localhost
+  port: 5432
+  dbname: stend_hardware
+  user: stend
+  # Пароль берётся из .env (DB_PASSWORD)
+
 web:
-  secret_key: "your-secret-key-here"
+  # SECRET_KEY берётся из .env (SECRET_KEY)
 
 paths:
   images: data/images
   logs: data/logs
+```
+
+**`.env`** — секреты (не коммитится в Git):
+```bash
+DB_PASSWORD=your_password_here
+SECRET_KEY=your_secret_key_here
 ```
 
 ---
@@ -390,7 +409,8 @@ stend_hardware/
 │   │   ├── debug.py           # Отладка
 │   │   ├── settings.py        # Настройки
 │   │   ├── reports.py         # Отчёты
-│   │   └── users.py           # Управление пользователями
+│   │   ├── users.py           # Управление пользователями
+│   │   └── health.py          # Healthcheck endpoint
 │   ├── static/                # CSS, JS
 │   │   ├── css/               # Стили страниц
 │   │   ├── js/                # Клиентские скрипты
@@ -434,9 +454,10 @@ stend_hardware/
 - **XSS-защита:** экранирование данных в DOM.
 - **Валидация входных данных** (IP, имя проекта).
 - **Клиентские ошибки** отправляются на сервер через `/api/client_error`.
-- **Пароль БД** хранится в `config.yaml` (рекомендуется использовать переменные окружения).
+- **Секреты в `.env`:** пароли и ключи хранятся в `.env` (не коммитится в Git).
 - **Авторизация:** все страницы защищены, доступ по ролям.
 - **Хеширование паролей:** bcrypt.
+- **Connection pool:** переиспользование соединений БД (psycopg2.pool).
 
 ---
 
@@ -469,6 +490,7 @@ tail -f data/logs/controller.log
 
 | Метод | URL | Описание |
 |-------|-----|----------|
+| GET | `/api/health` | Healthcheck: uptime, БД, OWEN, камера (без авторизации) |
 | GET | `/api/status` | Последний результат инспекции |
 | GET | `/api/hardware_status` | Состояние входов/выходов, статус камеры |
 | POST | `/api/switch_project` | Переключение проекта камеры |
@@ -483,6 +505,7 @@ tail -f data/logs/controller.log
 | GET/POST | `/api/mode` | Управление режимом (авто/ручной) |
 | POST | `/api/offline_mode` | Включение/выключение офлайн-режима |
 | GET | `/api/connection_status` | Статус связи с оборудованием |
+| GET | `/api/scenario_status` | Текущий статус сценария |
 | GET | `/api/export/csv` | Экспорт истории в CSV |
 | GET | `/api/export/excel` | Экспорт истории в Excel |
 | GET | `/api/export/pdf` | Экспорт истории в PDF |

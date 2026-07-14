@@ -67,8 +67,10 @@ def create_app(config: dict, controller, db) -> Flask:
     from web.pages.reports import reports_bp
     from web.pages.auth import auth_bp
     from web.pages.users import users_bp
+    from web.pages.health import health_bp
 
     app.register_blueprint(auth_bp)
+    app.register_blueprint(health_bp)
     app.register_blueprint(monitoring_bp)
     app.register_blueprint(tools_bp)
     app.register_blueprint(history_bp)

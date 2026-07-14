@@ -104,7 +104,8 @@ stend_hardware/
 │   │   ├── debug.py           # Отладка
 │   │   ├── settings.py        # Настройки
 │   │   ├── reports.py         # Отчёты
-│   │   └── users.py           # Управление пользователями
+│   │   ├── users.py           # Управление пользователями
+│   │   └── health.py          # Healthcheck endpoint
 │   ├── static/
 │   │   ├── css/               # Стили страниц
 │   │   └── js/                # Клиентские скрипты
@@ -130,6 +131,7 @@ stend_hardware/
 
 | Метод | URL | Описание |
 |-------|-----|----------|
+| GET | `/api/health` | Healthcheck: uptime, БД, OWEN, камера (без авторизации) |
 | GET | `/api/status` | Последний результат инспекции |
 | GET | `/api/hardware_status` | Состояние входов/выходов |
 | POST | `/api/switch_project` | Переключение проекта камеры |
